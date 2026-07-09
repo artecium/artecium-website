@@ -1,4 +1,4 @@
-import { ArteciumLogo } from "@/components/ArteciumLogo";
+import { ArteciumLogo } from "@/components/ui/ArteciumLogo";
 
 const navLinks = [
   { label: "Services", href: "#services" },
