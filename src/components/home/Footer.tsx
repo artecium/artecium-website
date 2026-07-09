@@ -21,8 +21,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2.5">
-              <ArteciumLogo className="h-8 w-8" />
+            <a href="#" className="flex items-center gap-3">
+              <ArteciumLogo className="h-9 w-9 sm:h-10 sm:w-10" />
               <span className="text-sm font-semibold tracking-[0.2em] text-white">
                 ARTECIUM
               </span>

@@ -11,9 +11,12 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#1E293B]/60 bg-[#050816]/80 backdrop-blur-xl">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-10 lg:px-16">
-        <a href="#" className="group flex items-center gap-2.5">
-          <ArteciumLogo className="h-8 w-8 shrink-0 transition-transform duration-300 group-hover:scale-105" />
-          <span className="text-sm font-semibold tracking-[0.2em] text-white">
+        <a href="#" className="group flex items-center gap-3">
+          <ArteciumLogo
+            className="h-9 w-9 transition-transform duration-300 group-hover:scale-105 sm:h-10 sm:w-10"
+            priority
+          />
+          <span className="text-sm font-semibold tracking-[0.2em] text-white sm:text-[0.9375rem]">
             ARTECIUM
           </span>
         </a>

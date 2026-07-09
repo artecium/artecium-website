@@ -2,7 +2,7 @@ import { HeroVisual } from "@/components/home/HeroVisual";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden px-6 pb-24 pt-16 sm:px-10 sm:pb-32 sm:pt-20 lg:px-16 lg:pt-28">
+    <section className="relative overflow-hidden px-6 pb-16 pt-16 sm:px-10 sm:pb-20 sm:pt-20 lg:px-16 lg:pb-24 lg:pt-28">
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -62,23 +62,6 @@ export function Hero() {
               Explore services
             </a>
           </div>
-
-          <div className="animate-fade-up-delay-3 mt-14 grid grid-cols-3 gap-6 border-t border-[#1E293B] pt-10">
-            {[
-              { value: "50+", label: "Projects delivered" },
-              { value: "8+", label: "Years experience" },
-              { value: "100%", label: "Client focus" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-xs text-[#94A3B8] sm:text-sm">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="animate-fade-up-delay-2 hidden lg:block">
@@ -86,7 +69,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative mx-auto mt-16 max-w-7xl lg:hidden">
+      <div className="relative mx-auto mt-12 max-w-7xl lg:hidden">
         <HeroVisual />
       </div>
     </section>

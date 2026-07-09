@@ -1,14 +1,22 @@
-export function ArteciumLogo({ className }: { className?: string }) {
+import Image from "next/image";
+
+interface ArteciumLogoProps {
+  className?: string;
+  priority?: boolean;
+}
+
+export function ArteciumLogo({
+  className = "h-9 w-9 sm:h-10 sm:w-10",
+  priority = false,
+}: ArteciumLogoProps) {
   return (
-    <svg
-      viewBox="0 0 40 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M8 34L20 6L22 6L10 34H8Z" fill="#2563EB" />
-      <path d="M26 34L32 20L34 20L28 34H26Z" fill="currentColor" />
-    </svg>
+    <Image
+      src="/artecium-logo.png"
+      alt="Artecium"
+      width={40}
+      height={40}
+      className={`shrink-0 object-contain ${className}`}
+      priority={priority}
+    />
   );
 }

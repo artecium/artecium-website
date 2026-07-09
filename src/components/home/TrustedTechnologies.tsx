@@ -71,7 +71,7 @@ export function TrustedTechnologies() {
   return (
     <section
       id="solutions"
-      className="border-y border-[#1E293B]/60 bg-[#050816] px-6 py-20 sm:px-10 lg:px-16"
+      className="border-y border-[#1E293B]/60 bg-[#050816] px-6 py-16 sm:px-10 sm:py-20 lg:px-16"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
