@@ -1,4 +1,7 @@
+"use client";
+
 import { HeroVisual } from "@/components/home/HeroVisual";
+import { StartProjectButton } from "@/components/contact/StartProjectButton";
 
 export function Hero() {
   return (
@@ -35,10 +38,7 @@ export function Hero() {
           </p>
 
           <div className="animate-fade-up-delay-3 mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href="#contact"
-              className="group inline-flex h-12 items-center justify-center rounded-full bg-[#2563EB] px-8 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:bg-[#1D4ED8] hover:shadow-[0_0_40px_rgba(37,99,235,0.35)]"
-            >
+            <StartProjectButton className="group w-full sm:w-auto">
               Start a project
               <svg
                 className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -54,7 +54,7 @@ export function Hero() {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </a>
+            </StartProjectButton>
             <a
               href="#services"
               className="inline-flex h-12 items-center justify-center rounded-full border border-[#1E293B] bg-[#0E1324] px-8 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:border-[#334155] hover:bg-[#0E1324]/80"

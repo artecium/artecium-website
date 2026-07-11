@@ -1,3 +1,7 @@
+"use client";
+
+import { StartProjectButton } from "@/components/contact/StartProjectButton";
+
 export function CTA() {
   return (
     <section
@@ -26,10 +30,7 @@ export function CTA() {
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href="mailto:hello@artecium.com"
-            className="group inline-flex h-12 w-full items-center justify-center rounded-full bg-[#2563EB] px-8 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:bg-[#1D4ED8] hover:shadow-[0_0_40px_rgba(37,99,235,0.35)] sm:w-auto"
-          >
+          <StartProjectButton className="group w-full sm:w-auto">
             Start your project
             <svg
               className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -45,13 +46,13 @@ export function CTA() {
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
-          </a>
-          <a
-            href="mailto:hello@artecium.com"
-            className="inline-flex h-12 w-full items-center justify-center rounded-full border border-[#1E293B] bg-[#0E1324] px-8 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:border-[#334155] hover:bg-[#0E1324]/80 sm:w-auto"
+          </StartProjectButton>
+          <StartProjectButton
+            variant="secondary"
+            className="w-full sm:w-auto"
           >
             Book a call
-          </a>
+          </StartProjectButton>
         </div>
       </div>
     </section>

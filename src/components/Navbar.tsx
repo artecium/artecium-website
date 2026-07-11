@@ -1,4 +1,7 @@
-import { ArteciumLogo } from "@/components/ui/ArteciumLogo";
+"use client";
+
+import { ArteciumLogo } from "@/components/ArteciumLogo";
+import { StartProjectButton } from "@/components/contact/StartProjectButton";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -34,12 +37,9 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
-            href="#contact"
-            className="hidden rounded-full bg-[#2563EB] px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1D4ED8] hover:shadow-[0_0_24px_rgba(37,99,235,0.3)] sm:inline-flex"
-          >
+          <StartProjectButton className="hidden px-5 py-2 text-sm sm:inline-flex">
             Start Project
-          </a>
+          </StartProjectButton>
 
           <details className="relative md:hidden">
             <summary className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-[#1E293B] bg-[#0E1324] text-[#94A3B8] transition-colors hover:text-white [&::-webkit-details-marker]:hidden">
@@ -68,12 +68,9 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href="#contact"
-                className="mt-1 block rounded-lg bg-[#2563EB] px-3 py-2 text-center text-sm font-medium text-white"
-              >
+              <StartProjectButton className="mt-1 h-auto w-full rounded-lg px-3 py-2 text-center text-sm">
                 Start Project
-              </a>
+              </StartProjectButton>
             </div>
           </details>
         </div>
