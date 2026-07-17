@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ClarityScript } from "@/components/analytics/ClarityScript";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -33,6 +34,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">{children}</body>
       {gaMeasurementId ? <GoogleAnalytics gaId={gaMeasurementId} /> : null}
+      <ClarityScript />
     </html>
   );
 }
