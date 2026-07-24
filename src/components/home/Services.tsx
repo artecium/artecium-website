@@ -125,12 +125,13 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="px-6 py-24 sm:px-10 lg:px-16">
+    <section id="services" aria-labelledby="services-heading" className="px-6 py-24 sm:px-10 lg:px-16">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Services"
           title="End-to-end digital craftsmanship"
           description="From concept to deployment, we deliver solutions that drive measurable business impact."
+          titleId="services-heading"
         />
 
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

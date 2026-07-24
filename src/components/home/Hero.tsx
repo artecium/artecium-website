@@ -5,7 +5,7 @@ import { StartProjectButton } from "@/components/contact/StartProjectButton";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden px-6 pb-16 pt-16 sm:px-10 sm:pb-20 sm:pt-20 lg:px-16 lg:pb-24 lg:pt-28">
+    <section className="relative overflow-hidden px-6 pb-16 pt-16 sm:px-10 sm:pb-20 sm:pt-20 lg:px-16 lg:pb-24 lg:pt-28" aria-labelledby="hero-heading">
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -25,7 +25,7 @@ export function Hero() {
             AI · Software · Automation
           </div>
 
-          <h1 className="animate-fade-up-delay-1 text-[2.75rem] font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+          <h1 id="hero-heading" className="animate-fade-up-delay-1 text-[2.75rem] font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl md:text-6xl lg:text-[4.25rem]">
             Engineering the future of{" "}
             <span className="bg-gradient-to-r from-[#2563EB] to-[#60A5FA] bg-clip-text text-transparent">
               business.

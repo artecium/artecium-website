@@ -1,12 +1,10 @@
-import { COMPANY_WEBSITE } from "@/config/contact";
+import { SITE_URL } from "@/config/seo";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = COMPANY_WEBSITE;
-
   return [
     {
-      url: baseUrl,
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,

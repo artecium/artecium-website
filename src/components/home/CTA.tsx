@@ -6,6 +6,7 @@ export function CTA() {
   return (
     <section
       id="contact"
+      aria-labelledby="contact-heading"
       className="relative overflow-hidden px-6 py-24 sm:px-10 lg:px-16"
     >
       <div
@@ -16,7 +17,7 @@ export function CTA() {
       </div>
 
       <div className="relative mx-auto max-w-4xl text-center">
-        <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <h2 id="contact-heading" className="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
           Ready to build something{" "}
           <span className="bg-gradient-to-r from-[#2563EB] to-[#60A5FA] bg-clip-text text-transparent">
             remarkable?

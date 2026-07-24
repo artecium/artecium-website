@@ -71,6 +71,7 @@ export function TrustedTechnologies() {
   return (
     <section
       id="solutions"
+      aria-labelledby="trusted-technologies-heading"
       className="border-y border-[#1E293B]/60 bg-[#050816] px-6 py-16 sm:px-10 sm:py-20 lg:px-16"
     >
       <div className="mx-auto max-w-7xl">
@@ -78,15 +79,20 @@ export function TrustedTechnologies() {
           eyebrow="Trusted Technologies"
           title="Built with the tools that power modern enterprise"
           description="We leverage industry-leading platforms to deliver secure, scalable solutions."
+          titleId="trusted-technologies-heading"
         />
 
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {technologies.map((tech) => (
             <div
               key={tech.name}
+              aria-label={`${tech.name} technology`}
               className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-[#1E293B] bg-[#0E1324] px-6 py-8 transition-all duration-300 hover:border-[#2563EB]/40 hover:bg-[#0E1324]/80 hover:shadow-[0_0_30px_rgba(37,99,235,0.08)]"
             >
-              <div className="text-[#94A3B8] transition-colors duration-300 group-hover:text-white">
+              <div
+                className="text-[#94A3B8] transition-colors duration-300 group-hover:text-white"
+                aria-hidden="true"
+              >
                 {tech.logo}
               </div>
               <span className="text-sm font-medium text-[#94A3B8] transition-colors duration-300 group-hover:text-white">

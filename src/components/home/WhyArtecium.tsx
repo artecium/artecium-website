@@ -87,6 +87,7 @@ export function WhyArtecium() {
   return (
     <section
       id="about"
+      aria-labelledby="about-heading"
       className="border-t border-[#1E293B]/60 bg-[#0E1324]/30 px-6 py-24 sm:px-10 lg:px-16"
     >
       <div className="mx-auto max-w-7xl">
@@ -94,6 +95,7 @@ export function WhyArtecium() {
           eyebrow="Why Artecium"
           title="The partner ambitious companies choose"
           description="We combine deep technical expertise with a relentless focus on outcomes that matter to your business."
+          titleId="about-heading"
         />
 
         <div className="mt-16 grid gap-5 sm:grid-cols-2">
