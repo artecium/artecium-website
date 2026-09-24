@@ -120,7 +120,11 @@ export async function updateSession(request: NextRequest) {
     }
   }
 
-  if (userId && pathname.startsWith("/client")) {
+  if (
+    userId &&
+    pathname.startsWith("/client") &&
+    !isStripeCheckoutReturnPath(pathname)
+  ) {
     const roles = await resolveRolesFromClaims(supabase, userId);
     if (await resolveIsStaff(supabase, userId, roles)) {
       const url = request.nextUrl.clone();
