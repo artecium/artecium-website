@@ -1,4 +1,5 @@
 import { ArteciumLogo } from "@/components/ArteciumLogo";
+import Link from "next/link";
 
 const footerLinks = {
   company: [
@@ -70,7 +71,19 @@ export function Footer() {
           <p className="text-sm text-[#64748B]">
             &copy; {new Date().getFullYear()} Artecium. All rights reserved.
           </p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-6">
+            <Link
+              href="/login"
+              className="text-sm text-[#64748B] transition-colors hover:text-[#94A3B8]"
+            >
+              Client Login
+            </Link>
+            <Link
+              href="/admin/login"
+              className="text-sm text-[#64748B] transition-colors hover:text-[#94A3B8]"
+            >
+              Admin
+            </Link>
             <a
               href="#"
               className="text-sm text-[#64748B] transition-colors hover:text-[#94A3B8]"
