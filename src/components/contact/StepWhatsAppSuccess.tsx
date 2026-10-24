@@ -1,17 +1,30 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import { DiscoveryPrivacyConsent } from "@/components/contact/DiscoveryPrivacyConsent";
 import { WizardFooter, WizardStep } from "@/components/contact/WizardStep";
 import type { UseProjectDiscoveryReturn } from "@/hooks/useProjectDiscovery";
 import { buildWhatsAppMessage, getWhatsAppUrl } from "@/lib/whatsapp";
+import { useRef, useState } from "react";
 
 interface StepWhatsAppSuccessProps {
   wizard: UseProjectDiscoveryReturn;
 }
 
 export function StepWhatsAppSuccess({ wizard }: StepWhatsAppSuccessProps) {
+  const t = useTranslations("discovery");
   const { data, direction, prev } = wizard;
+  const [hasConsent, setHasConsent] = useState(false);
+  const [showConsentError, setShowConsentError] = useState(false);
+  const consentRef = useRef<HTMLInputElement>(null);
 
   const handleOpenWhatsApp = () => {
+    if (!hasConsent) {
+      setShowConsentError(true);
+      consentRef.current?.focus();
+      return;
+    }
+
     const message = buildWhatsAppMessage(data);
     const url = getWhatsAppUrl(message);
     window.open(url, "_blank", "noopener,noreferrer");
@@ -19,14 +32,14 @@ export function StepWhatsAppSuccess({ wizard }: StepWhatsAppSuccessProps) {
 
   return (
     <WizardStep
-      headline="Your Discovery Brief is ready."
-      subtitle="Every successful project starts with a great conversation. We look forward to learning more about your business."
+      headline={t("whatsappSuccess.headline")}
+      subtitle={t("whatsappSuccess.subtitle")}
       direction={direction}
       footer={
         <WizardFooter
           onPrevious={prev}
           onContinue={handleOpenWhatsApp}
-          continueLabel="Continue on WhatsApp"
+          continueLabel={t("whatsappSuccess.continueOnWhatsApp")}
           canContinue
           showPrevious
         />
@@ -39,8 +52,18 @@ export function StepWhatsAppSuccess({ wizard }: StepWhatsAppSuccessProps) {
           </svg>
         </div>
         <p className="text-sm leading-relaxed text-[#94A3B8]">
-          Your brief has been prepared. Continue on WhatsApp to start the conversation with our team.
+          {t("whatsappSuccess.preparedMessage")}
         </p>
+
+        <DiscoveryPrivacyConsent
+          checked={hasConsent}
+          onChange={(checked) => {
+            setHasConsent(checked);
+            if (checked) setShowConsentError(false);
+          }}
+          showError={showConsentError}
+          inputRef={consentRef}
+        />
       </div>
     </WizardStep>
   );

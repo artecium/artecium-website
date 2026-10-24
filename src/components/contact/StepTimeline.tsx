@@ -1,9 +1,10 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { OptionCard } from "@/components/contact/OptionCard";
 import { WizardFooter, WizardStep } from "@/components/contact/WizardStep";
 import type { UseProjectDiscoveryReturn } from "@/hooks/useProjectDiscovery";
-import { TIMELINE_LABELS, type Timeline } from "@/types/project";
+import type { Timeline } from "@/types/project";
 
 const TIMELINE_OPTIONS: Timeline[] = [
   "asap",
@@ -17,24 +18,25 @@ interface StepTimelineProps {
 }
 
 export function StepTimeline({ wizard }: StepTimelineProps) {
+  const t = useTranslations("discovery");
   const { data, selectAndAdvance, isTransitioning, direction, prev } = wizard;
 
   return (
     <WizardStep
-      headline="When would you like to start?"
-      subtitle="Understanding your timeline helps us plan the right discovery process."
+      headline={t("steps.timeline.headline")}
+      subtitle={t("steps.timeline.subtitle")}
       direction={direction}
       footer={<WizardFooter onPrevious={prev} showPrevious />}
     >
       <div
         role="radiogroup"
-        aria-label="Project timeline"
+        aria-label={t("steps.timeline.ariaLabel")}
         className="grid gap-3 sm:grid-cols-2"
       >
         {TIMELINE_OPTIONS.map((timeline) => (
           <OptionCard
             key={timeline}
-            label={TIMELINE_LABELS[timeline]}
+            label={t(`timeline.${timeline}`)}
             selected={data.timeline === timeline}
             disabled={isTransitioning}
             onSelect={() => selectAndAdvance("timeline", timeline)}

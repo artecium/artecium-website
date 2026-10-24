@@ -1,10 +1,11 @@
 "use client";
 
 import { ArteciumLogo } from "@/components/ArteciumLogo";
+import type { NavItem } from "@/config/navigation/platform";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import type { NavItem } from "@/config/navigation/platform";
 
 interface PlatformSidebarProps {
   items: NavItem[];
@@ -17,6 +18,7 @@ export function PlatformSidebar({
   title,
   homeHref,
 }: PlatformSidebarProps) {
+  const t = useTranslations("common");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -26,7 +28,7 @@ export function PlatformSidebar({
         type="button"
         onClick={() => setOpen(true)}
         className="fixed bottom-4 right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#2563EB] text-white shadow-lg lg:hidden"
-        aria-label="Open navigation"
+        aria-label={t("openNavigation")}
       >
         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -38,7 +40,7 @@ export function PlatformSidebar({
           type="button"
           className="fixed inset-0 z-40 bg-black/60 lg:hidden"
           onClick={() => setOpen(false)}
-          aria-label="Close navigation overlay"
+          aria-label={t("closeNavigationOverlay")}
         />
       ) : null}
 

@@ -1,0 +1,849 @@
+{
+  "blog": {
+    "shared": {
+      "categories": {
+        "websites": "Websites",
+        "seo": "SEO",
+        "ia": "IA & Automação"
+      }
+    },
+    "hub": {
+      "metadata": {
+        "title": "Blog Artecium — Websites, IA, SEO e Automação",
+        "description": "Guias práticos sobre websites, SEO, IA e automação para empresas em Portugal. Preços transparentes, comparações objetivas e conselhos úteis."
+      },
+      "hero": {
+        "title": "Insights sobre websites, IA, automação e SEO",
+        "intro": "Artigos escritos pela equipa Artecium para ajudar empresas a tomar melhores decisões digitais — desde quanto custa um website até perceber se precisa de SEO, IA ou uma aplicação web."
+      },
+      "readMore": "Ler artigo",
+      "cards": {
+        "websiteCostPortugal2026": {
+          "title": "Quanto custa criar um website em Portugal em 2026?",
+          "description": "O que influencia o preço de um website, tipos de projeto e os valores reais da Artecium — do Essential aos 750 € às aplicações web a partir de 3.500 €."
+        },
+        "seoCostPortugal2026": {
+          "title": "Quanto custa SEO em Portugal em 2026?",
+          "description": "Planos de SEO da Artecium, o que está incluído em cada nível e como escolher entre setup técnico, acompanhamento mensal e estratégia avançada."
+        },
+        "professionalVsCheapWebsite": {
+          "title": "Website profissional vs website barato",
+          "description": "Comparação objetiva entre soluções de baixo custo e websites profissionais — design, performance, SEO, manutenção e retorno a longo prazo."
+        },
+        "whatIsSeo": {
+          "title": "O que é SEO e porque é importante?",
+          "description": "Explicação clara de SEO para empresas: o que é, como funciona, o que pode esperar e quando faz sentido investir numa estratégia."
+        },
+        "websiteVsWebApp": {
+          "title": "Website ou aplicação web — qual precisa?",
+          "description": "Diferenças práticas entre um website informativo e uma aplicação web com login, lógica de negócio e funcionalidades avançadas."
+        },
+        "aiPoweredWebsite": {
+          "title": "Website com IA — o que muda na prática?",
+          "description": "Como a inteligência artificial e a automação podem integrar-se num website: chatbots, formulários inteligentes, fluxos automáticos e casos de uso reais."
+        }
+      }
+    },
+    "articles": {
+      "seoCostPortugal2026": {
+        "metadata": {
+          "title": "Quanto custa SEO em Portugal em 2026?",
+          "description": "Guia sobre preços de SEO em Portugal: planos Foundation (350 €), Growth (500 €/mês) e Advanced (900 €/mês) da Artecium, o que incluem e como escolher."
+        },
+        "breadcrumb": {
+          "current": "Quanto custa SEO"
+        },
+        "hero": {
+          "title": "Quanto custa SEO em Portugal em 2026?",
+          "intro": "SEO não tem um preço único — depende do estado atual do website, da concorrência no seu setor e do nível de acompanhamento que procura. Neste guia explicamos o que influencia o custo, como comparar propostas e quanto investir numa estratégia de SEO profissional em Portugal, com os planos reais da Artecium."
+        },
+        "sections": [
+          {
+            "type": "prose",
+            "id": "what-influences-seo-cost",
+            "title": "O que influencia o preço do SEO?",
+            "paragraphs": [
+              "O custo de SEO depende menos de \"quantas palavras-chave quer posicionar\" e mais do ponto de partida: um website tecnicamente sólido com conteúdo claro exige menos trabalho inicial do que um site lento, mal estruturado ou com pouco conteúdo relevante.",
+              "Outros fatores incluem o setor (mais concorrência significa mais esforço), o número de idiomas ou mercados, a necessidade de conteúdo novo regularmente e se o SEO é local, nacional ou orientado para mercados específicos.",
+              "Por isso, propostas muito genéricas ou preços fixos sem perceber o contexto do projeto costumam ser sinal de alerta. Um bom fornecedor de SEO começa por entender o website, os objetivos de negócio e o que já foi feito antes de definir o investimento."
+            ]
+          },
+          {
+            "type": "list",
+            "id": "seo-includes",
+            "title": "O que o SEO costuma incluir?",
+            "intro": "Dependendo do plano, o SEO profissional pode cobrir várias áreas — nem todas são necessárias desde o primeiro dia.",
+            "items": [
+              "Auditoria técnica: velocidade, indexação, estrutura de URLs, metadados e erros que impedem o Google de ler o site corretamente",
+              "Pesquisa de palavras-chave e intenção de pesquisa alinhada com os serviços da empresa",
+              "Otimização on-page: títulos, descrições, headings e ligação interna entre páginas",
+              "Conteúdo: criação ou revisão de textos orientados para pesquisa e conversão",
+              "SEO local: Google Business Profile, citações e consistência de NAP (nome, morada, telefone)",
+              "Reporting: acompanhamento de posições, tráfego orgânico e evolução ao longo do tempo",
+              "GEO / AI Search: otimização para motores de resposta e presença em resultados gerados por IA"
+            ]
+          },
+          {
+            "type": "plans",
+            "id": "artecium-seo-plans",
+            "title": "Planos de SEO da Artecium",
+            "intro": "Na Artecium, o SEO é oferecido em três níveis distintos. Cada plano reflete um grau diferente de profundidade e acompanhamento — não são pacotes genéricos aplicados a todos os websites.",
+            "plans": [
+              {
+                "name": "SEO Foundation",
+                "price": "350 € (setup único)",
+                "description": "Configuração técnica inicial: estrutura, metadados, indexação e base sólida para crescimento orgânico. Ideal para websites novos ou recém-lançados que precisam de uma fundação correta."
+              },
+              {
+                "name": "SEO Growth",
+                "price": "500 €/mês",
+                "description": "Otimização contínua, pesquisa de keywords, conteúdo e reporting mensal. Indicado para empresas que querem crescer de forma consistente nos motores de busca."
+              },
+              {
+                "name": "SEO Advanced",
+                "price": "900 €/mês",
+                "description": "Estratégia mais completa, análise de concorrência, GEO/AI Search e acompanhamento estratégico. Para negócios com objetivos ambiciosos ou mercados mais competitivos."
+              }
+            ],
+            "linkLabel": "Ver serviço de SEO →",
+            "linkHrefKey": "seo"
+          },
+          {
+            "type": "cards",
+            "id": "when-each-plan",
+            "title": "Qual plano faz sentido para o seu negócio?",
+            "intro": "A escolha depende do estado do website e dos objetivos — não do tamanho da empresa.",
+            "items": [
+              {
+                "title": "Foundation — website novo ou sem base técnica",
+                "description": "Se o site acabou de ser lançado ou nunca teve SEO técnico, o Foundation garante que a estrutura está correta antes de investir em conteúdo ou campanhas."
+              },
+              {
+                "title": "Growth — quer tráfego orgânico regular",
+                "description": "Se o website já funciona bem tecnicamente e precisa de conteúdo, keywords e otimização contínua, o Growth oferece acompanhamento mensal com reporting."
+              },
+              {
+                "title": "Advanced — concorrência elevada ou múltiplos mercados",
+                "description": "Para setores competitivos, sites multi-idioma ou empresas que querem incluir GEO e análise estratégica de concorrência, o Advanced cobre um âmbito mais amplo."
+              }
+            ]
+          },
+          {
+            "type": "prose",
+            "id": "seo-and-website",
+            "title": "SEO e website — estão ligados",
+            "paragraphs": [
+              "SEO funciona melhor sobre um website bem construído. Um site lento, com estrutura confusa ou sem conteúdo claro limita o que qualquer estratégia de SEO consegue alcançar — por isso, muitas vezes faz sentido combinar um website profissional com SEO desde o início.",
+              "Na Artecium, os planos de website incluem boas práticas técnicas de base (estrutura, performance, metadados essenciais). SEO contínuo — pesquisa, conteúdo otimizado e acompanhamento — é um serviço complementar, a partir de 350 € (Foundation) ou em planos mensais.",
+              "Se ainda não tem website ou está a planear um redesign, convém pensar nos dois investimentos em conjunto. Um site profissional a partir de 750 € (Essential) com SEO Foundation pode ser um ponto de partida sólido para muitas empresas."
+            ]
+          },
+          {
+            "type": "comparison",
+            "id": "seo-vs-ads",
+            "title": "SEO vs publicidade paga — o que esperar?",
+            "intro": "SEO e anúncios (Google Ads, Meta Ads) resolvem problemas diferentes. Compreender a diferença ajuda a definir o orçamento certo.",
+            "headers": ["Aspeto", "SEO", "Publicidade paga"],
+            "rows": [
+              {
+                "aspect": "Custo inicial",
+                "col1": "Setup a partir de 350 €; planos mensais a partir de 500 €",
+                "col2": "Orçamento de anúncios + gestão (variável)"
+              },
+              {
+                "aspect": "Tempo para resultados",
+                "col1": "Semanas a meses — depende do setor e do ponto de partida",
+                "col2": "Imediato enquanto os anúncios estiverem ativos"
+              },
+              {
+                "aspect": "Durabilidade",
+                "col1": "Resultados acumulam-se ao longo do tempo",
+                "col2": "Para quando o orçamento de anúncios para"
+              },
+              {
+                "aspect": "Melhor para",
+                "col1": "Visibilidade orgânica a médio e longo prazo",
+                "col2": "Campanhas pontuais, lançamentos ou testes rápidos"
+              }
+            ]
+          }
+        ],
+        "faq": {
+          "title": "Perguntas frequentes",
+          "items": [
+            {
+              "question": "Quanto custa SEO por mês em Portugal?",
+              "answer": "Na Artecium, o SEO contínuo começa nos 500 €/mês (SEO Growth). O plano Advanced custa 900 €/mês. Para websites que precisam apenas de configuração técnica inicial, o SEO Foundation custa 350 € como pagamento único."
+            },
+            {
+              "question": "O SEO Foundation é suficiente sozinho?",
+              "answer": "O Foundation prepara a base técnica do website para ser indexado e compreendido pelos motores de busca. Para crescer em posições e tráfego orgânico de forma consistente, normalmente é necessário acompanhamento contínuo — conteúdo, keywords e otimização regular."
+            },
+            {
+              "question": "Preciso de SEO se acabei de criar o website?",
+              "answer": "Sim, pelo menos a configuração técnica. Um website novo sem SEO Foundation pode demorar mais tempo a ser corretamente indexado e posicionado. Se o site foi criado pela Artecium, já inclui boas práticas de base — mas SEO contínuo continua a ser um serviço à parte."
+            },
+            {
+              "question": "O preço inclui criação de conteúdo?",
+              "answer": "Nos planos Growth e Advanced, a otimização e orientação de conteúdo fazem parte do acompanhamento. A criação extensiva de novos artigos ou páginas pode ser acordada consoante o âmbito — o detalhe é definido na proposta."
+            },
+            {
+              "question": "Posso combinar SEO com um website novo?",
+              "answer": "Sim, e é frequentemente a abordagem mais eficiente. Um website profissional (a partir de 750 €) construído com SEO em mente, seguido de SEO Foundation ou Growth, evita retrabalho e acelera resultados."
+            }
+          ]
+        },
+        "relatedLinksTitle": "Leia também",
+        "relatedLinks": [
+          { "label": "O que é SEO?", "articleId": "whatIsSeo" },
+          { "label": "Quanto custa um website?", "articleId": "websiteCostPortugal2026" },
+          { "label": "Serviço de SEO", "hrefKey": "seo" },
+          { "label": "FAQ", "hrefKey": "faq" }
+        ],
+        "cta": {
+          "title": "Quer perceber qual plano de SEO faz sentido?",
+          "description": "Conte-nos o estado do seu website e os objetivos de negócio — ajudamos a identificar o investimento adequado.",
+          "button": "Começar projeto"
+        }
+      },
+      "professionalVsCheapWebsite": {
+        "metadata": {
+          "title": "Website profissional vs website barato — comparação objetiva",
+          "description": "Diferenças reais entre websites baratos e profissionais: design, performance, SEO, segurança, manutenção e retorno a longo prazo para empresas em Portugal."
+        },
+        "breadcrumb": {
+          "current": "Profissional vs barato"
+        },
+        "hero": {
+          "title": "Website profissional vs website barato — o que muda na prática?",
+          "intro": "Websites baratos existem por uma razão — e websites profissionais também. A questão não é qual é \"melhor\" em abstracto, mas qual faz sentido para o seu negócio, objetivos e horizonte temporal. Comparamos os dois de forma objetiva, sem alarmismo nem promessas vazias."
+        },
+        "sections": [
+          {
+            "type": "prose",
+            "id": "why-price-differs",
+            "title": "Porque é que os preços variam tanto?",
+            "paragraphs": [
+              "Um website pode custar 200 € ou 2.000 € — e em ambos os casos alguém vai dizer que entrega \"um website\". A diferença está no que está incluído: tempo de design, qualidade do código, otimização para motores de busca, testes em dispositivos, configuração de formulários, deploy e o que acontece depois do lançamento.",
+              "Soluções muito baratas costumam basear-se em templates genéricos, com personalização mínima e sem acompanhamento. Websites profissionais implicam análise do negócio, estrutura de conteúdo pensada para conversão, performance e preparação para evoluir.",
+              "Na Artecium, os websites começam nos 750 € (Essential) — não porque seja o mínimo possível, mas porque reflete o trabalho necessário para entregar um site sólido, rápido e preparado para crescer."
+            ]
+          },
+          {
+            "type": "comparison",
+            "id": "side-by-side",
+            "title": "Comparação lado a lado",
+            "intro": "Esta tabela resume diferenças comuns — o detalhe varia consoante o fornecedor, mas os padrões são consistentes no mercado.",
+            "headers": ["Aspeto", "Website barato", "Website profissional"],
+            "rows": [
+              {
+                "aspect": "Design",
+                "col1": "Template genérico, pouca personalização",
+                "col2": "Design alinhado com a marca, tipografia e cores consistentes"
+              },
+              {
+                "aspect": "Performance",
+                "col1": "Frequentemente lento; imagens não otimizadas",
+                "col2": "Otimizado para velocidade; testes em mobile e desktop"
+              },
+              {
+                "aspect": "SEO técnico",
+                "col1": "Metadados básicos ou ausentes; estrutura fraca",
+                "col2": "Estrutura, headings, metadados e indexação configurados"
+              },
+              {
+                "aspect": "Conteúdo",
+                "col1": "Textos placeholder ou genéricos",
+                "col2": "Estrutura de conteúdo pensada para o negócio e conversão"
+              },
+              {
+                "aspect": "Formulários e contacto",
+                "col1": "Email simples ou link mailto",
+                "col2": "Formulários configurados, validação e fluxos de contacto"
+              },
+              {
+                "aspect": "Manutenção",
+                "col1": "Raramente incluída; alterações pagas à parte",
+                "col2": "Suporte e evolução podem ser acordados após o lançamento"
+              },
+              {
+                "aspect": "Escalabilidade",
+                "col1": "Difícil adicionar funcionalidades depois",
+                "col2": "Preparado para blog, SEO, automação ou integrações futuras"
+              }
+            ]
+          },
+          {
+            "type": "cards",
+            "id": "hidden-costs",
+            "title": "Custos ocultos de websites baratos",
+            "intro": "O preço inicial baixo pode esconder despesas ou limitações que só aparecem depois.",
+            "items": [
+              {
+                "title": "Retrabalho",
+                "description": "Um site mal construído pode precisar de ser refeito em 1–2 anos — o que duplica o investimento. Refazer costuma ser mais caro do que fazer bem desde o início."
+              },
+              {
+                "title": "SEO inexistente",
+                "description": "Sem base técnica de SEO, o website pode nunca aparecer nos resultados de pesquisa relevantes — o que significa que o investimento em presença online não gera retorno."
+              },
+              {
+                "title": "Dependência do fornecedor",
+                "description": "Plataformas fechadas ou builders proprietários podem dificultar migrar o site ou fazer alterações por conta própria."
+              },
+              {
+                "title": "Segurança e atualizações",
+                "description": "Websites sem manutenção acumulam vulnerabilidades. Problemas de segurança podem afetar a reputação da empresa e a confiança dos visitantes."
+              }
+            ]
+          },
+          {
+            "type": "list",
+            "id": "when-cheap-ok",
+            "title": "Quando um website barato pode bastar",
+            "intro": "Ser honesto também significa reconhecer cenários em que o investimento mínimo faz sentido.",
+            "items": [
+              "Validação rápida de uma ideia ou campanha pontual (landing page temporária)",
+              "Presença online mínima sem expectativa de gerar contactos orgânicos",
+              "Orçamento muito limitado com plano claro de evoluir depois",
+              "Projeto pessoal ou portfolio sem componente comercial"
+            ]
+          },
+          {
+            "type": "prose",
+            "id": "when-professional",
+            "title": "Quando investir num website profissional",
+            "paragraphs": [
+              "Se o website é o principal canal de credibilidade e contacto para o seu negócio, o investimento num site profissional tende a compensar. Empresas de serviços, clínicas, consultores, lojas locais e negócios B2B beneficiam de um site que transmite confiança, carrega rápido e aparece quando alguém pesquisa pelo que oferecem.",
+              "Na Artecium, o plano Essential (750 €) cobre a presença online sólida que a maioria das pequenas e médias empresas precisa. O Professional (1.500 €) adiciona profundidade de conteúdo, estrutura para SEO e preparação para conversão. Projetos Business (desde 2.500 €) incluem funcionalidades avançadas, integrações ou requisitos específicos.",
+              "A decisão não é \"barato vs caro\" — é \"o que o meu negócio precisa agora e daqui a dois anos?\"."
+            ]
+          },
+          {
+            "type": "prose",
+            "id": "how-to-compare",
+            "title": "Como comparar propostas de forma objetiva",
+            "paragraphs": [
+              "Peça sempre o detalhe do que está incluído: número de páginas, revisões de design, configuração de SEO, formulários, deploy, domínio, hosting e o que acontece após o lançamento. Duas propostas com preços diferentes podem incluir âmbitos completamente distintos.",
+              "Pergunte também sobre propriedade do código, possibilidade de evoluir o site e quem trata de manutenção. Um website profissional deve ser um ativo que a empresa controla — não uma dependência permanente de um fornecedor opaco."
+            ]
+          }
+        ],
+        "faq": {
+          "title": "Perguntas frequentes",
+          "items": [
+            {
+              "question": "Um website de 750 € é profissional?",
+              "answer": "Sim. Na Artecium, o plano Essential (750 €) inclui design personalizado, estrutura clara, formulário de contacto, otimização básica e deploy. É um website profissional para empresas que precisam de presença sólida sem funcionalidades avançadas."
+            },
+            {
+              "question": "Websites baratos aparecem no Google?",
+              "answer": "Podem ser indexados, mas sem SEO técnico adequado, conteúdo relevante e performance, é improvável que apareçam em posições úteis para keywords competitivas. Aparecer no Google e ser encontrado por clientes potenciais são coisas diferentes."
+            },
+            {
+              "question": "Posso começar barato e evoluir depois?",
+              "answer": "Sim, mas convém planear essa evolução. Migrar de um builder genérico para um website profissional pode implicar retrabalho. Se sabe que vai precisar de SEO, blog ou integrações, faz sentido começar numa base que suporte isso."
+            },
+            {
+              "question": "Qual a diferença entre Essential e Professional?",
+              "answer": "O Essential (750 €) foca-se numa presença online clara e profissional. O Professional (1.500 €) adiciona mais profundidade de conteúdo, estrutura para SEO, secções dedicadas por serviço e melhor preparação para conversão e crescimento."
+            },
+            {
+              "question": "Vale a pena pagar mais por design personalizado?",
+              "answer": "Depende do setor e da concorrência. Para negócios onde a confiança visual é decisiva — saúde, consultoria, serviços premium — um design genérico pode transmitir falta de profissionalismo. Para validação rápida, um template pode bastar temporariamente."
+            }
+          ]
+        },
+        "relatedLinksTitle": "Leia também",
+        "relatedLinks": [
+          { "label": "Quanto custa um website?", "articleId": "websiteCostPortugal2026" },
+          { "label": "Website ou aplicação web?", "articleId": "websiteVsWebApp" },
+          { "label": "Serviço de websites", "hrefKey": "websites" },
+          { "label": "FAQ", "hrefKey": "faq" }
+        ],
+        "cta": {
+          "title": "Quer um website profissional para o seu negócio?",
+          "description": "Conte-nos o que precisa — ajudamos a perceber qual plano faz sentido para os seus objetivos.",
+          "button": "Começar projeto"
+        }
+      },
+      "whatIsSeo": {
+        "metadata": {
+          "title": "O que é SEO e porque é importante?",
+          "description": "Guia introdutório sobre SEO para empresas: o que é Search Engine Optimization, como funciona, o que pode esperar e quando investir numa estratégia profissional."
+        },
+        "breadcrumb": {
+          "current": "O que é SEO"
+        },
+        "hero": {
+          "title": "O que é SEO e porque é importante?",
+          "intro": "SEO — Search Engine Optimization — é o conjunto de práticas que ajudam um website a ser encontrado nos motores de busca, como o Google. Para empresas em Portugal, é frequentemente a forma mais sustentável de gerar visibilidade e contactos online. Explicamos o essencial, sem jargão desnecessário."
+        },
+        "sections": [
+          {
+            "type": "prose",
+            "id": "what-is-seo",
+            "title": "O que é SEO, afinal?",
+            "paragraphs": [
+              "SEO significa otimizar um website para que os motores de busca o compreendam, o indexem corretamente e o mostrem a pessoas que procuram o que a empresa oferece. Não é um truque nem uma fórmula secreta — é trabalho consistente em três áreas: técnica, conteúdo e autoridade.",
+              "Quando alguém pesquisa \"advogado em Lisboa\" ou \"criação de websites Portugal\", o Google decide quais páginas mostrar com base em centenas de fatores. SEO é o trabalho de garantir que o seu website cumpre os critérios relevantes para aparecer nessas pesquisas.",
+              "Importa distinguir SEO de publicidade paga: anúncios no Google aparecem enquanto paga; SEO constrói visibilidade orgânica que se mantém ao longo do tempo."
+            ]
+          },
+          {
+            "type": "cards",
+            "id": "three-pillars",
+            "title": "Os três pilares do SEO",
+            "intro": "SEO moderno assenta em três áreas complementares — negligenciar uma delas limita os resultados.",
+            "items": [
+              {
+                "title": "SEO técnico",
+                "description": "Velocidade do site, estrutura de URLs, indexação, metadados, compatibilidade mobile e ausência de erros que impedem o Google de ler o conteúdo. É a fundação — sem ela, o resto tem pouco efeito."
+              },
+              {
+                "title": "Conteúdo",
+                "description": "Textos, títulos e páginas que respondem às perguntas que os clientes potenciais fazem. Conteúdo relevante, claro e bem estruturado é o que o Google quer mostrar nos resultados."
+              },
+              {
+                "title": "Autoridade",
+                "description": "Sinais de que o website é uma referência credível no seu setor — links de outros sites, menções, presença local consistente e reputação online."
+              }
+            ]
+          },
+          {
+            "type": "list",
+            "id": "why-matters",
+            "title": "Porque é que o SEO importa para empresas?",
+            "intro": "Para a maioria das empresas de serviços e negócios locais, o Google é onde os clientes começam a procurar.",
+            "items": [
+              "Visibilidade orgânica: aparecer nos resultados sem pagar por cada clique",
+              "Credibilidade: empresas que aparecem no topo são percecionadas como mais relevantes",
+              "Tráfego qualificado: quem pesquisa \"serviço X\" tem intenção — não é tráfego aleatório",
+              "Custo a longo prazo: o investimento acumula-se; não depende de orçamento publicitário contínuo",
+              "Complemento ao website: um site profissional sem SEO é como uma loja sem letreiro na rua principal"
+            ]
+          },
+          {
+            "type": "prose",
+            "id": "what-to-expect",
+            "title": "O que pode esperar do SEO — realisticamente",
+            "paragraphs": [
+              "SEO não produz resultados da noite para o dia. Dependendo do setor, da concorrência e do estado atual do website, pode levar semanas ou meses para ver evolução significativa nas posições e no tráfego orgânico.",
+              "Também não é garantia de posição #1 para todas as keywords. O objetivo realista é aparecer nas primeiras páginas para termos relevantes para o negócio — e melhorar progressivamente ao longo do tempo.",
+              "SEO funciona melhor como investimento contínuo, não como ação pontual. Um setup técnico inicial (como o SEO Foundation da Artecium, a 350 €) prepara a base; acompanhamento mensal (Growth a 500 €/mês ou Advanced a 900 €/mês) mantém e acelera o crescimento."
+            ]
+          },
+          {
+            "type": "list",
+            "id": "seo-local",
+            "title": "SEO local — especialmente relevante em Portugal",
+            "intro": "Para empresas que servem clientes numa zona geográfica, o SEO local é frequentemente o ponto de partida mais impactante.",
+            "items": [
+              "Otimização do Google Business Profile (antigo Google My Business)",
+              "Consistência de nome, morada e telefone em diretórios e no website",
+              "Páginas de serviço com referência geográfica (ex.: \"SEO em Lisboa\")",
+              "Avaliações e presença em plataformas locais relevantes",
+              "Conteúdo que responda a pesquisas com intenção local"
+            ]
+          },
+          {
+            "type": "prose",
+            "id": "seo-and-website-together",
+            "title": "SEO começa no website",
+            "paragraphs": [
+              "Não faz sentido investir em SEO sobre um website mal construído. Velocidade lenta, estrutura confusa, conteúdo insuficiente ou erros técnicos limitam o que qualquer estratégia consegue alcançar.",
+              "Por isso, SEO e website devem ser pensados em conjunto. Na Artecium, os planos de website (a partir de 750 €) incluem boas práticas técnicas de base. SEO contínuo é um serviço complementar que maximiza o retorno desse investimento inicial."
+            ]
+          }
+        ],
+        "faq": {
+          "title": "Perguntas frequentes",
+          "items": [
+            {
+              "question": "SEO e Google Ads — qual escolher?",
+              "answer": "São complementares, não excludentes. Google Ads gera tráfego imediato enquanto paga; SEO constrói visibilidade orgânica a médio prazo. Muitas empresas começam com SEO Foundation e consideram anúncios para campanhas pontuais."
+            },
+            {
+              "question": "Preciso de SEO se tenho redes sociais?",
+              "answer": "Sim. Redes sociais e SEO servem audiências diferentes. Muitas pessoas pesquisam no Google antes de contactar uma empresa — especialmente para serviços locais ou B2B. Ignorar SEO significa perder essa audiência."
+            },
+            {
+              "question": "Quanto tempo demora o SEO a funcionar?",
+              "answer": "Depende do setor e do ponto de partida. Melhorias técnicas podem refletir-se em semanas; crescimento consistente em posições e tráfego orgânico costuma levar 3–6 meses ou mais. SEO é um investimento de médio prazo."
+            },
+            {
+              "question": "O que é GEO / AI Search?",
+              "answer": "GEO (Generative Engine Optimization) refere-se à otimização para motores de resposta e resultados gerados por IA — como as respostas do Google AI Overview ou ChatGPT. É uma evolução do SEO tradicional, incluída no plano SEO Advanced da Artecium."
+            },
+            {
+              "question": "Posso fazer SEO sozinho?",
+              "answer": "Algumas bases — metadados, conteúdo claro, Google Business Profile — pode fazer internamente. SEO técnico, pesquisa de keywords, estratégia de conteúdo e análise de concorrência beneficiam de experiência profissional, especialmente em setores competitivos."
+            }
+          ]
+        },
+        "relatedLinksTitle": "Leia também",
+        "relatedLinks": [
+          { "label": "Quanto custa SEO?", "articleId": "seoCostPortugal2026" },
+          { "label": "Quanto custa um website?", "articleId": "websiteCostPortugal2026" },
+          { "label": "Serviço de SEO", "hrefKey": "seo" },
+          { "label": "FAQ", "hrefKey": "faq" }
+        ],
+        "cta": {
+          "title": "Quer melhorar a visibilidade do seu website?",
+          "description": "Analisamos o estado atual do site e ajudamos a definir uma estratégia de SEO adequada ao seu negócio.",
+          "button": "Começar projeto"
+        }
+      },
+      "websiteVsWebApp": {
+        "metadata": {
+          "title": "Website ou aplicação web — qual precisa?",
+          "description": "Diferenças práticas entre website e aplicação web para empresas: funcionalidades, custos (websites a partir de 750 €, apps a partir de 3.500 €) e como decidir."
+        },
+        "breadcrumb": {
+          "current": "Website vs app web"
+        },
+        "hero": {
+          "title": "Website ou aplicação web — qual precisa?",
+          "intro": "Nem todo o projeto online é um website — e nem toda a empresa precisa de uma aplicação web. A confusão entre os dois leva a investimentos errados: pagar demais por funcionalidades desnecessárias ou ficar com um site que não suporta o que o negócio precisa. Explicamos as diferenças de forma prática."
+        },
+        "sections": [
+          {
+            "type": "prose",
+            "id": "definitions",
+            "title": "Website vs aplicação web — definições simples",
+            "paragraphs": [
+              "Um website é essencialmente informativo: apresenta a empresa, os serviços, formas de contacto e conteúdo relevante. O visitante lê, navega e contacta — não interage com lógica de negócio complexa.",
+              "Uma aplicação web envolve interação contínua, autenticação (login), dashboards, processos internos ou funcionalidades que vão além de mostrar informação. Exemplos: área de cliente, gestão de pedidos, ferramenta interna de equipa, sistema de reservas com lógica avançada.",
+              "A fronteira nem sempre é rígida — um website profissional pode incluir formulários avançados, áreas reservadas simples ou integrações. Mas quando a lógica de negócio é central, estamos provavelmente a falar de uma aplicação web."
+            ]
+          },
+          {
+            "type": "comparison",
+            "id": "comparison-table",
+            "title": "Comparação prática",
+            "intro": "Use esta tabela para perceber onde o seu projeto se encaixa.",
+            "headers": ["Aspeto", "Website", "Aplicação web"],
+            "rows": [
+              {
+                "aspect": "Objetivo principal",
+                "col1": "Informar, captar contactos, construir credibilidade",
+                "col2": "Executar processos, gerir dados, interação contínua"
+              },
+              {
+                "aspect": "Autenticação",
+                "col1": "Normalmente não (ou área reservada simples)",
+                "col2": "Login, perfis, permissões e roles"
+              },
+              {
+                "aspect": "Interação",
+                "col1": "Leitura, navegação, formulários de contacto",
+                "col2": "Dashboards, CRUD, workflows, notificações"
+              },
+              {
+                "aspect": "Complexidade técnica",
+                "col1": "Moderada — páginas, conteúdo, SEO",
+                "col2": "Elevada — backend, base de dados, APIs, segurança"
+              },
+              {
+                "aspect": "Investimento típico (Artecium)",
+                "col1": "A partir de 750 € (Essential)",
+                "col2": "A partir de 3.500 €"
+              },
+              {
+                "aspect": "Manutenção",
+                "col1": "Atualizações de conteúdo e melhorias pontuais",
+                "col2": "Monitorização contínua, evolução de funcionalidades"
+              }
+            ]
+          },
+          {
+            "type": "cards",
+            "id": "website-examples",
+            "title": "Quando um website chega",
+            "intro": "Estes cenários são resolvidos com um website profissional — sem necessidade de aplicação web.",
+            "items": [
+              {
+                "title": "Presença online institucional",
+                "description": "Apresentar a empresa, serviços, equipa e contactos. O plano Essential (750 €) ou Professional (1.500 €) cobre este cenário."
+              },
+              {
+                "title": "Captação de contactos e leads",
+                "description": "Formulários, landing pages e estrutura orientada para conversão — ainda dentro do âmbito de um website."
+              },
+              {
+                "title": "Blog e conteúdo para SEO",
+                "description": "Publicar artigos, guias e páginas de serviço para melhorar visibilidade nos motores de busca."
+              },
+              {
+                "title": "Integrações simples",
+                "description": "Newsletter, CRM básico, chatbot ou automação de contactos — possível num website Business (desde 2.500 €) sem ser uma app completa."
+              }
+            ]
+          },
+          {
+            "type": "cards",
+            "id": "webapp-examples",
+            "title": "Quando precisa de aplicação web",
+            "intro": "Estes cenários exigem lógica de negócio, autenticação ou processamento de dados — além de um website tradicional.",
+            "items": [
+              {
+                "title": "Portal de cliente",
+                "description": "Clientes fazem login para ver encomendas, documentos, faturas ou estado de serviços."
+              },
+              {
+                "title": "Ferramenta interna",
+                "description": "Dashboard para equipa gerir pedidos, inventário, projetos ou processos internos."
+              },
+              {
+                "title": "Plataforma de reservas complexa",
+                "description": "Sistema com disponibilidade, pagamentos, confirmações automáticas e gestão de utilizadores."
+              },
+              {
+                "title": "Produto digital",
+                "description": "SaaS, marketplace ou ferramenta online que é o próprio produto do negócio."
+              }
+            ]
+          },
+          {
+            "type": "prose",
+            "id": "pricing-context",
+            "title": "Quanto custa cada opção?",
+            "paragraphs": [
+              "Na Artecium, websites começam nos 750 € (Essential) e o plano Professional custa 1.500 €. Projetos com funcionalidades avançadas — integrações, automação, multi-idioma — entram no plano Business a partir de 2.500 €.",
+              "Aplicações web começam nos 3.500 € porque envolvem backend, base de dados, autenticação, segurança e lógica de negócio específica. Cada aplicação é orçamentada individualmente consoante os requisitos.",
+              "Se o projeto combina website público com funcionalidades avançadas, convém analisar se um website Business ampliado resolve ou se precisa de uma aplicação dedicada — a resposta depende dos requisitos concretos."
+            ]
+          },
+          {
+            "type": "list",
+            "id": "decision-checklist",
+            "title": "Checklist para decidir",
+            "intro": "Responda a estas perguntas para perceber que tipo de projeto precisa.",
+            "items": [
+              "Os visitantes precisam de fazer login para aceder a conteúdo ou funcionalidades?",
+              "Existe lógica de negócio que processa dados (pedidos, reservas, cálculos)?",
+              "A equipa interna precisa de um dashboard ou ferramenta de gestão?",
+              "O sistema precisa de base de dados própria com dados de utilizadores?",
+              "O objetivo principal é informar e captar contactos, ou executar um processo?",
+              "Precisa de integrações complexas com APIs, pagamentos ou sistemas externos?"
+            ]
+          }
+        ],
+        "faq": {
+          "title": "Perguntas frequentes",
+          "items": [
+            {
+              "question": "Posso começar com website e evoluir para app?",
+              "answer": "Sim, e é uma abordagem comum. Muitos clientes começam com um website profissional e, quando o negócio cresce, desenvolvem uma aplicação web para funcionalidades que o site não cobre. Planear essa evolução desde o início ajuda a evitar retrabalho."
+            },
+            {
+              "question": "Um website com área reservada é uma aplicação web?",
+              "answer": "Depende da complexidade. Uma área reservada simples (documentos, perfil básico) pode ser parte de um website Business. Um portal com múltiplas funcionalidades, roles e lógica de negócio é uma aplicação web."
+            },
+            {
+              "question": "Quanto custa uma aplicação web na Artecium?",
+              "answer": "Aplicações web começam nos 3.500 €. O preço final depende dos requisitos funcionais, integrações, segurança e volume de utilização. Cada projeto é orçamentado individualmente após análise do âmbito."
+            },
+            {
+              "question": "WordPress ou aplicação web custom?",
+              "answer": "WordPress e CMS similares resolvem websites e blogs muito bem. Quando a lógica de negócio é específica, as integrações são complexas ou a performance e segurança exigem controlo total, uma aplicação web custom faz mais sentido."
+            },
+            {
+              "question": "IA e automação entram em website ou app?",
+              "answer": "Ambos. Chatbots e formulários inteligentes podem integrar-se num website (soluções IA a partir de 750 €). Automação de processos complexos (a partir de 1.500 €) pode ligar website, CRM e ferramentas internas — por vezes numa aplicação web dedicada."
+            }
+          ]
+        },
+        "relatedLinksTitle": "Leia também",
+        "relatedLinks": [
+          { "label": "Quanto custa um website?", "articleId": "websiteCostPortugal2026" },
+          { "label": "Website com IA", "articleId": "aiPoweredWebsite" },
+          { "label": "Serviço de websites", "hrefKey": "websites" },
+          { "label": "FAQ", "hrefKey": "faq" }
+        ],
+        "cta": {
+          "title": "Não tem a certeza do que precisa?",
+          "description": "Descreva o seu projeto — ajudamos a perceber se faz sentido um website, uma aplicação web ou uma combinação dos dois.",
+          "button": "Começar projeto"
+        }
+      },
+      "aiPoweredWebsite": {
+        "metadata": {
+          "title": "Website com IA — o que muda na prática?",
+          "description": "Como integrar IA e automação num website: chatbots, formulários inteligentes, fluxos automáticos e casos de uso para empresas. Soluções Artecium a partir de 750 €."
+        },
+        "breadcrumb": {
+          "current": "Website com IA"
+        },
+        "hero": {
+          "title": "Website com IA — o que muda na prática?",
+          "intro": "Inteligência artificial deixou de ser ficção científica — está disponível para empresas de qualquer dimensão. Num website, IA e automação podem qualificar leads, responder a perguntas frequentes, processar formulários e ligar ferramentas sem intervenção manual constante. Explicamos o que é possível, o que custa e quando faz sentido."
+        },
+        "sections": [
+          {
+            "type": "prose",
+            "id": "ai-on-websites",
+            "title": "O que significa \"website com IA\"?",
+            "paragraphs": [
+              "Um website com IA não é um site que \"pensa por si\" — é um site onde componentes inteligentes apoiam processos concretos: responder a visitantes, qualificar contactos, gerar conteúdo ou automatizar fluxos entre o website e outras ferramentas.",
+              "Na prática, isto traduz-se em chatbots que respondem com base no conteúdo do site, formulários que adaptam perguntas consoante as respostas, assistentes que encaminham pedidos para a equipa certa ou automações que transformam um contacto em lead organizado no CRM.",
+              "A IA no website funciona melhor com regras claras, supervisão humana quando necessário e integração com os processos que a empresa já utiliza."
+            ]
+          },
+          {
+            "type": "cards",
+            "id": "use-cases",
+            "title": "Casos de uso concretos",
+            "intro": "Estas são aplicações reais de IA e automação em websites — não conceitos teóricos.",
+            "items": [
+              {
+                "title": "Chatbot no website",
+                "description": "Responde a perguntas frequentes com base no conteúdo do site, recolhe informação de contacto e encaminha pedidos complexos para um humano."
+              },
+              {
+                "title": "Formulários inteligentes",
+                "description": "Adaptam perguntas consoante as respostas anteriores, qualificam leads automaticamente e reduzem formulários longos desnecessários."
+              },
+              {
+                "title": "Qualificação automática de leads",
+                "description": "Um visitante preenche o formulário → a informação é classificada → a equipa recebe apenas leads relevantes com contexto."
+              },
+              {
+                "title": "Automação pós-contacto",
+                "description": "Contacto recebido → email automático de confirmação → registo no CRM → notificação à equipa — sem copiar dados manualmente."
+              },
+              {
+                "title": "Geração de conteúdo assistida",
+                "description": "Apoio à criação de textos para blog, descrições de serviço ou respostas a clientes, com revisão humana."
+              }
+            ]
+          },
+          {
+            "type": "list",
+            "id": "benefits",
+            "title": "Benefícios para empresas",
+            "intro": "IA e automação no website resolvem problemas operacionais concretos — não são apenas \"inovação\".",
+            "items": [
+              "Menos tempo em tarefas repetitivas (responder às mesmas perguntas, copiar dados entre sistemas)",
+              "Resposta mais rápida a visitantes — mesmo fora do horário de expediente",
+              "Leads melhor qualificados chegam à equipa com contexto",
+              "Processos consistentes — menos erros humanos na transferência de informação",
+              "Escalabilidade — o website gere mais contactos sem aumentar equipa proporcionalmente"
+            ]
+          },
+          {
+            "type": "plans",
+            "id": "artecium-ai-pricing",
+            "title": "Soluções de IA e automação da Artecium",
+            "intro": "Na Artecium, IA e automação são serviços distintos dos websites — podem integrar-se num site existente ou fazer parte de um projeto novo.",
+            "plans": [
+              {
+                "name": "IA Solutions",
+                "price": "A partir de 750 €",
+                "description": "Chatbots, assistentes IA, formulários inteligentes, geração de conteúdo e qualificação de leads."
+              },
+              {
+                "name": "Automação",
+                "price": "A partir de 1.500 €",
+                "description": "Workflows automáticos, integrações com CRM, APIs, emails automáticos e processamento de dados."
+              },
+              {
+                "name": "Business Automation",
+                "price": "Projeto personalizado",
+                "description": "Agentes IA, sistemas internos, integrações complexas e automação avançada à medida."
+              }
+            ],
+            "linkLabel": "Ver soluções de IA e automação →",
+            "linkHrefKey": "ia"
+          },
+          {
+            "type": "prose",
+            "id": "ai-vs-automation",
+            "title": "IA vs automação — qual precisa?",
+            "paragraphs": [
+              "Automação executa tarefas predefinidas com base em regras: \"quando chega um formulário, envia email e regista no CRM\". Não interpreta — segue instruções.",
+              "IA pode interpretar informação, gerar respostas ou tomar decisões dentro de limites definidos: \"quando o visitante pergunta X, responde com base no conteúdo do site ou encaminha para humano\".",
+              "Muitos projetos combinam ambos. Um chatbot (IA) qualifica o visitante; uma automação regista o contacto no CRM e notifica a equipa. A combinação certa depende do processo que quer melhorar."
+            ]
+          },
+          {
+            "type": "prose",
+            "id": "getting-started",
+            "title": "Por onde começar",
+            "paragraphs": [
+              "O primeiro passo não é escolher a tecnologia — é identificar o processo que mais tempo consome ou onde se perdem contactos. Responder manualmente às mesmas perguntas? Copiar dados de formulários para o CRM? Demora a responder a pedidos de contacto?",
+              "Um website profissional (a partir de 750 €) com chatbot básico ou formulário inteligente (IA Solutions a partir de 750 €) pode ser um ponto de partida acessível. Automação mais complexa (a partir de 1.500 €) faz sentido quando há múltiplas ferramentas envolvidas ou processos com várias etapas.",
+              "Se o projeto combina website novo com IA e automação, convém planear tudo em conjunto — a integração é mais eficiente quando pensada desde o início."
+            ]
+          },
+          {
+            "type": "comparison",
+            "id": "with-without-ai",
+            "title": "Website com e sem IA — o que muda?",
+            "intro": "Comparar ajuda a perceber se o investimento em IA faz sentido para o seu caso.",
+            "headers": ["Aspeto", "Website tradicional", "Website com IA/automação"],
+            "rows": [
+              {
+                "aspect": "Contactos",
+                "col1": "Formulário → email → resposta manual",
+                "col2": "Formulário → qualificação automática → CRM → resposta ou encaminhamento"
+              },
+              {
+                "aspect": "Perguntas frequentes",
+                "col1": "Visitante lê FAQ ou envia email",
+                "col2": "Chatbot responde em tempo real com base no conteúdo"
+              },
+              {
+                "aspect": "Disponibilidade",
+                "col1": "Resposta apenas em horário de expediente",
+                "col2": "Interação 24/7 para questões cobertas pelo chatbot"
+              },
+              {
+                "aspect": "Investimento adicional",
+                "col1": "Incluído no website (a partir de 750 €)",
+                "col2": "IA Solutions a partir de 750 €; automação a partir de 1.500 €"
+              }
+            ]
+          }
+        ],
+        "faq": {
+          "title": "Perguntas frequentes",
+          "items": [
+            {
+              "question": "Posso adicionar IA a um website existente?",
+              "answer": "Sim. Chatbots, formulários inteligentes e automações podem integrar-se em websites existentes, desde que a plataforma o permita tecnicamente. A viabilidade é avaliada durante a fase de descoberta do projeto."
+            },
+            {
+              "question": "Quanto custa um chatbot para o website?",
+              "answer": "Na Artecium, soluções de IA — incluindo chatbots — começam nos 750 € (IA Solutions). O preço depende da complexidade, integrações e volume de interações esperado."
+            },
+            {
+              "question": "A IA substitui a equipa?",
+              "answer": "Não. IA e automação reduzem tarefas repetitivas e melhoram a velocidade de resposta — mas processos importantes beneficiam de supervisão humana. A automação encaminha para uma pessoa quando o caso o exige."
+            },
+            {
+              "question": "Os dados dos clientes ficam seguros?",
+              "answer": "As soluções são desenhadas tendo em conta os requisitos do projeto, incluindo os dados tratados e as ferramentas utilizadas. Requisitos de proteção de dados (RGPD) devem ser avaliados caso a caso."
+            },
+            {
+              "question": "Preciso de website novo para ter IA?",
+              "answer": "Não necessariamente. IA pode integrar-se num website existente. No entanto, se o site atual tem limitações técnicas, um website profissional novo (a partir de 750 €) com IA planeado desde o início pode ser mais eficiente."
+            }
+          ]
+        },
+        "relatedLinksTitle": "Leia também",
+        "relatedLinks": [
+          { "label": "Website ou aplicação web?", "articleId": "websiteVsWebApp" },
+          { "label": "Quanto custa um website?", "articleId": "websiteCostPortugal2026" },
+          { "label": "IA e Automação", "hrefKey": "ia" },
+          { "label": "FAQ", "hrefKey": "faq" }
+        ],
+        "cta": {
+          "title": "Quer integrar IA no seu website?",
+          "description": "Conte-nos que processos gostaria de automatizar — analisamos consigo onde IA faz sentido.",
+          "button": "Começar projeto"
+        }
+      }
+    }
+  }
+}

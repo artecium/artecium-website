@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ClarityScript } from "@/components/analytics/ClarityScript";
+import { NextIntlClientProvider } from "next-intl";
+import { CookieConsentRoot } from "@/components/cookies/CookieConsentRoot";
+import { DocumentLangScript } from "@/components/i18n/DocumentLangScript";
 import { StructuredData } from "@/components/seo/StructuredData";
-import {
-  GA_MEASUREMENT_ID,
-} from "@/config/seo";
-import { constructMetadata } from "@/lib/seo/metadata";
+import { resolveRequestLocale } from "@/lib/i18n/resolve-locale";
+import { SITE_URL } from "@/config/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  ...constructMetadata(),
+  metadataBase: new URL(SITE_URL),
   icons: {
     icon: [{ url: "/artecium-logo.png", type: "image/png" }],
     apple: [{ url: "/artecium-logo.png", type: "image/png" }],
@@ -38,30 +37,32 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await resolveRequestLocale();
+  const messages =
+    locale === "en"
+      ? (await import("@/i18n/messages/en.json")).default
+      : (await import("@/i18n/messages/pt-PT.json")).default;
+  const htmlLang = locale === "en" ? "en" : "pt-PT";
+
   return (
     <html
-      lang="en"
+      lang={htmlLang}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.clarity.ms" />
-        <link rel="dns-prefetch" href="https://www.clarity.ms" />
-      </head>
       <body className="min-h-full flex flex-col">
-        <StructuredData />
-        {children}
+        <DocumentLangScript />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <CookieConsentRoot>
+            <StructuredData />
+            {children}
+          </CookieConsentRoot>
+        </NextIntlClientProvider>
       </body>
-      {GA_MEASUREMENT_ID ? (
-        <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
-      ) : null}
-      <ClarityScript />
     </html>
   );
 }

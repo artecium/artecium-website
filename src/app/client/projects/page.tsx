@@ -1,6 +1,7 @@
 ﻿import { EmptyState } from "@/components/platform/EmptyState";
 import { PageHeader } from "@/components/platform/PageHeader";
 import { StatusBadge } from "@/components/platform/StatusBadge";
+import { resolveLocale } from "@/i18n/config";
 import {
   formatDate,
   listSectionMessage,
@@ -8,25 +9,29 @@ import {
 import { getClientProjects } from "@/lib/data/client-projects";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
 
 export default async function ClientProjectsPage() {
+  const locale = resolveLocale(await getLocale());
+  const t = await getTranslations("projects");
+  const tDashboard = await getTranslations("dashboard");
+  const tErrors = await getTranslations("errors");
+
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
   const dbState = await getDatabaseReadyState();
   const projectsResult = await getClientProjects(companyIds);
   const section = listSectionMessage(
     projectsResult,
-    "No projects yet",
-    "Your active and completed projects will appear here once assigned by Artecium.",
+    tErrors,
+    t("emptyTitle"),
+    t("emptyDescription"),
   );
 
   return (
     <>
-      <PageHeader
-        title="Projects"
-        description="View your active and completed projects, progress, timeline, and deliverables."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
 
       {!dbState.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -51,10 +56,10 @@ export default async function ClientProjectsPage() {
                     ) : null}
                   </div>
                   <p className="mt-2 text-sm text-[#94A3B8]">
-                    {project.progress}% complete
+                    {tDashboard("progressComplete", { progress: project.progress })}
                   </p>
                   <p className="mt-1 text-xs text-[#64748B]">
-                    Due {formatDate(project.due_date)}
+                    {t("dueOn", { date: formatDate(project.due_date, locale) })}
                   </p>
                 </div>
                 <div className="w-full sm:w-48">

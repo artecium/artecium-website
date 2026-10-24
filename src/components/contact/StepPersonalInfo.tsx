@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
   WizardFooter,
   WizardInput,
@@ -12,6 +13,7 @@ interface StepPersonalInfoProps {
 }
 
 export function StepPersonalInfo({ wizard }: StepPersonalInfoProps) {
+  const t = useTranslations("discovery");
   const {
     data,
     updateField,
@@ -23,8 +25,8 @@ export function StepPersonalInfo({ wizard }: StepPersonalInfoProps) {
 
   return (
     <WizardStep
-      headline="Tell us about yourself."
-      subtitle="So we know who we're preparing this brief for."
+      headline={t("steps.personalInfo.headline")}
+      subtitle={t("steps.personalInfo.subtitle")}
       direction={direction}
       footer={
         <WizardFooter
@@ -38,29 +40,29 @@ export function StepPersonalInfo({ wizard }: StepPersonalInfoProps) {
       <div className="space-y-5">
         <WizardInput
           id="discovery-name"
-          label="Name"
+          label={t("steps.personalInfo.nameLabel")}
           type="text"
           autoComplete="name"
-          placeholder="John Smith"
+          placeholder={t("steps.personalInfo.namePlaceholder")}
           value={data.name}
           onChange={(e) => updateField("name", e.target.value)}
         />
         <WizardInput
           id="discovery-company"
-          label="Company"
+          label={t("steps.personalInfo.companyLabel")}
           optional
           type="text"
           autoComplete="organization"
-          placeholder="Acme Ltd."
+          placeholder={t("steps.personalInfo.companyPlaceholder")}
           value={data.company}
           onChange={(e) => updateField("company", e.target.value)}
         />
         <WizardInput
           id="discovery-email"
-          label="Email"
+          label={t("steps.personalInfo.emailLabel")}
           type="email"
           autoComplete="email"
-          placeholder="john@email.com"
+          placeholder={t("steps.personalInfo.emailPlaceholder")}
           value={data.email}
           onChange={(e) => updateField("email", e.target.value)}
         />

@@ -10,20 +10,16 @@ import {
 } from "@/lib/auth/redirects";
 import { hasAnyStaffRole } from "@/lib/auth/permissions";
 import { createClient } from "@/lib/supabase/client";
+import { useTranslations } from "next-intl";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-
-const INVALID_CREDENTIALS_MESSAGE =
-  "Invalid email or password. Please try again.";
-
-const ADMIN_ACCESS_DENIED_MESSAGE =
-  "You do not have permission to access the admin area.";
 
 interface LoginFormProps {
   mode?: "client" | "admin";
 }
 
 export function LoginForm({ mode = "client" }: LoginFormProps) {
+  const t = useTranslations("auth");
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +38,7 @@ export function LoginForm({ mode = "client" }: LoginFormProps) {
     });
 
     if (signInError) {
-      setError(INVALID_CREDENTIALS_MESSAGE);
+      setError(t("invalidCredentials"));
       setIsLoading(false);
       return;
     }
@@ -57,7 +53,7 @@ export function LoginForm({ mode = "client" }: LoginFormProps) {
 
       if (!isStaff) {
         await supabase.auth.signOut();
-        setError(ADMIN_ACCESS_DENIED_MESSAGE);
+        setError(t("adminAccessDenied"));
         setIsLoading(false);
         return;
       }
@@ -87,7 +83,7 @@ export function LoginForm({ mode = "client" }: LoginFormProps) {
 
       <div className="space-y-2">
         <label htmlFor="email" className="block text-sm font-medium text-white">
-          Email
+          {t("email")}
         </label>
         <input
           id="email"
@@ -98,7 +94,7 @@ export function LoginForm({ mode = "client" }: LoginFormProps) {
           disabled={isLoading}
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          placeholder="you@company.com"
+          placeholder={t("emailPlaceholder")}
           className="h-12 w-full rounded-xl border border-[#1E293B] bg-[#050816] px-4 text-sm text-white placeholder:text-[#64748B] transition-colors duration-200 focus:border-[#2563EB]/60 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 disabled:cursor-not-allowed disabled:opacity-60"
         />
       </div>
@@ -109,13 +105,13 @@ export function LoginForm({ mode = "client" }: LoginFormProps) {
             htmlFor="password"
             className="block text-sm font-medium text-white"
           >
-            Password
+            {t("password")}
           </label>
           <a
             href="#"
             className="text-sm text-[#94A3B8] transition-colors duration-200 hover:text-[#2563EB]"
           >
-            Forgot password?
+            {t("forgotPassword")}
           </a>
         </div>
         <input
@@ -127,7 +123,7 @@ export function LoginForm({ mode = "client" }: LoginFormProps) {
           disabled={isLoading}
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          placeholder="••••••••"
+          placeholder={t("passwordPlaceholder")}
           className="h-12 w-full rounded-xl border border-[#1E293B] bg-[#050816] px-4 text-sm text-white placeholder:text-[#64748B] transition-colors duration-200 focus:border-[#2563EB]/60 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 disabled:cursor-not-allowed disabled:opacity-60"
         />
       </div>
@@ -137,7 +133,7 @@ export function LoginForm({ mode = "client" }: LoginFormProps) {
         disabled={isLoading}
         className="inline-flex h-12 w-full items-center justify-center rounded-full bg-[#2563EB] text-sm font-medium text-white transition-all duration-300 hover:bg-[#1D4ED8] hover:shadow-[0_0_32px_rgba(37,99,235,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2563EB] disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {isLoading ? "Signing in…" : "Sign in"}
+        {isLoading ? t("signingIn") : t("signIn")}
       </button>
     </form>
   );

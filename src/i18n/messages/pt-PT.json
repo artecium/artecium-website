@@ -1,0 +1,2345 @@
+{
+  "common": {
+    "appName": "Artecium",
+    "loading": "A carregar…",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "confirm": "Confirmar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "create": "Criar",
+    "search": "Pesquisar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "refresh": "Atualizar",
+    "back": "Voltar",
+    "next": "Seguinte",
+    "previous": "Anterior",
+    "submit": "Submeter",
+    "download": "Transferir",
+    "upload": "Carregar",
+    "view": "Ver",
+    "viewAll": "Ver tudo",
+    "viewDetails": "Ver detalhes",
+    "learnMore": "Saber mais",
+    "signOut": "Terminar sessão",
+    "signingOut": "A terminar sessão…",
+    "signIn": "Iniciar sessão",
+    "signingIn": "A iniciar sessão…",
+    "payNow": "Pagar agora",
+    "redirecting": "A redirecionar…",
+    "preparing": "A preparar…",
+    "issueDate": "Data de emissão",
+    "dueDate": "Data de vencimento",
+    "startDate": "Data de início",
+    "paymentDate": "Data de pagamento",
+    "total": "Total",
+    "paid": "Pago",
+    "due": "Em dívida",
+    "amount": "Montante",
+    "price": "Preço",
+    "quantity": "Quantidade",
+    "lineItems": "Itens",
+    "complete": "concluído",
+    "updated": "Atualizado",
+    "recorded": "Registado",
+    "published": "Publicado",
+    "period": "Período",
+    "reference": "Referência",
+    "provider": "Fornecedor",
+    "invoice": "Fatura",
+    "project": "Projeto",
+    "link": "Ligação",
+    "name": "Nome",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "mobile": "Telemóvel",
+    "locale": "Idioma",
+    "currency": "Moeda",
+    "roles": "Funções",
+    "file": "Ficheiro",
+    "user": "Utilizador",
+    "account": "Conta",
+    "companies": "Empresas",
+    "messages": "Mensagens",
+    "added": "Adicionado",
+    "started": "Iniciado",
+    "renews": "Renova",
+    "custom": "Personalizado",
+    "unknown": "Desconhecido",
+    "notAvailable": "Indisponível",
+    "noData": "Sem dados",
+    "emptyDash": "—",
+    "unread": "não lidas",
+    "clientVisible": "Visível para o cliente",
+    "backToInvoices": "Voltar às faturas",
+    "backToProjects": "Voltar aos projetos",
+    "backToHomepage": "Voltar à página inicial",
+    "openNavigation": "Abrir navegação",
+    "closeNavigationOverlay": "Fechar sobreposição de navegação",
+    "changeLanguage": "Mudar idioma",
+    "portuguese": "Português",
+    "english": "English"
+  },
+  "navigation": {
+    "services": "Serviços",
+    "pricing": "Preços",
+    "solutions": "Soluções",
+    "about": "Sobre",
+    "contact": "Contacto",
+    "requestQuote": "Pedir orçamento",
+    "clientLogin": "Área de Cliente",
+    "admin": "Administração",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "privacyPolicy": "Política de Privacidade",
+    "cookiePolicy": "Política de Cookies",
+    "termsConditions": "Termos e Condições",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "dashboard": "Painel",
+    "projects": "Projetos",
+    "analytics": "Análise",
+    "seo": "SEO",
+    "reports": "Relatórios",
+    "payments": "Pagamentos",
+    "invoices": "Faturas",
+    "documents": "Documentos",
+    "support": "Suporte",
+    "notifications": "Notificações",
+    "meetings": "Reuniões",
+    "feedback": "Feedback",
+    "profile": "Perfil",
+    "settings": "Definições",
+    "clientArea": "Área de Cliente",
+    "clientPortal": "Portal do Cliente"
+  },
+  "metadata": {
+    "siteTitle": "Criação de Websites, IA, Automação e SEO para Empresas | Artecium",
+    "siteDescription": "Criamos websites profissionais com IA, automação e SEO para empresas em Portugal. Soluções digitais pensadas para atrair clientes e simplificar processos.",
+    "siteTagline": "A engenharia do futuro dos negócios",
+    "ogImageAlt": "Artecium — Websites, IA, automação e SEO para empresas",
+    "clientLoginTitle": "Área de Cliente",
+    "clientLoginDescription": "Aceda à sua área de cliente Artecium.",
+    "clientAreaTitle": "Área de Cliente",
+    "clientAreaDescription": "A sua área de cliente Artecium."
+  },
+  "home": {
+    "hero": {
+      "tagline": "A engenharia do futuro dos negócios.",
+      "title": "Websites que ajudam empresas a crescer.",
+      "description": "Criamos websites profissionais com IA, automação e SEO para ajudar empresas a atrair mais clientes, simplificar processos e crescer online.",
+      "pillars": ["Websites", "IA", "Automação", "SEO"],
+      "forWhoLabel": "Para quem:",
+      "forWho": "Empresas que querem crescer online com clareza e soluções profissionais.",
+      "outcomeLabel": "Resultado:",
+      "outcome": "Mais presença online, processos mais simples e melhores oportunidades comerciais.",
+      "startProject": "Pedir orçamento",
+      "exploreServices": "Ver serviços",
+      "ctaMicrocopy": "Envie-nos o seu projeto. Respondemos com os próximos passos."
+    },
+    "services": {
+      "eyebrow": "Serviços",
+      "title": "Soluções digitais para empresas",
+      "description": "Websites, IA, automação e SEO — complementados por desenvolvimento web, software e integrações quando o seu negócio precisa de ir mais além.",
+      "complementaryLabel": "Serviços complementares",
+      "complementarySummary": "Quando o projeto o exige, também desenvolvemos aplicações web, software personalizado e soluções cloud — de forma complementar, sempre alinhada aos objectivos do negócio.",
+      "websites": {
+        "title": "Websites",
+        "forWho": "Para empresas que precisam de presença online profissional",
+        "description": "Websites profissionais concebidos para transmitir credibilidade, gerar contactos e representar o seu negócio online.",
+        "includes": "Design, estrutura, formulários, SEO base e publicação.",
+        "cta": "Ver websites"
+      },
+      "seo": {
+        "title": "SEO",
+        "forWho": "Para empresas que querem ser encontradas no Google",
+        "description": "Otimização para motores de pesquisa que melhora a visibilidade do website e atrai tráfego qualificado.",
+        "includes": "Setup técnico, conteúdo, pesquisa e acompanhamento contínuo.",
+        "cta": "Ver SEO"
+      },
+      "aiAutomation": {
+        "title": "IA & Automação",
+        "forWho": "Para empresas que querem reduzir trabalho manual",
+        "description": "Sistemas inteligentes que automatizam tarefas, qualificam contactos e ligam as ferramentas do negócio para trabalhar de forma mais eficiente.",
+        "includes": "Workflows, integrações e assistentes aplicados ao contexto da empresa.",
+        "cta": "Ver soluções de IA"
+      },
+      "customSoftware": {
+        "title": "Software Personalizado",
+        "description": "Aplicações feitas à medida, concebidas para as suas especificações exatas, com desempenho e longevidade."
+      },
+      "webApplications": {
+        "title": "Aplicações Web",
+        "description": "Plataformas web de alto desempenho com UX excecional, concebidas para converter e escalar com o seu crescimento."
+      },
+      "mobileApps": {
+        "title": "Aplicações Móveis",
+        "description": "Experiências móveis nativas e multiplataforma que envolvem utilizadores e expandem a sua presença digital."
+      },
+      "cloudSolutions": {
+        "title": "Soluções Cloud",
+        "description": "Arquitetura cloud escalável com infraestrutura robusta, garantindo fiabilidade e implementação fluida."
+      },
+      "businessSystems": {
+        "title": "Sistemas Empresariais",
+        "description": "Sistemas empresariais integrados que unificam operações, dados e equipas num ecossistema digital coeso."
+      }
+    },
+    "interactiveServices": {
+      "title": "Uma solução. Várias possibilidades.",
+      "description": "Explore as soluções que podemos combinar para o seu negócio.",
+      "defaultBrand": "ARTECIUM",
+      "defaultTitle": "Soluções digitais",
+      "viewService": "Ver serviço",
+      "mobileHint": "Toque novamente no serviço ou utilize o botão acima para abrir a página.",
+      "navLabel": "Serviços interactivos",
+      "logoAlt": "Logótipo Artecium",
+      "services": {
+        "websites": {
+          "name": "Websites",
+          "centerTitle": "WEBSITES",
+          "headline": "Websites profissionais",
+          "tags": "Design · SEO · Conversão",
+          "shortDescription": "Presença online profissional",
+          "ariaLabel": "Websites — websites profissionais com design, SEO e conversão"
+        },
+        "ai": {
+          "name": "IA",
+          "centerTitle": "IA",
+          "headline": "Inteligência artificial",
+          "tags": "Assistentes · Chatbots · IA aplicada",
+          "shortDescription": "IA aplicada ao negócio",
+          "ariaLabel": "IA — inteligência artificial, assistentes e chatbots"
+        },
+        "automation": {
+          "name": "Automação",
+          "centerTitle": "AUTOMAÇÃO",
+          "headline": "Processos inteligentes",
+          "tags": "Workflows · Integrações · APIs",
+          "shortDescription": "Menos trabalho manual",
+          "ariaLabel": "Automação — workflows, integrações e APIs"
+        },
+        "seo": {
+          "name": "SEO",
+          "centerTitle": "SEO",
+          "headline": "Visibilidade online",
+          "tags": "SEO técnico · Conteúdo · GEO",
+          "shortDescription": "Ser encontrado no Google",
+          "ariaLabel": "SEO — visibilidade online, SEO técnico e conteúdo"
+        },
+        "webApps": {
+          "name": "Aplicações Web",
+          "centerTitle": "APLICAÇÕES WEB",
+          "headline": "Soluções digitais à medida",
+          "tags": "Dashboards · Sistemas · APIs",
+          "shortDescription": "Plataformas e sistemas web",
+          "ariaLabel": "Aplicações Web — dashboards, sistemas e APIs"
+        }
+      }
+    },
+    "aiAutomation": {
+      "title": "IA que trabalha pelo seu negócio.",
+      "description": "Criamos sistemas inteligentes que automatizam tarefas, qualificam contactos, ligam ferramentas e ajudam empresas a trabalhar de forma mais eficiente.",
+      "defaultLabel": "ARTECIUM AI",
+      "defaultSubtitle": "Soluções inteligentes conectadas",
+      "cta": "Ver soluções de IA",
+      "logoAlt": "Logótipo Artecium",
+      "mobileHint": "Toque novamente no módulo ou utilize o botão acima para abrir a página de IA.",
+      "navLabel": "Soluções de IA e automação",
+      "modules": {
+        "assistants": {
+          "name": "Assistentes de IA",
+          "centerTitle": "ASSISTENTES DE IA",
+          "description": "Assistentes inteligentes capazes de responder, analisar informação e apoiar tarefas do dia a dia.",
+          "ariaLabel": "Assistentes de IA — assistentes inteligentes para responder e apoiar tarefas"
+        },
+        "chatbots": {
+          "name": "Chatbots",
+          "centerTitle": "CHATBOTS",
+          "description": "Chatbots integrados no website para responder a perguntas e apoiar visitantes.",
+          "ariaLabel": "Chatbots — chatbots integrados no website para apoiar visitantes"
+        },
+        "leadQualification": {
+          "name": "Qualificação de Leads",
+          "centerTitle": "QUALIFICAÇÃO DE LEADS",
+          "description": "A IA analisa contactos e identifica automaticamente oportunidades relevantes.",
+          "ariaLabel": "Qualificação de Leads — IA que analisa contactos e identifica oportunidades"
+        },
+        "automation": {
+          "name": "Automação",
+          "centerTitle": "AUTOMAÇÃO",
+          "description": "Workflows automáticos que eliminam tarefas repetitivas e poupam tempo à equipa.",
+          "ariaLabel": "Automação — workflows automáticos que eliminam tarefas repetitivas"
+        },
+        "integrations": {
+          "name": "Integrações",
+          "centerTitle": "INTEGRAÇÕES",
+          "description": "Ligação entre CRM, email, formulários, APIs e outras ferramentas do negócio.",
+          "ariaLabel": "Integrações — ligação entre CRM, email, formulários e APIs"
+        },
+        "documentProcessing": {
+          "name": "Processamento de Documentos",
+          "centerTitle": "PROCESSAMENTO DE DOCUMENTOS",
+          "description": "Extração e organização automática de informação presente em documentos.",
+          "ariaLabel": "Processamento de Documentos — extração e organização automática de informação"
+        },
+        "aiAgents": {
+          "name": "Agentes de IA",
+          "centerTitle": "AGENTES DE IA",
+          "description": "Agentes capazes de executar tarefas e participar em processos empresariais.",
+          "ariaLabel": "Agentes de IA — agentes que executam tarefas em processos empresariais"
+        },
+        "dataAnalysis": {
+          "name": "Análise de Dados",
+          "centerTitle": "ANÁLISE DE DADOS",
+          "description": "IA aplicada à análise de informação para apoiar decisões.",
+          "ariaLabel": "Análise de Dados — IA aplicada à análise de informação para decisões"
+        }
+      }
+    },
+    "pricing": {
+      "eyebrow": "Preços",
+      "title": "Escolha a solução certa para o seu negócio",
+      "description": "Soluções digitais pensadas para transformar a presença online e os processos da sua empresa.",
+      "tabsLabel": "Categorias de preços",
+      "popularBadge": "MAIS POPULAR",
+      "customQuote": "Se o seu projeto não encaixar num destes modelos, criamos uma solução à medida.",
+      "tabs": {
+        "websites": "Websites",
+        "aiAutomation": "IA & Automação",
+        "seo": "SEO"
+      },
+      "categories": {
+        "websites": {
+          "plans": {
+            "essential": {
+              "name": "Essential",
+              "price": "€750",
+              "description": "Para empresas que precisam de uma presença profissional online.",
+              "features": [
+                "Até 5 páginas",
+                "Design personalizado",
+                "Responsive",
+                "Formulário de contacto",
+                "Integração WhatsApp",
+                "SEO técnico inicial",
+                "Analytics",
+                "Deploy"
+              ],
+              "cta": "Começar projeto"
+            },
+            "professional": {
+              "name": "Professional",
+              "price": "€1.500",
+              "description": "Para empresas que querem transformar o website numa ferramenta de crescimento.",
+              "features": [
+                "Até 10 páginas",
+                "Design avançado",
+                "Animações e interações",
+                "Formulários avançados",
+                "Integrações",
+                "SEO on-page",
+                "Google Search Console",
+                "Otimização de conversão",
+                "Analytics"
+              ],
+              "cta": "Começar projeto"
+            },
+            "business": {
+              "name": "Business",
+              "price": "Desde €2.500",
+              "description": "Para empresas que precisam de uma solução digital à medida.",
+              "features": [
+                "Website personalizado",
+                "Área reservada",
+                "Integrações",
+                "Automação",
+                "IA",
+                "Sistemas de reservas",
+                "APIs",
+                "Funcionalidades personalizadas"
+              ],
+              "cta": "Falar sobre o projeto"
+            }
+          }
+        },
+        "aiAutomation": {
+          "plans": {
+            "aiSolutions": {
+              "name": "AI Solutions",
+              "price": "Desde €750",
+              "description": "Soluções de IA simples para melhorar tarefas e experiências digitais.",
+              "features": [
+                "Chatbots",
+                "Assistentes de IA",
+                "Formulários inteligentes",
+                "Geração de conteúdo",
+                "Lead qualification"
+              ],
+              "cta": "Explorar solução"
+            },
+            "automation": {
+              "name": "Automação",
+              "price": "Desde €1.500",
+              "description": "Automatização de processos para reduzir trabalho manual e ligar as ferramentas do seu negócio.",
+              "features": [
+                "CRM",
+                "Workflows",
+                "Integrações",
+                "APIs",
+                "Emails automáticos",
+                "Processamento de dados"
+              ],
+              "cta": "Explorar solução"
+            },
+            "businessAutomation": {
+              "name": "Business Automation",
+              "price": "Projeto personalizado",
+              "description": "Automação e IA à medida para processos empresariais mais complexos.",
+              "features": [
+                "Agentes de IA",
+                "Sistemas internos",
+                "Integrações complexas",
+                "Automação avançada"
+              ],
+              "cta": "Falar sobre o projeto"
+            }
+          }
+        },
+        "seo": {
+          "plans": {
+            "foundation": {
+              "name": "SEO Foundation",
+              "price": "€350",
+              "priceNote": "Setup inicial",
+              "description": "Base técnica para o seu website ser corretamente compreendido e indexado pelos motores de pesquisa.",
+              "features": [
+                "Auditoria SEO",
+                "SEO técnico",
+                "Metadata",
+                "Estrutura de headings",
+                "Sitemap",
+                "Search Console",
+                "Indexação",
+                "Schema base"
+              ],
+              "cta": "Começar SEO"
+            },
+            "growth": {
+              "name": "SEO Growth",
+              "price": "€500/mês",
+              "description": "Para empresas que querem crescer organicamente.",
+              "features": [
+                "Otimização contínua",
+                "Keyword research",
+                "Conteúdo",
+                "Internal linking",
+                "Search Console",
+                "Análise mensal",
+                "Reporting"
+              ],
+              "cta": "Começar SEO"
+            },
+            "advanced": {
+              "name": "SEO Advanced",
+              "price": "€900/mês",
+              "description": "Para empresas que querem uma estratégia SEO completa.",
+              "features": [
+                "Estratégia SEO",
+                "SEO técnico",
+                "Conteúdo",
+                "Análise concorrencial",
+                "Otimização contínua",
+                "GEO / AI Search",
+                "Reporting",
+                "Acompanhamento estratégico"
+              ],
+              "cta": "Falar sobre SEO"
+            }
+          }
+        }
+      }
+    },
+    "problems": {
+      "eyebrow": "Desafios empresariais",
+      "title": "O que a Artecium resolve",
+      "description": "Trabalhamos com empresas que enfrentam desafios digitais concretos — e precisam de soluções claras, não de mais complexidade.",
+      "items": {
+        "outdatedWebsite": {
+          "title": "Presença online pouco profissional",
+          "description": "Quando o website não reflete a qualidade do negócio nem transmite confiança a quem o visita."
+        },
+        "fewLeads": {
+          "title": "Dificuldade em atrair potenciais clientes",
+          "description": "Quando a presença digital existe, mas não gera contactos, pedidos de informação ou oportunidades comerciais."
+        },
+        "manualProcesses": {
+          "title": "Tarefas manuais e processos ineficientes",
+          "description": "Quando trabalho repetitivo consome tempo que devia ser investido no crescimento do negócio."
+        },
+        "lostLeads": {
+          "title": "Perda de leads",
+          "description": "Quando contactos chegam por email, WhatsApp ou formulários, mas não são acompanhados de forma consistente."
+        },
+        "searchVisibility": {
+          "title": "Falta de presença no Google",
+          "description": "Quando clientes potenciais não encontram o negócio quando procuram online."
+        },
+        "scatteredInfo": {
+          "title": "Ferramentas e informação dispersas",
+          "description": "Quando dados, ferramentas e processos estão divididos por várias plataformas que não comunicam entre si."
+        },
+        "needAutomation": {
+          "title": "Necessidade de automatizar tarefas",
+          "description": "Quando há interesse em IA e automação, mas falta clareza sobre o que implementar primeiro."
+        }
+      },
+      "solution": {
+        "label": "A resposta Artecium",
+        "items": {
+          "websites": "Website",
+          "ia": "IA",
+          "automation": "Automação",
+          "seo": "SEO"
+        },
+        "description": "Combinamos presença online profissional, processos mais eficientes e visibilidade nos motores de pesquisa — adaptados ao seu negócio."
+      }
+    },
+    "serviceArea": {
+      "title": "Trabalhamos com empresas em Portugal",
+      "description": "A Artecium desenvolve soluções digitais para empresas em Portugal, com foco em Lisboa, Almada, Setúbal e Margem Sul.",
+      "locationsLabel": "Áreas de atuação",
+      "locations": {
+        "portugal": "Portugal",
+        "lisboa": "Lisboa",
+        "almada": "Almada",
+        "setubal": "Setúbal",
+        "margemSul": "Margem Sul"
+      }
+    },
+    "why": {
+      "eyebrow": "Porquê a Artecium",
+      "title": "Uma solução pensada para o negócio",
+      "description": "Criamos soluções digitais com foco no que importa para a empresa — clareza, qualidade e crescimento sustentável.",
+      "items": {
+        "customSolutions": {
+          "title": "Soluções à medida",
+          "description": "Cada projeto começa pelos objetivos do negócio, não por um template genérico."
+        },
+        "modernTech": {
+          "title": "Tecnologia moderna",
+          "description": "Utilizamos ferramentas actuais para construir websites rápidos, seguros e preparados para evoluir."
+        },
+        "aiWhenValuable": {
+          "title": "IA quando acrescenta valor",
+          "description": "Implementamos inteligência artificial apenas onde simplifica processos ou melhora a experiência."
+        },
+        "processAutomation": {
+          "title": "Automação de processos",
+          "description": "Reduzimos tarefas manuais e ligamos ferramentas para o negócio funcionar com menos fricção."
+        },
+        "seoFromBase": {
+          "title": "SEO desde a base",
+          "description": "Preparamos cada website para ser encontrado, com estrutura técnica sólida desde o início."
+        },
+        "directCommunication": {
+          "title": "Comunicação directa",
+          "description": "Trabalha connosco de forma clara — explicamos opções, custos e próximos passos sem jargão desnecessário."
+        },
+        "builtToGrow": {
+          "title": "Estrutura preparada para crescer",
+          "description": "Construímos soluções que podem evoluir — novas funcionalidades, SEO ou automação numa fase posterior."
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "Processo",
+      "title": "Como trabalhamos",
+      "description": "Um processo simples e transparente — do primeiro contacto ao lançamento e evolução.",
+      "steps": {
+        "discovery": {
+          "title": "Descoberta",
+          "description": "Percebemos o negócio, objetivos e necessidades."
+        },
+        "strategy": {
+          "title": "Estratégia",
+          "description": "Definimos estrutura, funcionalidades, tecnologia e prioridades."
+        },
+        "build": {
+          "title": "Construção",
+          "description": "Desenvolvemos e testamos a solução."
+        },
+        "launch": {
+          "title": "Lançamento e evolução",
+          "description": "Publicamos, analisamos e, quando contratado, continuamos a optimizar."
+        }
+      },
+      "cta": "Falar sobre o meu projeto"
+    },
+    "trust": {
+      "title": "Não precisa de saber de tecnologia.",
+      "description": "Ajudamos a traduzir as necessidades do negócio em soluções digitais concretas. Explicamos as opções, os custos e o que faz sentido implementar em cada fase."
+    },
+    "faqPreview": {
+      "eyebrow": "Perguntas frequentes",
+      "title": "Dúvidas comuns antes de avançar",
+      "description": "Respostas curtas às questões que mais ouvimos de empresas a planear um projeto digital.",
+      "viewAll": "Ver todas as perguntas",
+      "items": {
+        "websiteCost": {
+          "question": "Quanto custa criar um website?",
+          "answer": "Na Artecium, websites começam nos 750 € (Essential). O plano Professional custa 1.500 € e projetos Business começam nos 2.500 €, consoante funcionalidades."
+        },
+        "includesSeo": {
+          "question": "O preço inclui SEO?",
+          "answer": "Os planos incluem boas práticas técnicas de base. SEO contínuo é um serviço à parte, a partir de 350 € (Foundation) ou em planos mensais."
+        },
+        "addFeaturesLater": {
+          "question": "Posso adicionar funcionalidades depois?",
+          "answer": "Sim. Muitos clientes começam com um website essencial e evoluem depois — blog, SEO, automação ou integrações."
+        },
+        "portugal": {
+          "question": "Trabalham com empresas em Portugal?",
+          "answer": "Sim. Trabalhamos com empresas em Portugal, com especial relevância para Lisboa, Almada, Setúbal e Margem Sul."
+        },
+        "seoOnly": {
+          "question": "Posso contratar apenas SEO?",
+          "answer": "Sim. O SEO Foundation (350 €) é um setup inicial. Para acompanhamento contínuo, existem planos Growth (500 €/mês) e Advanced (900 €/mês)."
+        },
+        "howToStart": {
+          "question": "Como começo um projeto?",
+          "answer": "Peça um orçamento através do formulário. Analisamos o projeto e indicamos a solução e investimento mais adequados."
+        }
+      }
+    },
+    "aiAssistant": {
+      "title": "Não encontrou a resposta?",
+      "subtitle": "Pergunte à Artecium AI.",
+      "description": "Faça uma pergunta sobre os nossos serviços, preços, processos ou soluções e obtenha uma resposta baseada na informação oficial da Artecium.",
+      "assistantLabel": "Pergunte à Artecium AI",
+      "assistantName": "Artecium AI",
+      "inputLabel": "Escreva a sua pergunta",
+      "inputPlaceholder": "Escreva a sua pergunta…",
+      "submit": "Perguntar →",
+      "loading": "Artecium AI está a analisar",
+      "privacyNote": "As perguntas enviadas ao assistente são processadas para gerar a resposta. Não guardamos o histórico desta conversa.",
+      "examples": {
+        "websiteCost": "Quanto custa criar um website?",
+        "professionalPlan": "O que inclui o Website Professional?",
+        "whatIsSeo": "O que é SEO?",
+        "automation": "Podem automatizar processos da minha empresa?",
+        "webApps": "Fazem aplicações web?"
+      },
+      "links": {
+        "websites": "Ver Websites →",
+        "ia": "Ver soluções de IA →",
+        "seo": "Ver SEO →",
+        "services": "Ver serviços →",
+        "contact": "Falar com a Artecium →"
+      },
+      "errors": {
+        "generic": "Não consegui processar a pergunta neste momento. Pode tentar novamente ou falar diretamente com a Artecium.",
+        "retry": "Tentar novamente",
+        "contact": "Contactar Artecium"
+      }
+    },
+    "projectsCta": {
+      "title": "Conheça os nossos projetos",
+      "description": "Estamos a preparar a publicação de projetos reais. Explore a nossa área de projetos para saber mais.",
+      "link": "Ver projetos"
+    },
+    "featuredProjects": {
+      "eyebrow": "Portefólio",
+      "title": "Projetos em destaque",
+      "description": "Casos de estudo e projectos reais desenvolvidos pela Artecium, com o estado actual claramente identificado.",
+      "viewAll": "Ver todos os projectos"
+    },
+    "microConversions": {
+      "services": {
+        "message": "Não sabe qual solução precisa?",
+        "cta": "Falar connosco"
+      },
+      "pricing": {
+        "message": "Precisa de algo personalizado?",
+        "cta": "Pedir orçamento"
+      }
+    },
+    "technologies": {
+      "eyebrow": "Stack tecnológico",
+      "title": "Tecnologias de confiança",
+      "description": "Utilizamos tecnologias comprovadas para construir websites e soluções digitais rápidas, seguras e escaláveis."
+    },
+    "clientArea": {
+      "eyebrow": "Área de Cliente",
+      "title": "Todo o seu projeto.",
+      "titleLine2": "Num só lugar.",
+      "description": "Acompanhe os seus projetos, faturas, pagamentos, análise, SEO e comunicação através da sua área de cliente Artecium dedicada.",
+      "exploreClientArea": "Explorar Área de Cliente",
+      "preview": {
+        "clientAreaLabel": "Área de Cliente",
+        "clientPortal": "Portal do Cliente",
+        "demoClient": "Cliente Demo",
+        "welcomeBack": "Bem-vindo de volta, Cliente Demo",
+        "overview": "Visão geral dos seus projetos, serviços, pagamentos e atividade.",
+        "currentPlan": "Plano atual",
+        "viewAllServices": "Ver todos os serviços →",
+        "websiteMaintenance": "Manutenção de Website",
+        "planGrowth": "Plano: Growth · €249,00",
+        "activeProjects": "Projetos ativos",
+        "demoProject": "Website Demo Artecium · 68% concluído",
+        "planSummary": "Manutenção de Website · Growth, Analytics e SEO",
+        "payments": "Pagamentos",
+        "latestPayment": "Último: €123,00 · concluído",
+        "notifications": "Notificações",
+        "latestNotification": "1 não lida · Fatura DEMO-INV-002 paga",
+        "analytics": "Análise",
+        "analyticsDescription": "Consulte métricas de tráfego e conversão.",
+        "seo": "SEO",
+        "seoDescription": "Monitorize o desempenho de pesquisa.",
+        "inProgress": "em progresso",
+        "signOut": "Terminar sessão"
+      }
+    },
+    "cta": {
+      "title": "Tem um projeto em mente?",
+      "description": "Conte-nos o que precisa. Analisamos o projeto e indicamos a solução mais adequada.",
+      "startProject": "Pedir orçamento",
+      "viewServices": "Ver serviços",
+      "ctaMicrocopy": "Envie-nos o seu projeto. Respondemos com os próximos passos."
+    },
+    "footer": {
+      "description": "Websites, IA, automação e SEO para empresas em Portugal. Soluções digitais premium orientadas para resultados.",
+      "serviceArea": "Portugal · Lisboa · Almada · Setúbal · Margem Sul",
+      "company": "Empresa",
+      "services": "Serviços",
+      "copyright": "Todos os direitos reservados."
+    }
+  },
+  "auth": {
+    "clientLogin": "Área de Cliente",
+    "adminLogin": "Área de Administração",
+    "accessClientArea": "Aceda à sua área de cliente Artecium.",
+    "accessAdminArea": "Aceda à área de administração Artecium.",
+    "email": "E-mail",
+    "emailPlaceholder": "voce@empresa.com",
+    "password": "Palavra-passe",
+    "passwordPlaceholder": "••••••••",
+    "forgotPassword": "Esqueceu a palavra-passe?",
+    "signIn": "Iniciar sessão",
+    "signingIn": "A iniciar sessão…",
+    "invalidCredentials": "E-mail ou palavra-passe inválidos. Tente novamente.",
+    "adminAccessDenied": "Não tem permissão para aceder à área de administração.",
+    "sessionExpired": "A sua sessão expirou. Inicie sessão novamente.",
+    "unauthorized": "Tem de iniciar sessão para aceder a esta página."
+  },
+  "client": {
+    "areaTitle": "Área de Cliente",
+    "areaLabel": "Portal do Cliente",
+    "welcomeBack": "Bem-vindo de volta",
+    "welcomeBackName": "Bem-vindo de volta, {name}"
+  },
+  "dashboard": {
+    "title": "Painel",
+    "description": "Visão geral dos seus projetos, serviços, pagamentos e atividade.",
+    "currentPlan": "Plano atual",
+    "myPlan": "O meu plano",
+    "viewAllServices": "Ver todos os serviços →",
+    "activeProjects": "Projetos ativos",
+    "payments": "Pagamentos",
+    "notifications": "Notificações",
+    "analytics": "Análise",
+    "seo": "SEO",
+    "recentSupportTickets": "Pedidos de suporte recentes",
+    "upcomingMeetings": "Próximas reuniões",
+    "viewAll": "Ver tudo →",
+    "planLabel": "Plano: {name}",
+    "oneTimeService": "Serviço pontual",
+    "customService": "Serviço personalizado",
+    "startedOn": "Iniciado a {date}",
+    "renewsOn": "Renova a {date}",
+    "progressComplete": "{progress}% concluído",
+    "latestPayment": "Mais recente: {amount} · {status}",
+    "noPaymentsYet": "Ainda não existem pagamentos registados.",
+    "unableToLoadPayments": "Não foi possível carregar o histórico de pagamentos.",
+    "noNotificationsYet": "Ainda não existem notificações.",
+    "unableToLoadNotifications": "Não foi possível carregar as notificações.",
+    "unreadCount": "{count} não lidas · {title}",
+    "analyticsIncluded": "Veja métricas de tráfego e conversão.",
+    "analyticsNotIncluded": "A análise não está incluída nos seus serviços atuais.",
+    "seoIncluded": "Monitorize o desempenho de pesquisa.",
+    "seoNotIncluded": "As métricas de SEO não estão incluídas nos seus serviços atuais.",
+    "planSummaryDefault": "Veja o seu plano, limites e serviços incluídos.",
+    "noSupportTickets": "Ainda não existem pedidos de suporte",
+    "supportTicketsEmpty": "Os seus pedidos de suporte aparecerão aqui assim que criar um ticket.",
+    "noUpcomingMeetings": "Sem reuniões agendadas",
+    "meetingsEmpty": "Reuniões e chamadas de revisão agendadas aparecerão aqui quando forem marcadas.",
+    "projectsEmpty": "Acompanhe o progresso, cronograma e entregáveis."
+  },
+  "projects": {
+    "title": "Projetos",
+    "description": "Veja os seus projetos ativos e concluídos, progresso, cronograma e entregáveis.",
+    "detailTitle": "Detalhes do projeto",
+    "detailDescription": "Cronograma, tarefas e entregáveis.",
+    "detailDescriptionFallback": "Cronograma do projeto, marcos e tarefas.",
+    "emptyTitle": "Ainda não existem projetos",
+    "emptyDescription": "Os seus projetos ativos e concluídos aparecerão aqui assim que forem atribuídos pela Artecium.",
+    "notFoundTitle": "Projeto não encontrado",
+    "notFoundDescription": "Este projeto não está disponível para a sua conta.",
+    "unavailableTitle": "Projeto indisponível",
+    "accessDeniedDescription": "O acesso a este projeto foi recusado.",
+    "milestones": "Marcos",
+    "tasks": "Tarefas",
+    "noMilestones": "Ainda não existem marcos.",
+    "noTasks": "Ainda não existem tarefas.",
+    "dueOn": "Vence a {date}"
+  },
+  "services": {
+    "title": "Os meus serviços",
+    "description": "Os seus serviços contratados, planos, direitos e utilização mensal.",
+    "emptyTitle": "Ainda não existem serviços contratados",
+    "emptyDescription": "Os seus serviços ativos e planos de manutenção aparecerão aqui assim que forem atribuídos pela Artecium.",
+    "plan": "Plano",
+    "oneTimeService": "Serviço pontual",
+    "customService": "Serviço personalizado",
+    "price": "Preço",
+    "started": "Iniciado",
+    "nextRenewal": "Próxima renovação",
+    "includedFeatures": "Funcionalidades incluídas",
+    "usage": "Utilização"
+  },
+  "analytics": {
+    "title": "Análise",
+    "description": "Métricas de tráfego e conversão do site a partir do Google Analytics.",
+    "notIncludedTitle": "Análise não incluída no seu plano",
+    "notIncludedDescription": "Os seus serviços atuais não incluem acesso à análise. Contacte a Artecium para fazer upgrade.",
+    "notConnectedTitle": "O Google Analytics ainda não está ligado",
+    "notConnectedDescription": "As métricas aparecerão aqui assim que o Google Analytics for ligado para a sua empresa.",
+    "noDataTitle": "Ainda não existem dados de análise",
+    "noDataDescription": "As métricas aparecerão aqui assim que os dados do Google Analytics forem sincronizados para a sua empresa.",
+    "accessDeniedDescription": "O acesso à análise foi recusado.",
+    "loadFailedDescription": "Ocorreu um erro ao carregar a análise.",
+    "property": "Propriedade",
+    "includedInServices": "Incluído nos seus serviços ativos.",
+    "users": "Utilizadores",
+    "sessions": "Sessões",
+    "pageViews": "Visualizações de página",
+    "conversions": "Conversões",
+    "chartSessions": "Sessões",
+    "chartPageViews": "Visualizações de página"
+  },
+  "seo": {
+    "title": "SEO",
+    "description": "Métricas de desempenho de pesquisa a partir do Google Search Console.",
+    "notIncludedTitle": "SEO não incluído no seu plano",
+    "notIncludedDescription": "Os seus serviços atuais não incluem acesso a SEO. Contacte a Artecium para fazer upgrade.",
+    "notConnectedTitle": "O Google Search Console ainda não está ligado",
+    "notConnectedDescription": "As métricas de pesquisa aparecerão aqui assim que o Search Console for ligado para a sua empresa.",
+    "noDataTitle": "Ainda não existem dados de SEO",
+    "noDataDescription": "As métricas de pesquisa aparecerão aqui assim que os dados do Search Console forem sincronizados.",
+    "accessDeniedDescription": "O acesso às métricas de SEO foi recusado.",
+    "loadFailedDescription": "Ocorreu um erro ao carregar os dados de SEO.",
+    "site": "Site",
+    "includedInServices": "Incluído nos seus serviços ativos.",
+    "clicks": "Cliques",
+    "impressions": "Impressões",
+    "ctr": "CTR",
+    "avgPosition": "Posição média",
+    "chartClicks": "Cliques",
+    "chartImpressions": "Impressões"
+  },
+  "reports": {
+    "title": "Relatórios",
+    "description": "Relatórios mensais e de projeto partilhados com a sua empresa.",
+    "emptyTitle": "Ainda não existem relatórios disponíveis",
+    "emptyDescription": "Relatórios mensais e de projeto aparecerão aqui quando forem publicados pela Artecium.",
+    "period": "Período {start} – {end}",
+    "publishedOn": "Publicado a {date}"
+  },
+  "payments": {
+    "title": "Pagamentos",
+    "description": "Histórico de pagamentos, cobranças futuras e estado de faturação.",
+    "emptyTitle": "Ainda não existem pagamentos registados",
+    "emptyDescription": "O seu histórico de pagamentos aparecerá aqui assim que os pagamentos forem registados."
+  },
+  "invoices": {
+    "title": "Faturas",
+    "description": "Veja e transfira as suas faturas.",
+    "emptyTitle": "Ainda não existem faturas",
+    "emptyDescription": "As suas faturas aparecerão aqui assim que forem emitidas.",
+    "invoiceLabel": "Fatura",
+    "paymentSuccessTitle": "Pagamento submetido",
+    "paymentSuccessDescription": "O seu pagamento foi enviado ao Stripe Checkout.",
+    "paymentSuccessBody": "O pagamento foi submetido com sucesso. O estado da fatura será atualizado automaticamente assim que o Stripe confirmar o pagamento.",
+    "paymentSuccessNote": "Isto pode demorar alguns segundos. Pode voltar à lista de faturas para verificar o estado atualizado.",
+    "paymentCancelTitle": "Pagamento cancelado",
+    "paymentCancelDescription": "Não foi efetuado nenhum pagamento.",
+    "paymentCancelBody": "O pagamento foi cancelado antes de ser concluído. A fatura continua por pagar e pode tentar novamente quando quiser.",
+    "checkoutError": "Não foi possível iniciar o checkout."
+  },
+  "documents": {
+    "title": "Documentos",
+    "description": "Contratos, propostas, relatórios e ficheiros de projeto.",
+    "emptyTitle": "Ainda não existem documentos",
+    "emptyDescription": "Contratos, propostas, relatórios e ficheiros de projeto aparecerão aqui.",
+    "projectLabel": "Projeto: {name}",
+    "downloadFailed": "A transferência falhou."
+  },
+  "support": {
+    "title": "Suporte",
+    "description": "Crie e acompanhe pedidos de suporte.",
+    "emptyTitle": "Ainda não existem pedidos de suporte",
+    "emptyDescription": "Os seus pedidos de suporte aparecerão aqui assim que criar um ticket.",
+    "messages": "Mensagens"
+  },
+  "notifications": {
+    "title": "Notificações",
+    "description": "Atualizações sobre projetos, pagamentos, aprovações e muito mais.",
+    "emptyTitle": "Ainda não existem notificações",
+    "emptyDescription": "Atualizações sobre projetos, pagamentos, aprovações e muito mais aparecerão aqui.",
+    "read": "Lida",
+    "unread": "Não lida"
+  },
+  "meetings": {
+    "title": "Reuniões",
+    "description": "Reuniões agendadas, chamadas de revisão e sessões de projeto.",
+    "emptyTitle": "Ainda não existem reuniões",
+    "emptyDescription": "Reuniões e chamadas de revisão agendadas aparecerão aqui quando forem marcadas."
+  },
+  "feedback": {
+    "title": "Feedback",
+    "description": "Partilhe e reveja feedback sobre os seus projetos e serviços.",
+    "emptyTitle": "Ainda não existe feedback",
+    "emptyDescription": "O seu feedback sobre projetos e serviços aparecerá aqui."
+  },
+  "profile": {
+    "title": "Perfil",
+    "description": "Os detalhes e preferências da sua conta.",
+    "account": "Conta",
+    "companies": "Empresas",
+    "noCompanies": "Não existem empresas associadas a esta conta.",
+    "loadFailedTitle": "Não foi possível carregar o perfil",
+    "accessDeniedDescription": "O acesso ao seu perfil foi recusado.",
+    "loadFailedDescription": "Ocorreu um erro ao carregar o seu perfil."
+  },
+  "settings": {
+    "title": "Definições",
+    "description": "Gerir as preferências da sua conta.",
+    "preferences": "Preferências",
+    "notAvailableNote": "As preferências de notificação e a edição de perfil ainda não estão disponíveis no portal do cliente."
+  },
+  "status": {
+    "unknown": "Desconhecido",
+    "active": "Ativo",
+    "inactive": "Inativo",
+    "pending": "Pendente",
+    "processing": "A processar",
+    "completed": "Concluído",
+    "cancelled": "Cancelado",
+    "draft": "Rascunho",
+    "sent": "Enviado",
+    "issued": "Emitido",
+    "viewed": "Visualizado",
+    "paid": "Pago",
+    "partially_paid": "Parcialmente pago",
+    "overdue": "Em atraso",
+    "refunded": "Reembolsado",
+    "partially_refunded": "Parcialmente reembolsado",
+    "succeeded": "Bem-sucedido",
+    "failed": "Falhou",
+    "open": "Aberto",
+    "in_progress": "Em progresso",
+    "in_review": "Em revisão",
+    "waiting_client": "A aguardar cliente",
+    "resolved": "Resolvido",
+    "closed": "Fechado",
+    "scheduled": "Agendado",
+    "paused": "Em pausa",
+    "expired": "Expirado",
+    "trialing": "Em período experimental",
+    "past_due": "Vencido",
+    "unpaid": "Por pagar",
+    "connected": "Ligado",
+    "disconnected": "Desligado",
+    "syncing": "A sincronizar",
+    "error": "Erro",
+    "read": "Lida",
+    "unread": "Não lida",
+    "client_visible": "Visível para o cliente",
+    "approved": "Aprovado",
+    "rejected": "Rejeitado",
+    "archived": "Arquivado"
+  },
+  "errors": {
+    "companyUnavailableTitle": "Contexto da empresa indisponível",
+    "companyUnavailableDescription": "A sua conta ainda não está associada a uma empresa, por isso esta secção não pode carregar dados.",
+    "accessDeniedTitle": "Não foi possível carregar os dados",
+    "accessDeniedDescription": "O acesso a esta secção foi recusado. Contacte o suporte se o problema persistir.",
+    "loadFailedTitle": "Não foi possível carregar os dados",
+    "loadFailedDescription": "Ocorreu um erro ao carregar esta secção.",
+    "notFound": "Página não encontrada",
+    "notFoundDescription": "A página que procura não existe ou foi movida.",
+    "serverError": "Ocorreu um erro",
+    "serverErrorDescription": "Ocorreu um erro inesperado. Tente novamente mais tarde.",
+    "networkError": "Erro de rede",
+    "networkErrorDescription": "Não foi possível ligar. Verifique a sua ligação à internet e tente novamente.",
+    "sessionExpired": "A sua sessão expirou. Inicie sessão novamente.",
+    "unauthorized": "Não tem permissão para aceder a este recurso.",
+    "invoicesAccessDenied": "O acesso às faturas foi recusado. Contacte o suporte se o problema persistir.",
+    "invoicesLoadFailed": "Ocorreu um erro ao carregar as suas faturas.",
+    "invoicesCompanyUnavailable": "A sua conta ainda não está associada a uma empresa, por isso as faturas não podem ser carregadas."
+  },
+  "billing": {
+    "monthly": "/mês",
+    "quarterly": "/trimestre",
+    "yearly": "/ano",
+    "oneTime": " pontual",
+    "billingPeriod": "Período de faturação",
+    "subscription": "Subscrição",
+    "oneTimePayment": "Pagamento pontual",
+    "recurring": "Recorrente",
+    "nextBillingDate": "Próxima data de faturação",
+    "billingHistory": "Histórico de faturação",
+    "paymentMethod": "Método de pagamento",
+    "taxId": "NIF"
+  },
+  "services": {
+    "shared": {
+      "crossLinkTitle": "Explore outras soluções",
+      "crossLinks": {
+        "websites": "Websites",
+        "ai": "IA & Automação",
+        "seo": "SEO"
+      },
+      "allServices": "Todos os serviços"
+    },
+    "hub": {
+      "metadata": {
+        "title": "Soluções Digitais para Empresas",
+        "description": "Websites, IA, automação e SEO para empresas em Portugal. Conheça as soluções digitais da Artecium."
+      },
+      "breadcrumb": {
+        "home": "Início",
+        "current": "Serviços"
+      },
+      "hero": {
+        "title": "Soluções digitais para empresas",
+        "description": "Websites, IA, automação e SEO para ajudar empresas a melhorar a sua presença digital e simplificar processos.",
+        "geoNote": "Trabalhamos com empresas em Portugal",
+        "cta": "Começar projeto"
+      },
+      "cards": {
+        "websites": {
+          "title": "Websites",
+          "description": "Websites profissionais, rápidos e preparados para SEO, com design personalizado e foco na conversão.",
+          "cta": "Ver websites"
+        },
+        "ia": {
+          "title": "IA & Automação",
+          "description": "Soluções de IA e automação para reduzir tarefas manuais, integrar ferramentas e tornar processos mais eficientes.",
+          "cta": "Ver soluções"
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "Estratégias de SEO, conteúdo, otimização técnica e GEO para melhorar a presença nos motores de pesquisa.",
+          "cta": "Ver SEO"
+        }
+      },
+      "guide": {
+        "title": "Que solução precisa a sua empresa?",
+        "paths": {
+          "websites": {
+            "question": "Precisa de uma presença online profissional?",
+            "linkLabel": "Websites"
+          },
+          "ia": {
+            "question": "Quer automatizar tarefas ou integrar IA?",
+            "linkLabel": "IA & Automação"
+          },
+          "seo": {
+            "question": "Quer melhorar a visibilidade nos motores de pesquisa?",
+            "linkLabel": "SEO"
+          }
+        }
+      },
+      "cta": {
+        "title": "Não sabe por onde começar?",
+        "description": "Conte-nos sobre o seu negócio e ajudamos a identificar a solução mais adequada.",
+        "button": "Começar projeto"
+      }
+    },
+    "websites": {
+      "metadata": {
+        "title": "Criação de Websites para Empresas",
+        "description": "Criamos websites profissionais para empresas em Portugal, com design personalizado, SEO, IA e automação. Conheça as soluções da Artecium."
+      },
+      "schema": {
+        "serviceName": "Criação de Websites",
+        "serviceDescription": "Websites profissionais para empresas em Portugal, com design personalizado, SEO, IA e automação."
+      },
+      "breadcrumb": {
+        "home": "Início",
+        "services": "Serviços",
+        "current": "Websites"
+      },
+      "hero": {
+        "title": "Websites que ajudam empresas a crescer.",
+        "description": "Criamos websites profissionais, rápidos e preparados para SEO, com design personalizado, integração de IA e automação quando o negócio precisa.",
+        "ctaPrimary": "Começar projeto",
+        "ctaSecondary": "Ver preços",
+        "geoNote": "Trabalhamos com empresas em Portugal"
+      },
+      "problems": {
+        "title": "Um website deve fazer mais do que parecer bonito.",
+        "items": {
+          "outdated": {
+            "title": "Website desatualizado",
+            "description": "A empresa parece menos profissional do que realmente é."
+          },
+          "fewContacts": {
+            "title": "Poucos contactos",
+            "description": "O website recebe visitas mas não transforma visitantes em potenciais clientes."
+          },
+          "mobileExperience": {
+            "title": "Má experiência em telemóvel",
+            "description": "O site não funciona bem em smartphones e tablets."
+          },
+          "searchVisibility": {
+            "title": "Difícil de encontrar no Google",
+            "description": "A estrutura e o conteúdo não estão preparados para SEO."
+          }
+        }
+      },
+      "included": {
+        "title": "O que incluímos nos nossos websites",
+        "intro": "Cada projeto inclui uma base sólida para presença online profissional, performance e visibilidade nos motores de pesquisa.",
+        "core": [
+          "Design personalizado",
+          "Responsive design",
+          "Formulários de contacto",
+          "Integração WhatsApp",
+          "SEO técnico",
+          "Metadata e headings",
+          "Sitemap",
+          "Google Analytics",
+          "Deploy e configuração"
+        ],
+        "advancedTitle": "Disponível em planos superiores",
+        "advancedIntro": "Funcionalidades adicionais incluídas no Website Professional e Business, consoante o pacote escolhido.",
+        "advanced": [
+          "Estrutura orientada para conversão",
+          "Google Search Console",
+          "Performance e otimização",
+          "Animações e interações",
+          "Integrações e automação",
+          "Funcionalidades personalizadas"
+        ]
+      },
+      "pricing": {
+        "title": "Escolha o website certo para o seu negócio",
+        "popularBadge": "MAIS POPULAR",
+        "note": "Os preços apresentados são valores de referência. Projetos com requisitos específicos são avaliados individualmente.",
+        "plans": {
+          "essential": {
+            "name": "Website Essential",
+            "price": "750 €",
+            "description": "Para empresas que precisam de uma presença profissional online.",
+            "features": [
+              "Até 5 páginas",
+              "Design personalizado",
+              "Responsive design",
+              "Formulário de contacto",
+              "Integração WhatsApp",
+              "SEO técnico",
+              "Analytics",
+              "Deploy"
+            ],
+            "cta": "Começar projeto"
+          },
+          "professional": {
+            "name": "Website Professional",
+            "price": "1.500 €",
+            "description": "Para empresas que querem um website mais completo e orientado para aquisição de clientes.",
+            "features": [
+              "Até 10 páginas",
+              "Design avançado",
+              "Animações e interações",
+              "Formulários avançados",
+              "Integrações",
+              "SEO on-page",
+              "Google Search Console",
+              "Otimização para conversão",
+              "Analytics"
+            ],
+            "cta": "Começar projeto"
+          },
+          "business": {
+            "name": "Website Business",
+            "price": "A partir de 2.500 €",
+            "description": "Para empresas que precisam de funcionalidades personalizadas e processos digitais.",
+            "features": [
+              "Website personalizado",
+              "Área reservada",
+              "Integrações avançadas",
+              "Automação",
+              "IA",
+              "Sistemas de reservas",
+              "APIs",
+              "Funcionalidades personalizadas"
+            ],
+            "cta": "Falar sobre o projeto"
+          }
+        }
+      },
+      "process": {
+        "title": "Como criamos o seu website",
+        "steps": {
+          "discovery": {
+            "title": "Descoberta",
+            "description": "Percebemos o negócio, objetivos e público."
+          },
+          "strategy": {
+            "title": "Estratégia",
+            "description": "Definimos estrutura, conteúdos e funcionalidades."
+          },
+          "build": {
+            "title": "Design & Desenvolvimento",
+            "description": "Criamos e desenvolvemos o website."
+          },
+          "launch": {
+            "title": "Lançamento",
+            "description": "Testamos, otimizamos e colocamos o website online."
+          }
+        }
+      },
+      "technologies": {
+        "title": "Tecnologia preparada para crescer",
+        "description": "Utilizamos tecnologias modernas para criar websites rápidos, responsivos e escaláveis, preparados para evoluir com o negócio."
+      },
+      "faq": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "Quanto custa criar um website profissional?",
+            "answer": "Na Artecium, os websites começam nos 750 €. O Website Professional tem um preço de 1.500 € e projetos Business começam nos 2.500 €, dependendo das funcionalidades e requisitos."
+          },
+          {
+            "question": "Quanto tempo demora criar um website?",
+            "answer": "O prazo depende do âmbito, número de páginas, conteúdos e funcionalidades. Após a fase de descoberta, apresentamos uma estimativa clara antes de avançar."
+          },
+          {
+            "question": "O website fica otimizado para SEO?",
+            "answer": "Sim. Todos os websites incluem SEO técnico de base. Nos planos superiores, incluímos também otimização on-page, estrutura orientada para conversão e configuração do Google Search Console."
+          },
+          {
+            "question": "Podem integrar WhatsApp e formulários?",
+            "answer": "Sim. Integramos formulários de contacto e WhatsApp nos websites, de acordo com o pacote e objetivos do projeto."
+          },
+          {
+            "question": "Podem criar funcionalidades personalizadas?",
+            "answer": "Sim. O plano Business e projetos à medida permitem funcionalidades personalizadas, integrações, automação e IA, consoante os requisitos."
+          },
+          {
+            "question": "Tratam do alojamento e publicação do website?",
+            "answer": "Incluímos deploy e configuração inicial. O alojamento pode ser tratado pela Artecium ou pelo cliente, consoante a solução acordada para cada projeto."
+          },
+          {
+            "question": "Posso pedir alterações depois do lançamento?",
+            "answer": "Sim. Alterações e manutenção contínua podem ser acordadas após o lançamento, consoante o plano de suporte ou evolução definido para o projeto."
+          }
+        ]
+      },
+      "related": {
+        "title": "Explorar",
+        "home": "Homepage",
+        "services": "Serviços",
+        "pricing": "Preços",
+        "contact": "Contacto"
+      },
+      "cta": {
+        "title": "Pronto para criar um website melhor para o seu negócio?",
+        "description": "Conte-nos o que pretende criar e ajudamos a definir a solução mais adequada.",
+        "button": "Começar projeto"
+      }
+    },
+    "ai": {
+      "metadata": {
+        "title": "IA e Automação para Empresas",
+        "description": "Soluções de IA e automação para empresas em Portugal. Chatbots, assistentes IA, workflows, integrações e automações personalizadas."
+      },
+      "schema": {
+        "serviceName": "IA & Automação",
+        "serviceDescription": "Soluções de IA e automação para empresas em Portugal, incluindo chatbots, assistentes IA, workflows, integrações e sistemas personalizados."
+      },
+      "breadcrumb": {
+        "home": "Início",
+        "services": "Serviços",
+        "current": "IA & Automação"
+      },
+      "hero": {
+        "title": "IA e automação para empresas mais eficientes.",
+        "description": "Criamos soluções de IA e automação que simplificam tarefas, melhoram processos e ajudam empresas a trabalhar de forma mais inteligente.",
+        "tagline": "Da automação de tarefas aos agentes de IA e integrações personalizadas.",
+        "ctaPrimary": "Começar projeto",
+        "ctaSecondary": "Ver soluções",
+        "geoNote": "Trabalhamos com empresas em Portugal"
+      },
+      "problems": {
+        "title": "Nem todas as tarefas precisam de ser feitas manualmente.",
+        "items": {
+          "repetitiveTasks": {
+            "title": "Tarefas repetitivas",
+            "description": "Processos manuais consomem tempo e aumentam o risco de erro."
+          },
+          "unansweredLeads": {
+            "title": "Leads sem resposta",
+            "description": "Pedidos de contacto podem ficar sem resposta ou sem acompanhamento."
+          },
+          "isolatedTools": {
+            "title": "Ferramentas isoladas",
+            "description": "Os dados estão espalhados por diferentes plataformas e sistemas."
+          },
+          "inefficientProcesses": {
+            "title": "Processos pouco eficientes",
+            "description": "Equipas perdem tempo em tarefas que poderiam ser automatizadas."
+          }
+        }
+      },
+      "solutions": {
+        "title": "O que podemos automatizar",
+        "intro": "Exemplos de soluções que a Artecium pode desenvolver, consoante os objetivos e requisitos de cada projeto.",
+        "items": {
+          "chatbots": {
+            "title": "Chatbots e assistentes IA",
+            "description": "Respostas automáticas a perguntas frequentes, com encaminhamento para uma pessoa quando necessário."
+          },
+          "leadQualification": {
+            "title": "Qualificação automática de leads",
+            "description": "Recolha, organização e classificação de pedidos antes de chegarem à equipa."
+          },
+          "smartForms": {
+            "title": "Formulários inteligentes",
+            "description": "Formulários que adaptam perguntas e recolhem informação de forma mais eficiente."
+          },
+          "contentGeneration": {
+            "title": "Geração de conteúdo",
+            "description": "Apoio à criação de textos, respostas e conteúdos com base em regras e contexto definidos."
+          },
+          "automaticEmails": {
+            "title": "Emails automáticos",
+            "description": "Envio de mensagens e notificações com base em eventos ou ações do cliente."
+          },
+          "businessWorkflows": {
+            "title": "Workflows empresariais",
+            "description": "Sequências automáticas de tarefas que ligam diferentes etapas de um processo."
+          },
+          "integrations": {
+            "title": "Integrações entre ferramentas",
+            "description": "Ligação entre websites, CRMs, bases de dados e outras plataformas, quando tecnicamente viável."
+          },
+          "dataProcessing": {
+            "title": "Processamento de dados",
+            "description": "Organização, transformação e estruturação de informação proveniente de várias fontes."
+          },
+          "aiAgents": {
+            "title": "Agentes de IA",
+            "description": "Assistentes que executam tarefas específicas com regras, validação e supervisão definidas."
+          },
+          "customSystems": {
+            "title": "Sistemas internos personalizados",
+            "description": "Ferramentas à medida para processos internos que não cabem num pacote standard."
+          }
+        }
+      },
+      "pricing": {
+        "title": "Escolha a solução certa para o seu negócio",
+        "popularBadge": "MAIS PROCURADO",
+        "note": "Os preços apresentados são valores de referência. Projetos com requisitos específicos são avaliados individualmente.",
+        "plans": {
+          "aiSolutions": {
+            "name": "IA Solutions",
+            "price": "A partir de 750 €",
+            "description": "Para empresas que querem começar a integrar IA nos seus processos.",
+            "features": [
+              "Chatbots",
+              "Assistentes IA",
+              "Formulários inteligentes",
+              "Geração de conteúdo",
+              "Qualificação de leads"
+            ],
+            "cta": "Começar projeto"
+          },
+          "automation": {
+            "name": "Automação",
+            "price": "A partir de 1.500 €",
+            "description": "Para empresas que querem reduzir tarefas manuais e ligar diferentes ferramentas.",
+            "features": [
+              "CRM",
+              "Workflows automáticos",
+              "Integrações",
+              "APIs",
+              "Emails automáticos",
+              "Processamento de dados"
+            ],
+            "cta": "Começar projeto"
+          },
+          "businessAutomation": {
+            "name": "Business Automation",
+            "price": "Projeto personalizado",
+            "description": "Para processos mais complexos que exigem sistemas e automações à medida.",
+            "features": [
+              "Agentes IA",
+              "Sistemas internos",
+              "Integrações complexas",
+              "Automação avançada",
+              "Funcionalidades personalizadas"
+            ],
+            "cta": "Falar sobre o projeto"
+          }
+        }
+      },
+      "process": {
+        "title": "Como transformamos um processo em automação",
+        "note": "A viabilidade de cada integração depende das ferramentas, APIs e requisitos específicos do projeto.",
+        "steps": {
+          "analyze": {
+            "title": "Analisamos",
+            "description": "Percebemos como o processo funciona atualmente."
+          },
+          "identify": {
+            "title": "Identificamos",
+            "description": "Encontramos tarefas repetitivas e oportunidades de melhoria."
+          },
+          "build": {
+            "title": "Construímos",
+            "description": "Desenvolvemos a solução de IA ou automação adequada."
+          },
+          "integrate": {
+            "title": "Integramos",
+            "description": "Ligamos a solução às ferramentas utilizadas pela empresa."
+          }
+        }
+      },
+      "examples": {
+        "title": "Exemplos de processos que podem ser automatizados",
+        "intro": "Cenários conceptuais para ilustrar o tipo de soluções que podemos desenvolver — não representam sistemas instalados em clientes.",
+        "items": {
+          "contactToLead": {
+            "title": "Pedido de contacto → Lead organizado",
+            "description": "Website recebe formulário → informação é estruturada → lead é classificado → equipa recebe a informação."
+          },
+          "customerQuestion": {
+            "title": "Pergunta do cliente → Resposta automática",
+            "description": "Cliente coloca uma questão → IA interpreta o pedido → responde com informação disponível ou encaminha para uma pessoa."
+          },
+          "dataToInsight": {
+            "title": "Dados → Informação útil",
+            "description": "Dados provenientes de diferentes fontes → processamento → informação estruturada para análise."
+          },
+          "repetitiveToWorkflow": {
+            "title": "Tarefa repetitiva → Workflow automático",
+            "description": "Evento ocorre → sistema executa várias ações automaticamente → equipa recebe apenas o que necessita."
+          }
+        }
+      },
+      "supervision": {
+        "title": "Automatizar não significa perder o controlo.",
+        "description": "As soluções podem ser desenhadas com validação humana, regras de aprovação e encaminhamento para uma pessoa sempre que o processo o exigir."
+      },
+      "technologies": {
+        "title": "Tecnologia que se adapta ao seu negócio",
+        "description": "As soluções podem combinar websites, APIs, bases de dados, ferramentas empresariais, modelos de IA e serviços externos, dependendo dos requisitos do projeto."
+      },
+      "faq": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "O que é uma solução de IA para empresas?",
+            "answer": "É uma solução que utiliza inteligência artificial para apoiar processos empresariais — por exemplo, chatbots, assistentes IA, qualificação de leads ou geração de conteúdo — sempre com regras e objetivos definidos para o projeto."
+          },
+          {
+            "question": "Quanto custa implementar IA numa empresa?",
+            "answer": "As soluções de IA da Artecium começam nos 750 €. Projetos de automação começam nos 1.500 €, enquanto soluções mais complexas são avaliadas individualmente."
+          },
+          {
+            "question": "Qual é a diferença entre IA e automação?",
+            "answer": "A automação executa tarefas predefinidas com base em regras. A IA pode interpretar informação, gerar respostas ou tomar decisões dentro de limites definidos. Muitos projetos combinam ambas as abordagens."
+          },
+          {
+            "question": "É possível integrar IA no meu website?",
+            "answer": "Sim. Podemos integrar chatbots, formulários inteligentes e assistentes IA em websites existentes ou em projetos novos, consoante os requisitos."
+          },
+          {
+            "question": "Podem ligar a IA ao meu CRM?",
+            "answer": "Em muitos casos, sim — desde que o CRM disponibilize APIs ou integrações compatíveis. A viabilidade é avaliada durante a fase de descoberta do projeto."
+          },
+          {
+            "question": "A automação pode funcionar sem intervenção humana?",
+            "answer": "Depende do processo. Algumas tarefas podem ser totalmente automáticas; noutras, faz sentido incluir validação humana, aprovações ou encaminhamento para uma pessoa."
+          },
+          {
+            "question": "Podem criar uma solução personalizada?",
+            "answer": "Sim. Projetos com requisitos específicos — agentes IA, sistemas internos ou integrações complexas — são avaliados e desenvolvidos à medida."
+          },
+          {
+            "question": "Os dados da empresa ficam protegidos?",
+            "answer": "As soluções são desenhadas tendo em conta os requisitos do projeto, incluindo os dados tratados, as ferramentas utilizadas e as respetivas configurações. Os requisitos de proteção de dados devem ser avaliados caso a caso."
+          }
+        ]
+      },
+      "related": {
+        "title": "Explorar",
+        "home": "Homepage",
+        "services": "Serviços",
+        "websites": "Websites",
+        "contact": "Contacto"
+      },
+      "cta": {
+        "title": "Tem um processo que gostaria de automatizar?",
+        "description": "Conte-nos como funciona atualmente e analisamos consigo onde a IA ou a automação pode fazer sentido.",
+        "button": "Começar projeto"
+      }
+    },
+    "seo": {
+      "metadata": {
+        "title": "SEO para Empresas em Portugal",
+        "description": "SEO para empresas em Portugal: auditoria, SEO técnico, conteúdo, pesquisa, SEO local e GEO para melhorar a presença nos motores de pesquisa."
+      },
+      "schema": {
+        "serviceName": "SEO",
+        "serviceDescription": "SEO para empresas em Portugal, incluindo auditoria, SEO técnico, conteúdo, pesquisa de palavras-chave, SEO local e GEO/AI Search."
+      },
+      "breadcrumb": {
+        "home": "Início",
+        "services": "Serviços",
+        "current": "SEO"
+      },
+      "hero": {
+        "title": "SEO para empresas que querem ser encontradas.",
+        "description": "Otimizamos websites, conteúdos e estrutura digital para ajudar empresas a melhorar a sua presença nos motores de pesquisa e preparar o conteúdo para novas experiências de pesquisa com IA.",
+        "tagline": "SEO técnico, conteúdo, pesquisa e GEO numa estratégia integrada.",
+        "ctaPrimary": "Começar projeto",
+        "ctaSecondary": "Ver planos",
+        "geoNote": "SEO para empresas em Portugal"
+      },
+      "problems": {
+        "title": "Ter um website não significa ser encontrado.",
+        "items": {
+          "lowVisibility": {
+            "title": "Pouca visibilidade",
+            "description": "O website existe, mas tem pouca presença nos resultados de pesquisa."
+          },
+          "unstructuredContent": {
+            "title": "Conteúdo pouco estruturado",
+            "description": "As páginas não respondem claramente às perguntas dos potenciais clientes."
+          },
+          "technicalIssues": {
+            "title": "Problemas técnicos",
+            "description": "Performance, headings, metadata, indexação ou estrutura podem limitar a compreensão do website."
+          },
+          "noFollowUp": {
+            "title": "SEO sem acompanhamento",
+            "description": "Uma otimização inicial pode não ser suficiente quando o conteúdo e o mercado continuam a mudar."
+          }
+        }
+      },
+      "work": {
+        "title": "O que fazemos em SEO",
+        "intro": "Trabalhamos diferentes dimensões do SEO consoante o plano e os objetivos do projeto.",
+        "items": {
+          "audit": {
+            "title": "Auditoria SEO",
+            "description": "Análise da estrutura técnica, conteúdo e presença atual do website."
+          },
+          "technicalSeo": {
+            "title": "SEO técnico",
+            "description": "Correção de aspetos que afetam a rastreabilidade, indexação e performance."
+          },
+          "keywordResearch": {
+            "title": "Pesquisa de palavras-chave",
+            "description": "Identificação de termos e intenções de pesquisa relevantes para o negócio."
+          },
+          "metadata": {
+            "title": "Metadata",
+            "description": "Otimização de titles, descriptions e elementos que influenciam os resultados."
+          },
+          "headings": {
+            "title": "Headings",
+            "description": "Estruturação hierárquica de conteúdos para melhor compreensão."
+          },
+          "contentStructure": {
+            "title": "Estrutura de conteúdos",
+            "description": "Organização de páginas e secções alinhadas com a intenção de pesquisa."
+          },
+          "internalLinking": {
+            "title": "Internal linking",
+            "description": "Ligações internas que ajudam a contextualizar e distribuir relevância."
+          },
+          "sitemapIndexing": {
+            "title": "Sitemap e indexação",
+            "description": "Configuração e monitorização da indexação das páginas relevantes."
+          },
+          "searchConsole": {
+            "title": "Google Search Console",
+            "description": "Configuração, monitorização e análise de dados de pesquisa."
+          },
+          "localSeo": {
+            "title": "SEO local",
+            "description": "Otimização para pesquisas com intenção geográfica e presença local."
+          },
+          "competitorAnalysis": {
+            "title": "Análise de concorrência",
+            "description": "Comparação de presença, conteúdos e oportunidades no mercado."
+          },
+          "searchContent": {
+            "title": "Conteúdo orientado para pesquisa",
+            "description": "Criação e otimização de conteúdos alinhados com perguntas reais dos utilizadores."
+          },
+          "geoAiSearch": {
+            "title": "GEO / AI Search",
+            "description": "Estruturação de conteúdo para melhor compreensão por sistemas de pesquisa e IA."
+          },
+          "monitoringOptimization": {
+            "title": "Monitorização e otimização",
+            "description": "Acompanhamento contínuo de dados e ajustes à estratégia."
+          }
+        }
+      },
+      "geo": {
+        "title": "SEO preparado para a pesquisa com IA",
+        "description": "Os motores de pesquisa estão a evoluir e os sistemas de IA conseguem interpretar cada vez mais informação diretamente a partir dos websites. Por isso, além da otimização tradicional para pesquisa, estruturamos conteúdos para serem claros, úteis e semanticamente compreensíveis.",
+        "pillars": {
+          "clearContent": {
+            "title": "Conteúdo claro",
+            "description": "Respostas diretas, informação útil e conteúdo alinhado com a intenção de pesquisa."
+          },
+          "semanticStructure": {
+            "title": "Estrutura semântica",
+            "description": "Headings, entidades, links internos e dados estruturados que ajudam a contextualizar a informação."
+          },
+          "authorityConsistency": {
+            "title": "Autoridade e consistência",
+            "description": "Conteúdo original, informação credível e uma presença digital coerente."
+          }
+        }
+      },
+      "pricing": {
+        "title": "Escolha o nível de acompanhamento",
+        "popularBadge": "MAIS POPULAR",
+        "setupBadge": "SETUP",
+        "note": "Os preços apresentados são valores de referência. O âmbito final do serviço pode variar de acordo com o website, mercado, objetivos e requisitos do projeto.",
+        "plans": {
+          "foundation": {
+            "name": "SEO Foundation",
+            "price": "350 €",
+            "priceNote": "Pagamento único",
+            "description": "Uma base técnica sólida para preparar o website para pesquisa.",
+            "features": [
+              "Auditoria SEO",
+              "SEO técnico",
+              "Metadata",
+              "Headings",
+              "Sitemap",
+              "Google Search Console",
+              "Indexação",
+              "Schema base"
+            ],
+            "cta": "Começar projeto"
+          },
+          "growth": {
+            "name": "SEO Growth",
+            "price": "500 € / mês",
+            "description": "Para empresas que querem trabalhar SEO de forma contínua.",
+            "features": [
+              "Otimização contínua",
+              "Pesquisa de palavras-chave",
+              "Conteúdo",
+              "Internal linking",
+              "Google Search Console",
+              "Análise mensal",
+              "Reporting"
+            ],
+            "cta": "Começar projeto"
+          },
+          "advanced": {
+            "name": "SEO Advanced",
+            "price": "900 € / mês",
+            "description": "Para empresas que querem uma estratégia SEO mais completa e acompanhamento avançado.",
+            "features": [
+              "Estratégia SEO completa",
+              "SEO técnico",
+              "Conteúdo",
+              "Análise de concorrência",
+              "Otimização contínua",
+              "GEO / AI Search",
+              "Reporting",
+              "Acompanhamento estratégico"
+            ],
+            "cta": "Falar sobre o projeto"
+          }
+        }
+      },
+      "process": {
+        "title": "Como trabalhamos o SEO",
+        "steps": {
+          "audit": {
+            "title": "Auditar",
+            "description": "Analisamos a estrutura técnica, conteúdo e presença atual."
+          },
+          "define": {
+            "title": "Definir",
+            "description": "Identificamos oportunidades e prioridades de otimização."
+          },
+          "optimize": {
+            "title": "Otimizar",
+            "description": "Implementamos melhorias técnicas, estruturais e de conteúdo."
+          },
+          "monitor": {
+            "title": "Acompanhar",
+            "description": "Analisamos os dados e ajustamos a estratégia ao longo do tempo."
+          }
+        }
+      },
+      "metrics": {
+        "title": "SEO deve ser acompanhado por dados.",
+        "intro": "As métricas disponíveis dependem das ferramentas de analytics, Google Search Console e da configuração do projeto. Não prometemos aumentos específicos.",
+        "items": [
+          "Impressões",
+          "Cliques",
+          "CTR",
+          "Posições médias",
+          "Consultas de pesquisa",
+          "Páginas indexadas",
+          "Tráfego orgânico",
+          "Conversões, quando configuradas"
+        ]
+      },
+      "faq": {
+        "title": "Perguntas frequentes",
+        "items": [
+          {
+            "question": "O que é SEO?",
+            "answer": "SEO (Search Engine Optimization) é o conjunto de práticas que visam melhorar a visibilidade de um website nos resultados orgânicos dos motores de pesquisa, através de otimização técnica, conteúdo, estrutura e autoridade."
+          },
+          {
+            "question": "Quanto custa SEO?",
+            "answer": "O SEO Foundation custa 350 € em pagamento único. O SEO Growth custa 500 € por mês e o SEO Advanced custa 900 € por mês. O âmbito final pode variar consoante o website e os requisitos."
+          },
+          {
+            "question": "Qual é a diferença entre SEO Foundation, Growth e Advanced?",
+            "answer": "O SEO Foundation é um setup inicial com base técnica. O SEO Growth inclui otimização contínua, pesquisa e reporting mensal. O SEO Advanced acrescenta estratégia mais completa, análise de concorrência, GEO/AI Search e acompanhamento estratégico."
+          },
+          {
+            "question": "Quanto tempo demora o SEO a produzir resultados?",
+            "answer": "O SEO é um processo contínuo. Os resultados variam conforme o mercado, concorrência, estado atual do website, conteúdo, autoridade e outros fatores. Não é possível garantir prazos específicos."
+          },
+          {
+            "question": "Podem garantir a primeira posição no Google?",
+            "answer": "Não. Nenhuma agência pode garantir legitimamente uma posição específica nos resultados orgânicos do Google."
+          },
+          {
+            "question": "O que é GEO?",
+            "answer": "GEO, ou Generative Engine Optimization, refere-se à otimização de conteúdo e estrutura para melhorar a forma como a informação pode ser compreendida e utilizada por sistemas de pesquisa e IA."
+          },
+          {
+            "question": "O SEO ajuda nos motores de pesquisa com IA?",
+            "answer": "Uma boa estrutura de conteúdo, SEO técnico e informação clara podem ajudar a que a informação seja melhor compreendida. No entanto, não existe garantia de aparecer em respostas geradas por IA ou AI Overviews."
+          },
+          {
+            "question": "É necessário publicar conteúdo regularmente?",
+            "answer": "Depende da estratégia e do mercado. Alguns projetos beneficiam de conteúdo regular; noutros, a prioridade pode ser otimizar páginas existentes. Definimos a abordagem consoante os objetivos."
+          },
+          {
+            "question": "Podem trabalhar SEO num website criado por outra empresa?",
+            "answer": "Sim. Podemos auditar e otimizar websites existentes, desde que tenhamos acesso necessário às ferramentas e plataformas envolvidas."
+          },
+          {
+            "question": "Tratam de SEO local?",
+            "answer": "Sim. O SEO local pode ser incluído nos planos Growth e Advanced, consoante os objetivos geográficos do negócio."
+          }
+        ]
+      },
+      "related": {
+        "title": "Explorar",
+        "home": "Homepage",
+        "services": "Serviços",
+        "websites": "Websites",
+        "ai": "IA & Automação",
+        "contact": "Contacto"
+      },
+      "cta": {
+        "title": "O seu website está preparado para ser encontrado?",
+        "description": "Conte-nos sobre o seu negócio e analisamos onde existem oportunidades de melhorar a sua presença digital.",
+        "button": "Começar projeto"
+      }
+    }
+  },
+  "faq": {
+    "metadata": {
+      "title": "Perguntas Frequentes sobre Websites, IA e SEO | Artecium",
+      "description": "Respostas às perguntas mais comuns sobre criação de websites, IA, automação e SEO para empresas em Portugal."
+    },
+    "breadcrumb": {
+      "home": "Início",
+      "current": "FAQ"
+    },
+    "hero": {
+      "title": "Perguntas frequentes",
+      "description": "Respostas às perguntas mais comuns sobre websites, IA, automação e SEO.",
+      "context": "Se não encontrar a resposta que procura, pode falar connosco sobre o seu projeto.",
+      "cta": "Começar projeto"
+    },
+    "categories": {
+      "websites": {
+        "title": "Websites",
+        "linkLabel": "Ver soluções de Websites",
+        "items": [
+          {
+            "question": "O que está incluído na criação de um website?",
+            "answer": "Depende do plano escolhido, mas os nossos websites podem incluir design personalizado, responsive design, formulários de contacto, integração WhatsApp, SEO técnico, metadata, sitemap, Google Analytics, deploy e configuração. Planos superiores podem incluir animações, integrações, automação e funcionalidades personalizadas.",
+            "link": {
+              "label": "Ver soluções de Websites",
+              "service": "websites"
+            }
+          },
+          {
+            "question": "Quanto custa criar um website profissional?",
+            "answer": "Na Artecium, os websites começam nos 750 €. O Website Professional custa 1.500 € e os projetos Business começam nos 2.500 €, dependendo das funcionalidades e requisitos.",
+            "link": {
+              "label": "Ver soluções de Websites",
+              "service": "websites"
+            }
+          },
+          {
+            "question": "Qual é a diferença entre os planos Essential, Professional e Business?",
+            "answer": "O Essential é indicado para uma presença online profissional com até 5 páginas. O Professional inclui mais páginas, design avançado, SEO on-page, Search Console e otimização para conversão. O Business destina-se a projetos com funcionalidades personalizadas, integrações avançadas, automação, IA, reservas ou áreas reservadas."
+          },
+          {
+            "question": "O website fica otimizado para SEO?",
+            "answer": "Sim. Todos os planos incluem uma base de SEO técnico. Planos superiores incluem SEO on-page e otimização adicional. Para estratégias contínuas de SEO, também dispomos de um serviço dedicado.",
+            "link": {
+              "label": "Ver serviços de SEO",
+              "service": "seo"
+            }
+          },
+          {
+            "question": "Podem criar funcionalidades personalizadas?",
+            "answer": "Sim. Projetos Business podem incluir funcionalidades personalizadas, integrações, APIs, sistemas de reservas, áreas reservadas e automações, consoante os requisitos do projeto."
+          }
+        ]
+      },
+      "ai": {
+        "title": "IA & Automação",
+        "linkLabel": "Ver soluções de IA e automação",
+        "items": [
+          {
+            "question": "O que é uma solução de IA para empresas?",
+            "answer": "É uma solução que utiliza inteligência artificial para apoiar tarefas como classificação de informação, geração de conteúdos, assistência a utilizadores ou apoio a decisões dentro de processos definidos — sempre com regras e validação adequadas."
+          },
+          {
+            "question": "O que é possível automatizar?",
+            "answer": "Podemos ajudar a automatizar tarefas repetitivas, encaminhamento de leads, emails, workflows, processamento de dados, integrações entre ferramentas e atendimento inicial. Nem todos os processos são adequados para automação — analisamos caso a caso."
+          },
+          {
+            "question": "Quanto custa implementar IA numa empresa?",
+            "answer": "As soluções de IA da Artecium começam nos 750 €. Projetos de automação começam nos 1.500 €, enquanto soluções mais complexas são avaliadas individualmente.",
+            "link": {
+              "label": "Ver soluções de IA e automação",
+              "service": "ia"
+            }
+          },
+          {
+            "question": "Qual é a diferença entre IA e automação?",
+            "answer": "Automação executa processos automaticamente com base em regras definidas. IA interpreta, gera, classifica ou apoia decisões e conteúdos dentro de determinados processos. Podem ser utilizadas em conjunto num mesmo projeto."
+          },
+          {
+            "question": "É possível integrar IA num website?",
+            "answer": "Sim. Dependendo do projeto, pode ser possível integrar chatbots, assistentes, formulários inteligentes ou outras funcionalidades que apoiem a experiência do utilizador ou a captura de leads."
+          },
+          {
+            "question": "A automação elimina a necessidade de intervenção humana?",
+            "answer": "Nem sempre. Muitos processos são desenhados com validação humana, regras de encaminhamento e pontos de revisão. O objetivo é reduzir tarefas repetitivas, não eliminar o controlo onde ele é necessário.",
+            "link": {
+              "label": "Ver soluções de IA e automação",
+              "service": "ia"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "SEO",
+        "linkLabel": "Ver serviços de SEO",
+        "items": [
+          {
+            "question": "O que é SEO?",
+            "answer": "SEO (Search Engine Optimization) é o conjunto de práticas que ajudam um website a ser compreendido, indexado e considerado relevante nos motores de pesquisa, através de conteúdo, estrutura e otimização técnica."
+          },
+          {
+            "question": "Quanto custa SEO?",
+            "answer": "Na Artecium, o SEO Foundation custa 350 € em pagamento único. O SEO Growth custa 500 € por mês e o SEO Advanced custa 900 € por mês.",
+            "link": {
+              "label": "Ver serviços de SEO",
+              "service": "seo"
+            }
+          },
+          {
+            "question": "Quanto tempo demora o SEO a produzir resultados?",
+            "answer": "Não existe um prazo fixo. Depende da concorrência, do estado atual do website, do conteúdo, da autoridade do domínio, do mercado, da implementação técnica e da procura pelos termos relevantes."
+          },
+          {
+            "question": "O SEO garante a primeira posição no Google?",
+            "answer": "Não. Nenhuma agência pode garantir legitimamente uma posição específica nos resultados orgânicos do Google."
+          },
+          {
+            "question": "O que é GEO?",
+            "answer": "GEO, ou Generative Engine Optimization, refere-se à otimização da informação e estrutura de conteúdos para facilitar a sua compreensão e utilização por sistemas de pesquisa e IA. Não garante inclusão ou posicionamento em ferramentas como ChatGPT ou AI Overviews."
+          },
+          {
+            "question": "O SEO ajuda nos motores de pesquisa com IA?",
+            "answer": "Conteúdos claros, úteis, estruturados e tecnicamente acessíveis podem ajudar sistemas de pesquisa e IA a compreender melhor uma entidade ou website. No entanto, não existe garantia de inclusão ou posicionamento."
+          },
+          {
+            "question": "É necessário publicar conteúdo regularmente?",
+            "answer": "Depende do objetivo e do mercado. Alguns projetos beneficiam de conteúdo regular; noutros, a prioridade pode ser otimizar páginas existentes. Definimos a abordagem consoante os objetivos."
+          },
+          {
+            "question": "Podem trabalhar SEO num website criado por outra empresa?",
+            "answer": "Sim, desde que exista acesso às ferramentas e plataformas necessárias e seja tecnicamente possível trabalhar os elementos relevantes."
+          }
+        ]
+      },
+      "projects": {
+        "title": "Projetos",
+        "hubLink": "Conhecer todas as soluções",
+        "links": {
+          "websites": "Websites",
+          "ai": "IA & Automação",
+          "seo": "SEO"
+        },
+        "items": [
+          {
+            "question": "Como começa um projeto com a Artecium?",
+            "answer": "Começamos pelo Discovery para compreender o negócio, identificar necessidades e definir a solução mais adequada. Depois seguimos para estratégia, desenvolvimento ou implementação, consoante o projeto."
+          },
+          {
+            "question": "Como sabem qual é a solução certa para a minha empresa?",
+            "answer": "Analisamos os objetivos, processos, público-alvo, website atual, necessidades e orçamento. Não existe uma recomendação automática — cada projeto é avaliado individualmente."
+          },
+          {
+            "question": "Quanto custa um projeto personalizado?",
+            "answer": "Depende do âmbito e das funcionalidades. Websites começam nos 750 €, soluções de IA nos 750 €, automação a partir de 1.500 € e SEO a partir de 350 €. Projetos mais complexos são orçamentados individualmente."
+          },
+          {
+            "question": "Trabalham com empresas em Portugal?",
+            "answer": "Sim. Trabalhamos com empresas em Portugal e apoiamos projetos digitais para negócios que operam no mercado português."
+          },
+          {
+            "question": "Posso pedir uma solução que combine website, IA e SEO?",
+            "answer": "Sim. As três áreas podem ser combinadas num único projeto, consoante os objetivos da empresa — desde uma nova presença online até automação e visibilidade nos motores de pesquisa."
+          }
+        ]
+      }
+    },
+    "allServices": "Conheça todas as nossas soluções",
+    "cta": {
+      "title": "Não encontrou a resposta?",
+      "description": "Conte-nos o que pretende fazer e ajudamos a perceber qual poderá ser a solução mais adequada.",
+      "button": "Começar projeto"
+    }
+  },
+  "blog": {
+    "shared": {
+      "label": "Guia",
+      "breadcrumb": {
+        "home": "Início",
+        "blog": "Blog"
+      }
+    },
+    "articles": {
+      "websiteCostPortugal2026": {
+        "metadata": {
+          "title": "Quanto custa criar um website em Portugal em 2026?",
+          "description": "Guia prático sobre o que influencia o preço de um website em Portugal, tipos de projeto, SEO, manutenção e preços transparentes da Artecium."
+        },
+        "breadcrumb": {
+          "current": "Quanto custa um website"
+        },
+        "hero": {
+          "title": "Quanto custa criar um website em Portugal em 2026?",
+          "intro": "Se está a planear um website para a sua empresa, a primeira pergunta é quase sempre a mesma: quanto custa? A resposta honesta é que depende do tipo de projeto, do design, das funcionalidades e do que precisa depois do lançamento. Neste guia explicamos o que influencia o preço, como comparar propostas e quanto investir num website profissional em Portugal — incluindo os preços reais da Artecium."
+        },
+        "averageCost": {
+          "title": "Quanto custa, em média, um website em Portugal?",
+          "paragraph": "Não existe um preço único para todos os websites. O valor final depende sobretudo do âmbito do projeto e do que precisa de funcionar no dia a dia. Dois sites com o mesmo número de páginas podem ter custos muito diferentes se um incluir formulários avançados, integrações ou uma área reservada.",
+          "factors": [
+            "Número de páginas e secções",
+            "Design personalizado ou baseado em template",
+            "Funcionalidades e integrações",
+            "SEO técnico e otimização de conteúdo",
+            "Formulários, automação e fluxos de contacto",
+            "Área reservada ou portal de cliente",
+            "Integrações com APIs, CRM ou pagamentos",
+            "Manutenção, atualizações e suporte após o lançamento"
+          ]
+        },
+        "priceTable": {
+          "title": "Tabela de preços por tipo de projeto",
+          "disclaimer": "Os valores abaixo descrevem categorias comuns de projeto. Não são preços fixos de mercado — cada proposta depende do âmbito, das funcionalidades e do fornecedor. Quando mencionamos valores da Artecium, indicamo-lo explicitamente.",
+          "headers": ["Tipo de projeto", "O que costuma incluir", "Nota sobre preço"],
+          "rows": [
+            {
+              "type": "Landing page / página simples",
+              "includes": "Uma página focada num objetivo: apresentação, campanha ou captura de contactos.",
+              "note": "Ideal para validar uma oferta ou promover um serviço específico. O preço cresce com design personalizado, copywriting e integrações."
+            },
+            {
+              "type": "Website institucional",
+              "includes": "Páginas essenciais (início, serviços, sobre, contactos), estrutura clara e formulário de contacto.",
+              "note": "A opção mais comum para empresas que precisam de presença profissional online sem funcionalidades complexas."
+            },
+            {
+              "type": "Website profissional",
+              "includes": "Mais páginas, melhor estrutura de conteúdo, SEO base, formulários e possível blog ou secções dedicadas.",
+              "note": "Indicado para empresas que querem gerar contactos e reforçar credibilidade. Na Artecium, o plano Professional parte dos 1.500 €."
+            },
+            {
+              "type": "Website com funcionalidades avançadas",
+              "includes": "Integrações, automação, áreas reservadas, multi-idioma ou fluxos personalizados.",
+              "note": "O preço reflete a complexidade técnica. Projetos Business na Artecium começam nos 2.500 €."
+            },
+            {
+              "type": "Aplicação web",
+              "includes": "Sistema com login, dashboards, processos internos ou lógica de negócio — não é apenas um site informativo.",
+              "note": "Requer análise individual. Na Artecium, aplicações web começam nos 3.500 €."
+            }
+          ]
+        },
+        "priceFactors": {
+          "title": "O que influencia o preço de um website?",
+          "items": [
+            {
+              "title": "Número de páginas e conteúdo",
+              "description": "Mais páginas significam mais design, copy, revisões e tempo de implementação. Um site de cinco páginas bem estruturado costuma ser mais eficiente do que dez páginas mal planeadas."
+            },
+            {
+              "title": "Design e identidade visual",
+              "description": "Um design personalizado, alinhado com a marca, exige mais trabalho do que adaptar um template. Logótipo, tipografia, imagens e consistência visual influenciam o orçamento."
+            },
+            {
+              "title": "Funcionalidades e integrações",
+              "description": "Formulários avançados, reservas, pagamentos, CRM, newsletters ou ligações a sistemas existentes aumentam a complexidade e o custo de desenvolvimento."
+            },
+            {
+              "title": "SEO e performance",
+              "description": "Um website tecnicamente sólido, rápido e preparado para motores de busca exige configuração adicional. SEO contínuo é normalmente contratado à parte."
+            },
+            {
+              "title": "Automação e IA",
+              "description": "Chatbots, fluxos automáticos de contacto ou integrações com ferramentas de IA podem reduzir trabalho manual, mas implicam configuração e testes."
+            },
+            {
+              "title": "Manutenção e evolução",
+              "description": "Após o lançamento, pode ser necessário atualizar conteúdos, corrigir problemas ou adicionar funcionalidades. Isto pode ser acordado como suporte pontual ou plano contínuo."
+            }
+          ]
+        },
+        "institutional": {
+          "title": "Quanto custa um website institucional?",
+          "paragraphs": [
+            "Um website institucional apresenta a empresa, os serviços e formas de contacto. É a base da presença online para a maioria dos negócios em Portugal — desde consultores e clínicas a empresas de serviços locais.",
+            "Normalmente inclui páginas como Início, Serviços, Sobre e Contactos, com design profissional, formulário de contacto e estrutura pensada para ser clara em telemóvel e computador.",
+            "Na Artecium, este tipo de projeto encaixa frequentemente no plano Essential (750 €), quando o âmbito é direto e focado numa presença sólida sem funcionalidades avançadas."
+          ]
+        },
+        "professional": {
+          "title": "Quanto custa um website profissional?",
+          "paragraphs": [
+            "Um website profissional vai além da presença básica: estrutura de conteúdo mais completa, secções dedicadas por serviço, melhor preparação para SEO e mais atenção à conversão de visitantes em contactos.",
+            "Pode incluir blog, FAQ, páginas de destino para campanhas ou integrações simples com ferramentas de marketing.",
+            "Na Artecium, o plano Professional (1.500 €) reflete este nível de profundidade — ideal para empresas que querem crescer online e não apenas \"estar na internet\"."
+          ]
+        },
+        "webApp": {
+          "title": "Quanto custa uma aplicação web?",
+          "paragraphs": [
+            "Uma aplicação web não é um website tradicional. Envolve lógica de negócio, autenticação, dashboards, fluxos internos ou interação contínua com utilizadores — por exemplo, áreas de cliente, gestão de pedidos ou ferramentas internas.",
+            "O preço depende quase sempre de requisitos funcionais, integrações, segurança e volume de utilização. Por isso, aplicações web são orçamentadas individualmente.",
+            "Na Artecium, aplicações web começam nos 3.500 €. Se o seu projeto combina website público com funcionalidades avançadas, convém analisar se precisa de um site profissional ampliado ou de uma aplicação dedicada."
+          ]
+        },
+        "domainHosting": {
+          "title": "O domínio e alojamento estão incluídos?",
+          "paragraphs": [
+            "Na Artecium, incluímos deploy e configuração inicial do website. O domínio (por exemplo, o seu nome .pt ou .com) é normalmente registado em nome do cliente ou gerido em conjunto, consoante o acordo.",
+            "O alojamento pode ser tratado pela Artecium ou pelo cliente, dependendo da solução acordada para cada projeto. Em alguns casos, o cliente já tem hosting; noutros, recomendamos uma infraestrutura adequada ao tipo de site.",
+            "O importante é clarificar estes pontos na proposta — domínio, hosting, emails e renovações não devem ser assumidos como incluídos sem confirmação explícita."
+          ]
+        },
+        "maintenance": {
+          "title": "É preciso pagar manutenção todos os meses?",
+          "paragraphs": [
+            "Nem todos os websites exigem manutenção mensal obrigatória. Depois do lançamento, muitas empresas precisam apenas de atualizações ocasionais — novos textos, imagens ou pequenas alterações.",
+            "No entanto, websites com tráfego relevante, integrações ou necessidade de segurança contínua beneficiam de acompanhamento regular: atualizações técnicas, backups, monitorização e melhorias.",
+            "Na Artecium, alterações e manutenção contínua podem ser acordadas após o lançamento, consoante o plano de suporte ou evolução definido para o projeto. Não existe um valor único — depende do que o site precisa ao longo do tempo."
+          ]
+        },
+        "seoPricing": {
+          "title": "Quanto custa o SEO?",
+          "intro": "SEO (Search Engine Optimization) ajuda o website a ser encontrado no Google e noutros motores de busca. Na Artecium, o SEO é oferecido em planos distintos consoante o nível de acompanhamento:",
+          "plans": [
+            {
+              "name": "SEO Foundation",
+              "price": "350 € (setup único)",
+              "description": "Configuração técnica inicial: estrutura, metadados, indexação e base sólida para crescimento orgânico."
+            },
+            {
+              "name": "SEO Growth",
+              "price": "500 €/mês",
+              "description": "Otimização contínua, pesquisa de keywords, conteúdo e reporting mensal."
+            },
+            {
+              "name": "SEO Advanced",
+              "price": "900 €/mês",
+              "description": "Estratégia mais completa, análise de concorrência, GEO/AI Search e acompanhamento estratégico."
+            }
+          ],
+          "linkLabel": "Ver serviço de SEO →"
+        },
+        "arteciumPricing": {
+          "title": "Quanto custa um website na Artecium?",
+          "intro": "Os preços abaixo são os planos comerciais atuais da Artecium para websites. Cada projeto é confirmado após perceber o âmbito, funcionalidades e objetivos do negócio.",
+          "plans": [
+            {
+              "name": "Essential",
+              "price": "750 €",
+              "description": "Website profissional essencial para empresas que precisam de presença online sólida e clara."
+            },
+            {
+              "name": "Professional",
+              "price": "1.500 €",
+              "description": "Mais profundidade de conteúdo, estrutura e preparação para crescimento e conversão."
+            },
+            {
+              "name": "Business",
+              "price": "desde 2.500 €",
+              "description": "Projetos com funcionalidades avançadas, integrações ou requisitos específicos do negócio."
+            }
+          ],
+          "linkLabel": "Ver planos de websites →"
+        },
+        "faq": {
+          "title": "Perguntas frequentes",
+          "items": [
+            {
+              "question": "Quanto custa fazer um website para uma pequena empresa?",
+              "answer": "Para muitas pequenas empresas, um website institucional ou profissional bem feito é suficiente. Na Artecium, os websites começam nos 750 € (Essential). Se precisar de mais páginas, SEO ou funcionalidades, o plano Professional (1.500 €) ou Business (desde 2.500 €) pode ser mais adequado."
+            },
+            {
+              "question": "Quanto tempo demora a criar um website?",
+              "answer": "Depende da complexidade e da velocidade com que o conteúdo (textos, imagens, aprovações) é entregue. Um website essencial pode ficar pronto em poucas semanas; projetos com mais funcionalidades ou integrações demoram mais. O prazo exato é definido na proposta."
+            },
+            {
+              "question": "O preço inclui SEO?",
+              "answer": "Os planos de website incluem boas práticas técnicas de base (estrutura, performance, metadados essenciais). SEO contínuo — pesquisa, conteúdo otimizado e acompanhamento — é um serviço à parte, a partir de 350 € (SEO Foundation) ou em planos mensais."
+            },
+            {
+              "question": "Preciso de pagar alojamento?",
+              "answer": "O alojamento pode ser tratado pela Artecium ou pelo cliente, consoante o acordo. Incluímos deploy e configuração inicial; hosting e domínio devem ser confirmados na proposta para evitar surpresas."
+            },
+            {
+              "question": "Posso pedir apenas uma landing page?",
+              "answer": "Sim. Se o objetivo é promover uma campanha, serviço ou oferta específica, uma landing page pode ser a solução certa. O preço depende do design, copy e integrações necessárias."
+            },
+            {
+              "question": "Posso adicionar funcionalidades depois?",
+              "answer": "Sim. Muitos clientes começam com um website essencial e evoluem depois — blog, SEO, automação, área reservada ou integrações. A Artecium pode planear essa evolução desde o início ou implementá-la numa fase posterior."
+            },
+            {
+              "question": "Quanto custa uma aplicação web?",
+              "answer": "Aplicações web são orçamentadas individualmente porque envolvem lógica de negócio, autenticação e requisitos técnicos específicos. Na Artecium, começam nos 3.500 €."
+            }
+          ]
+        },
+        "relatedLinksTitle": "Leia também",
+        "relatedLinks": [
+          { "label": "Blog", "hrefKey": "blog" },
+          { "label": "Quanto custa SEO?", "articleId": "seoCostPortugal2026" },
+          { "label": "Website profissional vs barato", "articleId": "professionalVsCheapWebsite" },
+          { "label": "Website ou aplicação web", "articleId": "websiteVsWebApp" },
+          { "label": "Websites", "hrefKey": "websites" },
+          { "label": "FAQ", "hrefKey": "faq" }
+        ],
+        "cta": {
+          "title": "Fale connosco sobre o seu projeto",
+          "description": "Conte-nos o que pretende construir e ajudamos a perceber qual solução e investimento fazem sentido para o seu negócio.",
+          "button": "Começar projeto"
+        }
+      }
+    }
+  },
+  "legal": {
+    "nav": {
+      "home": "Início",
+      "switchLanguage": "Mudar idioma",
+      "alternateEn": "EN",
+      "alternatePt": "PT"
+    }
+  },
+  "discovery": {
+    "privacyConsent": "Li e aceito a <policyLink>Política de Privacidade</policyLink> e autorizo o tratamento dos meus dados para responder ao meu pedido.",
+    "privacyConsentRequired": "Deve aceitar a Política de Privacidade para continuar.",
+    "whatsappNotice": "Ao continuar, o contacto será encaminhado para o WhatsApp (Meta), fora deste website.",
+    "modal": {
+      "title": "Descoberta de Projeto",
+      "titleBrief": "Brief de Descoberta",
+      "descriptionSteps": "Vamos perceber o seu projeto",
+      "descriptionReady": "O seu brief está pronto"
+    },
+    "progress": {
+      "stepOf": "Passo {step} de {total}",
+      "saving": "A guardar",
+      "briefComplete": "Brief de descoberta concluído"
+    },
+    "footer": {
+      "continue": "Continuar",
+      "previous": "Anterior",
+      "pleaseWait": "A enviar...",
+      "optional": "(opcional)"
+    },
+    "modalAria": {
+      "closeDialog": "Fechar janela",
+      "close": "Fechar"
+    },
+    "projectTypes": {
+      "ai-automation": "IA e Automação",
+      "website": "Website",
+      "web-application": "Aplicação Web",
+      "mobile-app": "Aplicação Móvel",
+      "custom-software": "Software à Medida",
+      "ai-chatbot": "Chatbot com IA"
+    },
+    "budget": {
+      "under-1000": "Até 1.000 €",
+      "1000-3000": "1.000 € – 3.000 €",
+      "3000-10000": "3.000 € – 10.000 €",
+      "10000-plus": "Mais de 10.000 €"
+    },
+    "timeline": {
+      "asap": "O mais rápido possível",
+      "within-30-days": "Nos próximos 30 dias",
+      "1-3-months": "1–3 meses",
+      "just-exploring": "A explorar opções"
+    },
+    "referral": {
+      "google": "Google",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "referral": "Referência",
+      "friend": "Amigo ou colega",
+      "other": "Outro"
+    },
+    "steps": {
+      "projectType": {
+        "headline": "Vamos criar algo extraordinário.",
+        "subtitle": "Conte-nos o desafio que quer resolver. Ajudamos empresas a transformar-se com tecnologia — não apenas a entregar websites.",
+        "question": "Que tipo de solução procura?",
+        "ariaLabel": "Tipo de projeto"
+      },
+      "budget": {
+        "headline": "Orçamento estimado",
+        "subtitle": "Isto ajuda-nos a perceber o âmbito e a recomendar a abordagem certa.",
+        "ariaLabel": "Orçamento estimado"
+      },
+      "timeline": {
+        "headline": "Quando gostaria de começar?",
+        "subtitle": "Compreender o prazo ajuda-nos a planear o processo de descoberta adequado.",
+        "ariaLabel": "Prazo do projeto"
+      },
+      "referral": {
+        "headline": "Como conheceu a Artecium?",
+        "ariaLabel": "Como nos conheceu"
+      },
+      "personalInfo": {
+        "headline": "Fale-nos de si.",
+        "subtitle": "Para sabermos para quem estamos a preparar este brief.",
+        "nameLabel": "Nome",
+        "namePlaceholder": "João Silva",
+        "companyLabel": "Empresa",
+        "companyPlaceholder": "Empresa Lda.",
+        "emailLabel": "Email",
+        "emailPlaceholder": "joao@email.com"
+      },
+      "description": {
+        "headline": "Descreva o seu projeto.",
+        "subtitle": "Que problema pretende resolver? Como é o sucesso para si?",
+        "label": "Descrição do projeto",
+        "placeholder": "Conte-nos sobre o seu projeto..."
+      },
+      "brief": {
+        "headline": "Brief de Descoberta",
+        "subtitle": "Todo o grande projeto começa por compreender os seus objetivos. Este breve questionário ajuda-nos a preparar uma primeira conversa mais significativa.",
+        "confirmQuestion": "Está tudo correto?",
+        "editProject": "Editar projeto"
+      },
+      "contactMethod": {
+        "headline": "Vamos continuar a conversa.",
+        "subtitle": "Escolha o método de contacto que preferir.",
+        "ariaLabel": "Método de contacto",
+        "emailLabel": "Continuar por email",
+        "emailDescription": "Analisaremos o seu Brief de Descoberta e entraremos em contacto em breve.",
+        "whatsappLabel": "Continuar no WhatsApp",
+        "whatsappDescription": "Continue a conversa de imediato com a nossa equipa."
+      }
+    },
+    "brief": {
+      "project": "Projeto",
+      "estimatedBudget": "Orçamento estimado",
+      "timeline": "Prazo",
+      "company": "Empresa",
+      "contact": "Contacto",
+      "projectDescription": "Descrição do projeto"
+    },
+    "emailSuccess": {
+      "headline": "O seu Brief de Descoberta está pronto.",
+      "subtitle": "Todo o projeto de sucesso começa com uma boa conversa. Estamos ansiosos por saber mais sobre o seu negócio.",
+      "sendRequest": "Enviar pedido",
+      "done": "Concluído",
+      "reviewComplete": "Revisão concluída. Quando estiver pronto, envie o seu brief e prepararemos a primeira conversa.",
+      "thankYou": "Obrigado, {name}. Recebemos o seu Brief de Descoberta e entraremos em contacto em breve."
+    },
+    "whatsappSuccess": {
+      "headline": "O seu Brief de Descoberta está pronto.",
+      "subtitle": "Todo o projeto de sucesso começa com uma boa conversa. Estamos ansiosos por saber mais sobre o seu negócio.",
+      "continueOnWhatsApp": "Continuar no WhatsApp",
+      "preparedMessage": "O seu brief está preparado. Continue no WhatsApp para iniciar a conversa com a nossa equipa."
+    },
+    "errors": {
+      "sendFailed": "Não foi possível enviar o pedido. Tente novamente.",
+      "generic": "Ocorreu um erro. Tente novamente."
+    }
+  },
+  "cookies": {
+    "bannerLabel": "Consentimento de cookies",
+    "title": "Valorizamos a sua privacidade",
+    "description": "Utilizamos cookies necessários para garantir o funcionamento do website e, com o seu consentimento, cookies de análise para compreender como o website é utilizado e melhorar a experiência.",
+    "acceptAll": "Aceitar todos",
+    "rejectOptional": "Recusar opcionais",
+    "customize": "Personalizar",
+    "savePreferences": "Guardar preferências",
+    "cookiePolicy": "Política de Cookies",
+    "preferencesTitle": "Preferências de cookies",
+    "preferencesDescription": "Escolha que categorias de cookies opcionais pretende permitir.",
+    "necessary": "Cookies necessários",
+    "necessaryStatus": "Sempre ativos",
+    "necessaryDescription": "Essenciais para o funcionamento do website, incluindo autenticação e segurança.",
+    "preferences": "Preferências",
+    "preferencesDescription": "Permitem guardar preferências como idioma e outras definições de experiência.",
+    "analytics": "Analytics",
+    "analyticsDescription": "Ajudam-nos a compreender como o website é utilizado (Google Analytics e Microsoft Clarity).",
+    "marketing": "Marketing",
+    "marketingDescription": "Utilizados para publicidade e campanhas. Atualmente não existem cookies de marketing implementados.",
+    "optional": "Opcional",
+    "closePreferences": "Fechar preferências de cookies"
+  }
+}

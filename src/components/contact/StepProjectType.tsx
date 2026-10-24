@@ -1,10 +1,11 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { OptionCard } from "@/components/contact/OptionCard";
 import { WizardStep } from "@/components/contact/WizardStep";
 import type { UseProjectDiscoveryReturn } from "@/hooks/useProjectDiscovery";
-import { PROJECT_TYPE_LABELS, type ProjectType } from "@/types/project";
+import type { ProjectType } from "@/types/project";
 
 const PROJECT_TYPES: ProjectType[] = [
   "ai-automation",
@@ -53,24 +54,25 @@ interface StepProjectTypeProps {
 }
 
 export function StepProjectType({ wizard }: StepProjectTypeProps) {
+  const t = useTranslations("discovery");
   const { data, selectAndAdvance, isTransitioning, direction } = wizard;
 
   return (
     <WizardStep
-      headline="Let's build something amazing."
-      subtitle="Tell us about the challenge you're solving. We help businesses transform through technology — not just deliver websites."
-      question="What do you need?"
+      headline={t("steps.projectType.headline")}
+      subtitle={t("steps.projectType.subtitle")}
+      question={t("steps.projectType.question")}
       direction={direction}
     >
       <div
         role="radiogroup"
-        aria-label="Project type"
+        aria-label={t("steps.projectType.ariaLabel")}
         className="grid gap-3 sm:grid-cols-2"
       >
         {PROJECT_TYPES.map((type) => (
           <OptionCard
             key={type}
-            label={PROJECT_TYPE_LABELS[type]}
+            label={t(`projectTypes.${type}`)}
             icon={icons[type]}
             selected={data.projectType === type}
             disabled={isTransitioning}

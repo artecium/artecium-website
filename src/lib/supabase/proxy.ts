@@ -34,10 +34,20 @@ async function resolveIsStaff(
   return resolveIsStaffFromSupabase(supabase, userId);
 }
 
-export async function updateSession(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({
-    request,
+function createNextResponse(request: NextRequest) {
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", request.nextUrl.pathname);
+  requestHeaders.set("x-locale", request.nextUrl.pathname.startsWith("/en") ? "en" : "pt-PT");
+
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
   });
+}
+
+export async function updateSession(request: NextRequest) {
+  let supabaseResponse = createNextResponse(request);
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -51,9 +61,7 @@ export async function updateSession(request: NextRequest) {
           cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value),
           );
-          supabaseResponse = NextResponse.next({
-            request,
-          });
+          supabaseResponse = createNextResponse(request);
           cookiesToSet.forEach(({ name, value, options }) =>
             supabaseResponse.cookies.set(name, value, options),
           );
@@ -70,7 +78,6 @@ export async function updateSession(request: NextRequest) {
   const userId = claims?.sub;
 
   const pathname = request.nextUrl.pathname;
-  supabaseResponse.headers.set("x-pathname", pathname);
 
   if (
     !userId &&

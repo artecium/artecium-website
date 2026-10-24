@@ -1,12 +1,19 @@
 import { SignOutButton } from "@/components/auth/SignOutButton";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
+import type { AppLocale } from "@/i18n/config";
 import type { PlatformProfile } from "@/types/platform";
 
 interface PlatformHeaderProps {
   profile: PlatformProfile;
   areaLabel: string;
+  locale: AppLocale;
 }
 
-export function PlatformHeader({ profile, areaLabel }: PlatformHeaderProps) {
+export function PlatformHeader({
+  profile,
+  areaLabel,
+  locale,
+}: PlatformHeaderProps) {
   const roleLabel = profile.roles
     .map((role) => role.replace(/_/g, " "))
     .join(", ");
@@ -24,7 +31,10 @@ export function PlatformHeader({ profile, areaLabel }: PlatformHeaderProps) {
           <p className="text-xs capitalize text-[#64748B]">{roleLabel}</p>
         ) : null}
       </div>
-      <SignOutButton />
+      <div className="flex items-center gap-3">
+        <LanguageSwitcher currentLocale={locale} />
+        <SignOutButton />
+      </div>
     </header>
   );
 }

@@ -6,23 +6,38 @@ export interface NavItem {
   icon?: ReactNode;
 }
 
-export const clientNavItems: NavItem[] = [
-  { label: "Dashboard", href: "/client/dashboard" },
-  { label: "Projects", href: "/client/projects" },
-  { label: "Services", href: "/client/services" },
-  { label: "Analytics", href: "/client/analytics" },
-  { label: "SEO", href: "/client/seo" },
-  { label: "Reports", href: "/client/reports" },
-  { label: "Payments", href: "/client/payments" },
-  { label: "Invoices", href: "/client/invoices" },
-  { label: "Documents", href: "/client/documents" },
-  { label: "Support", href: "/client/support" },
-  { label: "Notifications", href: "/client/notifications" },
-  { label: "Meetings", href: "/client/meetings" },
-  { label: "Feedback", href: "/client/feedback" },
-  { label: "Profile", href: "/client/profile" },
-  { label: "Settings", href: "/client/settings" },
-];
+export const clientNavRoutes = [
+  { key: "dashboard", href: "/client/dashboard" },
+  { key: "projects", href: "/client/projects" },
+  { key: "services", href: "/client/services" },
+  { key: "analytics", href: "/client/analytics" },
+  { key: "seo", href: "/client/seo" },
+  { key: "reports", href: "/client/reports" },
+  { key: "payments", href: "/client/payments" },
+  { key: "invoices", href: "/client/invoices" },
+  { key: "documents", href: "/client/documents" },
+  { key: "support", href: "/client/support" },
+  { key: "notifications", href: "/client/notifications" },
+  { key: "meetings", href: "/client/meetings" },
+  { key: "feedback", href: "/client/feedback" },
+  { key: "profile", href: "/client/profile" },
+  { key: "settings", href: "/client/settings" },
+] as const;
+
+export function buildClientNavItems(
+  t: (key: string) => string,
+): NavItem[] {
+  return clientNavRoutes.map(({ key, href }) => ({
+    label: t(key),
+    href,
+  }));
+}
+
+/** @deprecated Use buildClientNavItems with translations */
+export const clientNavItems: NavItem[] = clientNavRoutes.map(({ key, href }) => ({
+  label: key.charAt(0).toUpperCase() + key.slice(1),
+  href,
+}));
 
 export const adminNavItems: NavItem[] = [
   { label: "Dashboard", href: "/admin/dashboard" },

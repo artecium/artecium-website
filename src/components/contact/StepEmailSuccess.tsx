@@ -1,22 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { DiscoveryPrivacyConsent } from "@/components/contact/DiscoveryPrivacyConsent";
 import { WizardFooter, WizardStep } from "@/components/contact/WizardStep";
 import type { UseProjectDiscoveryReturn } from "@/hooks/useProjectDiscovery";
+import { useRef, useState } from "react";
 
 interface StepEmailSuccessProps {
   wizard: UseProjectDiscoveryReturn;
 }
 
 export function StepEmailSuccess({ wizard }: StepEmailSuccessProps) {
+  const t = useTranslations("discovery");
   const { data, direction, prev, close } = wizard;
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hasConsent, setHasConsent] = useState(false);
+  const [showConsentError, setShowConsentError] = useState(false);
+  const consentRef = useRef<HTMLInputElement>(null);
 
   const handleSend = async () => {
+    if (!hasConsent) {
+      setShowConsentError(true);
+      consentRef.current?.focus();
+      return;
+    }
+
     setIsSending(true);
     setError(null);
+    setShowConsentError(false);
 
     try {
       const response = await fetch("/api/discovery", {
@@ -28,14 +41,12 @@ export function StepEmailSuccess({ wizard }: StepEmailSuccessProps) {
       const result = (await response.json()) as { ok?: boolean; error?: string };
 
       if (!response.ok) {
-        throw new Error(result.error ?? "Failed to send request");
+        throw new Error(result.error ?? t("errors.sendFailed"));
       }
 
       setIsSent(true);
-    } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Something went wrong. Please try again.",
-      );
+    } catch {
+      setError(t("errors.sendFailed"));
     } finally {
       setIsSending(false);
     }
@@ -43,8 +54,8 @@ export function StepEmailSuccess({ wizard }: StepEmailSuccessProps) {
 
   return (
     <WizardStep
-      headline="Your Discovery Brief is ready."
-      subtitle="Every successful project starts with a great conversation. We look forward to learning more about your business."
+      headline={t("emailSuccess.headline")}
+      subtitle={t("emailSuccess.subtitle")}
       direction={direction}
       footer={
         isSent ? (
@@ -54,14 +65,14 @@ export function StepEmailSuccess({ wizard }: StepEmailSuccessProps) {
               onClick={close}
               className="rounded-full bg-[#2563EB] px-6 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-[#1D4ED8] hover:shadow-[0_0_24px_rgba(37,99,235,0.35)]"
             >
-              Done
+              {t("emailSuccess.done")}
             </button>
           </div>
         ) : (
           <WizardFooter
             onPrevious={prev}
             onContinue={handleSend}
-            continueLabel="Send Request"
+            continueLabel={t("emailSuccess.sendRequest")}
             canContinue={!isSending}
             isLoading={isSending}
             showPrevious
@@ -84,12 +95,23 @@ export function StepEmailSuccess({ wizard }: StepEmailSuccessProps) {
 
         {isSent ? (
           <p className="text-sm leading-relaxed text-[#94A3B8]">
-            Thank you, {data.name.split(" ")[0]}. We&apos;ve received your Discovery Brief and will be in touch shortly.
+            {t("emailSuccess.thankYou", { name: data.name.split(" ")[0] })}
           </p>
         ) : (
-          <p className="text-sm leading-relaxed text-[#94A3B8]">
-            Review complete. When you&apos;re ready, send your brief and we&apos;ll prepare for your first conversation.
-          </p>
+          <>
+            <p className="text-sm leading-relaxed text-[#94A3B8]">
+              {t("emailSuccess.reviewComplete")}
+            </p>
+            <DiscoveryPrivacyConsent
+              checked={hasConsent}
+              onChange={(checked) => {
+                setHasConsent(checked);
+                if (checked) setShowConsentError(false);
+              }}
+              showError={showConsentError}
+              inputRef={consentRef}
+            />
+          </>
         )}
 
         {error && (

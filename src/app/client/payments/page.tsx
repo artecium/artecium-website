@@ -1,6 +1,7 @@
 ﻿import { EmptyState } from "@/components/platform/EmptyState";
 import { PageHeader } from "@/components/platform/PageHeader";
 import { StatusBadge } from "@/components/platform/StatusBadge";
+import { resolveLocale } from "@/i18n/config";
 import {
   getClientPayments,
   getPaymentDisplayDate,
@@ -15,6 +16,8 @@ import {
 } from "@/lib/data/client-format";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { getLocale, getTranslations } from "next-intl/server";
+import type { AppLocale } from "@/i18n/config";
 
 function paymentStatusTone(
   status: string,
@@ -37,7 +40,23 @@ function paymentStatusTone(
   }
 }
 
-function PaymentCard({ payment }: { payment: ClientPaymentRow }) {
+function PaymentCard({
+  payment,
+  locale,
+  labels,
+  tStatus,
+}: {
+  payment: ClientPaymentRow;
+  locale: AppLocale;
+  labels: {
+    invoice: string;
+    paymentDate: string;
+    provider: string;
+    reference: string;
+    recorded: string;
+  };
+  tStatus: (key: string) => string;
+}) {
   const paymentDate = getPaymentDisplayDate(payment);
   const reference =
     payment.transaction_reference ?? payment.provider_payment_id;
@@ -48,10 +67,10 @@ function PaymentCard({ payment }: { payment: ClientPaymentRow }) {
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-3">
             <p className="text-lg font-semibold text-white">
-              {formatCurrency(payment.amount, payment.currency)}
+              {formatCurrency(payment.amount, payment.currency, locale)}
             </p>
             <StatusBadge
-              label={formatStatusLabel(payment.status)}
+              label={formatStatusLabel(payment.status, tStatus)}
               tone={paymentStatusTone(payment.status)}
             />
           </div>
@@ -60,7 +79,7 @@ function PaymentCard({ payment }: { payment: ClientPaymentRow }) {
             {payment.invoice_number ? (
               <div>
                 <dt className="text-xs uppercase tracking-wide text-[#64748B]">
-                  Invoice
+                  {labels.invoice}
                 </dt>
                 <dd className="mt-0.5 text-[#94A3B8]">{payment.invoice_number}</dd>
               </div>
@@ -68,17 +87,17 @@ function PaymentCard({ payment }: { payment: ClientPaymentRow }) {
 
             <div>
               <dt className="text-xs uppercase tracking-wide text-[#64748B]">
-                Payment date
+                {labels.paymentDate}
               </dt>
               <dd className="mt-0.5 text-[#94A3B8]">
-                {formatDateTime(paymentDate)}
+                {formatDateTime(paymentDate, locale)}
               </dd>
             </div>
 
             {payment.provider ? (
               <div>
                 <dt className="text-xs uppercase tracking-wide text-[#64748B]">
-                  Provider
+                  {labels.provider}
                 </dt>
                 <dd className="mt-0.5 text-[#94A3B8]">{payment.provider}</dd>
               </div>
@@ -87,7 +106,7 @@ function PaymentCard({ payment }: { payment: ClientPaymentRow }) {
             {reference ? (
               <div className="sm:col-span-2">
                 <dt className="text-xs uppercase tracking-wide text-[#64748B]">
-                  Reference
+                  {labels.reference}
                 </dt>
                 <dd className="mt-0.5 break-all text-[#94A3B8]">{reference}</dd>
               </div>
@@ -96,8 +115,8 @@ function PaymentCard({ payment }: { payment: ClientPaymentRow }) {
         </div>
 
         <div className="shrink-0 text-sm text-[#64748B] sm:text-right">
-          <p className="text-xs uppercase tracking-wide">Recorded</p>
-          <p className="mt-0.5 text-[#94A3B8]">{formatDate(payment.created_at)}</p>
+          <p className="text-xs uppercase tracking-wide">{labels.recorded}</p>
+          <p className="mt-0.5 text-[#94A3B8]">{formatDate(payment.created_at, locale)}</p>
         </div>
       </div>
     </li>
@@ -105,6 +124,12 @@ function PaymentCard({ payment }: { payment: ClientPaymentRow }) {
 }
 
 export default async function ClientPaymentsPage() {
+  const locale = resolveLocale(await getLocale());
+  const t = await getTranslations("payments");
+  const tCommon = await getTranslations("common");
+  const tErrors = await getTranslations("errors");
+  const tStatus = await getTranslations("status");
+
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
 
@@ -112,16 +137,22 @@ export default async function ClientPaymentsPage() {
   const paymentsResult = await getClientPayments(companyIds);
   const section = listSectionMessage(
     paymentsResult,
-    "No payments recorded yet",
-    "Your payment history will appear here once payments are recorded.",
+    tErrors,
+    t("emptyTitle"),
+    t("emptyDescription"),
   );
+
+  const paymentLabels = {
+    invoice: tCommon("invoice"),
+    paymentDate: tCommon("paymentDate"),
+    provider: tCommon("provider"),
+    reference: tCommon("reference"),
+    recorded: tCommon("recorded"),
+  };
 
   return (
     <>
-      <PageHeader
-        title="Payments"
-        description="Payment history, upcoming charges, and billing status."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
 
       {!dbState.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -133,7 +164,13 @@ export default async function ClientPaymentsPage() {
         <div className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-4 sm:p-6">
           <ul className="space-y-3">
             {paymentsResult.data.map((payment) => (
-              <PaymentCard key={payment.id} payment={payment} />
+              <PaymentCard
+                key={payment.id}
+                payment={payment}
+                locale={locale}
+                labels={paymentLabels}
+                tStatus={tStatus}
+              />
             ))}
           </ul>
         </div>

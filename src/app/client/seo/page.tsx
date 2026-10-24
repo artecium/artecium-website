@@ -2,12 +2,13 @@
 import { EmptyState } from "@/components/platform/EmptyState";
 import { PageHeader } from "@/components/platform/PageHeader";
 import { StatusBadge } from "@/components/platform/StatusBadge";
+import { resolveLocale } from "@/i18n/config";
 import {
   clientHasSeoService,
   isSeoIncluded,
 } from "@/lib/data/client-dashboard";
 import { getClientSeoOverview } from "@/lib/data/client-seo";
-import { formatDate } from "@/lib/data/client-format";
+import { formatDate, formatStatusLabel } from "@/lib/data/client-format";
 import {
   getClientSubscriptions,
   getMergedClientEntitlements,
@@ -15,8 +16,15 @@ import {
 } from "@/lib/data/client-subscriptions";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function ClientSeoPage() {
+  const locale = resolveLocale(await getLocale());
+  const t = await getTranslations("seo");
+  const tCommon = await getTranslations("common");
+  const tErrors = await getTranslations("errors");
+  const tStatus = await getTranslations("status");
+
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
   const dbState = await getDatabaseReadyState();
@@ -30,13 +38,10 @@ export default async function ClientSeoPage() {
   if (!included) {
     return (
       <>
-        <PageHeader
-          title="SEO"
-          description="Search performance metrics from Google Search Console."
-        />
+        <PageHeader title={t("title")} description={t("description")} />
         <EmptyState
-          title="SEO not included in your plan"
-          description="Your current services do not include SEO access. Contact Artecium to upgrade."
+          title={t("notIncludedTitle")}
+          description={t("notIncludedDescription")}
         />
       </>
     );
@@ -45,13 +50,13 @@ export default async function ClientSeoPage() {
   if (seoResult.accessDenied || seoResult.error) {
     return (
       <>
-        <PageHeader title="SEO" description="Search performance metrics from Google Search Console." />
+        <PageHeader title={t("title")} description={t("description")} />
         <EmptyState
-          title="Unable to load data"
+          title={tErrors("loadFailedTitle")}
           description={
             seoResult.accessDenied
-              ? "Access to SEO metrics was denied."
-              : "Something went wrong while loading SEO data."
+              ? t("accessDeniedDescription")
+              : t("loadFailedDescription")
           }
         />
       </>
@@ -61,10 +66,10 @@ export default async function ClientSeoPage() {
   if (!overview.connection) {
     return (
       <>
-        <PageHeader title="SEO" description="Search performance metrics from Google Search Console." />
+        <PageHeader title={t("title")} description={t("description")} />
         <EmptyState
-          title="Google Search Console ainda não está ligado."
-          description="Search metrics will appear here once Search Console is connected for your company."
+          title={t("notConnectedTitle")}
+          description={t("notConnectedDescription")}
         />
       </>
     );
@@ -72,14 +77,11 @@ export default async function ClientSeoPage() {
 
   const metrics = overview.metrics;
   const latest = metrics[metrics.length - 1];
-  const labels = metrics.map((row) => formatDate(row.metric_date));
+  const labels = metrics.map((row) => formatDate(row.metric_date, locale));
 
   return (
     <>
-      <PageHeader
-        title="SEO"
-        description="Search performance metrics from Google Search Console."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
 
       {!dbState.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -96,13 +98,16 @@ export default async function ClientSeoPage() {
           <h2 className="text-base font-medium text-white">
             {overview.connection.display_name ?? "Search Console"}
           </h2>
-          <StatusBadge label={overview.connection.status} tone="success" />
+          <StatusBadge
+            label={formatStatusLabel(overview.connection.status, tStatus)}
+            tone="success"
+          />
         </div>
         <p className="mt-2 text-sm text-[#94A3B8]">
-          Site: {overview.connection.site_url ?? "—"}
+          {t("site")}: {overview.connection.site_url ?? tCommon("emptyDash")}
         </p>
         {clientHasSeoService(subscriptions) ? (
-          <p className="mt-1 text-xs text-[#64748B]">Included in your active services.</p>
+          <p className="mt-1 text-xs text-[#64748B]">{t("includedInServices")}</p>
         ) : null}
       </div>
 
@@ -110,16 +115,16 @@ export default async function ClientSeoPage() {
         <>
           <div className="mb-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {[
-              { label: "Clicks", value: latest?.clicks },
-              { label: "Impressions", value: latest?.impressions },
+              { label: t("clicks"), value: latest?.clicks },
+              { label: t("impressions"), value: latest?.impressions },
               {
-                label: "CTR",
+                label: t("ctr"),
                 value:
                   latest?.ctr !== null && latest?.ctr !== undefined
                     ? `${(latest.ctr * 100).toFixed(2)}%`
-                    : "—",
+                    : tCommon("emptyDash"),
               },
-              { label: "Avg. position", value: latest?.average_position },
+              { label: t("avgPosition"), value: latest?.average_position },
             ].map((metric) => (
               <div
                 key={metric.label}
@@ -128,15 +133,21 @@ export default async function ClientSeoPage() {
                 <p className="text-xs uppercase tracking-wide text-[#64748B]">
                   {metric.label}
                 </p>
-                <p className="mt-2 text-2xl font-semibold text-white">{metric.value ?? "—"}</p>
+                <p className="mt-2 text-2xl font-semibold text-white">
+                  {metric.value ?? tCommon("emptyDash")}
+                </p>
               </div>
             ))}
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
-            <SimpleBarChart title="Clicks" labels={labels} values={metrics.map((m) => m.clicks ?? 0)} />
             <SimpleBarChart
-              title="Impressions"
+              title={t("chartClicks")}
+              labels={labels}
+              values={metrics.map((m) => m.clicks ?? 0)}
+            />
+            <SimpleBarChart
+              title={t("chartImpressions")}
               labels={labels}
               values={metrics.map((m) => m.impressions ?? 0)}
               color="#60A5FA"
@@ -144,10 +155,7 @@ export default async function ClientSeoPage() {
           </div>
         </>
       ) : (
-        <EmptyState
-          title="No SEO data yet"
-          description="Search metrics will appear here once Search Console data is synced."
-        />
+        <EmptyState title={t("noDataTitle")} description={t("noDataDescription")} />
       )}
     </>
   );

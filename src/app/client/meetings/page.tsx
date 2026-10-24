@@ -1,6 +1,7 @@
 ﻿import { EmptyState } from "@/components/platform/EmptyState";
 import { PageHeader } from "@/components/platform/PageHeader";
 import { StatusBadge } from "@/components/platform/StatusBadge";
+import { resolveLocale } from "@/i18n/config";
 import {
   formatDateTime,
   formatStatusLabel,
@@ -9,6 +10,7 @@ import {
 import { getClientMeetings } from "@/lib/data/client-meetings";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { getLocale, getTranslations } from "next-intl/server";
 
 function meetingStatusTone(status: string): "default" | "success" | "info" {
   switch (status) {
@@ -22,22 +24,26 @@ function meetingStatusTone(status: string): "default" | "success" | "info" {
 }
 
 export default async function ClientMeetingsPage() {
+  const locale = resolveLocale(await getLocale());
+  const t = await getTranslations("meetings");
+  const tCommon = await getTranslations("common");
+  const tErrors = await getTranslations("errors");
+  const tStatus = await getTranslations("status");
+
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
   const dbState = await getDatabaseReadyState();
   const meetingsResult = await getClientMeetings(companyIds);
   const section = listSectionMessage(
     meetingsResult,
-    "No meetings yet",
-    "Scheduled meetings and review calls will appear here when they are booked.",
+    tErrors,
+    t("emptyTitle"),
+    t("emptyDescription"),
   );
 
   return (
     <>
-      <PageHeader
-        title="Meetings"
-        description="Scheduled meetings, review calls, and project sessions."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
 
       {!dbState.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -56,21 +62,25 @@ export default async function ClientMeetingsPage() {
                 <div>
                   <h2 className="text-base font-medium text-white">{meeting.title}</h2>
                   {meeting.project_name ? (
-                    <p className="mt-1 text-xs text-[#64748B]">Project: {meeting.project_name}</p>
+                    <p className="mt-1 text-xs text-[#64748B]">
+                      {tCommon("project")}: {meeting.project_name}
+                    </p>
                   ) : null}
                 </div>
                 <StatusBadge
-                  label={formatStatusLabel(meeting.status)}
+                  label={formatStatusLabel(meeting.status, tStatus)}
                   tone={meetingStatusTone(meeting.status)}
                 />
               </div>
               <p className="mt-3 text-sm text-[#94A3B8]">
-                {formatDateTime(meeting.starts_at)}
-                {meeting.ends_at ? ` – ${formatDateTime(meeting.ends_at)}` : ""}
+                {formatDateTime(meeting.starts_at, locale)}
+                {meeting.ends_at
+                  ? ` – ${formatDateTime(meeting.ends_at, locale)}`
+                  : null}
               </p>
               {meeting.meeting_url ? (
                 <p className="mt-2 break-all text-xs text-[#64748B]">
-                  Link: {meeting.meeting_url}
+                  {tCommon("link")}: {meeting.meeting_url}
                 </p>
               ) : null}
             </li>

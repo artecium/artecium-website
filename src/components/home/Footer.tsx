@@ -1,101 +1,180 @@
 import { ArteciumLogo } from "@/components/ArteciumLogo";
+import { COMPANY_EMAIL } from "@/config/contact";
+import type { AppLocale } from "@/i18n/config";
+import { getBlogHubPath } from "@/lib/blog/paths";
+import { getFaqPath } from "@/lib/faq/paths";
+import { getTranslationsForLocale } from "@/lib/i18n/server-translations";
+import { resolveRequestLocale } from "@/lib/i18n/resolve-locale";
+import { getLegalPaths } from "@/lib/legal/paths";
+import { getProjectsHubPath } from "@/lib/projects/paths";
+import {
+  getServicePath,
+  getServicesHubPath,
+} from "@/lib/services/paths";
 import Link from "next/link";
 
-const footerLinks = {
-  company: [
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Solutions", href: "#solutions" },
-    { label: "Contact", href: "#contact" },
-  ],
-  services: [
-    { label: "AI Automation", href: "#services" },
-    { label: "Custom Software", href: "#services" },
-    { label: "Web Applications", href: "#services" },
-    { label: "Cloud Solutions", href: "#services" },
-  ],
-};
+const serviceLinkKeys = [
+  { id: "websites" as const, labelKey: "websites" as const },
+  { id: "ia" as const, labelKey: "aiAutomation" as const },
+  { id: "seo" as const, labelKey: "seo" as const },
+] as const;
 
-export function Footer() {
+interface FooterProps {
+  locale?: AppLocale;
+}
+
+export async function Footer({ locale: localeProp }: FooterProps = {}) {
+  const locale = localeProp ?? (await resolveRequestLocale());
+  const t = await getTranslationsForLocale(locale, "home.footer");
+  const nav = await getTranslationsForLocale(locale, "navigation");
+  const services = await getTranslationsForLocale(locale, "home.services");
+  const shared = await getTranslationsForLocale(locale, "services.shared");
+  const legalPaths = getLegalPaths(locale);
+  const hubPath = getServicesHubPath(locale);
+  const faqPath = getFaqPath(locale);
+  const blogPath = getBlogHubPath(locale);
+  const projectsPath = getProjectsHubPath(locale);
+  const homePath = locale === "en" ? "/en" : "/";
+
   return (
     <footer className="border-t border-[#1E293B] bg-[#050816] px-6 py-16 sm:px-10 lg:px-16">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-3">
+            <Link href={homePath} className="flex items-center gap-3">
               <ArteciumLogo className="h-9 w-9 sm:h-10 sm:w-10" />
               <span className="text-sm font-semibold tracking-[0.2em] text-white">
                 ARTECIUM
               </span>
-            </a>
+            </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-[#94A3B8]">
-              Engineering the future of business. Premium software, AI solutions,
-              and digital products for forward-thinking companies.
+              {t("description")}
             </p>
+            <p className="mt-4">
+              <a
+                href={`mailto:${COMPANY_EMAIL}`}
+                className="text-sm text-[#94A3B8] transition-colors hover:text-white"
+              >
+                {COMPANY_EMAIL}
+              </a>
+            </p>
+            <p className="mt-2 text-sm text-[#64748B]">{t("serviceArea")}</p>
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-white">Company</h4>
+            <h4 className="text-sm font-medium text-white">{t("company")}</h4>
             <ul className="mt-4 space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-[#94A3B8] transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href={hubPath}
+                  className="text-sm text-[#94A3B8] transition-colors hover:text-white"
+                >
+                  {nav("services")}
+                </Link>
+              </li>
+              <li>
+                <a
+                  href={`${homePath}#pricing`}
+                  className="text-sm text-[#94A3B8] transition-colors hover:text-white"
+                >
+                  {nav("pricing")}
+                </a>
+              </li>
+              <li>
+                <Link
+                  href={projectsPath}
+                  className="text-sm text-[#94A3B8] transition-colors hover:text-white"
+                >
+                  {nav("projects")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={blogPath}
+                  className="text-sm text-[#94A3B8] transition-colors hover:text-white"
+                >
+                  {nav("blog")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={faqPath}
+                  className="text-sm text-[#94A3B8] transition-colors hover:text-white"
+                >
+                  {nav("faq")}
+                </Link>
+              </li>
+              <li>
+                <a
+                  href={`${homePath}#contact`}
+                  className="text-sm text-[#94A3B8] transition-colors hover:text-white"
+                >
+                  {nav("contact")}
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-white">Services</h4>
+            <h4 className="text-sm font-medium text-white">{t("services")}</h4>
             <ul className="mt-4 space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
+              {serviceLinkKeys.map((link) => (
+                <li key={link.id}>
+                  <Link
+                    href={getServicePath(link.id, locale)}
                     className="text-sm text-[#94A3B8] transition-colors hover:text-white"
                   >
-                    {link.label}
-                  </a>
+                    {services(`${link.labelKey}.title`)}
+                  </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href={hubPath}
+                  className="text-sm text-[#94A3B8] transition-colors hover:text-white"
+                >
+                  {shared("allServices")}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-[#1E293B] pt-8 sm:flex-row sm:items-center">
           <p className="text-sm text-[#64748B]">
-            &copy; {new Date().getFullYear()} Artecium. All rights reserved.
+            &copy; {new Date().getFullYear()} Artecium. {t("copyright")}
           </p>
           <div className="flex flex-wrap gap-6">
             <Link
               href="/login"
               className="text-sm text-[#64748B] transition-colors hover:text-[#94A3B8]"
             >
-              Client Login
+              {nav("clientLogin")}
             </Link>
             <Link
               href="/admin/login"
               className="text-sm text-[#64748B] transition-colors hover:text-[#94A3B8]"
             >
-              Admin
+              {nav("admin")}
             </Link>
-            <a
-              href="#"
+            <Link
+              href={legalPaths.privacy}
               className="text-sm text-[#64748B] transition-colors hover:text-[#94A3B8]"
             >
-              Privacy
-            </a>
-            <a
-              href="#"
+              {nav("privacyPolicy")}
+            </Link>
+            <Link
+              href={legalPaths.cookies}
               className="text-sm text-[#64748B] transition-colors hover:text-[#94A3B8]"
             >
-              Terms
-            </a>
+              {nav("cookiePolicy")}
+            </Link>
+            <Link
+              href={legalPaths.terms}
+              className="text-sm text-[#64748B] transition-colors hover:text-[#94A3B8]"
+            >
+              {nav("termsConditions")}
+            </Link>
           </div>
         </div>
       </div>

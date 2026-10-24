@@ -8,9 +8,9 @@ import {
 export const SITE_URL = COMPANY_WEBSITE;
 export const SITE_NAME = COMPANY_NAME;
 export const SITE_TITLE =
-  "Artecium — Engineering the future of business";
+  "Websites, AI, Automation & SEO for Businesses | Artecium";
 export const SITE_DESCRIPTION =
-  "Artecium helps ambitious companies solve business problems through AI-powered software, automation, and custom digital products.";
+  "We create professional websites with AI, automation and SEO for businesses in Portugal — helping companies attract customers, streamline processes and grow online.";
 export const SITE_TAGLINE = "Engineering the future of business";
 export const SITE_KEYWORDS = [
   "software development",
@@ -35,20 +35,21 @@ export const SITE_CONTACT = {
 };
 
 export const SITE_OG_IMAGE = {
-  url: "/artecium-logo.png",
-  width: 512,
-  height: 512,
-  alt: "Artecium — Premium software and AI solutions",
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: "Artecium — Websites, AI, Automation & SEO for Businesses",
 };
 
 export const SITE_SERVICES = [
-  "AI Automation",
-  "Custom Software",
+  "Websites",
+  "AI & Automation",
+  "SEO",
   "Web Applications",
-  "Mobile Apps",
+  "Custom Software",
   "Cloud Solutions",
   "Business Systems",
-  "AI Chatbots",
+  "Mobile Apps",
 ];
 
 export const GOOGLE_SITE_VERIFICATION =

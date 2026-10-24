@@ -1,10 +1,8 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 import type { ProjectDiscoveryData } from "@/types/project";
-import {
-  BUDGET_LABELS,
-  PROJECT_TYPE_LABELS,
-  TIMELINE_LABELS,
-} from "@/types/project";
 
 interface BriefItem {
   icon: ReactNode;
@@ -71,28 +69,30 @@ interface DiscoveryBriefProps {
 }
 
 export function DiscoveryBrief({ data }: DiscoveryBriefProps) {
+  const t = useTranslations("discovery");
+
   const items: BriefItem[] = [
     {
       icon: icons.project,
-      label: "Project",
-      value: data.projectType ? PROJECT_TYPE_LABELS[data.projectType] : "—",
+      label: t("brief.project"),
+      value: data.projectType ? t(`projectTypes.${data.projectType}`) : "—",
     },
     {
       icon: icons.budget,
-      label: "Estimated Budget",
-      value: data.budget ? BUDGET_LABELS[data.budget] : "—",
+      label: t("brief.estimatedBudget"),
+      value: data.budget ? t(`budget.${data.budget}`) : "—",
     },
     {
       icon: icons.timeline,
-      label: "Timeline",
-      value: data.timeline ? TIMELINE_LABELS[data.timeline] : "—",
+      label: t("brief.timeline"),
+      value: data.timeline ? t(`timeline.${data.timeline}`) : "—",
     },
   ];
 
   if (data.company.trim()) {
     items.push({
       icon: icons.company,
-      label: "Company",
+      label: t("brief.company"),
       value: data.company.trim(),
     });
   }
@@ -100,12 +100,12 @@ export function DiscoveryBrief({ data }: DiscoveryBriefProps) {
   items.push(
     {
       icon: icons.contact,
-      label: "Contact",
+      label: t("brief.contact"),
       value: `${data.name} · ${data.email}`,
     },
     {
       icon: icons.description,
-      label: "Project Description",
+      label: t("brief.projectDescription"),
       value: data.description.trim(),
     },
   );

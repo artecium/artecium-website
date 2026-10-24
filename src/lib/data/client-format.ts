@@ -1,47 +1,44 @@
+import { defaultLocale, type AppLocale } from "@/i18n/config";
+import {
+  formatBillingSuffix as formatBillingSuffixForLocale,
+  formatCurrency as formatCurrencyForLocale,
+  formatDate as formatDateForLocale,
+  formatDateTime as formatDateTimeForLocale,
+} from "@/lib/i18n/format";
+import { listSectionMessage as listSectionMessageI18n } from "@/lib/i18n/sections";
+import { translateStatus } from "@/lib/i18n/status";
 import type { DataFetchResult } from "@/lib/data/supabase-query";
 
-export function formatDate(value: string | null): string {
-  if (!value) return "—";
-  return new Intl.DateTimeFormat("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  }).format(new Date(value));
+export function formatDate(
+  value: string | null,
+  locale: AppLocale = defaultLocale,
+): string {
+  return formatDateForLocale(value, locale);
 }
 
-export function formatDateTime(value: string | null): string {
-  if (!value) return "—";
-  return new Intl.DateTimeFormat("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(new Date(value));
+export function formatDateTime(
+  value: string | null,
+  locale: AppLocale = defaultLocale,
+): string {
+  return formatDateTimeForLocale(value, locale);
 }
 
 export function formatCurrency(
   amount: number | null | undefined,
   currency?: string | null,
+  locale: AppLocale = defaultLocale,
 ): string {
-  if (amount === null || amount === undefined || Number.isNaN(amount)) return "—";
-  const code = currency?.trim() || "EUR";
-  try {
-    return new Intl.NumberFormat("en-GB", {
-      style: "currency",
-      currency: code,
-    }).format(amount);
-  } catch {
-    return `${amount} ${code}`;
+  return formatCurrencyForLocale(amount, currency, locale);
+}
+
+export function formatBillingSuffix(
+  billingPeriod: string,
+  t?: (key: string) => string,
+): string {
+  if (t) {
+    return formatBillingSuffixForLocale(billingPeriod, t);
   }
-}
 
-export function formatStatusLabel(status?: string | null): string {
-  if (!status) return "UNKNOWN";
-  return status.replace(/_/g, " ").toUpperCase();
-}
-
-export function formatBillingSuffix(billingPeriod: string): string {
   switch (billingPeriod) {
     case "monthly":
       return "/month";
@@ -56,11 +53,35 @@ export function formatBillingSuffix(billingPeriod: string): string {
   }
 }
 
+export function formatStatusLabel(
+  status?: string | null,
+  t?: (key: string) => string,
+): string {
+  if (t) {
+    return translateStatus(status, t);
+  }
+
+  if (!status) return "UNKNOWN";
+  return status.replace(/_/g, " ").toUpperCase();
+}
+
 export function listSectionMessage(
   result: Pick<DataFetchResult<unknown[]>, "data" | "error" | "accessDenied" | "skipped">,
-  emptyTitle: string,
-  emptyDescription: string,
+  emptyTitleOrErrorsTranslator: string | ((key: string) => string),
+  emptyDescription?: string,
+  emptyTitleKey?: string,
 ): { hasData: boolean; emptyTitle: string; emptyDescription: string } {
+  if (typeof emptyTitleOrErrorsTranslator === "function") {
+    return listSectionMessageI18n(
+      result,
+      emptyTitleOrErrorsTranslator,
+      emptyDescription ?? "",
+      emptyTitleKey ?? "",
+    );
+  }
+
+  const emptyTitle = emptyTitleOrErrorsTranslator;
+
   if (result.data.length > 0) {
     return { hasData: true, emptyTitle: "", emptyDescription: "" };
   }
@@ -91,5 +112,5 @@ export function listSectionMessage(
     };
   }
 
-  return { hasData: false, emptyTitle, emptyDescription };
+  return { hasData: false, emptyTitle, emptyDescription: emptyDescription ?? "" };
 }

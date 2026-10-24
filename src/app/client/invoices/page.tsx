@@ -2,61 +2,27 @@
 import { EmptyState } from "@/components/platform/EmptyState";
 import { PageHeader } from "@/components/platform/PageHeader";
 import { StatusBadge } from "@/components/platform/StatusBadge";
+import { resolveLocale, type AppLocale } from "@/i18n/config";
 import {
   getClientInvoices,
   getInvoiceAmountDue,
   type ClientInvoiceRow,
 } from "@/lib/data/client-invoices";
+import {
+  formatCurrency,
+  formatDate,
+  formatStatusLabel,
+} from "@/lib/data/client-format";
+import { invoiceStatusTone } from "@/lib/i18n/status";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { getLocale, getTranslations } from "next-intl/server";
+import type { DataFetchResult } from "@/lib/data/supabase-query";
 
-function formatDate(value: string | null): string {
-  if (!value) return "—";
-  return new Intl.DateTimeFormat("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  }).format(new Date(value));
-}
-
-function formatCurrency(amount: number | null, currency: string): string {
-  if (amount === null) return "—";
-  return new Intl.NumberFormat("en-GB", {
-    style: "currency",
-    currency,
-  }).format(amount);
-}
-
-function formatStatusLabel(status: string): string {
-  return status.replace(/_/g, " ").toUpperCase();
-}
-
-function invoiceStatusTone(
-  status: string,
-): "default" | "success" | "warning" | "danger" | "info" {
-  switch (status) {
-    case "paid":
-      return "success";
-    case "issued":
-    case "sent":
-    case "viewed":
-      return "info";
-    case "partially_paid":
-      return "warning";
-    case "overdue":
-      return "danger";
-    default:
-      return "default";
-  }
-}
-
-function listSectionMessage(
-  result: {
-    data: unknown[];
-    error: string | null;
-    accessDenied: boolean;
-    skipped: boolean;
-  },
+function invoiceListSectionMessage(
+  result: Pick<DataFetchResult<unknown[]>, "data" | "error" | "accessDenied" | "skipped">,
+  tErrors: (key: string) => string,
+  emptyTitle: string,
   emptyDescription: string,
 ): { hasData: boolean; emptyTitle: string; emptyDescription: string } {
   if (result.data.length > 0) {
@@ -66,34 +32,28 @@ function listSectionMessage(
   if (result.skipped) {
     return {
       hasData: false,
-      emptyTitle: "Company context unavailable",
-      emptyDescription:
-        "Your account is not linked to a company yet, so invoices cannot be loaded.",
+      emptyTitle: tErrors("companyUnavailableTitle"),
+      emptyDescription: tErrors("invoicesCompanyUnavailable"),
     };
   }
 
   if (result.accessDenied) {
     return {
       hasData: false,
-      emptyTitle: "Unable to load data",
-      emptyDescription:
-        "Access to invoices was denied. Contact support if this persists.",
+      emptyTitle: tErrors("accessDeniedTitle"),
+      emptyDescription: tErrors("invoicesAccessDenied"),
     };
   }
 
   if (result.error) {
     return {
       hasData: false,
-      emptyTitle: "Unable to load data",
-      emptyDescription: "Something went wrong while loading your invoices.",
+      emptyTitle: tErrors("loadFailedTitle"),
+      emptyDescription: tErrors("invoicesLoadFailed"),
     };
   }
 
-  return {
-    hasData: false,
-    emptyTitle: "No invoices yet",
-    emptyDescription,
-  };
+  return { hasData: false, emptyTitle, emptyDescription };
 }
 
 function getOutstandingAmount(invoice: ClientInvoiceRow): number | null {
@@ -109,7 +69,25 @@ function canPayInvoice(invoice: ClientInvoiceRow): boolean {
   return amountDue !== null && amountDue > 0;
 }
 
-function InvoiceCard({ invoice }: { invoice: ClientInvoiceRow }) {
+function InvoiceCard({
+  invoice,
+  locale,
+  labels,
+}: {
+  invoice: ClientInvoiceRow;
+  locale: AppLocale;
+  labels: {
+    invoiceLabel: string;
+    issueDate: string;
+    dueDate: string;
+    total: string;
+    paid: string;
+    due: string;
+    lineItems: string;
+    quantity: string;
+    formatStatus: (key: string) => string;
+  };
+}) {
   const outstanding = getOutstandingAmount(invoice);
   const showPayButton = canPayInvoice(invoice);
 
@@ -119,53 +97,53 @@ function InvoiceCard({ invoice }: { invoice: ClientInvoiceRow }) {
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-3">
             <h2 className="text-base font-medium text-white">
-              {invoice.invoice_number ?? "Invoice"}
+              {invoice.invoice_number ?? labels.invoiceLabel}
             </h2>
             <StatusBadge
-              label={formatStatusLabel(invoice.status)}
+              label={formatStatusLabel(invoice.status, labels.formatStatus)}
               tone={invoiceStatusTone(invoice.status)}
             />
           </div>
           <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
             <div>
               <dt className="text-xs uppercase tracking-wide text-[#64748B]">
-                Issue date
+                {labels.issueDate}
               </dt>
               <dd className="mt-0.5 text-[#94A3B8]">
-                {formatDate(invoice.issue_date)}
+                {formatDate(invoice.issue_date, locale)}
               </dd>
             </div>
             <div>
               <dt className="text-xs uppercase tracking-wide text-[#64748B]">
-                Due date
+                {labels.dueDate}
               </dt>
               <dd className="mt-0.5 text-[#94A3B8]">
-                {formatDate(invoice.due_date)}
+                {formatDate(invoice.due_date, locale)}
               </dd>
             </div>
           </dl>
         </div>
 
         <div className="shrink-0 sm:text-right">
-          <p className="text-xs uppercase tracking-wide text-[#64748B]">Total</p>
+          <p className="text-xs uppercase tracking-wide text-[#64748B]">{labels.total}</p>
           <p className="mt-0.5 text-lg font-semibold text-white">
-            {formatCurrency(invoice.total, invoice.currency)}
+            {formatCurrency(invoice.total, invoice.currency, locale)}
           </p>
           <p className="mt-2 text-xs text-[#64748B]">
-            Paid:{" "}
+            {labels.paid}:{" "}
             <span className="text-[#94A3B8]">
-              {formatCurrency(invoice.amount_paid, invoice.currency)}
+              {formatCurrency(invoice.amount_paid, invoice.currency, locale)}
             </span>
           </p>
           {outstanding !== null ? (
             <p className="mt-1 text-xs text-[#64748B]">
-              Due:{" "}
+              {labels.due}:{" "}
               <span
                 className={
                   outstanding > 0 ? "font-medium text-amber-300" : "text-[#94A3B8]"
                 }
               >
-                {formatCurrency(outstanding, invoice.currency)}
+                {formatCurrency(outstanding, invoice.currency, locale)}
               </span>
             </p>
           ) : null}
@@ -174,13 +152,15 @@ function InvoiceCard({ invoice }: { invoice: ClientInvoiceRow }) {
 
       {invoice.items.length ? (
         <div className="mt-4 border-t border-[#1E293B] pt-4">
-          <h3 className="text-xs uppercase tracking-wide text-[#64748B]">Line items</h3>
+          <h3 className="text-xs uppercase tracking-wide text-[#64748B]">
+            {labels.lineItems}
+          </h3>
           <ul className="mt-2 space-y-2">
             {invoice.items.map((item) => (
               <li key={item.id} className="flex justify-between gap-4 text-sm text-[#94A3B8]">
                 <span>{item.description}</span>
                 <span>
-                  {item.quantity} × {formatCurrency(item.unit_price, invoice.currency)}
+                  {item.quantity} × {formatCurrency(item.unit_price, invoice.currency, locale)}
                 </span>
               </li>
             ))}
@@ -194,23 +174,40 @@ function InvoiceCard({ invoice }: { invoice: ClientInvoiceRow }) {
 }
 
 export default async function ClientInvoicesPage() {
+  const locale = resolveLocale(await getLocale());
+  const t = await getTranslations("invoices");
+  const tCommon = await getTranslations("common");
+  const tErrors = await getTranslations("errors");
+  const tStatus = await getTranslations("status");
+
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
 
   const dbState = await getDatabaseReadyState();
   const invoicesResult = await getClientInvoices(companyIds);
   const invoices = invoicesResult.data;
-  const section = listSectionMessage(
+  const section = invoiceListSectionMessage(
     invoicesResult,
-    "Your invoices will appear here once they are issued.",
+    tErrors,
+    t("emptyTitle"),
+    t("emptyDescription"),
   );
+
+  const invoiceLabels = {
+    invoiceLabel: t("invoiceLabel"),
+    issueDate: tCommon("issueDate"),
+    dueDate: tCommon("dueDate"),
+    total: tCommon("total"),
+    paid: tCommon("paid"),
+    due: tCommon("due"),
+    lineItems: tCommon("lineItems"),
+    quantity: tCommon("quantity"),
+    formatStatus: tStatus,
+  };
 
   return (
     <>
-      <PageHeader
-        title="Invoices"
-        description="View and download your invoices."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
 
       {!dbState.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -222,7 +219,12 @@ export default async function ClientInvoicesPage() {
         <div className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-4 sm:p-6">
           <ul className="space-y-3">
             {invoices.map((invoice) => (
-              <InvoiceCard key={invoice.id} invoice={invoice} />
+              <InvoiceCard
+                key={invoice.id}
+                invoice={invoice}
+                locale={locale}
+                labels={invoiceLabels}
+              />
             ))}
           </ul>
         </div>

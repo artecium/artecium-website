@@ -1,11 +1,12 @@
 import { sendGAEvent } from "@next/third-parties/google";
+import { hasAnalyticsConsent } from "@/lib/cookies/consent";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 type AnalyticsEventParams = Record<string, string | number | boolean | undefined>;
 
 function trackEvent(eventName: string, params?: AnalyticsEventParams) {
-  if (!GA_MEASUREMENT_ID) return;
+  if (!GA_MEASUREMENT_ID || !hasAnalyticsConsent()) return;
 
   sendGAEvent("event", eventName, {
     send_to: GA_MEASUREMENT_ID,

@@ -1,0 +1,89 @@
+{
+  "projects": {
+    "metadata": {
+      "title": "Projects and digital solutions",
+      "description": "Artecium portfolio — websites, AI, automation, web applications and SEO. Case studies and real projects, with status clearly stated."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "current": "Projects"
+    },
+    "hero": {
+      "title": "Projects and digital solutions",
+      "intro": "We share case studies and projects built by Artecium — websites, AI, automation, web applications and SEO. Each entry states the current status of the work, including projects still in development."
+    },
+    "categories": {
+      "websites": "Websites",
+      "ia": "AI & Automation",
+      "webapps": "Web Applications",
+      "seo": "SEO"
+    },
+    "status": {
+      "demo": "Demo",
+      "concept": "Concept",
+      "own": "Internal project",
+      "development": "In development",
+      "live": "Live"
+    },
+    "filters": {
+      "label": "Filter by category",
+      "all": "All",
+      "emptyTitle": "No projects in this category",
+      "emptyDescription": "There are no published entries in this category yet. Browse all categories or talk to us about your project."
+    },
+    "card": {
+      "viewProject": "View project",
+      "previewPlaceholder": "Preview coming soon"
+    },
+    "detail": {
+      "galleryTitle": "Gallery",
+      "mediaPlaceholder": "Authorized screenshots will be added when available. This project is still in local development.",
+      "backToProjects": "Back to projects"
+    },
+    "empty": {
+      "title": "New projects coming soon",
+      "description": "We are preparing to publish case studies. In the meantime, explore our services or talk to us about your project."
+    },
+    "cta": {
+      "title": "Have a project in mind?",
+      "description": "Tell us what you want to build and we'll help define the best approach.",
+      "button": "Start a project"
+    },
+    "items": {
+      "almarBeachClub": {
+        "metadata": {
+          "title": "Almar Beach Club — landing page (in development)",
+          "description": "Case study: landing page in development for Almar Beach Club, Praia de Albarquel, Setúbal. Local project, not yet complete or published."
+        },
+        "title": "Almar Beach Club",
+        "shortDescription": "Landing page in development to present the beach club at Praia de Albarquel, Setúbal.",
+        "intro": "Case study of a landing page Artecium is building for Almar Beach Club. Work is in a local environment, not yet complete, and there is no confirmed public URL.",
+        "statusNote": "This project is in development. Content, features and screenshots on Artecium reflect the current state of the work — not a published or finalized website.",
+        "context": {
+          "title": "Context",
+          "paragraphs": [
+            "Almar Beach Club is located at Praia de Albarquel, Setúbal. The project goal is a landing page that presents the venue clearly for visitors and potential customers.",
+            "This is a real project in progress, built locally by Artecium, without claiming completion or public launch at this stage."
+          ]
+        },
+        "solution": {
+          "title": "Solution in development",
+          "paragraphs": [
+            "Artecium is designing and building a landing page focused on the venue identity and essential information for people looking to discover the beach club.",
+            "The approach follows the visual and UX standards used in Artecium website projects: clear structure, responsive layout and room to evolve as the project progresses."
+          ]
+        },
+        "objectives": {
+          "title": "Landing page objectives",
+          "intro": "Based on the scope defined for this project, the landing page is oriented towards:",
+          "items": [
+            "Presenting the venue and atmosphere of the beach club",
+            "Menu",
+            "Events",
+            "Reservations"
+          ]
+        }
+      }
+    }
+  }
+}

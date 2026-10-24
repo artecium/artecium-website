@@ -1,6 +1,7 @@
 "use client";
 
 import { createInvoiceCheckoutSession } from "@/lib/actions/stripe/checkout-invoice";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 interface PayInvoiceButtonProps {
@@ -8,6 +9,8 @@ interface PayInvoiceButtonProps {
 }
 
 export function PayInvoiceButton({ invoiceId }: PayInvoiceButtonProps) {
+  const t = useTranslations("common");
+  const tInvoices = useTranslations("invoices");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -19,7 +22,7 @@ export function PayInvoiceButton({ invoiceId }: PayInvoiceButtonProps) {
       const result = await createInvoiceCheckoutSession(invoiceId);
       window.location.href = result.url;
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Unable to start checkout.");
+      setError(err instanceof Error ? err.message : tInvoices("checkoutError"));
       setLoading(false);
     }
   }
@@ -32,7 +35,7 @@ export function PayInvoiceButton({ invoiceId }: PayInvoiceButtonProps) {
         disabled={loading}
         className="inline-flex items-center justify-center rounded-lg bg-violet-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {loading ? "A redirecionar…" : "Pagar agora"}
+        {loading ? t("redirecting") : t("payNow")}
       </button>
       {error ? <p className="mt-2 text-sm text-red-400">{error}</p> : null}
     </div>

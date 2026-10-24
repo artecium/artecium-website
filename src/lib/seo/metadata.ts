@@ -1,7 +1,6 @@
 import {
   GOOGLE_SITE_VERIFICATION,
   SITE_DESCRIPTION,
-  SITE_KEYWORDS,
   SITE_LOCALE,
   SITE_NAME,
   SITE_OG_IMAGE,
@@ -16,6 +15,8 @@ interface PageMetadataOptions {
   description?: string;
   path?: string;
   noIndex?: boolean;
+  openGraphLocale?: string;
+  alternateLanguages?: Record<string, string>;
 }
 
 export function constructMetadata({
@@ -23,6 +24,8 @@ export function constructMetadata({
   description = SITE_DESCRIPTION,
   path = "",
   noIndex = false,
+  openGraphLocale = SITE_LOCALE,
+  alternateLanguages,
 }: PageMetadataOptions = {}): Metadata {
   const canonicalPath = path.startsWith("/") ? path : `/${path}`;
   const canonicalUrl = `${SITE_URL}${canonicalPath === "/" ? "" : canonicalPath}`;
@@ -35,7 +38,6 @@ export function constructMetadata({
       template: `%s | ${SITE_NAME}`,
     },
     description,
-    keywords: SITE_KEYWORDS,
     authors: [{ name: SITE_NAME, url: SITE_URL }],
     creator: SITE_NAME,
     publisher: SITE_NAME,
@@ -49,10 +51,11 @@ export function constructMetadata({
     },
     alternates: {
       canonical: canonicalUrl,
+      ...(alternateLanguages ? { languages: alternateLanguages } : {}),
     },
     openGraph: {
       type: "website",
-      locale: SITE_LOCALE,
+      locale: openGraphLocale,
       url: canonicalUrl,
       siteName: SITE_NAME,
       title,

@@ -4,8 +4,12 @@ import { StatusBadge } from "@/components/platform/StatusBadge";
 import { getClientProfileContext } from "@/lib/data/client-profile";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { getTranslations } from "next-intl/server";
 
 export default async function ClientProfilePage() {
+  const t = await getTranslations("profile");
+  const tCommon = await getTranslations("common");
+
   const session = await requireClientAuth();
   const dbState = await getDatabaseReadyState();
   const profileResult = await getClientProfileContext(session.profile);
@@ -14,13 +18,13 @@ export default async function ClientProfilePage() {
   if (profileResult.accessDenied || profileResult.error) {
     return (
       <>
-        <PageHeader title="Profile" description="Your account details and preferences." />
+        <PageHeader title={t("title")} description={t("description")} />
         <EmptyState
-          title="Unable to load profile"
+          title={t("loadFailedTitle")}
           description={
             profileResult.accessDenied
-              ? "Access to your profile was denied."
-              : "Something went wrong while loading your profile."
+              ? t("accessDeniedDescription")
+              : t("loadFailedDescription")
           }
         />
       </>
@@ -31,10 +35,7 @@ export default async function ClientProfilePage() {
 
   return (
     <>
-      <PageHeader
-        title="Profile"
-        description="Your account details and preferences."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
 
       {!dbState.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -44,26 +45,38 @@ export default async function ClientProfilePage() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-6">
-          <h2 className="text-base font-medium text-white">Account</h2>
+          <h2 className="text-base font-medium text-white">{t("account")}</h2>
           <dl className="mt-4 space-y-3 text-sm">
             <div>
-              <dt className="text-xs uppercase tracking-wide text-[#64748B]">Name</dt>
-              <dd className="mt-0.5 text-white">{profile.full_name ?? "—"}</dd>
+              <dt className="text-xs uppercase tracking-wide text-[#64748B]">
+                {tCommon("name")}
+              </dt>
+              <dd className="mt-0.5 text-white">
+                {profile.full_name ?? tCommon("emptyDash")}
+              </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-[#64748B]">Email</dt>
+              <dt className="text-xs uppercase tracking-wide text-[#64748B]">
+                {tCommon("email")}
+              </dt>
               <dd className="mt-0.5 text-[#94A3B8]">{profile.email}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-[#64748B]">Locale</dt>
+              <dt className="text-xs uppercase tracking-wide text-[#64748B]">
+                {tCommon("locale")}
+              </dt>
               <dd className="mt-0.5 text-[#94A3B8]">{profile.locale}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-[#64748B]">Currency</dt>
+              <dt className="text-xs uppercase tracking-wide text-[#64748B]">
+                {tCommon("currency")}
+              </dt>
               <dd className="mt-0.5 text-[#94A3B8]">{profile.currency}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-[#64748B]">Roles</dt>
+              <dt className="text-xs uppercase tracking-wide text-[#64748B]">
+                {tCommon("roles")}
+              </dt>
               <dd className="mt-2 flex flex-wrap gap-2">
                 {profile.roles.map((role) => (
                   <StatusBadge key={role} label={role} tone="info" />
@@ -74,7 +87,7 @@ export default async function ClientProfilePage() {
         </section>
 
         <section className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-6">
-          <h2 className="text-base font-medium text-white">Companies</h2>
+          <h2 className="text-base font-medium text-white">{t("companies")}</h2>
           {companies.length ? (
             <ul className="mt-4 space-y-3">
               {companies.map((company) => (
@@ -90,7 +103,7 @@ export default async function ClientProfilePage() {
               ))}
             </ul>
           ) : (
-            <p className="mt-4 text-sm text-[#64748B]">No companies linked to this account.</p>
+            <p className="mt-4 text-sm text-[#64748B]">{t("noCompanies")}</p>
           )}
         </section>
       </div>

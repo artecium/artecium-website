@@ -2,6 +2,7 @@
 import { EmptyState } from "@/components/platform/EmptyState";
 import { PageHeader } from "@/components/platform/PageHeader";
 import { StatusBadge } from "@/components/platform/StatusBadge";
+import { resolveLocale } from "@/i18n/config";
 import {
   formatDate,
   listSectionMessage,
@@ -9,24 +10,28 @@ import {
 import { getClientDocuments } from "@/lib/data/client-documents";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function ClientDocumentsPage() {
+  const locale = resolveLocale(await getLocale());
+  const t = await getTranslations("documents");
+  const tCommon = await getTranslations("common");
+  const tErrors = await getTranslations("errors");
+
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
   const dbState = await getDatabaseReadyState();
   const documentsResult = await getClientDocuments(companyIds);
   const section = listSectionMessage(
     documentsResult,
-    "No documents yet",
-    "Contracts, proposals, reports, and project files will appear here.",
+    tErrors,
+    t("emptyTitle"),
+    t("emptyDescription"),
   );
 
   return (
     <>
-      <PageHeader
-        title="Documents"
-        description="Contracts, proposals, reports, and project files."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
 
       {!dbState.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -49,11 +54,13 @@ export default async function ClientDocumentsPage() {
                     {document.document_type ? ` · ${document.document_type}` : ""}
                   </p>
                 </div>
-                <StatusBadge label="Client visible" tone="info" />
+                <StatusBadge label={tCommon("clientVisible")} tone="info" />
               </div>
               <p className="mt-3 text-sm text-[#94A3B8]">
-                {document.project_name ? `Project: ${document.project_name} · ` : ""}
-                Added {formatDate(document.created_at)}
+                {document.project_name
+                  ? `${t("projectLabel", { name: document.project_name })} · `
+                  : ""}
+                {tCommon("added")} {formatDate(document.created_at, locale)}
               </p>
               <ClientDocumentDownloadButton
                 documentId={document.id}

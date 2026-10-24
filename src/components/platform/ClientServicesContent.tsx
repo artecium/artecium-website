@@ -2,18 +2,27 @@ import { FeatureList, UsageProgressBar } from "@/components/platform/ClientServi
 import { EmptyState } from "@/components/platform/EmptyState";
 import { PageHeader } from "@/components/platform/PageHeader";
 import { StatusBadge } from "@/components/platform/StatusBadge";
+import { resolveLocale } from "@/i18n/config";
 import {
   formatBillingSuffix,
   formatCurrency,
   formatDate,
+  formatStatusLabel,
 } from "@/lib/data/client-format";
 import {
   getClientServicesOverview,
   getServicesSchemaState,
 } from "@/lib/data/client-subscriptions";
 import { requireClientAuth } from "@/lib/auth/session";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export async function ClientServicesContent() {
+  const locale = resolveLocale(await getLocale());
+  const t = await getTranslations("services");
+  const tCommon = await getTranslations("common");
+  const tBilling = await getTranslations("billing");
+  const tStatus = await getTranslations("status");
+
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
   const schema = await getServicesSchemaState(companyIds);
@@ -21,10 +30,7 @@ export async function ClientServicesContent() {
 
   return (
     <>
-      <PageHeader
-        title="My services"
-        description="Your contracted services, plans, entitlements, and monthly usage."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
 
       {!schema.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -33,10 +39,7 @@ export async function ClientServicesContent() {
       ) : null}
 
       {!overviews.length ? (
-        <EmptyState
-          title="No services contracted yet"
-          description="Your active services and maintenance plans will appear here once assigned by Artecium."
-        />
+        <EmptyState title={t("emptyTitle")} description={t("emptyDescription")} />
       ) : (
         <div className="space-y-8">
           {overviews.map(({ subscription, entitlements, usage }) => (
@@ -48,39 +51,42 @@ export async function ClientServicesContent() {
                 <div>
                   <div className="flex flex-wrap items-center gap-3">
                     <h2 className="text-lg font-semibold text-white">
-                      {subscription.service?.name ?? "Service"}
+                      {subscription.service?.name ?? tCommon("unknown")}
                     </h2>
-                    <StatusBadge label={subscription.status} tone="info" />
+                    <StatusBadge
+                      label={formatStatusLabel(subscription.status, tStatus)}
+                      tone="info"
+                    />
                   </div>
                   {subscription.plan ? (
                     <p className="mt-1 text-sm text-[#94A3B8]">
-                      Plan:{" "}
+                      {t("plan")}:{" "}
                       <span className="text-white">{subscription.plan.name}</span>
                     </p>
                   ) : subscription.billing_period === "one_time" ? (
-                    <p className="mt-1 text-sm text-[#94A3B8]">One-time service</p>
+                    <p className="mt-1 text-sm text-[#94A3B8]">{t("oneTimeService")}</p>
                   ) : (
-                    <p className="mt-1 text-sm text-[#94A3B8]">Custom service</p>
+                    <p className="mt-1 text-sm text-[#94A3B8]">{t("customService")}</p>
                   )}
                 </div>
                 <div className="text-sm text-[#94A3B8]">
                   <p>
-                    Price:{" "}
+                    {t("price")}:{" "}
                     <span className="text-white">
                       {subscription.price !== null
-                        ? formatCurrency(subscription.price, subscription.currency)
-                        : "Custom"}
+                        ? formatCurrency(subscription.price, subscription.currency, locale)
+                        : tCommon("custom")}
                       {subscription.price !== null
-                        ? formatBillingSuffix(subscription.billing_period)
+                        ? formatBillingSuffix(subscription.billing_period, tBilling)
                         : ""}
                     </span>
                   </p>
                   <p className="mt-1">
-                    Started: {formatDate(subscription.started_at)}
+                    {t("started")}: {formatDate(subscription.started_at, locale)}
                   </p>
                   <p className="mt-1">
-                    Next renewal:{" "}
-                    {formatDate(subscription.current_period_end)}
+                    {t("nextRenewal")}:{" "}
+                    {formatDate(subscription.current_period_end, locale)}
                   </p>
                 </div>
               </div>
@@ -88,7 +94,7 @@ export async function ClientServicesContent() {
               {entitlements.length ? (
                 <div className="mt-6">
                   <FeatureList
-                    title="Included features"
+                    title={t("includedFeatures")}
                     features={entitlements.map((feature) => ({
                       name: feature.feature_name,
                       detail:
@@ -103,7 +109,7 @@ export async function ClientServicesContent() {
 
               {usage.length ? (
                 <div className="mt-6 space-y-4">
-                  <h3 className="text-base font-medium text-white">Usage</h3>
+                  <h3 className="text-base font-medium text-white">{t("usage")}</h3>
                   {usage.map((item) => (
                     <UsageProgressBar
                       key={item.feature_slug}

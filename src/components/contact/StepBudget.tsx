@@ -1,9 +1,10 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { OptionCard } from "@/components/contact/OptionCard";
 import { WizardFooter, WizardStep } from "@/components/contact/WizardStep";
 import type { UseProjectDiscoveryReturn } from "@/hooks/useProjectDiscovery";
-import { BUDGET_LABELS, type BudgetRange } from "@/types/project";
+import type { BudgetRange } from "@/types/project";
 
 const BUDGET_OPTIONS: BudgetRange[] = [
   "under-1000",
@@ -17,24 +18,25 @@ interface StepBudgetProps {
 }
 
 export function StepBudget({ wizard }: StepBudgetProps) {
+  const t = useTranslations("discovery");
   const { data, selectAndAdvance, isTransitioning, direction, prev } = wizard;
 
   return (
     <WizardStep
-      headline="Estimated budget"
-      subtitle="This helps us understand scope and recommend the right approach."
+      headline={t("steps.budget.headline")}
+      subtitle={t("steps.budget.subtitle")}
       direction={direction}
       footer={<WizardFooter onPrevious={prev} showPrevious />}
     >
       <div
         role="radiogroup"
-        aria-label="Estimated budget"
+        aria-label={t("steps.budget.ariaLabel")}
         className="grid gap-3 sm:grid-cols-2"
       >
         {BUDGET_OPTIONS.map((budget) => (
           <OptionCard
             key={budget}
-            label={BUDGET_LABELS[budget]}
+            label={t(`budget.${budget}`)}
             selected={data.budget === budget}
             disabled={isTransitioning}
             onSelect={() => selectAndAdvance("budget", budget)}

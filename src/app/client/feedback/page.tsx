@@ -1,5 +1,6 @@
 ﻿import { EmptyState } from "@/components/platform/EmptyState";
 import { PageHeader } from "@/components/platform/PageHeader";
+import { resolveLocale } from "@/i18n/config";
 import {
   formatDateTime,
   listSectionMessage,
@@ -7,24 +8,27 @@ import {
 import { getClientFeedback } from "@/lib/data/client-feedback";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function ClientFeedbackPage() {
+  const locale = resolveLocale(await getLocale());
+  const t = await getTranslations("feedback");
+  const tErrors = await getTranslations("errors");
+
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
   const dbState = await getDatabaseReadyState();
   const feedbackResult = await getClientFeedback(companyIds);
   const section = listSectionMessage(
     feedbackResult,
-    "No feedback yet",
-    "Your feedback about projects and services will appear here.",
+    tErrors,
+    t("emptyTitle"),
+    t("emptyDescription"),
   );
 
   return (
     <>
-      <PageHeader
-        title="Feedback"
-        description="Share and review feedback about your projects and services."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
 
       {!dbState.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -56,7 +60,7 @@ export default async function ClientFeedbackPage() {
                 <p className="mt-3 text-sm text-[#94A3B8]">{entry.comment}</p>
               ) : null}
               <p className="mt-3 text-xs text-[#64748B]">
-                {formatDateTime(entry.created_at)}
+                {formatDateTime(entry.created_at, locale)}
               </p>
             </li>
           ))}

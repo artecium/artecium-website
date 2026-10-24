@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { ProgressBar } from "@/components/contact/ProgressBar";
 import { StepBudget } from "@/components/contact/StepBudget";
 import { StepContactMethod } from "@/components/contact/StepContactMethod";
@@ -17,6 +18,7 @@ import { useProjectDiscovery } from "@/hooks/useProjectDiscovery";
 import { useWizard } from "@/hooks/useWizardContext";
 
 export function ProjectDiscoveryWizard() {
+  const t = useTranslations("discovery");
   const { isOpen, close } = useWizard();
   const wizard = useProjectDiscovery(close);
 
@@ -87,13 +89,13 @@ export function ProjectDiscoveryWizard() {
 
   const modalTitle =
     phase === "email-success" || phase === "whatsapp-success"
-      ? "Discovery Brief"
-      : "Project Discovery";
+      ? t("modal.titleBrief")
+      : t("modal.title");
 
   const modalDescription =
     phase === "steps"
-      ? "Let's understand your project"
-      : "Your brief is ready";
+      ? t("modal.descriptionSteps")
+      : t("modal.descriptionReady");
 
   return (
     <WizardModal
@@ -112,8 +114,8 @@ export function ProjectDiscoveryWizard() {
 
       <div aria-live="polite" aria-atomic="true" className="sr-only">
         {phase === "steps"
-          ? `Step ${step} of ${totalSteps}`
-          : "Discovery brief complete"}
+          ? t("progress.stepOf", { step, total: totalSteps })
+          : t("progress.briefComplete")}
       </div>
 
       {renderStep()}

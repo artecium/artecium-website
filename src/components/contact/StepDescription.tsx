@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
   WizardFooter,
   WizardStep,
@@ -12,6 +13,7 @@ interface StepDescriptionProps {
 }
 
 export function StepDescription({ wizard }: StepDescriptionProps) {
+  const t = useTranslations("discovery");
   const {
     data,
     updateField,
@@ -23,8 +25,8 @@ export function StepDescription({ wizard }: StepDescriptionProps) {
 
   return (
     <WizardStep
-      headline="Describe your project."
-      subtitle="What problem are you trying to solve? What does success look like?"
+      headline={t("steps.description.headline")}
+      subtitle={t("steps.description.subtitle")}
       direction={direction}
       footer={
         <WizardFooter
@@ -37,8 +39,8 @@ export function StepDescription({ wizard }: StepDescriptionProps) {
     >
       <WizardTextarea
         id="discovery-description"
-        label="Project description"
-        placeholder="Tell us about your idea..."
+        label={t("steps.description.label")}
+        placeholder={t("steps.description.placeholder")}
         value={data.description}
         onChange={(e) => updateField("description", e.target.value)}
       />

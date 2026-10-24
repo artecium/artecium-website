@@ -1,6 +1,7 @@
 ﻿import { EmptyState } from "@/components/platform/EmptyState";
 import { PageHeader } from "@/components/platform/PageHeader";
 import { StatusBadge } from "@/components/platform/StatusBadge";
+import { resolveLocale } from "@/i18n/config";
 import {
   formatDate,
   formatStatusLabel,
@@ -9,24 +10,29 @@ import {
 import { getClientReports } from "@/lib/data/client-reports";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function ClientReportsPage() {
+  const locale = resolveLocale(await getLocale());
+  const t = await getTranslations("reports");
+  const tCommon = await getTranslations("common");
+  const tErrors = await getTranslations("errors");
+  const tStatus = await getTranslations("status");
+
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
   const dbState = await getDatabaseReadyState();
   const reportsResult = await getClientReports(companyIds);
   const section = listSectionMessage(
     reportsResult,
-    "No reports available yet",
-    "Monthly and project reports will appear here when published by Artecium.",
+    tErrors,
+    t("emptyTitle"),
+    t("emptyDescription"),
   );
 
   return (
     <>
-      <PageHeader
-        title="Reports"
-        description="Monthly and project reports shared with your company."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
 
       {!dbState.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -45,17 +51,20 @@ export default async function ClientReportsPage() {
                 <div>
                   <h2 className="text-base font-medium text-white">{report.title}</h2>
                   <p className="mt-1 text-xs text-[#64748B]">
-                    {formatStatusLabel(report.report_type)}
+                    {formatStatusLabel(report.report_type, tStatus)}
                     {report.project_name ? ` · ${report.project_name}` : ""}
                   </p>
                 </div>
-                <StatusBadge label="Client visible" tone="info" />
+                <StatusBadge label={tCommon("clientVisible")} tone="info" />
               </div>
               <p className="mt-3 text-sm text-[#94A3B8]">
-                Period {formatDate(report.period_start)} – {formatDate(report.period_end)}
+                {t("period", {
+                  start: formatDate(report.period_start, locale),
+                  end: formatDate(report.period_end, locale),
+                })}
               </p>
               <p className="mt-1 text-xs text-[#64748B]">
-                Published {formatDate(report.created_at)}
+                {t("publishedOn", { date: formatDate(report.created_at, locale) })}
               </p>
             </li>
           ))}

@@ -1,3 +1,5 @@
+import { hasAnalyticsConsent } from "@/lib/cookies/consent";
+
 const CLARITY_PROJECT_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
 const IS_PRODUCTION = process.env.NODE_ENV === "production";
 
@@ -13,6 +15,7 @@ function isClarityAvailable(): boolean {
   return (
     IS_PRODUCTION &&
     Boolean(CLARITY_PROJECT_ID) &&
+    hasAnalyticsConsent() &&
     typeof window !== "undefined" &&
     typeof window.clarity === "function"
   );

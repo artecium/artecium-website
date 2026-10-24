@@ -1,0 +1,89 @@
+{
+  "projects": {
+    "metadata": {
+      "title": "Projetos e soluções digitais",
+      "description": "Portfolio da Artecium — websites, IA, automação, aplicações web e SEO. Casos de estudo e projetos reais, com estado claramente identificado."
+    },
+    "breadcrumb": {
+      "home": "Início",
+      "current": "Projetos"
+    },
+    "hero": {
+      "title": "Projetos e soluções digitais",
+      "intro": "Partilhamos casos de estudo e projetos desenvolvidos pela Artecium — websites, IA, automação, aplicações web e SEO. Cada entrada indica o estado actual do trabalho, incluindo projectos ainda em desenvolvimento."
+    },
+    "categories": {
+      "websites": "Websites",
+      "ia": "IA & Automação",
+      "webapps": "Aplicações Web",
+      "seo": "SEO"
+    },
+    "status": {
+      "demo": "Demonstração",
+      "concept": "Conceito",
+      "own": "Projecto interno",
+      "development": "Em desenvolvimento",
+      "live": "Online"
+    },
+    "filters": {
+      "label": "Filtrar por categoria",
+      "all": "Todos",
+      "emptyTitle": "Nenhum projecto nesta categoria",
+      "emptyDescription": "Ainda não existem entradas publicadas nesta categoria. Explore todas as categorias ou fale connosco sobre o seu projecto."
+    },
+    "card": {
+      "viewProject": "Ver projecto",
+      "previewPlaceholder": "Pré-visualização em breve"
+    },
+    "detail": {
+      "galleryTitle": "Galeria",
+      "mediaPlaceholder": "Capturas de ecrã autorizadas serão adicionadas quando estiverem disponíveis. Este projecto continua em desenvolvimento local.",
+      "backToProjects": "Voltar aos projectos"
+    },
+    "empty": {
+      "title": "Novos projetos em breve",
+      "description": "Estamos a preparar a publicação de casos de estudo. Enquanto isso, explore os nossos serviços ou fale connosco sobre o seu projecto."
+    },
+    "cta": {
+      "title": "Tem um projecto em mente?",
+      "description": "Conte-nos o que pretende construir e ajudamos a definir a melhor abordagem.",
+      "button": "Começar projecto"
+    },
+    "items": {
+      "almarBeachClub": {
+        "metadata": {
+          "title": "Almar Beach Club — landing page (em desenvolvimento)",
+          "description": "Caso de estudo: landing page em desenvolvimento para o Almar Beach Club, Praia de Albarquel, Setúbal. Projecto local, ainda não concluído nem publicado."
+        },
+        "title": "Almar Beach Club",
+        "shortDescription": "Landing page em desenvolvimento para apresentar o beach club na Praia de Albarquel, Setúbal.",
+        "intro": "Caso de estudo de uma landing page que a Artecium está a desenvolver para o Almar Beach Club. O trabalho decorre em ambiente local, ainda não está concluído e não existe URL pública confirmada.",
+        "statusNote": "Este projecto está em desenvolvimento. O conteúdo, funcionalidades e capturas apresentadas na Artecium reflectem o estado actual do trabalho — não representam um site publicado ou finalizado.",
+        "context": {
+          "title": "Contexto",
+          "paragraphs": [
+            "O Almar Beach Club situa-se na Praia de Albarquel, Setúbal. O objectivo do projecto é uma landing page que apresente o espaço de forma clara para visitantes e potenciais clientes.",
+            "Trata-se de um projecto real em curso, desenvolvido localmente pela Artecium, sem afirmar conclusão ou lançamento público nesta fase."
+          ]
+        },
+        "solution": {
+          "title": "Solução em desenvolvimento",
+          "paragraphs": [
+            "A Artecium está a conceber e desenvolver uma landing page focada na identidade do espaço e na informação essencial para quem procura conhecer o beach club.",
+            "A abordagem segue a linha visual e de experiência utilizada nos projectos de websites da Artecium: estrutura clara, responsive e preparada para evoluir quando o projecto avançar."
+          ]
+        },
+        "objectives": {
+          "title": "Objectivos da landing page",
+          "intro": "Com base no âmbito definido para este projecto, a landing page está orientada para:",
+          "items": [
+            "Apresentação do espaço e ambiente do beach club",
+            "Menu",
+            "Eventos",
+            "Reservas"
+          ]
+        }
+      }
+    }
+  }
+}

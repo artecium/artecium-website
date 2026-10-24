@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef, type ReactNode } from "react";
 
 interface WizardModalProps {
@@ -17,6 +18,7 @@ export function WizardModal({
   title,
   description,
 }: WizardModalProps) {
+  const t = useTranslations("discovery");
   const titleId = useId();
   const descriptionId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
@@ -80,7 +82,7 @@ export function WizardModal({
       <button
         type="button"
         className="absolute inset-0 bg-[#050816]/80 backdrop-blur-xl animate-modal-backdrop"
-        aria-label="Close dialog"
+        aria-label={t("modalAria.closeDialog")}
         onClick={onClose}
       />
 
@@ -115,7 +117,7 @@ export function WizardModal({
             type="button"
             onClick={onClose}
             className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#1E293B] bg-[#050816] text-[#94A3B8] transition-all duration-200 hover:border-[#334155] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]/50"
-            aria-label="Close"
+            aria-label={t("modalAria.close")}
           >
             <svg
               className="h-4 w-4"

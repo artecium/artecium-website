@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 
 interface WizardStepProps {
@@ -60,11 +61,13 @@ interface WizardFooterProps {
 export function WizardFooter({
   onPrevious,
   onContinue,
-  continueLabel = "Continue",
+  continueLabel,
   canContinue = true,
   showPrevious = true,
   isLoading = false,
 }: WizardFooterProps) {
+  const t = useTranslations("discovery");
+
   return (
     <div className="flex items-center justify-between gap-4 border-t border-[#1E293B]/60 pt-6">
       {showPrevious && onPrevious ? (
@@ -87,7 +90,7 @@ export function WizardFooter({
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Previous
+          {t("footer.previous")}
         </button>
       ) : (
         <div />
@@ -103,11 +106,11 @@ export function WizardFooter({
           {isLoading ? (
             <>
               <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-              Please wait
+              {t("footer.pleaseWait")}
             </>
           ) : (
             <>
-              {continueLabel}
+              {continueLabel ?? t("footer.continue")}
               <svg
                 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
                 fill="none"
@@ -139,12 +142,16 @@ export function WizardInput({
   label: string;
   optional?: boolean;
 }) {
+  const t = useTranslations("discovery");
+
   return (
     <div>
       <label htmlFor={id} className="mb-2 block text-sm font-medium text-white">
         {label}
         {optional && (
-          <span className="ml-1.5 font-normal text-[#94A3B8]">(optional)</span>
+          <span className="ml-1.5 font-normal text-[#94A3B8]">
+            {t("footer.optional")}
+          </span>
         )}
       </label>
       <input
