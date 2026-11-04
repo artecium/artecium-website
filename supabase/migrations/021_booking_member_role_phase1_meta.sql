@@ -6,8 +6,11 @@ comment on column public.booking_business_members.role is
 comment on column public.booking_member_invites.role is
   'Team invite: manager | professional. Legacy staff normalized on write until migration 035.';
 
+-- Used only by triggers and SECURITY DEFINER RPCs; no direct client EXECUTE.
 revoke all on function public.booking_normalize_member_role_text(text) from public;
-grant execute on function public.booking_normalize_member_role_text(text) to authenticated;
+
+comment on function public.booking_normalize_member_role_text(text) is
+  'Internal: maps staff → professional. Not granted to authenticated; use RPC/triggers.';
 
 comment on schema public is
-  '021: Phase 1 professional role documented; booking_normalize_member_role_text granted to authenticated.';
+  '021: Phase 1 professional role documented; no broad EXECUTE on normalize helper.';

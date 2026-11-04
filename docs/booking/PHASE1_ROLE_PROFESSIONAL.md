@@ -20,7 +20,7 @@ Plan reference: **Booking technical plan v2.3**, **AUTH-01**.
 
 ## Database (021)
 
-- Column comments; `GRANT EXECUTE` on normalize helper to `authenticated`.
+- Column comments; `REVOKE` on normalize helper from `PUBLIC` (no `GRANT` to `authenticated`).
 
 ## Application
 
