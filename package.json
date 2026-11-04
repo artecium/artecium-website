@@ -10,7 +10,11 @@
     "db:seed:demo": "node scripts/seed-demo-data.mjs",
     "db:verify:demo": "node scripts/verify-demo-data.mjs",
     "db:verify:admin": "node scripts/verify-admin-access.mjs",
-    "db:verify:admin:complete": "node scripts/verify-admin-phase1-complete.mjs"
+    "verify:admin-access": "node scripts/verify-admin-access.mjs",
+    "verify:admin-dashboard-stats-logic": "node scripts/verify-admin-dashboard-stats-logic.mjs",
+    "verify:admin-dashboard-stats-rls": "node scripts/verify-admin-dashboard-stats-rls.mjs",
+    "verify:admin-dashboard-stats": "npm run verify:admin-dashboard-stats-logic && npm run verify:admin-dashboard-stats-rls",
+    "db:verify:admin:complete": "node scripts/verify-admin-phase1-complete.mjs && npm run verify:admin-dashboard-stats"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.10",

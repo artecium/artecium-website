@@ -96,38 +96,70 @@ export async function getAdminDashboardStats(): Promise<DataFetchResult<AdminDas
   const [
     companies,
     projects,
-    tickets,
-    tasks,
-    payments,
-    invoices,
+    projectsAtFullProgress,
+    projectsCompletedByStatus,
+    openTickets,
+    pendingTasks,
+    succeededPayments,
+    pendingInvoices,
     meetings,
     subscriptions,
+    monthlySubscriptions,
   ] = await Promise.all([
     supabase.from("companies").select("id", { count: "exact", head: true }).is("deleted_at", null),
+    supabase.from("projects").select("id", { count: "exact", head: true }).is("deleted_at", null),
     supabase
       .from("projects")
-      .select("id, progress, project_statuses(slug)")
-      .is("deleted_at", null),
-    supabase.from("tickets").select("id, status"),
-    supabase.from("tasks").select("id, status"),
-    supabase.from("payments").select("id, status"),
-    supabase.from("invoices").select("id, status"),
-    supabase.from("meetings").select("id").gte("starts_at", now),
+      .select("id", { count: "exact", head: true })
+      .is("deleted_at", null)
+      .gte("progress", 100),
+    supabase
+      .from("projects")
+      .select("id, project_statuses!inner(slug)", { count: "exact", head: true })
+      .is("deleted_at", null)
+      .lt("progress", 100)
+      .eq("project_statuses.slug", "completed"),
+    supabase
+      .from("tickets")
+      .select("id", { count: "exact", head: true })
+      .not("status", "in", "(resolved,closed)"),
+    supabase
+      .from("tasks")
+      .select("id", { count: "exact", head: true })
+      .not("status", "in", "(done,completed,cancelled)"),
+    supabase
+      .from("payments")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "succeeded"),
+    supabase
+      .from("invoices")
+      .select("id", { count: "exact", head: true })
+      .in("status", ["issued", "sent", "overdue", "partially_paid"]),
+    supabase.from("meetings").select("id", { count: "exact", head: true }).gte("starts_at", now),
     supabase
       .from("client_subscriptions")
-      .select("price, billing_period")
+      .select("id", { count: "exact", head: true })
       .in("status", ["trialing", "active", "past_due"]),
+    supabase
+      .from("client_subscriptions")
+      .select("price")
+      .in("status", ["trialing", "active", "past_due"])
+      .eq("billing_period", "monthly")
+      .not("price", "is", null),
   ]);
 
   const firstError =
     companies.error ??
     projects.error ??
-    tickets.error ??
-    tasks.error ??
-    payments.error ??
-    invoices.error ??
+    projectsAtFullProgress.error ??
+    projectsCompletedByStatus.error ??
+    openTickets.error ??
+    pendingTasks.error ??
+    succeededPayments.error ??
+    pendingInvoices.error ??
     meetings.error ??
-    subscriptions.error;
+    subscriptions.error ??
+    monthlySubscriptions.error;
 
   if (firstError) {
     return fromQueryResult("admin.getAdminDashboardStats", null, firstError, {
@@ -144,46 +176,25 @@ export async function getAdminDashboardStats(): Promise<DataFetchResult<AdminDas
     });
   }
 
-  const projectRows = projects.data ?? [];
-  const completedProjects = projectRows.filter((p) => {
-    const status = p.project_statuses as { slug?: string } | { slug?: string }[] | null;
-    const slug = Array.isArray(status) ? status[0]?.slug : status?.slug;
-    return slug === "completed" || Number(p.progress) >= 100;
-  }).length;
-
-  const openTickets = (tickets.data ?? []).filter((t) =>
-    !["resolved", "closed"].includes(t.status as string),
-  ).length;
-
-  const pendingTasks = (tasks.data ?? []).filter(
-    (t) => !["done", "completed", "cancelled"].includes(t.status as string),
-  ).length;
-
-  const succeededPayments = (payments.data ?? []).filter(
-    (p) => p.status === "succeeded",
-  ).length;
-
-  const pendingInvoices = (invoices.data ?? []).filter((i) =>
-    ["issued", "sent", "overdue", "partially_paid"].includes(i.status as string),
-  ).length;
-
-  const mrr = (subscriptions.data ?? []).reduce((sum, sub) => {
-    if (sub.billing_period !== "monthly" || sub.price === null) return sum;
-    return sum + Number(sub.price);
-  }, 0);
+  const completedProjects =
+    (projectsAtFullProgress.count ?? 0) + (projectsCompletedByStatus.count ?? 0);
+  const mrr = (monthlySubscriptions.data ?? []).reduce(
+    (sum, sub) => sum + Number(sub.price),
+    0,
+  );
 
   return fromQueryResult(
     "admin.getAdminDashboardStats",
     {
       clients: companies.count ?? 0,
-      activeProjects: projectRows.length - completedProjects,
+      activeProjects: (projects.count ?? 0) - completedProjects,
       completedProjects,
-      openTickets,
-      pendingTasks,
-      succeededPayments,
-      pendingInvoices,
-      upcomingMeetings: meetings.data?.length ?? 0,
-      activeSubscriptions: subscriptions.data?.length ?? 0,
+      openTickets: openTickets.count ?? 0,
+      pendingTasks: pendingTasks.count ?? 0,
+      succeededPayments: succeededPayments.count ?? 0,
+      pendingInvoices: pendingInvoices.count ?? 0,
+      upcomingMeetings: meetings.count ?? 0,
+      activeSubscriptions: subscriptions.count ?? 0,
       monthlyRecurringRevenue: mrr,
     },
     null,
