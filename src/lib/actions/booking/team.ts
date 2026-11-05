@@ -7,7 +7,7 @@ import { requireBookingSession } from "@/lib/auth/booking-session";
 import {
   BOOKING_MEMBER_ROLE_PROFESSIONAL,
   isBookingInviteMemberRole,
-  memberRoleToRpcPayloadPreMigration020,
+  memberRoleToRpcPayload,
   normalizeBookingMemberRole,
 } from "@/lib/booking/member-role";
 import { revalidateBookingAdmin, requireManageBusiness } from "./context";
@@ -26,7 +26,7 @@ export async function createBookingMemberInvite(formData: FormData): Promise<
   if (normalized !== "manager" && normalized !== BOOKING_MEMBER_ROLE_PROFESSIONAL) {
     return { ok: false, error: "Invalid role." };
   }
-  const rpcRole = memberRoleToRpcPayloadPreMigration020(
+  const rpcRole = memberRoleToRpcPayload(
     normalized === "manager" ? "manager" : BOOKING_MEMBER_ROLE_PROFESSIONAL,
   );
 

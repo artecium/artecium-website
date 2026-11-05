@@ -28,7 +28,7 @@ Plan reference: **Booking technical plan v2.3**, **AUTH-01**.
 |------|-----------|
 | `BookingMemberRole` | Includes `professional` + legacy `staff`. |
 | Session | Normalizes `staff` → `professional` on read; manage flag unchanged (owner/manager only). |
-| Team invite | UI sends `professional`; server uses `memberRoleToRpcPayloadPreMigration020` until **AUTH-03** (writes `staff` on RPC for DBs without 020). After 020 apply, switch to `memberRoleToRpcPayload`. |
+| Team invite | UI sends `professional`; server uses `memberRoleToRpcPayload` (RPC `professional` after migration 020). |
 
 ## i18n
 
@@ -48,4 +48,4 @@ Keep `scripts/booking-member-role-lib.mjs` in sync with `src/lib/booking/member-
 ## Cutover
 
 - **Migration 035** (Phase 7): remove `staff` from CHECK and RPCs.
-- After **AUTH-03**, update `team.ts` to use `memberRoleToRpcPayload` instead of `memberRoleToRpcPayloadPreMigration020`.
+- **AUTH-03 done:** `team.ts` uses `memberRoleToRpcPayload` (post-020 RPC payload).
