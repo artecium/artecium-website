@@ -32,6 +32,22 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.booking.test.local.example
+!.env.booking.sandbox.local.example
+!.env.booking.prod.local.example
+!.env.client-isolation.local.example
+# Booking integration credentials (copy from example; never commit)
+.env.booking.test.local
+.env.booking.sandbox.local
+.booking-seed.lock
+
+# local agent / harness artifacts
+.cursor-audit-*
+audit-summary-utf8.json
+.harness-pg-*/
+
+# supabase cli temp (do not commit)
+supabase/.temp/
 
 # vercel
 .vercel
