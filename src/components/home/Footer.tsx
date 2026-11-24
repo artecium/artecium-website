@@ -7,6 +7,10 @@ import { getTranslationsForLocale } from "@/lib/i18n/server-translations";
 import { resolveRequestLocale } from "@/lib/i18n/resolve-locale";
 import { getLegalPaths } from "@/lib/legal/paths";
 import { PUBLIC_AUTH_ENTRY_PATH } from "@/lib/auth/entry-routes";
+import {
+  getBookingMarketingPath,
+  getClientAreaLandingPath,
+} from "@/lib/product-landing/paths";
 import { getProjectsHubPath } from "@/lib/projects/paths";
 import {
   getServicePath,
@@ -37,6 +41,8 @@ export async function Footer({ locale: localeProp }: FooterProps = {}) {
   const blogPath = getBlogHubPath(locale);
   const projectsPath = getProjectsHubPath(locale);
   const homePath = locale === "en" ? "/en" : "/";
+  const clientAreaLandingPath = getClientAreaLandingPath(locale);
+  const bookingMarketingPath = getBookingMarketingPath(locale);
 
   return (
     <footer className="border-t border-[#1E293B] bg-[#050816] px-6 py-16 sm:px-10 lg:px-16">
@@ -113,6 +119,22 @@ export async function Footer({ locale: localeProp }: FooterProps = {}) {
                 >
                   {nav("contact")}
                 </a>
+              </li>
+              <li>
+                <Link
+                  href={clientAreaLandingPath}
+                  className="text-sm text-[#94A3B8] transition-colors hover:text-white"
+                >
+                  {t("clientAreaLink")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={bookingMarketingPath}
+                  className="text-sm text-[#94A3B8] transition-colors hover:text-white"
+                >
+                  {t("bookingLink")}
+                </Link>
               </li>
             </ul>
           </div>

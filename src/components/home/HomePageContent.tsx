@@ -3,6 +3,7 @@ import { WizardRoot } from "@/components/contact/WizardRoot";
 import { HomeStructuredData } from "@/components/home/HomeStructuredData";
 import { ChallengesList } from "@/components/home/ChallengesList";
 import { ClientAreaShowcase } from "@/components/home/client-area-showcase";
+import { ProductEntryLinks } from "@/components/home/ProductEntryLinks";
 import { CTA } from "@/components/home/CTA";
 import { Footer } from "@/components/home/Footer";
 import { Hero } from "@/components/home/Hero";
@@ -50,6 +51,7 @@ export function HomePageContent({
           <WhyStack />
           <HomeFaq />
           <ClientAreaShowcase />
+          <ProductEntryLinks locale={locale} />
           <CTA />
         </main>
         <Footer locale={locale} />

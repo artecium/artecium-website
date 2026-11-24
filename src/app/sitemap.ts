@@ -8,6 +8,13 @@ import type { MetadataRoute } from "next";
 const SITE_LAUNCH = new Date("2026-01-01");
 const CONTENT_UPDATE = new Date("2026-09-26");
 
+const productLandingPaths = [
+  "/area-cliente",
+  "/booking",
+  "/en/client-area",
+  "/en/booking",
+] as const;
+
 const legalPaths = [
   "/privacy",
   "/cookies",
@@ -66,6 +73,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: CONTENT_UPDATE,
       changeFrequency: "monthly" as const,
       priority: 0.8,
+    })),
+    ...productLandingPaths.map((path) => ({
+      url: `${SITE_URL}${path}`,
+      lastModified: CONTENT_UPDATE,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
     })),
     {
       url: `${SITE_URL}/faq`,

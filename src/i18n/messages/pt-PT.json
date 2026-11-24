@@ -161,6 +161,74 @@
     "areaHubTitle": "Escolher área",
     "areaHubDescription": "Selecione a Área de Cliente Artecium ou o Artecium Booking."
   },
+  "productLanding": {
+    "entryStrip": {
+      "heading": "Plataformas Artecium",
+      "subheading": "Descubra a Área de Cliente e o sistema de marcações online feitos para acompanhar o seu negócio.",
+      "srNav": "Ligações principais Artecium",
+      "clientTitle": "Área de Cliente",
+      "clientDescription": "Acompanhe projetos, documentos, faturas e pedidos de suporte dos serviços contratados com a Artecium.",
+      "clientCta": "Sobre a Área de Cliente",
+      "bookingTitle": "Booking",
+      "bookingDescription": "Marcações online, calendário, equipa e serviços num sistema dedicado em booking.artecium.com.",
+      "bookingCta": "Sobre o Booking"
+    },
+    "clientArea": {
+      "meta": {
+        "description": "A Área de Cliente Artecium permite acompanhar projetos, documentos, faturas e suporte — com acesso seguro após autenticação."
+      },
+      "eyebrow": "Portal cliente",
+      "h1": "Área de Cliente Artecium",
+      "intro": "Espaço reservado para empresas que trabalham com a Artecium: acompanhe o estado dos projetos, consulte documentação partilhada, faturas e abra pedidos de suporte, sem expor dados internos no site público.",
+      "primaryCta": "Entrar na Área de Cliente",
+      "features": {
+        "projects": {
+          "title": "Projetos e entregas",
+          "description": "Visão consolidada dos projetos digitais em curso e concluídos com a Artecium."
+        },
+        "documents": {
+          "title": "Documentos",
+          "description": "Acesso centralizado a materiais e ficheiros partilhados pela equipa."
+        },
+        "invoices": {
+          "title": "Faturas e pagamentos",
+          "description": "Consulta de faturas e estado de pagamentos associados aos seus serviços."
+        },
+        "support": {
+          "title": "Suporte",
+          "description": "Abertura e acompanhamento de pedidos de ajuda à equipa Artecium."
+        }
+      }
+    },
+    "booking": {
+      "meta": {
+        "description": "O Artecium Booking é o sistema de marcações online para negócios: reservas públicas, calendário, equipa e gestão num subdomínio dedicado."
+      },
+      "eyebrow": "Marcações online",
+      "h1": "Booking — Marcações Online",
+      "intro": "Plataforma de reservas da Artecium para salões, clínicas, consultores e outros negócios com agenda. Os clientes marcam online; a equipa gere serviços, horários e marcações num painel dedicado.",
+      "primaryCta": "Abrir booking.artecium.com",
+      "demoCta": "Experimentar demonstração pública",
+      "features": {
+        "online": {
+          "title": "Reservas online",
+          "description": "Página pública com marcação por serviço, profissional e horário disponível."
+        },
+        "calendar": {
+          "title": "Calendário e agenda",
+          "description": "Painel com marcações, disponibilidade e gestão do dia a dia."
+        },
+        "team": {
+          "title": "Equipa e serviços",
+          "description": "Configure profissionais, durações, preços e convites para a equipa."
+        },
+        "brand": {
+          "title": "Marca própria",
+          "description": "Experiência no subdomínio booking.artecium.com, alinhada com o seu negócio."
+        }
+      }
+    }
+  },
   "areaHub": {
     "title": "Onde pretende entrar?",
     "description": "A Artecium reúne o portal para clientes dos nossos serviços e a plataforma de reservas para o seu negócio. Escolha a área adequada.",
@@ -772,6 +840,8 @@
       "serviceArea": "Portugal · Lisboa · Almada · Setúbal · Margem Sul",
       "company": "Empresa",
       "services": "Serviços",
+      "clientAreaLink": "Área de Cliente",
+      "bookingLink": "Booking — Marcações",
       "copyright": "Todos os direitos reservados."
     }
   },

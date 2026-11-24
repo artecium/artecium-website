@@ -161,6 +161,74 @@
     "areaHubTitle": "Choose your area",
     "areaHubDescription": "Select the Artecium Client Area or Artecium Booking."
   },
+  "productLanding": {
+    "entryStrip": {
+      "heading": "Artecium platforms",
+      "subheading": "Explore the Client Area and online booking system built to support your business.",
+      "srNav": "Main Artecium links",
+      "clientTitle": "Client Area",
+      "clientDescription": "Track projects, documents, invoices, and support requests for services delivered by Artecium.",
+      "clientCta": "About the Client Area",
+      "bookingTitle": "Booking",
+      "bookingDescription": "Online appointments, calendar, team, and services on the dedicated booking.artecium.com platform.",
+      "bookingCta": "About Booking"
+    },
+    "clientArea": {
+      "meta": {
+        "description": "The Artecium Client Area lets you track projects, documents, invoices, and support — secure access after sign-in."
+      },
+      "eyebrow": "Client portal",
+      "h1": "Artecium Client Area",
+      "intro": "A dedicated space for companies working with Artecium: follow project status, shared documentation, invoices, and open support requests. No private data is exposed on public pages.",
+      "primaryCta": "Sign in to Client Area",
+      "features": {
+        "projects": {
+          "title": "Projects and delivery",
+          "description": "A consolidated view of active and completed digital projects with Artecium."
+        },
+        "documents": {
+          "title": "Documents",
+          "description": "Central access to materials and files shared by the team."
+        },
+        "invoices": {
+          "title": "Invoices and payments",
+          "description": "Review invoices and payment status linked to your services."
+        },
+        "support": {
+          "title": "Support",
+          "description": "Open and track help requests with the Artecium team."
+        }
+      }
+    },
+    "booking": {
+      "meta": {
+        "description": "Artecium Booking is online appointment scheduling for businesses: public booking, calendar, team, and admin on a dedicated subdomain."
+      },
+      "eyebrow": "Online scheduling",
+      "h1": "Booking — Online Appointments",
+      "intro": "Artecium’s booking platform for salons, clinics, consultants, and other appointment-based businesses. Customers book online; your team manages services, hours, and appointments in a dedicated dashboard.",
+      "primaryCta": "Open booking.artecium.com",
+      "demoCta": "Try the public demo",
+      "features": {
+        "online": {
+          "title": "Online booking",
+          "description": "Public page to book by service, staff member, and available slot."
+        },
+        "calendar": {
+          "title": "Calendar",
+          "description": "Dashboard for appointments, availability, and day-to-day operations."
+        },
+        "team": {
+          "title": "Team and services",
+          "description": "Configure staff, durations, pricing, and team invitations."
+        },
+        "brand": {
+          "title": "Your brand",
+          "description": "Experience on booking.artecium.com aligned with your business."
+        }
+      }
+    }
+  },
   "areaHub": {
     "title": "Where would you like to go?",
     "description": "Artecium brings together the portal for our service clients and the booking platform for your business. Choose the right area.",
@@ -772,6 +840,8 @@
       "serviceArea": "Portugal · Lisbon · Almada · Setúbal · Margem Sul",
       "company": "Company",
       "services": "Services",
+      "clientAreaLink": "Client Area",
+      "bookingLink": "Booking",
       "copyright": "All rights reserved."
     }
   },
