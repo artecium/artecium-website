@@ -1,5 +1,8 @@
 {
   "mcpServers": {
+    "vercel": {
+      "url": "https://mcp.vercel.com"
+    },
     "21st": {
       "url": "https://21st.dev/api/mcp",
       "headers": {

@@ -74,7 +74,7 @@ for (const key of KEYS) {
   const r = spawnSync("npx", args, {
     cwd: root,
     stdio: ["ignore", "pipe", "pipe"],
-    shell: true,
+    shell: false,
   });
   const out = (r.stdout?.toString() ?? "") + (r.stderr?.toString() ?? "");
   const status = r.status === 0 || /already exists|Overwriting/i.test(out) ? "ok" : "fail";
