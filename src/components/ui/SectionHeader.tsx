@@ -1,3 +1,5 @@
+import { marketing } from "@/lib/ui/marketing-classes";
+
 interface SectionHeaderProps {
   eyebrow?: string;
   title: string;
@@ -17,22 +19,11 @@ export function SectionHeader({
 
   return (
     <div className={`max-w-2xl ${alignClass}`}>
-      {eyebrow && (
-        <p className="mb-4 text-sm font-medium tracking-widest text-[#2563EB] uppercase">
-          {eyebrow}
-        </p>
-      )}
-      <h2
-        id={titleId}
-        className="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl"
-      >
+      {eyebrow ? <p className={`mb-4 ${marketing.eyebrow}`}>{eyebrow}</p> : null}
+      <h2 id={titleId} className={marketing.titleLg}>
         {title}
       </h2>
-      {description && (
-        <p className="mt-4 text-base leading-relaxed text-[#94A3B8] sm:text-lg">
-          {description}
-        </p>
-      )}
+      {description ? <p className={`mt-4 ${marketing.body}`}>{description}</p> : null}
     </div>
   );
 }

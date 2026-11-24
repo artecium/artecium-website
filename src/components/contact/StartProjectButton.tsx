@@ -11,9 +11,9 @@ interface StartProjectButtonProps
 
 const variantClasses = {
   primary:
-    "bg-[#2563EB] text-white hover:bg-[#1D4ED8] hover:shadow-[0_0_40px_rgba(37,99,235,0.35)]",
+    "bg-accent text-foreground hover:bg-accent-hover focus-visible:ring-accent/40",
   secondary:
-    "border border-[#1E293B] bg-[#0E1324] text-white hover:border-[#334155] hover:bg-[#0E1324]/80",
+    "border border-border bg-surface text-foreground hover:border-border-strong hover:bg-surface-raised",
 };
 
 export function StartProjectButton({
@@ -28,7 +28,7 @@ export function StartProjectButton({
     <button
       type="button"
       onClick={open}
-      className={`inline-flex h-12 items-center justify-center rounded-full px-8 text-[0.9375rem] font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]/50 ${variantClasses[variant]} ${className}`}
+      className={`inline-flex h-12 items-center justify-center rounded-md px-8 text-[0.9375rem] font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 ${variantClasses[variant]} ${className}`}
       {...props}
     >
       {children}

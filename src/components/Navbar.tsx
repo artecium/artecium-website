@@ -4,6 +4,7 @@ import { ArteciumLogo } from "@/components/ArteciumLogo";
 import { StartProjectButton } from "@/components/contact/StartProjectButton";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { PUBLIC_AUTH_ENTRY_PATH } from "@/lib/auth/entry-routes";
+import { marketing } from "@/lib/ui/marketing-classes";
 import { resolveLocale } from "@/i18n/config";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -22,7 +23,7 @@ function hasLocalPricing(pathname: string): boolean {
 
 function resolvePricingHref(pathname: string, homePath: string): string {
   if (isHomepage(pathname)) {
-    return "#pricing";
+    return "#services";
   }
 
   if (hasLocalPricing(pathname)) {
@@ -45,10 +46,9 @@ export function Navbar() {
   const clientAuthHref = PUBLIC_AUTH_ENTRY_PATH;
   const pricingHref = resolvePricingHref(pathname, homePath);
 
-  const navLinkClass =
-    "text-sm text-[#94A3B8] transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]/50";
+  const navLinkClass = marketing.navLink;
   const mobileLinkClass =
-    "block rounded-lg px-3 py-2 text-sm text-[#94A3B8] transition-colors hover:bg-[#1E293B]/40 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]/50";
+    "block rounded-md px-3 py-2 text-sm text-muted transition-colors hover:bg-surface-raised hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40";
 
   const navItems = [
     { href: servicesHref, label: t("services"), isAnchor: false },
@@ -58,14 +58,14 @@ export function Navbar() {
   ] as const;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#1E293B]/60 bg-[#050816]/80 backdrop-blur-xl">
+    <header className={marketing.header}>
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-10 lg:px-16">
         <Link href={homePath} className="group flex items-center gap-3">
           <ArteciumLogo
             className="h-9 w-9 transition-transform duration-300 group-hover:scale-105 sm:h-10 sm:w-10"
             priority
           />
-          <span className="text-sm font-semibold tracking-[0.2em] text-white sm:text-[0.9375rem]">
+          <span className="text-sm font-semibold tracking-[0.2em] text-foreground sm:text-[0.9375rem]">
             ARTECIUM
           </span>
         </Link>
@@ -95,7 +95,7 @@ export function Navbar() {
 
           <Link
             href={clientAuthHref}
-            className="hidden rounded-full border border-[#1E293B] px-4 py-2 text-sm font-medium text-[#94A3B8] transition-all duration-300 hover:border-[#334155] hover:text-white lg:inline-flex"
+            className={`hidden lg:inline-flex ${marketing.btnSecondary} h-10 rounded-md px-4`}
           >
             {t("clientLogin")}
           </Link>
@@ -105,7 +105,7 @@ export function Navbar() {
           </StartProjectButton>
 
           <details className="relative lg:hidden">
-            <summary className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-[#1E293B] bg-[#0E1324] text-[#94A3B8] transition-colors hover:text-white [&::-webkit-details-marker]:hidden">
+            <summary className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md border border-border bg-surface text-muted transition-colors hover:text-foreground [&::-webkit-details-marker]:hidden">
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -121,7 +121,7 @@ export function Navbar() {
                 />
               </svg>
             </summary>
-            <div className="absolute right-0 mt-2 w-52 rounded-xl border border-[#1E293B] bg-[#0E1324] p-2 shadow-2xl">
+            <div className="absolute right-0 mt-2 w-52 rounded-lg border border-border bg-surface-raised p-2 shadow-lg">
               {navItems.map((item) =>
                 item.isAnchor ? (
                   <a key={item.label} href={item.href} className={mobileLinkClass}>
