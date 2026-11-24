@@ -1,5 +1,6 @@
-import { SignOutButton } from "@/components/auth/SignOutButton";
+import { AccountMenu } from "@/components/auth/AccountMenu";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
+import { areaHubPath } from "@/lib/auth/entry-routes";
 import type { AppLocale } from "@/i18n/config";
 import type { PlatformProfile } from "@/types/platform";
 
@@ -14,26 +15,23 @@ export function PlatformHeader({
   areaLabel,
   locale,
 }: PlatformHeaderProps) {
-  const roleLabel = profile.roles
-    .map((role) => role.replace(/_/g, " "))
-    .join(", ");
+  const hubLocale = locale === "en" ? "en" : "pt-PT";
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-[#1E293B] bg-[#050816]/90 px-4 backdrop-blur-xl sm:px-6">
-      <div>
+    <header className="sticky top-0 z-30 flex h-16 items-center justify-between gap-3 border-b border-[#1E293B] bg-[#050816]/90 px-4 backdrop-blur-xl sm:px-6">
+      <div className="min-w-0 flex-1">
         <p className="text-xs uppercase tracking-widest text-[#64748B]">
           {areaLabel}
         </p>
-        <p className="text-sm font-medium text-white">
-          {profile.full_name ?? profile.email}
-        </p>
-        {roleLabel ? (
-          <p className="text-xs capitalize text-[#64748B]">{roleLabel}</p>
-        ) : null}
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex shrink-0 items-center gap-2 sm:gap-3">
         <LanguageSwitcher currentLocale={locale} />
-        <SignOutButton />
+        <AccountMenu
+          displayName={profile.full_name ?? ""}
+          email={profile.email}
+          workspacesHref={areaHubPath(hubLocale)}
+          variant="header"
+        />
       </div>
     </header>
   );

@@ -264,6 +264,37 @@ body {
   animation: ai-dot 1.2s ease-in-out infinite;
 }
 
+@keyframes booking-check-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes booking-button-success {
+  0% {
+    box-shadow: 0 0 0 0 rgb(167 139 250 / 0%);
+  }
+  40% {
+    box-shadow: 0 0 0 3px rgb(167 139 250 / 0.25);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(167 139 250 / 0%);
+  }
+}
+
+.animate-booking-check-pop {
+  animation: booking-check-pop 0.28s ease-out;
+}
+
+.animate-booking-button-success {
+  animation: booking-button-success 0.9s ease-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-modal-backdrop,
   .animate-modal-in,
@@ -272,7 +303,9 @@ body {
   .animate-marquee,
   .animate-ai-hub-pulse,
   .animate-ai-line-flow,
-  .animate-ai-dot {
+  .animate-ai-dot,
+  .animate-booking-check-pop,
+  .animate-booking-button-success {
     animation: none;
   }
 }

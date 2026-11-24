@@ -3,6 +3,7 @@
 import { ArteciumLogo } from "@/components/ArteciumLogo";
 import { StartProjectButton } from "@/components/contact/StartProjectButton";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
+import { PUBLIC_AUTH_ENTRY_PATH } from "@/lib/auth/entry-routes";
 import { resolveLocale } from "@/i18n/config";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -41,6 +42,7 @@ export function Navbar() {
   const projectsHref =
     currentLocale === "en" ? "/en/projetos" : "/projetos";
   const faqHref = currentLocale === "en" ? "/en/faq" : "/faq";
+  const clientAuthHref = PUBLIC_AUTH_ENTRY_PATH;
   const pricingHref = resolvePricingHref(pathname, homePath);
 
   const navLinkClass =
@@ -92,7 +94,7 @@ export function Navbar() {
           />
 
           <Link
-            href="/login"
+            href={clientAuthHref}
             className="hidden rounded-full border border-[#1E293B] px-4 py-2 text-sm font-medium text-[#94A3B8] transition-all duration-300 hover:border-[#334155] hover:text-white lg:inline-flex"
           >
             {t("clientLogin")}
@@ -135,7 +137,7 @@ export function Navbar() {
                 <LanguageSwitcher currentLocale={currentLocale} />
               </div>
               <Link
-                href="/login"
+                href={clientAuthHref}
                 className="mt-1 block rounded-lg px-3 py-2 text-center text-sm font-medium text-[#94A3B8] transition-colors hover:bg-[#1E293B]/40 hover:text-white"
               >
                 {t("clientLogin")}

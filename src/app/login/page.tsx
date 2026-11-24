@@ -1,10 +1,16 @@
 import { ArteciumLogo } from "@/components/ArteciumLogo";
-import { LoginForm } from "@/components/auth/LoginForm";
+import { ClientAuthPanel } from "@/components/auth/ClientAuthPanel";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
+import {
+  sanitizeBookingHostLoginNext,
+  sanitizeLoginNext,
+} from "@/lib/auth/login-redirect";
 import { resolveLocale } from "@/i18n/config";
+import { isBookingHostname, resolveRoutingHost } from "@/lib/routing";
 import { constructMetadata } from "@/lib/seo/metadata";
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
+import { headers } from "next/headers";
 import Link from "next/link";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -18,9 +24,26 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-export default async function LoginPage() {
+interface LoginPageProps {
+  searchParams: Promise<{ next?: string; mode?: string; error?: string }>;
+}
+
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const { next, mode, error } = await searchParams;
+  const headersList = await headers();
+  const host = resolveRoutingHost(
+    headersList.get("host") ?? "",
+    headersList.get("x-forwarded-host"),
+  );
+  const onBookingHost = isBookingHostname(host);
+  const redirectTo = next
+    ? (onBookingHost
+        ? sanitizeBookingHostLoginNext(next)
+        : sanitizeLoginNext(next)) ?? undefined
+    : undefined;
+  const initialMode = mode === "signup" ? "signUp" : "signIn";
+  const authCallbackError = error === "auth_callback";
   const locale = resolveLocale(await getLocale());
-  const t = await getTranslations("auth");
   const tCommon = await getTranslations("common");
 
   return (
@@ -49,16 +72,11 @@ export default async function LoginPage() {
         </div>
 
         <div className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-8 shadow-[0_8px_40px_rgba(0,0,0,0.3)] sm:p-10">
-          <div className="mb-8 text-center">
-            <h1 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-              {t("clientLogin")}
-            </h1>
-            <p className="mt-2 text-sm leading-relaxed text-[#94A3B8] sm:text-base">
-              {t("accessClientArea")}
-            </p>
-          </div>
-
-          <LoginForm />
+          <ClientAuthPanel
+            redirectTo={redirectTo}
+            initialMode={initialMode}
+            authCallbackError={authCallbackError}
+          />
         </div>
 
         <p className="mt-8 text-center">

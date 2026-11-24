@@ -3,13 +3,17 @@
 import { ArteciumLogo } from "@/components/ArteciumLogo";
 import { StatusBadge } from "@/components/platform/StatusBadge";
 import { buildClientNavItems } from "@/config/navigation/platform";
+import { DEFAULT_PORTAL_HOSTNAME } from "@/lib/routing";
 import { useTranslations } from "next-intl";
 
 export function ClientDashboardPreview() {
   const t = useTranslations("home.clientArea.preview");
   const tNav = useTranslations("navigation");
   const tStatus = useTranslations("status");
-  const previewNavItems = buildClientNavItems((key) => tNav(key)).slice(0, 10);
+  const previewNavItems = buildClientNavItems(
+    (key) => tNav(key),
+    DEFAULT_PORTAL_HOSTNAME,
+  ).slice(0, 10);
 
   const dashboardCards = [
     {
@@ -60,7 +64,7 @@ export function ClientDashboardPreview() {
         <nav className="flex-1 overflow-hidden px-2 py-3">
           <ul className="space-y-0.5">
             {previewNavItems.map((item) => {
-              const active = item.href === "/client/dashboard";
+              const active = item.matchHref === "/client/dashboard";
               return (
                 <li key={item.href}>
                   <div
@@ -175,7 +179,7 @@ export function ClientDashboardBrowserFrame() {
         <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]/70" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]/70" />
         <div className="mx-auto flex h-6 w-full max-w-xs items-center rounded-md border border-[#1E293B] bg-[#050816] px-3 text-[10px] text-[#64748B] sm:max-w-sm sm:text-xs">
-          artecium.com/client/dashboard
+          client.artecium.com/dashboard
         </div>
       </div>
       <div className="min-h-0 flex-1">

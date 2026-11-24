@@ -10,6 +10,8 @@ export interface ClientAnalyticsConnection {
   property_id: string | null;
   display_name: string | null;
   status: string;
+  connected_at: string | null;
+  last_sync_at: string | null;
 }
 
 export interface ClientAnalyticsMetricRow {
@@ -19,6 +21,7 @@ export interface ClientAnalyticsMetricRow {
   sessions: number | null;
   page_views: number | null;
   conversions: number | null;
+  payload: unknown | null;
 }
 
 export interface ClientAnalyticsOverview {
@@ -39,7 +42,7 @@ export async function getClientAnalyticsOverview(
 
   const { data: connection, error: connectionError } = await supabase
     .from("analytics_connections")
-    .select("id, property_id, display_name, status")
+    .select("id, property_id, display_name, status, connected_at, last_sync_at")
     .in("company_id", companyIds)
     .eq("status", "active")
     .order("connected_at", { ascending: false })
@@ -66,7 +69,7 @@ export async function getClientAnalyticsOverview(
 
   const { data: metrics, error: metricsError } = await supabase
     .from("analytics_data")
-    .select("id, metric_date, users, sessions, page_views, conversions")
+    .select("id, metric_date, users, sessions, page_views, conversions, payload")
     .eq("connection_id", connection.id)
     .order("metric_date", { ascending: true });
 
@@ -87,6 +90,8 @@ export async function getClientAnalyticsOverview(
         property_id: (connection.property_id as string | null) ?? null,
         display_name: (connection.display_name as string | null) ?? null,
         status: connection.status as string,
+        connected_at: (connection.connected_at as string | null) ?? null,
+        last_sync_at: (connection.last_sync_at as string | null) ?? null,
       },
       metrics: (metrics ?? []).map((row) => ({
         id: row.id as string,
@@ -95,6 +100,7 @@ export async function getClientAnalyticsOverview(
         sessions: row.sessions !== null ? Number(row.sessions) : null,
         page_views: row.page_views !== null ? Number(row.page_views) : null,
         conversions: row.conversions !== null ? Number(row.conversions) : null,
+        payload: (row.payload as unknown) ?? null,
       })),
     },
     null,

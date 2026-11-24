@@ -1,15 +1,40 @@
+import { ClientDashboardHeader } from "@/components/client/dashboard/ClientDashboardHeader";
+import { DashboardActivityFeed } from "@/components/client/dashboard/DashboardActivityFeed";
+import { DashboardQuickLinks } from "@/components/client/dashboard/DashboardQuickLinks";
+import { DashboardStatCard } from "@/components/client/dashboard/DashboardStatCard";
 import { UsageProgressBar } from "@/components/platform/ClientServicesPanel";
-import { PlatformCard } from "@/components/platform/PlatformCard";
-import { PageHeader } from "@/components/platform/PageHeader";
+import { ClientNavIcon } from "@/components/platform/client-nav-icons";
 import { EmptyState } from "@/components/platform/EmptyState";
 import { StatusBadge } from "@/components/platform/StatusBadge";
+import { COMPANY_EMAIL } from "@/config/contact";
+import { logClientRouteBeacon } from "@/lib/dev/client-route-diagnostic";
+import { resolveLocale } from "@/i18n/config";
+import { requireClientAuth } from "@/lib/auth/session";
 import {
+  buildDashboardActivityFeed,
+  countOpenSupportTickets,
+  countPendingInvoices,
+} from "@/lib/data/client-dashboard-activity";
+import {
+  countActiveClientSubscriptions,
   getDashboardMeetings,
   getDashboardProjects,
-  getDashboardTickets,
   isAnalyticsIncluded,
   isSeoIncluded,
 } from "@/lib/data/client-dashboard";
+import { getClientTickets } from "@/lib/data/client-support";
+import { getClientDocuments } from "@/lib/data/client-documents";
+import { getClientInvoices } from "@/lib/data/client-invoices";
+import {
+  formatCurrency,
+  formatDate,
+  formatDateTime,
+  formatStatusLabel,
+  listSectionMessage,
+} from "@/lib/data/client-format";
+import { getClientNotifications } from "@/lib/data/client-notifications";
+import { getClientPayments } from "@/lib/data/client-payments";
+import { getClientProfileContext } from "@/lib/data/client-profile";
 import {
   getClientServicesOverview,
   getMergedClientEntitlements,
@@ -21,54 +46,91 @@ import {
   getDatabaseReadyState,
   getSeoConnectionState,
 } from "@/lib/data/platform-state";
-import { getClientPayments } from "@/lib/data/client-payments";
-import { getClientNotifications } from "@/lib/data/client-notifications";
-import {
-  formatCurrency,
-  formatDate,
-  formatDateTime,
-  formatStatusLabel,
-  listSectionMessage,
-} from "@/lib/data/client-format";
 import { ticketStatusTone } from "@/lib/i18n/status";
-import { resolveLocale } from "@/i18n/config";
-import { requireClientAuth } from "@/lib/auth/session";
+import { clientAreaHref, readRequestHostname } from "@/lib/routing";
+import type { DashboardActivityItem } from "@/lib/data/client-dashboard-activity";
 import { getLocale, getTranslations } from "next-intl/server";
+import { headers } from "next/headers";
 import Link from "next/link";
 
-function formatSubscriptionLabel(
-  serviceName: string,
-  planName: string | undefined,
-): string {
-  return planName ? `${serviceName} · ${planName}` : serviceName;
-}
-
 export default async function ClientDashboardPage() {
-  const locale = resolveLocale(await getLocale());
+  logClientRouteBeacon("client/dashboard/page.tsx RENDER start");
+  const requestHeaders = await headers();
+  const hostname = readRequestHostname((name) => requestHeaders.get(name));
   const t = await getTranslations("dashboard");
   const tClient = await getTranslations("client");
   const tCommon = await getTranslations("common");
   const tErrors = await getTranslations("errors");
   const tStatus = await getTranslations("status");
 
+  const locale = resolveLocale(await getLocale());
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
+
+  if (companyIds.length === 0) {
+    const tWelcome = await getTranslations("client.welcomeNoCompany");
+    const mailSubject =
+      locale === "en" ? "Client Area access request" : "Pedido de acesso — Área de Cliente";
+    return (
+      <>
+        <div className="mb-8">
+          <h1 className="text-2xl font-semibold text-white sm:text-3xl">
+            {tWelcome("title")}
+          </h1>
+          <p className="mt-2 text-sm text-[#94A3B8]">{tWelcome("description")}</p>
+        </div>
+        <div className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-6 sm:p-8">
+          <p className="text-sm text-[#94A3B8]">
+            {tWelcome("signedInAs", { email: session.profile.email })}
+          </p>
+          <p className="mt-4 text-sm leading-relaxed text-[#CBD5E1]">
+            {tWelcome("howToGetAccess")}
+          </p>
+          <p className="mt-2 text-sm text-[#64748B]">{tWelcome("contactHint")}</p>
+          <a
+            href={`mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(mailSubject)}`}
+            className="mt-6 inline-flex h-11 items-center justify-center rounded-full bg-[#2563EB] px-6 text-sm font-medium text-white transition-colors hover:bg-[#1D4ED8]"
+          >
+            {tWelcome("contactEmail")}
+          </a>
+        </div>
+      </>
+    );
+  }
 
   const dbState = await getDatabaseReadyState();
   const servicesSchema = await getServicesSchemaState(companyIds);
   const analyticsState = await getAnalyticsConnectionState(companyIds);
   const seoState = await getSeoConnectionState(companyIds);
-  const entitlements = await getMergedClientEntitlements(companyIds);
-  const serviceOverviews = await getClientServicesOverview(companyIds);
-  const subscriptions = serviceOverviews.map((item) => item.subscription);
-  const primaryPlan = await getPrimaryMaintenanceOverview(companyIds);
-  const ticketsResult = await getDashboardTickets(companyIds);
-  const meetingsResult = await getDashboardMeetings(companyIds);
-  const projectsResult = await getDashboardProjects(companyIds);
-  const paymentsResult = await getClientPayments(companyIds);
-  const notificationsResult = await getClientNotifications(session.user.id);
+  const profileContext = await getClientProfileContext(session.profile);
 
-  const tickets = ticketsResult.data;
+  const [
+    entitlements,
+    serviceOverviews,
+    ticketsResult,
+    meetingsResult,
+    projectsResult,
+    paymentsResult,
+    notificationsResult,
+    invoicesResult,
+    documentsResult,
+  ] = await Promise.all([
+    getMergedClientEntitlements(companyIds),
+    getClientServicesOverview(companyIds),
+    getClientTickets(companyIds),
+    getDashboardMeetings(companyIds),
+    getDashboardProjects(companyIds),
+    getClientPayments(companyIds),
+    getClientNotifications(session.user.id),
+    getClientInvoices(companyIds),
+    getClientDocuments(companyIds),
+  ]);
+
+  const primaryPlan = await getPrimaryMaintenanceOverview(companyIds);
+  const subscriptions = serviceOverviews.map((item) => item.subscription);
+
+  const allTickets = ticketsResult.data;
+  const tickets = allTickets.slice(0, 5);
   const meetings = meetingsResult.data;
   const projects = projectsResult.data;
 
@@ -83,12 +145,6 @@ export default async function ClientDashboardPage() {
     tErrors,
     t("noUpcomingMeetings"),
     t("meetingsEmpty"),
-  );
-  const projectsSection = listSectionMessage(
-    projectsResult,
-    tErrors,
-    "",
-    t("projectsEmpty"),
   );
 
   const analyticsIncluded = isAnalyticsIncluded(subscriptions, entitlements);
@@ -106,50 +162,89 @@ export default async function ClientDashboardPage() {
       ? t("seoIncluded")
       : t("seoNotIncluded");
 
-  const planSummary = subscriptions.length
-    ? subscriptions
-        .slice(0, 4)
-        .map((subscription) =>
-          formatSubscriptionLabel(
-            subscription.service?.name ?? tCommon("unknown"),
-            subscription.plan?.name,
-          ),
-        )
-        .join(", ")
-    : t("planSummaryDefault");
-
-  const primaryProject = projects[0];
-  const latestPayment = paymentsResult.data[0];
-  const latestNotification = notificationsResult.data[0];
-  const unreadNotifications = notificationsResult.data.filter((n) => !n.read_at).length;
-
-  const paymentsDescription = paymentsResult.accessDenied
-    ? t("unableToLoadPayments")
-    : latestPayment
-      ? t("latestPayment", {
-          amount: formatCurrency(latestPayment.amount, latestPayment.currency, locale),
-          status: formatStatusLabel(latestPayment.status, tStatus),
-        })
-      : t("noPaymentsYet");
-
-  const notificationsDescription = notificationsResult.accessDenied
-    ? t("unableToLoadNotifications")
-    : latestNotification
-      ? unreadNotifications
-        ? t("unreadCount", {
-            count: unreadNotifications,
-            title: latestNotification.title,
-          })
-        : latestNotification.title
-      : t("noNotificationsYet");
-
   const greeting = session.profile.full_name
     ? tClient("welcomeBackName", { name: session.profile.full_name })
     : tClient("welcomeBack");
 
+  const companies = profileContext.data?.companies ?? [];
+  const companyLine =
+    companies.length === 1
+      ? t("companyContext", { name: companies[0]!.name })
+      : companies.length > 1
+        ? t("companyContext", {
+            name: companies.map((c) => c.name).join(", "),
+          })
+        : undefined;
+
+  const unreadNotifications = notificationsResult.data.filter((n) => !n.read_at).length;
+  const projectsInProgress = projects.filter((p) => p.progress < 100).length;
+  const activeServices = countActiveClientSubscriptions(subscriptions);
+  const pendingInvoices = invoicesResult.error
+    ? null
+    : countPendingInvoices(invoicesResult.data);
+  const openTickets = countOpenSupportTickets(
+    allTickets.map((ticket) => ({
+      id: ticket.id,
+      subject: ticket.subject,
+      status: ticket.status,
+      created_at: ticket.created_at,
+      updated_at: ticket.updated_at,
+    })),
+  );
+
+  const activityItems = buildDashboardActivityFeed({
+    tickets: allTickets.slice(0, 8).map((ticket) => ({
+      id: ticket.id,
+      subject: ticket.subject,
+      status: ticket.status,
+      created_at: ticket.created_at,
+      updated_at: ticket.updated_at,
+    })),
+    payments: paymentsResult.data.slice(0, 8),
+    notifications: notificationsResult.data.slice(0, 8),
+    projects,
+    documents: documentsResult.data.slice(0, 8),
+    meetings,
+    limit: 10,
+  });
+
+  const activityKindLabel = (kind: DashboardActivityItem["kind"]) => {
+    const map = {
+      ticket: t("activityKindTicket"),
+      payment: t("activityKindPayment"),
+      notification: t("activityKindNotification"),
+      project: t("activityKindProject"),
+      document: t("activityKindDocument"),
+      meeting: t("activityKindMeeting"),
+    } as const;
+    return map[kind];
+  };
+
+  const href = (path: string) => clientAreaHref(path, hostname);
+
+  const quickLinks = [
+    { label: t("quickProjects"), href: href("/client/projects") },
+    { label: t("quickServices"), href: href("/client/services") },
+    { label: t("quickDocuments"), href: href("/client/documents") },
+    { label: t("quickInvoices"), href: href("/client/invoices") },
+    { label: t("quickSupport"), href: href("/client/support") },
+  ];
+
   return (
     <>
-      <PageHeader title={greeting} description={t("description")} />
+      <ClientDashboardHeader
+        greeting={greeting}
+        subtitle={t("headerSubtitle")}
+        companyLine={companyLine}
+        notificationsHref={href("/client/notifications")}
+        unreadNotifications={unreadNotifications}
+        notificationsLabel={t("notificationsAction")}
+        notificationsAria={
+          unreadNotifications > 0
+            ? t("notificationsUnreadAria", { count: unreadNotifications })
+            : t("notificationsAction")
+        }
+      />
 
       {!dbState.configured ? (
         <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200">
@@ -161,12 +256,47 @@ export default async function ClientDashboardPage() {
         </div>
       ) : null}
 
+      <div className="mb-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <DashboardStatCard
+          title={t("statProjectsTitle")}
+          value={String(projectsInProgress)}
+          description={t("statProjectsDesc")}
+          href={href("/client/projects")}
+          icon={<ClientNavIcon id="projects" />}
+        />
+        <DashboardStatCard
+          title={t("statServicesTitle")}
+          value={String(activeServices)}
+          description={t("statServicesDesc")}
+          href={href("/client/services")}
+          icon={<ClientNavIcon id="services" />}
+        />
+        <DashboardStatCard
+          title={t("statInvoicesTitle")}
+          value={pendingInvoices === null ? "—" : String(pendingInvoices)}
+          description={
+            pendingInvoices === null
+              ? tErrors("invoicesCompanyUnavailable")
+              : t("statInvoicesDesc")
+          }
+          href={href("/client/invoices")}
+          icon={<ClientNavIcon id="invoices" />}
+        />
+        <DashboardStatCard
+          title={t("statSupportTitle")}
+          value={String(openTickets)}
+          description={t("statSupportDesc")}
+          href={href("/client/support")}
+          icon={<ClientNavIcon id="support" />}
+        />
+      </div>
+
       {serviceOverviews.length ? (
         <div className="mb-8 space-y-4">
           <div className="flex items-center justify-between gap-4">
             <h2 className="text-lg font-semibold text-white">{t("currentPlan")}</h2>
             <Link
-              href="/client/services"
+              href={href("/client/services")}
               className="text-sm text-[#2563EB] transition-colors hover:text-[#60A5FA]"
             >
               {t("viewAllServices")}
@@ -176,7 +306,7 @@ export default async function ClientDashboardPage() {
             {serviceOverviews.map(({ subscription, usage }) => (
               <div
                 key={subscription.id}
-                className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-6"
+                className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-6 shadow-sm shadow-black/10"
               >
                 <div className="flex flex-wrap items-center gap-3">
                   <h3 className="text-base font-medium text-white">
@@ -233,7 +363,7 @@ export default async function ClientDashboardPage() {
               </p>
             </div>
             <Link
-              href="/client/services"
+              href={href("/client/services")}
               className="text-sm text-[#2563EB] transition-colors hover:text-[#60A5FA]"
             >
               {t("viewAllServices")}
@@ -252,55 +382,90 @@ export default async function ClientDashboardPage() {
         </div>
       ) : null}
 
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        <PlatformCard
-          title={t("activeProjects")}
-          description={
-            primaryProject
-              ? `${primaryProject.name} · ${t("progressComplete", { progress: primaryProject.progress })}`
-              : projectsSection.emptyDescription
-          }
-          href="/client/projects"
+      {projects.length ? (
+        <section className="mb-8 rounded-2xl border border-[#1E293B] bg-[#0E1324] p-6">
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <h2 className="text-base font-semibold text-white">
+              {t("projectsSectionTitle")}
+            </h2>
+            <Link
+              href={href("/client/projects")}
+              className="text-sm text-[#2563EB] hover:text-[#60A5FA]"
+            >
+              {t("viewAll")}
+            </Link>
+          </div>
+          <ul className="space-y-3">
+            {projects.map((project) => (
+              <li
+                key={project.id}
+                className="rounded-xl border border-[#1E293B] bg-[#050816]/40 px-4 py-4"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="font-medium text-white">{project.name}</p>
+                    {project.due_date ? (
+                      <p className="mt-1 text-xs text-[#64748B]">
+                        {t("dueDate", { date: formatDate(project.due_date, locale) })}
+                      </p>
+                    ) : null}
+                  </div>
+                  {project.status_label ? (
+                    <StatusBadge label={project.status_label} tone="info" />
+                  ) : null}
+                </div>
+                <div className="mt-3 h-2 overflow-hidden rounded-full bg-[#050816]">
+                  <div
+                    className="h-full rounded-full bg-[#2563EB] transition-all duration-500 motion-reduce:transition-none"
+                    style={{ width: `${project.progress}%` }}
+                  />
+                </div>
+                <p className="mt-2 text-xs text-[#64748B]">
+                  {t("progressComplete", { progress: project.progress })}
+                </p>
+                <Link
+                  href={href(`/client/projects/${project.id}`)}
+                  className="mt-3 inline-block text-sm text-[#2563EB] hover:text-[#60A5FA]"
+                >
+                  {t("viewProjectDetails")} →
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : projectsResult.skipped || projectsResult.error ? null : (
+        <div className="mb-8">
+          <EmptyState title={t("activeProjects")} description={t("projectsEmpty")} />
+        </div>
+      )}
+
+      <div className="mb-8 grid gap-4 lg:grid-cols-2">
+        <DashboardActivityFeed
+          title={t("activityTitle")}
+          items={activityItems}
+          emptyTitle={t("activityEmptyTitle")}
+          emptyDescription={t("activityEmptyDescription")}
+          formatWhen={(iso) => formatDateTime(iso, locale)}
+          kindLabel={activityKindLabel}
+        />
+        <DashboardQuickLinks title={t("quickAccessTitle")} links={quickLinks} />
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Link
+          href={href("/client/analytics")}
+          className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-5 transition-colors hover:border-[#2563EB]/25"
         >
-          {primaryProject ? (
-            <div className="space-y-2">
-              {primaryProject.status_label ? (
-                <StatusBadge label={primaryProject.status_label} tone="info" />
-              ) : null}
-              <div className="h-2 overflow-hidden rounded-full bg-[#050816]">
-                <div
-                  className="h-full rounded-full bg-[#2563EB] transition-all duration-500"
-                  style={{ width: `${primaryProject.progress}%` }}
-                />
-              </div>
-            </div>
-          ) : null}
-        </PlatformCard>
-        <PlatformCard
-          title={t("currentPlan")}
-          description={planSummary}
-          href="/client/services"
-        />
-        <PlatformCard
-          title={t("payments")}
-          description={paymentsDescription}
-          href="/client/payments"
-        />
-        <PlatformCard
-          title={t("notifications")}
-          description={notificationsDescription}
-          href="/client/notifications"
-        />
-        <PlatformCard
-          title={t("analytics")}
-          description={analyticsDescription}
-          href="/client/analytics"
-        />
-        <PlatformCard
-          title={t("seo")}
-          description={seoDescription}
-          href="/client/seo"
-        />
+          <h3 className="text-base font-medium text-white">{t("analytics")}</h3>
+          <p className="mt-2 text-sm text-[#94A3B8]">{analyticsDescription}</p>
+        </Link>
+        <Link
+          href={href("/client/seo")}
+          className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-5 transition-colors hover:border-[#2563EB]/25"
+        >
+          <h3 className="text-base font-medium text-white">{t("seo")}</h3>
+          <p className="mt-2 text-sm text-[#94A3B8]">{seoDescription}</p>
+        </Link>
       </div>
 
       <div className="mt-8 grid gap-4 lg:grid-cols-2">
@@ -311,7 +476,7 @@ export default async function ClientDashboardPage() {
                 {t("recentSupportTickets")}
               </h3>
               <Link
-                href="/client/support"
+                href={href("/client/support")}
                 className="text-sm text-[#2563EB] transition-colors hover:text-[#60A5FA]"
               >
                 {t("viewAll")}
@@ -324,9 +489,7 @@ export default async function ClientDashboardPage() {
                   className="rounded-xl border border-[#1E293B] bg-[#050816]/40 px-4 py-3"
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3">
-                    <p className="text-sm font-medium text-white">
-                      {ticket.subject}
-                    </p>
+                    <p className="text-sm font-medium text-white">{ticket.subject}</p>
                     <StatusBadge
                       label={formatStatusLabel(ticket.status, tStatus)}
                       tone={ticketStatusTone(ticket.status)}
@@ -353,7 +516,7 @@ export default async function ClientDashboardPage() {
                 {t("upcomingMeetings")}
               </h3>
               <Link
-                href="/client/meetings"
+                href={href("/client/meetings")}
                 className="text-sm text-[#2563EB] transition-colors hover:text-[#60A5FA]"
               >
                 {t("viewAll")}
@@ -366,9 +529,7 @@ export default async function ClientDashboardPage() {
                   className="rounded-xl border border-[#1E293B] bg-[#050816]/40 px-4 py-3"
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3">
-                    <p className="text-sm font-medium text-white">
-                      {meeting.title}
-                    </p>
+                    <p className="text-sm font-medium text-white">{meeting.title}</p>
                     <StatusBadge
                       label={formatStatusLabel(meeting.status, tStatus)}
                       tone="info"

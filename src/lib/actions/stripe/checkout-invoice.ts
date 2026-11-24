@@ -2,13 +2,16 @@
 
 import { requireClientAuth } from "@/lib/auth/session";
 import { createClient } from "@/lib/supabase/server";
-import { getAppBaseUrl } from "@/lib/stripe/app-url";
+import { isPortalHostname, readRequestHostname } from "@/lib/routing";
+import { getAppBaseUrl, getPortalBaseUrl } from "@/lib/stripe/app-url";
+import { buildInvoiceCheckoutReturnUrls } from "@/lib/stripe/checkout-paths";
 import {
   assertInvoicePayable,
   resolveStripeCustomerForCompany,
   type PayableInvoiceRow,
 } from "@/lib/stripe/invoice-checkout";
 import { getStripeServerClient } from "@/lib/stripe/server";
+import { headers } from "next/headers";
 
 export interface CreateInvoiceCheckoutResult {
   url: string;
@@ -66,7 +69,15 @@ export async function createInvoiceCheckoutSession(
     companyName: (company?.name as string) ?? "Artecium Client",
   });
 
-  const baseUrl = getAppBaseUrl();
+  const requestHeaders = await headers();
+  const hostname = readRequestHostname((name) => requestHeaders.get(name));
+  const onPortalHost = isPortalHostname(hostname);
+  const baseUrl = onPortalHost ? getPortalBaseUrl() : getAppBaseUrl();
+  const { successUrl, cancelUrl } = buildInvoiceCheckoutReturnUrls(
+    baseUrl,
+    onPortalHost,
+  );
+
   const currency = (payableInvoice.currency ?? "EUR").toLowerCase();
   const label = payableInvoice.invoice_number ?? payableInvoice.id;
 
@@ -91,8 +102,8 @@ export async function createInvoiceCheckoutSession(
         company_id: payableInvoice.company_id,
         invoice_id: payableInvoice.id,
       },
-      success_url: `${baseUrl}/client/invoices/payment/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${baseUrl}/client/invoices/payment/cancel`,
+      success_url: successUrl,
+      cancel_url: cancelUrl,
     },
     {
       idempotencyKey: `invoice-checkout-${payableInvoice.id}-${amountDueCents}`,

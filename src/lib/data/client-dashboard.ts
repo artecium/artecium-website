@@ -36,10 +36,18 @@ export interface DashboardProject {
   progress: number;
   status_label: string | null;
   status_color: string | null;
+  updated_at: string;
+  due_date: string | null;
 }
 
 function isActiveSubscription(subscription: ClientSubscription): boolean {
   return ACTIVE_SUBSCRIPTION_STATUSES.has(subscription.status);
+}
+
+export function countActiveClientSubscriptions(
+  subscriptions: ClientSubscription[],
+): number {
+  return subscriptions.filter(isActiveSubscription).length;
 }
 
 export function clientHasAnalyticsService(
@@ -138,6 +146,8 @@ export async function getDashboardProjects(
       id,
       name,
       progress,
+      updated_at,
+      due_date,
       project_statuses ( label, color )
     `,
     )
@@ -167,6 +177,8 @@ export async function getDashboardProjects(
       progress: Number(row.progress ?? 0),
       status_label: statusRow?.label ?? null,
       status_color: statusRow?.color ?? null,
+      updated_at: row.updated_at as string,
+      due_date: (row.due_date as string | null) ?? null,
     };
   });
 

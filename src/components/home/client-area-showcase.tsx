@@ -4,9 +4,11 @@ import { ClientDashboardBrowserFrame } from "@/components/home/client-dashboard-
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { PUBLIC_AUTH_ENTRY_PATH } from "@/lib/auth/entry-routes";
 
 export function ClientAreaShowcase() {
   const t = useTranslations("home.clientArea");
+  const clientAuthHref = PUBLIC_AUTH_ENTRY_PATH;
 
   return (
     <section
@@ -39,7 +41,7 @@ export function ClientAreaShowcase() {
               {t("description")}
             </p>
             <Link
-              href="/client/dashboard"
+              href={clientAuthHref}
               className="mt-8 inline-flex h-11 items-center justify-center rounded-full border border-[#1E293B] bg-[#0E1324] px-6 text-sm font-medium text-white transition-all duration-300 hover:border-[#2563EB]/40 hover:bg-[#111827] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]/50"
             >
               {t("exploreClientArea")}

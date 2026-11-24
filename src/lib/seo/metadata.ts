@@ -17,6 +17,10 @@ interface PageMetadataOptions {
   noIndex?: boolean;
   openGraphLocale?: string;
   alternateLanguages?: Record<string, string>;
+  /** Override origin for metadataBase, canonical, and Open Graph URL */
+  siteUrl?: string;
+  /** When false, omit canonical (e.g. portal noindex pages) */
+  includeCanonical?: boolean;
 }
 
 export function constructMetadata({
@@ -26,13 +30,16 @@ export function constructMetadata({
   noIndex = false,
   openGraphLocale = SITE_LOCALE,
   alternateLanguages,
+  siteUrl = SITE_URL,
+  includeCanonical = true,
 }: PageMetadataOptions = {}): Metadata {
+  const origin = siteUrl.replace(/\/$/, "");
   const canonicalPath = path.startsWith("/") ? path : `/${path}`;
-  const canonicalUrl = `${SITE_URL}${canonicalPath === "/" ? "" : canonicalPath}`;
+  const canonicalUrl = `${origin}${canonicalPath === "/" ? "" : canonicalPath}`;
   const ogImageUrl = `${SITE_URL}${SITE_OG_IMAGE.url}`;
 
   return {
-    metadataBase: new URL(SITE_URL),
+    metadataBase: new URL(origin),
     title: {
       default: SITE_TITLE,
       template: `%s | ${SITE_NAME}`,
@@ -50,13 +57,13 @@ export function constructMetadata({
       telephone: false,
     },
     alternates: {
-      canonical: canonicalUrl,
+      ...(includeCanonical ? { canonical: canonicalUrl } : {}),
       ...(alternateLanguages ? { languages: alternateLanguages } : {}),
     },
     openGraph: {
       type: "website",
       locale: openGraphLocale,
-      url: canonicalUrl,
+      url: includeCanonical ? canonicalUrl : origin,
       siteName: SITE_NAME,
       title,
       description,

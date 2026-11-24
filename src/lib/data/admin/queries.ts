@@ -650,6 +650,7 @@ export interface AdminCompanyConnectionRow {
   display_name: string | null;
   property_id?: string | null;
   site_url?: string | null;
+  last_sync_at?: string | null;
 }
 
 export interface AdminCompanyFeedbackRow {
@@ -915,7 +916,7 @@ export async function getAdminCompanyTabData(
     case "analytics": {
       const { data, error } = await supabase
         .from("analytics_connections")
-        .select("id, property_id, status, display_name")
+        .select("id, property_id, status, display_name, connected_at, last_sync_at")
         .eq("company_id", companyId);
       if (error) throwQueryError("admin.getAdminCompanyTabData.analytics", error);
       return {
@@ -925,13 +926,14 @@ export async function getAdminCompanyTabData(
           status: row.status as string,
           display_name: (row.display_name as string | null) ?? null,
           property_id: (row.property_id as string | null) ?? null,
+          last_sync_at: (row.last_sync_at as string | null) ?? null,
         })),
       };
     }
     case "seo": {
       const { data, error } = await supabase
         .from("seo_connections")
-        .select("id, site_url, status, display_name")
+        .select("id, site_url, status, display_name, connected_at, last_sync_at")
         .eq("company_id", companyId);
       if (error) throwQueryError("admin.getAdminCompanyTabData.seo", error);
       return {
@@ -941,6 +943,7 @@ export async function getAdminCompanyTabData(
           status: row.status as string,
           display_name: (row.display_name as string | null) ?? null,
           site_url: (row.site_url as string | null) ?? null,
+          last_sync_at: (row.last_sync_at as string | null) ?? null,
         })),
       };
     }
@@ -1297,7 +1300,9 @@ export async function getAdminAnalytics(companyId?: string) {
   const supabase = await createClient();
   let connQuery = supabase
     .from("analytics_connections")
-    .select("id, company_id, property_id, display_name, status, companies ( name )")
+    .select(
+      "id, company_id, property_id, display_name, status, connected_at, last_sync_at, companies ( name )",
+    )
     .order("connected_at", { ascending: false });
 
   if (companyId) connQuery = connQuery.eq("company_id", companyId);
@@ -1305,13 +1310,20 @@ export async function getAdminAnalytics(companyId?: string) {
   const { data: connections, error: connError } = await connQuery;
   if (connError) return { connections: [], metrics: [], error: connError };
 
-  const connIds = (connections ?? []).map((c) => c.id as string);
+  const activeConnIds = (connections ?? [])
+    .filter((c) => {
+      if ((c.status as string) !== "active") return false;
+      const propertyId = (c.property_id as string | null) ?? "";
+      return propertyId !== "GA-DEMO-123456";
+    })
+    .map((c) => c.id as string);
+
   let metrics: Record<string, unknown>[] = [];
-  if (connIds.length) {
+  if (activeConnIds.length) {
     const { data } = await supabase
       .from("analytics_data")
       .select("id, connection_id, metric_date, users, sessions, page_views, conversions")
-      .in("connection_id", connIds)
+      .in("connection_id", activeConnIds)
       .order("metric_date", { ascending: true });
     metrics = (data ?? []) as Record<string, unknown>[];
   }
@@ -1323,7 +1335,9 @@ export async function getAdminSeo(companyId?: string) {
   const supabase = await createClient();
   let connQuery = supabase
     .from("seo_connections")
-    .select("id, company_id, site_url, display_name, status, companies ( name )")
+    .select(
+      "id, company_id, site_url, display_name, status, connected_at, last_sync_at, companies ( name )",
+    )
     .order("connected_at", { ascending: false });
 
   if (companyId) connQuery = connQuery.eq("company_id", companyId);

@@ -1,13 +1,11 @@
 "use client";
 
+import { redirectAfterClientSignIn } from "@/lib/auth/post-auth-client";
 import {
   fetchUserRolesFromSupabase,
   resolveIsStaffFromSupabase,
 } from "@/lib/auth/profile-roles";
-import {
-  getPostLoginPath,
-  resolveClientPostLoginRedirect,
-} from "@/lib/auth/redirects";
+import { getPostLoginPath } from "@/lib/auth/redirects";
 import { hasAnyStaffRole } from "@/lib/auth/permissions";
 import { createClient } from "@/lib/supabase/client";
 import { useTranslations } from "next-intl";
@@ -16,9 +14,11 @@ import { useRouter } from "next/navigation";
 
 interface LoginFormProps {
   mode?: "client" | "admin";
+  /** Internal path only (e.g. /booking/admin/dashboard). */
+  redirectTo?: string;
 }
 
-export function LoginForm({ mode = "client" }: LoginFormProps) {
+export function LoginForm({ mode = "client", redirectTo }: LoginFormProps) {
   const t = useTranslations("auth");
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -65,9 +65,8 @@ export function LoginForm({ mode = "client" }: LoginFormProps) {
       return;
     }
 
-    const redirectPath = await resolveClientPostLoginRedirect();
-    router.push(redirectPath);
-    router.refresh();
+    await redirectAfterClientSignIn(supabase, router, redirectTo);
+    setIsLoading(false);
   }
 
   return (

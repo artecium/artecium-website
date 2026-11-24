@@ -2,6 +2,7 @@
 
 import { setLocale } from "@/i18n/actions";
 import { locales, type AppLocale } from "@/i18n/config";
+import { isPortalHostname } from "@/lib/routing/portal-host";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
@@ -17,7 +18,8 @@ const localeLabels: Record<AppLocale, string> = {
   en: "EN",
 };
 
-function getLocalePath(pathname: string, locale: AppLocale): string {
+/** Main marketing site: prefix or strip `/en` in the URL. */
+function getMainSiteLocalePath(pathname: string, locale: AppLocale): string {
   if (locale === "en") {
     if (pathname === "/") return "/en";
     if (pathname.startsWith("/en")) return pathname;
@@ -27,6 +29,11 @@ function getLocalePath(pathname: string, locale: AppLocale): string {
   if (pathname === "/en") return "/";
   if (pathname.startsWith("/en/")) return pathname.slice(3) || "/";
   return pathname;
+}
+
+function isPortalHostClient(): boolean {
+  if (typeof window === "undefined") return false;
+  return isPortalHostname(window.location.hostname);
 }
 
 export function LanguageSwitcher({
@@ -41,11 +48,18 @@ export function LanguageSwitcher({
   function handleChange(locale: AppLocale) {
     if (locale === currentLocale || isPending) return;
 
-    const nextPath = getLocalePath(pathname, locale);
+    const onPortalHost = isPortalHostClient();
+    const nextPath = onPortalHost
+      ? pathname
+      : getMainSiteLocalePath(pathname, locale);
 
     startTransition(async () => {
       await setLocale(locale, nextPath);
-      router.push(nextPath);
+      if (onPortalHost) {
+        router.refresh();
+      } else {
+        router.push(nextPath);
+      }
     });
   }
 

@@ -9,7 +9,9 @@ import {
 import { getClientProjectDetail } from "@/lib/data/client-projects";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { clientAreaHref, readRequestHostname } from "@/lib/routing";
 import { getLocale, getTranslations } from "next-intl/server";
+import { headers } from "next/headers";
 import Link from "next/link";
 
 function milestoneTone(
@@ -33,6 +35,8 @@ export default async function ProjectDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const requestHeaders = await headers();
+  const hostname = readRequestHostname((name) => requestHeaders.get(name));
   const locale = resolveLocale(await getLocale());
   const t = await getTranslations("projects");
   const tCommon = await getTranslations("common");
@@ -85,7 +89,7 @@ export default async function ProjectDetailPage({
         description={project.description ?? t("detailDescriptionFallback")}
         actions={
           <Link
-            href="/client/projects"
+            href={clientAreaHref("/client/projects", hostname)}
             className="text-sm text-[#2563EB] transition-colors hover:text-[#60A5FA]"
           >
             ← {tCommon("backToProjects")}

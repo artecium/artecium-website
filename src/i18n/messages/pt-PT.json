@@ -1,4 +1,7 @@
 {
+  "account": {
+    "workspaces": "Áreas de trabalho"
+  },
   "common": {
     "appName": "Artecium",
     "loading": "A carregar…",
@@ -112,6 +115,37 @@
     "feedback": "Feedback",
     "profile": "Perfil",
     "settings": "Definições",
+    "clientNav": {
+      "overview": "Visão geral",
+      "myProjects": "Os meus projetos",
+      "myServices": "Os meus serviços",
+      "groupAnalyticsSeo": "Análise e SEO",
+      "analytics": "Análise",
+      "seo": "SEO",
+      "reports": "Relatórios",
+      "meetings": "Reuniões",
+      "groupBooking": "Reservas",
+      "bookingOverview": "Visão geral",
+      "bookingCalendar": "Calendário",
+      "bookingAppointments": "Marcações",
+      "bookingServices": "Serviços",
+      "bookingStaff": "Profissionais",
+      "bookingSchedules": "Horários",
+      "bookingTimeOff": "Ausências",
+      "bookingCustomers": "Clientes",
+      "bookingTeam": "Equipa",
+      "bookingSettings": "Configurações",
+      "feedback": "Feedback",
+      "supportTickets": "Pedidos de suporte",
+      "groupFinancial": "Financeiro",
+      "invoices": "Faturas",
+      "payments": "Pagamentos",
+      "myDocuments": "Os meus documentos",
+      "notifications": "Notificações",
+      "groupAccount": "Conta",
+      "profile": "Perfil",
+      "settings": "Definições"
+    },
     "clientArea": "Área de Cliente",
     "clientPortal": "Portal do Cliente"
   },
@@ -123,7 +157,35 @@
     "clientLoginTitle": "Área de Cliente",
     "clientLoginDescription": "Aceda à sua área de cliente Artecium.",
     "clientAreaTitle": "Área de Cliente",
-    "clientAreaDescription": "A sua área de cliente Artecium."
+    "clientAreaDescription": "A sua área de cliente Artecium.",
+    "areaHubTitle": "Escolher área",
+    "areaHubDescription": "Selecione a Área de Cliente Artecium ou o Artecium Booking."
+  },
+  "areaHub": {
+    "title": "Onde pretende entrar?",
+    "description": "A Artecium reúne o portal para clientes dos nossos serviços e a plataforma de reservas para o seu negócio. Escolha a área adequada.",
+    "backToHome": "Voltar ao site",
+    "sessionActiveHint": "Já tem sessão iniciada. Escolha a área ou termine sessão noutra página se quiser usar outra conta.",
+    "staffNotice": "Tem acesso de equipa Artecium.",
+    "staffLink": "Ir para administração",
+    "client": {
+      "title": "Área de Cliente",
+      "description": "Projetos, serviços, documentos, pagamentos e suporte dos contratos com a Artecium.",
+      "enter": "Entrar no portal",
+      "signIn": "Iniciar sessão",
+      "noAccess": "A sua conta não está associada a nenhuma empresa cliente. Contacte a Artecium se precisar de acesso."
+    },
+    "booking": {
+      "title": "Artecium Booking",
+      "description": "Gerir marcações, equipa, serviços e calendário do seu negócio na plataforma de reservas.",
+      "enter": "Abrir Booking",
+      "signIn": "Iniciar sessão",
+      "noAccess": "A sua conta não tem acesso ao Artecium Booking. Peça um convite ao responsável do negócio ou configure o Booking se for elegível."
+    },
+    "errors": {
+      "clientDenied": "Não tem autorização para aceder à Área de Cliente com esta conta.",
+      "bookingDenied": "Não tem autorização para aceder ao Artecium Booking com esta conta."
+    }
   },
   "home": {
     "hero": {
@@ -464,20 +526,20 @@
     },
     "problems": {
       "eyebrow": "Desafios empresariais",
-      "title": "O que a Artecium resolve",
+      "title": "O que a Artecium resolve.",
       "description": "Trabalhamos com empresas que enfrentam desafios digitais concretos — e precisam de soluções claras, não de mais complexidade.",
       "items": {
         "outdatedWebsite": {
           "title": "Presença online pouco profissional",
-          "description": "Quando o website não reflete a qualidade do negócio nem transmite confiança a quem o visita."
+          "description": "O website não reflete a qualidade do negócio nem transmite confiança."
         },
         "fewLeads": {
-          "title": "Dificuldade em atrair potenciais clientes",
-          "description": "Quando a presença digital existe, mas não gera contactos, pedidos de informação ou oportunidades comerciais."
+          "title": "Dificuldade em atrair clientes",
+          "description": "Existe presença digital, mas não gera contactos nem oportunidades comerciais."
         },
         "manualProcesses": {
           "title": "Tarefas manuais e processos ineficientes",
-          "description": "Quando trabalho repetitivo consome tempo que devia ser investido no crescimento do negócio."
+          "description": "O trabalho repetitivo consome tempo que devia ir para o crescimento."
         },
         "lostLeads": {
           "title": "Perda de leads",
@@ -489,12 +551,16 @@
         },
         "scatteredInfo": {
           "title": "Ferramentas e informação dispersas",
-          "description": "Quando dados, ferramentas e processos estão divididos por várias plataformas que não comunicam entre si."
+          "description": "Dados e processos espalhados por plataformas que não comunicam entre si."
         },
         "needAutomation": {
           "title": "Necessidade de automatizar tarefas",
           "description": "Quando há interesse em IA e automação, mas falta clareza sobre o que implementar primeiro."
         }
+      },
+      "closing": {
+        "lead": "Website + IA + Automação + SEO —",
+        "rest": "presença profissional, processos eficientes e visibilidade no Google, adaptados ao seu negócio."
       },
       "solution": {
         "label": "A resposta Artecium",
@@ -521,47 +587,39 @@
     },
     "why": {
       "eyebrow": "Porquê a Artecium",
-      "title": "Uma solução pensada para o negócio",
+      "title": "Uma solução pensada para o negócio.",
       "description": "Criamos soluções digitais com foco no que importa para a empresa — clareza, qualidade e crescimento sustentável.",
       "items": {
-        "customSolutions": {
+        "noTech": {
+          "title": "Não precisa de saber de tecnologia",
+          "description": "Explicamos as opções, os custos e o que faz sentido em cada fase."
+        },
+        "tailored": {
           "title": "Soluções à medida",
-          "description": "Cada projeto começa pelos objetivos do negócio, não por um template genérico."
+          "description": "Cada projeto começa pelos objetivos, não por um template."
+        },
+        "directComms": {
+          "title": "Comunicação direta",
+          "description": "Opções, custos e próximos passos, sem jargão."
         },
         "modernTech": {
           "title": "Tecnologia moderna",
-          "description": "Utilizamos ferramentas actuais para construir websites rápidos, seguros e preparados para evoluir."
+          "description": "Sites rápidos, seguros e preparados para evoluir."
         },
-        "aiWhenValuable": {
-          "title": "IA quando acrescenta valor",
-          "description": "Implementamos inteligência artificial apenas onde simplifica processos ou melhora a experiência."
-        },
-        "processAutomation": {
-          "title": "Automação de processos",
-          "description": "Reduzimos tarefas manuais e ligamos ferramentas para o negócio funcionar com menos fricção."
-        },
-        "seoFromBase": {
-          "title": "SEO desde a base",
-          "description": "Preparamos cada website para ser encontrado, com estrutura técnica sólida desde o início."
-        },
-        "directCommunication": {
-          "title": "Comunicação directa",
-          "description": "Trabalha connosco de forma clara — explicamos opções, custos e próximos passos sem jargão desnecessário."
-        },
-        "builtToGrow": {
-          "title": "Estrutura preparada para crescer",
-          "description": "Construímos soluções que podem evoluir — novas funcionalidades, SEO ou automação numa fase posterior."
+        "readyToGrow": {
+          "title": "Pronta para crescer",
+          "description": "Novas funcionalidades, SEO ou automação numa fase posterior."
         }
       }
     },
     "process": {
       "eyebrow": "Processo",
-      "title": "Como trabalhamos",
-      "description": "Um processo simples e transparente — do primeiro contacto ao lançamento e evolução.",
+      "title": "Como trabalhamos.",
+      "description": "Um processo simples e transparente, do primeiro contacto ao lançamento e evolução.",
       "steps": {
         "discovery": {
           "title": "Descoberta",
-          "description": "Percebemos o negócio, objetivos e necessidades."
+          "description": "Percebemos o negócio, os objetivos e as necessidades."
         },
         "strategy": {
           "title": "Estratégia",
@@ -573,7 +631,7 @@
         },
         "launch": {
           "title": "Lançamento e evolução",
-          "description": "Publicamos, analisamos e, quando contratado, continuamos a optimizar."
+          "description": "Publicamos, analisamos e, se contratado, continuamos a otimizar."
         }
       },
       "cta": "Falar sobre o meu projeto"
@@ -732,13 +790,57 @@
     "invalidCredentials": "E-mail ou palavra-passe inválidos. Tente novamente.",
     "adminAccessDenied": "Não tem permissão para aceder à área de administração.",
     "sessionExpired": "A sua sessão expirou. Inicie sessão novamente.",
-    "unauthorized": "Tem de iniciar sessão para aceder a esta página."
+    "unauthorized": "Tem de iniciar sessão para aceder a esta página.",
+    "orDivider": "ou",
+    "google": {
+      "continue": "Continuar com Google",
+      "loading": "A redirecionar…",
+      "error": "Não foi possível iniciar sessão com Google. Tente novamente ou use o e-mail e a palavra-passe."
+    },
+    "signUp": {
+      "title": "Criar conta",
+      "subtitle": "Crie a sua conta Artecium. Isto não associa automaticamente a sua conta a nenhuma empresa nem ao Booking.",
+      "createAccount": "Criar conta",
+      "noAccount": "Ainda não tem conta?",
+      "hasAccount": "Já tem conta?",
+      "passwordLabel": "Palavra-passe",
+      "passwordPlaceholder": "Mínimo 8 caracteres",
+      "passwordHint": "Use pelo menos 8 caracteres.",
+      "confirmPasswordLabel": "Confirmar palavra-passe",
+      "confirmPasswordPlaceholder": "Repita a palavra-passe",
+      "submit": "Criar conta",
+      "submitting": "A criar conta…",
+      "emailRequired": "Indique o seu e-mail.",
+      "emailInvalid": "Indique um endereço de e-mail válido.",
+      "passwordRequired": "Indique uma palavra-passe.",
+      "passwordTooShort": "A palavra-passe deve ter pelo menos 8 caracteres.",
+      "confirmRequired": "Confirme a palavra-passe.",
+      "confirmMismatch": "As palavras-passe não coincidem.",
+      "confirmEmailTitle": "Confirme o seu e-mail",
+      "confirmEmailDescription": "Enviámos um link de confirmação para o seu e-mail. Abra o link para activar a conta e continuar.",
+      "confirmEmailNextHint": "Depois de confirmar, entrará em {path} (salvo se tiver escolhido outro destino seguro).",
+      "errors": {
+        "generic": "Não foi possível criar a conta. Verifique os dados ou tente iniciar sessão se já tiver conta.",
+        "signupDisabled": "O registo público não está disponível de momento. Contacte a Artecium se precisar de acesso.",
+        "weakPassword": "A palavra-passe não cumpre os requisitos de segurança. Escolha uma palavra-passe mais forte.",
+        "invalidEmail": "O endereço de e-mail não é válido.",
+        "authCallback": "Não foi possível concluir a confirmação. Tente iniciar sessão ou pedir um novo e-mail de confirmação."
+      }
+    }
   },
   "client": {
     "areaTitle": "Área de Cliente",
     "areaLabel": "Portal do Cliente",
     "welcomeBack": "Bem-vindo de volta",
-    "welcomeBackName": "Bem-vindo de volta, {name}"
+    "welcomeBackName": "Bem-vindo de volta, {name}",
+    "welcomeNoCompany": {
+      "title": "Bem-vindo à Área de Cliente",
+      "description": "A sua conta ainda não está associada a nenhuma empresa cliente da Artecium. Quando a associação for criada, verá aqui os seus projetos, serviços, faturas e restante informação.",
+      "signedInAs": "Sessão iniciada como {email}",
+      "howToGetAccess": "Para solicitar acesso ou associar a sua conta a uma empresa, contacte a Artecium.",
+      "contactEmail": "Enviar e-mail",
+      "contactHint": "Indique o e-mail da sua conta e o nome da empresa. A nossa equipa validará a associação."
+    }
   },
   "dashboard": {
     "title": "Painel",
@@ -775,7 +877,37 @@
     "supportTicketsEmpty": "Os seus pedidos de suporte aparecerão aqui assim que criar um ticket.",
     "noUpcomingMeetings": "Sem reuniões agendadas",
     "meetingsEmpty": "Reuniões e chamadas de revisão agendadas aparecerão aqui quando forem marcadas.",
-    "projectsEmpty": "Acompanhe o progresso, cronograma e entregáveis."
+    "projectsEmpty": "Acompanhe o progresso, cronograma e entregáveis.",
+    "headerSubtitle": "Área de cliente",
+    "companyContext": "Empresa: {name}",
+    "notificationsAction": "Notificações",
+    "notificationsUnreadAria": "{count} notificações por ler",
+    "statProjectsTitle": "Projetos em curso",
+    "statProjectsDesc": "Com progresso inferior a 100%",
+    "statServicesTitle": "Serviços ativos",
+    "statServicesDesc": "Subscrições em vigor",
+    "statInvoicesTitle": "Faturas pendentes",
+    "statInvoicesDesc": "Com valor em aberto",
+    "statSupportTitle": "Pedidos em aberto",
+    "statSupportDesc": "Aguardam resolução",
+    "projectsSectionTitle": "Os seus projetos",
+    "viewProjectDetails": "Ver detalhes",
+    "dueDate": "Prazo: {date}",
+    "quickAccessTitle": "Acesso rápido",
+    "quickProjects": "Consultar projetos",
+    "quickServices": "Consultar serviços",
+    "quickDocuments": "Ver documentos",
+    "quickInvoices": "Consultar faturas",
+    "quickSupport": "Acompanhar suporte",
+    "activityTitle": "Atividade recente",
+    "activityEmptyTitle": "Sem atividade recente",
+    "activityEmptyDescription": "Quando houver atualizações nos seus projetos, pedidos, documentos ou pagamentos, aparecerão aqui.",
+    "activityKindTicket": "Suporte",
+    "activityKindPayment": "Pagamento",
+    "activityKindNotification": "Notificação",
+    "activityKindProject": "Projeto",
+    "activityKindDocument": "Documento",
+    "activityKindMeeting": "Reunião"
   },
   "projects": {
     "title": "Projetos",
@@ -827,7 +959,55 @@
     "pageViews": "Visualizações de página",
     "conversions": "Conversões",
     "chartSessions": "Sessões",
-    "chartPageViews": "Visualizações de página"
+    "chartPageViews": "Visualizações de página",
+    "period7d": "7 dias",
+    "period28d": "28 dias",
+    "period90d": "90 dias",
+    "periodThisMonth": "Este mês",
+    "periodLastMonth": "Mês anterior",
+    "periodCustom": "Personalizado",
+    "periodFrom": "De",
+    "periodTo": "Até",
+    "periodApply": "Aplicar",
+    "periodAnalyzed": "Período analisado: {from} — {to}",
+    "lastSync": "Última sincronização: {date}",
+    "noSyncYet": "Sem registo de sincronização — dados armazenados na plataforma.",
+    "storedDataNotice": "Os valores provêm de dados sincronizados para a sua empresa, não de consulta em tempo real ao Google.",
+    "demoDataWarning": "Estes dados são de demonstração e não reflectem o Google Analytics real.",
+    "changeVsPrevious": "vs período anterior",
+    "unavailableMetric": "Indisponível",
+    "usersPeriodHint": "Soma dos totais diários guardados; o mesmo utilizador pode contar várias vezes em dias diferentes.",
+    "chartTitle": "Evolução diária",
+    "chartTotalNote": "Total no período",
+    "sectionChannels": "Origem do tráfego",
+    "sectionPages": "Páginas mais visitadas",
+    "sectionDevices": "Dispositivos",
+    "sectionCountries": "Países",
+    "sectionEvents": "Eventos e conversões",
+    "dimensionEmpty": "Não existem dados detalhados para este período. A sincronização deve incluir canais, páginas ou eventos no payload.",
+    "searchPlaceholder": "Pesquisar…",
+    "exportCsv": "Exportar CSV",
+    "insightsTitle": "Resumo",
+    "insightFact": "Facto",
+    "insightOpportunity": "Oportunidade",
+    "insightLimit": "Limite",
+    "insightsSessionsUp": "As sessões aumentaram cerca de {percent}% face ao período anterior.",
+    "insightsSessionsDown": "As sessões diminuíram cerca de {percent}% face ao período anterior.",
+    "insightsTopChannel": "Canal com mais sessões: {channel} ({sessions} sessões).",
+    "insightsTopPage": "Página com mais visualizações: {path} ({views} visualizações).",
+    "insightsNoDays": "Não há registos diários neste intervalo de datas.",
+    "insightsNoDimensions": "Só estão disponíveis totais diários agregados; canais, páginas e eventos detalhados não foram sincronizados.",
+    "insightsTrafficDrop": "Queda relevante de sessões face ao período anterior comparável.",
+    "colChannel": "Canal",
+    "colPage": "Página",
+    "colDevice": "Dispositivo",
+    "colCountry": "País",
+    "colEvent": "Evento",
+    "colSessions": "Sessões",
+    "colUsers": "Utilizadores",
+    "colPageViews": "Visualizações",
+    "colCount": "Contagem",
+    "dailyExport": "analytics-diario.csv"
   },
   "seo": {
     "title": "SEO",
@@ -847,7 +1027,56 @@
     "ctr": "CTR",
     "avgPosition": "Posição média",
     "chartClicks": "Cliques",
-    "chartImpressions": "Impressões"
+    "chartImpressions": "Impressões",
+    "period7d": "7 dias",
+    "period28d": "28 dias",
+    "period90d": "90 dias",
+    "periodThisMonth": "Este mês",
+    "periodLastMonth": "Mês anterior",
+    "periodCustom": "Personalizado",
+    "periodFrom": "De",
+    "periodTo": "Até",
+    "periodApply": "Aplicar",
+    "periodAnalyzed": "Período analisado: {from} — {to}",
+    "lastSync": "Última sincronização: {date}",
+    "noSyncYet": "Sem registo de sincronização — dados armazenados na plataforma.",
+    "storedDataNotice": "Os valores provêm de dados sincronizados para a sua empresa, não de consulta em tempo real ao Google.",
+    "demoDataWarning": "Estes dados são de demonstração e não reflectem o Search Console real.",
+    "changeVsPrevious": "vs período anterior",
+    "unavailableMetric": "Indisponível",
+    "chartTitle": "Evolução diária",
+    "chartTotalNote": "Total no período",
+    "sectionQueries": "Palavras-chave",
+    "sectionPages": "Páginas orgânicas",
+    "sectionDevices": "Dispositivos",
+    "sectionCountries": "Países",
+    "sectionSearchTypes": "Tipo de pesquisa",
+    "dimensionEmpty": "Não existem consultas ou páginas detalhadas para este período.",
+    "searchPlaceholder": "Pesquisar…",
+    "exportCsv": "Exportar CSV",
+    "insightsTitle": "Diagnóstico e oportunidades",
+    "insightFact": "Confirmado",
+    "insightOpportunity": "Oportunidade",
+    "insightLimit": "Limite",
+    "insightsClicksUp": "Cliques orgânicos aumentaram cerca de {percent}% face ao período anterior.",
+    "insightsClicksDown": "Cliques orgânicos diminuíram cerca de {percent}% face ao período anterior.",
+    "insightsLowCtr": "CTR médio baixo no período — pode valer a pena rever títulos e meta descriptions (sem garantia de melhoria).",
+    "insightsQueryLowCtr": "Consulta «{query}» com muitas impressões e CTR reduzido — candidata a optimização de snippet.",
+    "insightsClicksDrop": "Queda relevante de cliques face ao período anterior comparável.",
+    "insightsNoQueryPageData": "Só estão disponíveis totais diários agregados; consultas e páginas detalhadas não foram sincronizadas.",
+    "colQuery": "Consulta",
+    "colPage": "Página",
+    "colClicks": "Cliques",
+    "colImpressions": "Impressões",
+    "colCtr": "CTR",
+    "colPosition": "Posição média",
+    "colDevice": "Dispositivo",
+    "colCountry": "País",
+    "colSearchType": "Tipo",
+    "diagnosticsLimitNote": "Esta secção não substitui uma auditoria técnica completa (indexação, Core Web Vitals, rastreio).",
+    "dailyExport": "seo-diario.csv",
+    "queriesExport": "seo-consultas.csv",
+    "pagesExport": "seo-paginas.csv"
   },
   "reports": {
     "title": "Relatórios",
@@ -951,6 +1180,8 @@
     "open": "Aberto",
     "in_progress": "Em progresso",
     "in_review": "Em revisão",
+    "new": "Novo",
+    "awaiting_client": "A aguardar cliente",
     "waiting_client": "A aguardar cliente",
     "resolved": "Resolvido",
     "closed": "Fechado",
@@ -969,7 +1200,24 @@
     "client_visible": "Visível para o cliente",
     "approved": "Aprovado",
     "rejected": "Rejeitado",
-    "archived": "Arquivado"
+    "archived": "Arquivado",
+    "todo": "Por fazer",
+    "done": "Feito",
+    "review": "Revisão",
+    "confirmed": "Confirmado",
+    "low": "Baixa",
+    "normal": "Normal",
+    "high": "Alta",
+    "urgent": "Urgente",
+    "contacted": "Contactado",
+    "proposal_sent": "Proposta enviada",
+    "negotiation": "Negociação",
+    "won": "Ganho",
+    "lost": "Perdido",
+    "accepted": "Aceite",
+    "in_development": "Em desenvolvimento",
+    "internal_only": "Apenas interno",
+    "monthly": "Mensal"
   },
   "errors": {
     "companyUnavailableTitle": "Contexto da empresa indisponível",
@@ -2317,6 +2565,255 @@
     "errors": {
       "sendFailed": "Não foi possível enviar o pedido. Tente novamente.",
       "generic": "Ocorreu um erro. Tente novamente."
+    }
+  },
+  "booking": {
+    "areaTitle": "Booking",
+    "areaLabel": "Artecium Booking",
+    "buttons": {
+      "feedback": {
+        "save": "Guardado ✓",
+        "create": "Criado ✓",
+        "add": "Adicionado ✓",
+        "update": "Atualizado ✓",
+        "delete": "Eliminado ✓",
+        "confirm": "Confirmado ✓",
+        "approve": "Aprovado ✓",
+        "cancel": "Cancelado ✓",
+        "reschedule": "Reagendado ✓",
+        "submit": "Submetido ✓",
+        "associate": "Associado ✓",
+        "invite": "Convite criado ✓"
+      }
+    },
+    "metadata": {
+      "title": "Administração Booking",
+      "description": "Gerir marcações, serviços e equipa do seu negócio."
+    },
+    "nav": {
+      "dashboard": "Painel",
+      "calendar": "Calendário",
+      "appointments": "Marcações",
+      "services": "Serviços",
+      "staff": "Profissionais",
+      "schedules": "Horários",
+      "timeOff": "Ausências",
+      "customers": "Clientes",
+      "team": "Equipa",
+      "settings": "Definições"
+    },
+    "onboarding": {
+      "title": "Criar negócio",
+      "description": "Configure o seu espaço de marcações. Pode associar uma empresa da agência mais tarde nas definições.",
+      "businessName": "Nome do negócio",
+      "slug": "Slug do URL público",
+      "slugHint": "Apenas minúsculas, números e hífens (ex.: salao-demo).",
+      "timezone": "Fuso horário",
+      "submit": "Criar negócio"
+    },
+    "dashboard": {
+      "title": "Painel",
+      "description": "Resumo de serviços, profissionais e marcações do negócio ativo.",
+      "stats": {
+        "services": "Serviços ativos",
+        "staff": "Profissionais ativos",
+        "pending": "Marcações pendentes",
+        "today": "Marcações hoje"
+      },
+      "setup": {
+        "title": "Começar",
+        "description": "Adicione pelo menos um serviço reservável e um profissional antes de aceitar marcações.",
+        "services": "Adicionar serviços",
+        "staff": "Adicionar profissionais"
+      },
+      "upcoming": "Próximas marcações",
+      "noUpcoming": "Sem marcações nas próximas duas semanas."
+    },
+    "services": {
+      "title": "Serviços",
+      "description": "Serviços reserváveis, duração e preço opcional.",
+      "emptyTitle": "Ainda sem serviços",
+      "emptyDescription": "Crie o primeiro serviço para permitir reservas online.",
+      "add": "Novo serviço",
+      "namePlaceholder": "Nome do serviço",
+      "priceCents": "Preço (cêntimos)",
+      "active": "Ativo"
+    },
+    "staff": {
+      "title": "Profissionais",
+      "description": "Com ou sem conta Supabase. Associe os serviços que cada um pode realizar.",
+      "emptyTitle": "Ainda sem profissionais",
+      "emptyDescription": "Adicione membros da equipa ou recursos só de agenda.",
+      "add": "Novo profissional",
+      "namePlaceholder": "Nome apresentado",
+      "profileIdOptional": "ID de perfil Supabase (opcional, para login)",
+      "acceptsOnline": "Aceita marcações online",
+      "services": "Serviços",
+      "saveServices": "Guardar serviços"
+    },
+    "schedules": {
+      "title": "Horários de trabalho",
+      "description": "Horário semanal e pausas por profissional.",
+      "noStaff": "Adicione profissionais antes de configurar horários.",
+      "selectStaff": "Profissional",
+      "breaks": "Pausas",
+      "addBreak": "Adicionar pausa",
+      "days": {
+        "sun": "Domingo",
+        "mon": "Segunda",
+        "tue": "Terça",
+        "wed": "Quarta",
+        "thu": "Quinta",
+        "fri": "Sexta",
+        "sat": "Sábado"
+      }
+    },
+    "timeOff": {
+      "title": "Ausências",
+      "description": "Períodos que bloqueiam disponibilidade.",
+      "noStaff": "Adicione profissionais antes de registar ausências.",
+      "labelOptional": "Etiqueta (opcional)",
+      "add": "Adicionar ausência"
+    },
+    "customers": {
+      "title": "Clientes",
+      "description": "Pessoas que marcaram com o seu negócio.",
+      "emptyTitle": "Ainda sem clientes",
+      "emptyDescription": "Os clientes aparecem quando existem marcações."
+    },
+    "appointments": {
+      "title": "Marcações",
+      "description": "Confirmar, rejeitar ou cancelar reservas.",
+      "emptyTitle": "Sem marcações",
+      "emptyDescription": "Marcações públicas ou internas aparecerão aqui."
+    },
+    "calendar": {
+      "title": "Calendário",
+      "description": "Vistas diária, semanal e mensal.",
+      "viewDay": "Dia",
+      "viewWeek": "Semana",
+      "viewMonth": "Mês",
+      "noAppointments": "Nenhuma",
+      "colleagueBusy": "Indisponível"
+    },
+    "settings": {
+      "title": "Definições",
+      "description": "Confirmação automática ou manual e opções públicas.",
+      "notFound": "Negócio não encontrado.",
+      "businessName": "Nome do negócio",
+      "confirmationMode": "Modo de confirmação",
+      "confirmation": {
+        "automatic": "Confirmação automática",
+        "manual": "Confirmação manual"
+      },
+      "publicDescription": "Descrição pública",
+      "minNotice": "Antecedência mínima (minutos)",
+      "maxBookingDays": "Horizonte máximo (dias)",
+      "agencyCompanyId": "Ligação à empresa da agência",
+      "agencyCompanyOptional": "UUID opcional — ligação explícita ao portal cliente",
+      "saved": "Definições guardadas.",
+      "readOnly": "Pode ver as definições; apenas proprietários e gestores podem alterá-las."
+    },
+    "team": {
+      "title": "Convites da equipa",
+      "description": "Convide gestores ou staff por email. Não há registo aberto para administradores.",
+      "role": "Função",
+      "roleStaff": "Staff",
+      "roleProfessional": "Profissional",
+      "roleManager": "Gestor",
+      "sendInvite": "Criar convite",
+      "inviteCreated": "Partilhe este link com o convidado (envio por email numa fase posterior):",
+      "emailNote": "Os convites expiram ao fim de sete dias. Aceitar requer conta Supabase com o mesmo email."
+    },
+    "public": {
+      "meta": {
+        "book": "Marcar online",
+        "description": "Marque um horário online.",
+        "notFound": "Negócio não encontrado"
+      },
+      "steps": {
+        "service": "Escolher serviço",
+        "staff": "Escolher profissional",
+        "date": "Escolher data",
+        "time": "Escolher horário",
+        "details": "Os seus dados",
+        "review": "Rever marcação"
+      },
+      "actions": {
+        "continue": "Continuar",
+        "back": "Voltar",
+        "confirmBooking": "Confirmar marcação"
+      },
+      "serviceDuration": "{minutes} min",
+      "staffAuto": "Primeiro profissional disponível",
+      "fields": {
+        "name": "Nome completo",
+        "emailOptional": "Email (opcional)",
+        "phoneOptional": "Telefone (opcional)"
+      },
+      "review": {
+        "service": "Serviço",
+        "when": "Quando",
+        "duration": "Duração",
+        "name": "Nome",
+        "manualNotice": "Este negócio aprova marcações manualmente. Receberá confirmação após aprovação."
+      },
+      "success": {
+        "pendingTitle": "Pedido de marcação recebido",
+        "pendingDescription": "A marcação está pendente de aprovação. Guarde a referência para acompanhamento.",
+        "confirmedTitle": "Marcação confirmada",
+        "confirmedDescription": "A marcação está confirmada. Guarde a referência para os seus registos.",
+        "reference": "Referência",
+        "when": "Data e hora",
+        "manageLink": "Consultar ou alterar esta marcação",
+        "manageTokenOnce": "Guarde este link — é o único momento em que o link de gestão é mostrado."
+      },
+      "manage": {
+        "metaTitle": "Gerir marcação",
+        "loading": "A carregar marcação…",
+        "title": "Gerir marcação",
+        "service": "Serviço",
+        "when": "Data e hora",
+        "status": "Estado",
+        "cancelBooking": "Cancelar marcação",
+        "confirmReschedule": "Confirmar novo horário",
+        "rescheduleHint": "Escolha uma nova data e horário.",
+        "rescheduleDisabled": "Este negócio não permite reagendamento online. Contacte o estabelecimento.",
+        "working": "A processar…",
+        "terminal": "Esta marcação já não pode ser alterada online.",
+        "statuses": {
+          "pending": "Pendente",
+          "confirmed": "Confirmada",
+          "cancelled": "Cancelada",
+          "rejected": "Recusada"
+        },
+        "errors": {
+          "notFound": "Marcação não encontrada ou link inválido.",
+          "loadFailed": "Não foi possível carregar a marcação.",
+          "cancelFailed": "Não foi possível cancelar. Pode estar dentro do prazo mínimo.",
+          "slotUnavailable": "Esse horário já não está disponível."
+        }
+      },
+      "loading": {
+        "slots": "A carregar horários…",
+        "submit": "A submeter…"
+      },
+      "empty": {
+        "noServices": "Marcações online indisponíveis — ainda não há serviços publicados.",
+        "noStaff": "Não há profissionais disponíveis para este serviço.",
+        "noSlots": "Sem horários nesta data. Escolha outro dia."
+      },
+      "errors": {
+        "generic": "Ocorreu um erro. Tente novamente.",
+        "notFound": "Negócio não encontrado ou não aceita marcações.",
+        "notConfigured": "Marcações temporariamente indisponíveis (base de dados não ligada).",
+        "loadFailed": "Não foi possível carregar a informação.",
+        "loadFailedHint": "Verifique a ligação e tente mais tarde.",
+        "slotUnavailable": "Esse horário já não está disponível. Escolha outro.",
+        "validation": "Verifique a seleção e tente novamente.",
+        "idempotency": "Não foi possível processar o pedido. Atualize a página e tente de novo.",
+        "guestName": "Indique o seu nome."
+      }
     }
   },
   "cookies": {

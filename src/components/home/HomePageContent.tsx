@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { WizardRoot } from "@/components/contact/WizardRoot";
 import { HomeStructuredData } from "@/components/home/HomeStructuredData";
-import { BusinessProblems } from "@/components/home/business-problems";
+import { ChallengesList } from "@/components/home/ChallengesList";
 import { ClientAreaShowcase } from "@/components/home/client-area-showcase";
 import { CTA } from "@/components/home/CTA";
 import { Footer } from "@/components/home/Footer";
@@ -11,11 +11,11 @@ import {
   PricingConversionNudge,
   ServicesConversionNudge,
 } from "@/components/home/HomeMicroConversions";
-import { HowWeWork } from "@/components/home/HowWeWork";
+import { ProcessScroll } from "@/components/home/ProcessScroll";
 import { PricingSection } from "@/components/home/pricing-section";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { Services } from "@/components/home/Services";
-import { WhyArtecium } from "@/components/home/WhyArtecium";
+import { WhyStack } from "@/components/home/WhyStack";
 import type { AppLocale } from "@/i18n/config";
 
 interface HomePageContentProps {
@@ -40,14 +40,14 @@ export function HomePageContent({
         <Navbar />
         <main id="main-content">
           <Hero />
-          <BusinessProblems />
+          <ChallengesList />
           <Services />
           <ServicesConversionNudge />
           <PricingSection />
           <PricingConversionNudge />
-          <HowWeWork />
+          <ProcessScroll />
           <FeaturedProjects locale={locale} />
-          <WhyArtecium />
+          <WhyStack />
           <HomeFaq />
           <ClientAreaShowcase />
           <CTA />

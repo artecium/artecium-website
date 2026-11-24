@@ -6,6 +6,7 @@ import { getFaqPath } from "@/lib/faq/paths";
 import { getTranslationsForLocale } from "@/lib/i18n/server-translations";
 import { resolveRequestLocale } from "@/lib/i18n/resolve-locale";
 import { getLegalPaths } from "@/lib/legal/paths";
+import { PUBLIC_AUTH_ENTRY_PATH } from "@/lib/auth/entry-routes";
 import { getProjectsHubPath } from "@/lib/projects/paths";
 import {
   getServicePath,
@@ -27,6 +28,7 @@ export async function Footer({ locale: localeProp }: FooterProps = {}) {
   const locale = localeProp ?? (await resolveRequestLocale());
   const t = await getTranslationsForLocale(locale, "home.footer");
   const nav = await getTranslationsForLocale(locale, "navigation");
+  const clientAuthHref = PUBLIC_AUTH_ENTRY_PATH;
   const services = await getTranslationsForLocale(locale, "home.services");
   const shared = await getTranslationsForLocale(locale, "services.shared");
   const legalPaths = getLegalPaths(locale);
@@ -146,7 +148,7 @@ export async function Footer({ locale: localeProp }: FooterProps = {}) {
           </p>
           <div className="flex flex-wrap gap-6">
             <Link
-              href="/login"
+              href={clientAuthHref}
               className="text-sm text-[#64748B] transition-colors hover:text-[#94A3B8]"
             >
               {nav("clientLogin")}

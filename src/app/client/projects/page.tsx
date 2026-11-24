@@ -9,10 +9,14 @@ import {
 import { getClientProjects } from "@/lib/data/client-projects";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
 import { requireClientAuth } from "@/lib/auth/session";
+import { clientAreaHref, readRequestHostname } from "@/lib/routing";
 import { getLocale, getTranslations } from "next-intl/server";
+import { headers } from "next/headers";
 import Link from "next/link";
 
 export default async function ClientProjectsPage() {
+  const requestHeaders = await headers();
+  const hostname = readRequestHostname((name) => requestHeaders.get(name));
   const locale = resolveLocale(await getLocale());
   const t = await getTranslations("projects");
   const tDashboard = await getTranslations("dashboard");
@@ -44,7 +48,7 @@ export default async function ClientProjectsPage() {
           {projectsResult.data.map((project) => (
             <Link
               key={project.id}
-              href={`/client/projects/${project.id}`}
+              href={clientAreaHref(`/client/projects/${project.id}`, hostname)}
               className="block rounded-2xl border border-[#1E293B] bg-[#0E1324] p-4 transition-colors hover:border-[#2563EB]/40 sm:p-6"
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">

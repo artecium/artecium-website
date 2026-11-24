@@ -4,21 +4,15 @@ import { ConsentAwareAnalytics } from "@/components/analytics/ConsentAwareAnalyt
 import { CookieConsentBanner } from "@/components/cookies/CookieConsentBanner";
 import { CookiePreferences } from "@/components/cookies/CookiePreferences";
 import { CookieConsentProvider } from "@/context/CookieConsentContext";
-import type { AppLocale } from "@/i18n/config";
-import { NextIntlClientProvider } from "next-intl";
-import { usePathname } from "next/navigation";
+import { resolveLocale, type AppLocale } from "@/i18n/config";
+import { NextIntlClientProvider, useLocale } from "next-intl";
 import type { ReactNode } from "react";
 
 import enMessages from "@/i18n/messages/en.json";
 import ptMessages from "@/i18n/messages/pt-PT.json";
 
-function resolveRouteLocale(pathname: string): AppLocale {
-  return pathname === "/en" || pathname.startsWith("/en/") ? "en" : "pt-PT";
-}
-
 function CookieConsentLocaleShell() {
-  const pathname = usePathname();
-  const locale = resolveRouteLocale(pathname);
+  const locale: AppLocale = resolveLocale(useLocale());
   const messages =
     locale === "en"
       ? { cookies: enMessages.cookies }

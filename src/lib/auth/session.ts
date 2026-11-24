@@ -11,6 +11,7 @@ import {
   type UserRole,
 } from "@/types/platform";
 import type { User } from "@supabase/supabase-js";
+import { logClientRouteDiagnostic } from "@/lib/dev/client-route-diagnostic";
 import { redirect } from "next/navigation";
 
 interface ProfileBaseRow {
@@ -130,17 +131,33 @@ export async function requireAuth(redirectTo = "/login"): Promise<AuthSession> {
 }
 
 export async function requireClientAuth(): Promise<AuthSession> {
-  const session = await requireAuth("/login");
+  const session = await getAuthSession();
+  if (!session) {
+    logClientRouteDiagnostic("requireClientAuth", {
+      outcome: "rsc-redirect-login",
+      target: "/login?next=/client/dashboard",
+    });
+    redirect("/login?next=%2Fclient%2Fdashboard");
+  }
 
   if (hasAnyStaffRole(session.profile.roles)) {
+    logClientRouteDiagnostic("requireClientAuth", {
+      outcome: "rsc-redirect-staff-admin",
+      target: "/admin/dashboard",
+    });
     redirect("/admin/dashboard");
   }
 
   const supabase = await createClient();
   if (await resolveIsStaffFromSupabase(supabase, session.user.id)) {
+    logClientRouteDiagnostic("requireClientAuth", {
+      outcome: "rsc-redirect-staff-admin",
+      target: "/admin/dashboard",
+    });
     redirect("/admin/dashboard");
   }
 
+  logClientRouteDiagnostic("requireClientAuth", { outcome: "ok" });
   return session;
 }
 

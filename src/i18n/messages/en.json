@@ -1,4 +1,7 @@
 {
+  "account": {
+    "workspaces": "Workspaces"
+  },
   "common": {
     "appName": "Artecium",
     "loading": "Loading…",
@@ -112,6 +115,37 @@
     "feedback": "Feedback",
     "profile": "Profile",
     "settings": "Settings",
+    "clientNav": {
+      "overview": "Overview",
+      "myProjects": "My projects",
+      "myServices": "My services",
+      "groupAnalyticsSeo": "Analytics & SEO",
+      "analytics": "Analytics",
+      "seo": "SEO",
+      "reports": "Reports",
+      "meetings": "Meetings",
+      "groupBooking": "Booking",
+      "bookingOverview": "Overview",
+      "bookingCalendar": "Calendar",
+      "bookingAppointments": "Appointments",
+      "bookingServices": "Services",
+      "bookingStaff": "Staff",
+      "bookingSchedules": "Schedules",
+      "bookingTimeOff": "Time off",
+      "bookingCustomers": "Customers",
+      "bookingTeam": "Team",
+      "bookingSettings": "Settings",
+      "feedback": "Feedback",
+      "supportTickets": "Support requests",
+      "groupFinancial": "Billing",
+      "invoices": "Invoices",
+      "payments": "Payments",
+      "myDocuments": "My documents",
+      "notifications": "Notifications",
+      "groupAccount": "Account",
+      "profile": "Profile",
+      "settings": "Settings"
+    },
     "clientArea": "Client Area",
     "clientPortal": "Client Portal"
   },
@@ -123,7 +157,35 @@
     "clientLoginTitle": "Client Login",
     "clientLoginDescription": "Access your Artecium client area.",
     "clientAreaTitle": "Client Area",
-    "clientAreaDescription": "Your Artecium client area."
+    "clientAreaDescription": "Your Artecium client area.",
+    "areaHubTitle": "Choose your area",
+    "areaHubDescription": "Select the Artecium Client Area or Artecium Booking."
+  },
+  "areaHub": {
+    "title": "Where would you like to go?",
+    "description": "Artecium brings together the portal for our service clients and the booking platform for your business. Choose the right area.",
+    "backToHome": "Back to website",
+    "sessionActiveHint": "You are already signed in. Choose an area, or sign out elsewhere if you need a different account.",
+    "staffNotice": "You have Artecium team access.",
+    "staffLink": "Go to administration",
+    "client": {
+      "title": "Client Area",
+      "description": "Projects, services, documents, payments and support for your contracts with Artecium.",
+      "enter": "Enter portal",
+      "signIn": "Sign in",
+      "noAccess": "Your account is not linked to a client company. Contact Artecium if you need access."
+    },
+    "booking": {
+      "title": "Artecium Booking",
+      "description": "Manage appointments, team, services and calendar for your business on the booking platform.",
+      "enter": "Open Booking",
+      "signIn": "Sign in",
+      "noAccess": "Your account does not have Artecium Booking access. Ask your business owner for an invite or set up Booking if you are eligible."
+    },
+    "errors": {
+      "clientDenied": "You are not authorized to access the Client Area with this account.",
+      "bookingDenied": "You are not authorized to access Artecium Booking with this account."
+    }
   },
   "home": {
     "hero": {
@@ -464,20 +526,20 @@
     },
     "problems": {
       "eyebrow": "Business challenges",
-      "title": "What Artecium solves",
+      "title": "What Artecium solves.",
       "description": "We work with businesses facing concrete digital challenges — and need clear solutions, not more complexity.",
       "items": {
         "outdatedWebsite": {
-          "title": "Unprofessional online presence",
-          "description": "When your website doesn't reflect the quality of your business or inspire trust in visitors."
+          "title": "An unprofessional online presence",
+          "description": "The website does not reflect the quality of the business or inspire trust."
         },
         "fewLeads": {
-          "title": "Difficulty attracting potential customers",
-          "description": "When your digital presence exists but doesn't generate enquiries, leads or commercial opportunities."
+          "title": "Difficulty attracting customers",
+          "description": "There is a digital presence, but it fails to generate leads or business opportunities."
         },
         "manualProcesses": {
           "title": "Manual tasks and inefficient processes",
-          "description": "When repetitive work consumes time that should be invested in growing the business."
+          "description": "Repetitive work takes time away from business growth."
         },
         "lostLeads": {
           "title": "Lost leads",
@@ -488,13 +550,17 @@
           "description": "When potential customers can't find your business when searching online."
         },
         "scatteredInfo": {
-          "title": "Scattered tools and information",
-          "description": "When data, tools and processes are spread across platforms that don't work together."
+          "title": "Disconnected tools and scattered information",
+          "description": "Data and processes are spread across platforms that do not communicate with each other."
         },
         "needAutomation": {
           "title": "Need to automate tasks",
           "description": "When there's interest in AI and automation but no clarity on what to implement first."
         }
+      },
+      "closing": {
+        "lead": "Website + AI + Automation + SEO —",
+        "rest": "a professional presence, efficient processes and visibility on Google, tailored to your business."
       },
       "solution": {
         "label": "The Artecium answer",
@@ -521,59 +587,51 @@
     },
     "why": {
       "eyebrow": "Why Artecium",
-      "title": "A solution built for your business",
+      "title": "A solution built for your business.",
       "description": "We build digital solutions focused on what matters to your company — clarity, quality and sustainable growth.",
       "items": {
-        "customSolutions": {
+        "noTech": {
+          "title": "No technical knowledge required",
+          "description": "We explain the options, costs and what makes sense at every stage."
+        },
+        "tailored": {
           "title": "Tailored solutions",
-          "description": "Every project starts with your business goals, not a generic template."
+          "description": "Every project starts with your goals, not a template."
+        },
+        "directComms": {
+          "title": "Direct communication",
+          "description": "Clear options, costs and next steps, without the jargon."
         },
         "modernTech": {
           "title": "Modern technology",
-          "description": "We use current tools to build fast, secure websites ready to evolve."
+          "description": "Fast, secure websites built to evolve."
         },
-        "aiWhenValuable": {
-          "title": "AI when it adds value",
-          "description": "We implement artificial intelligence only where it simplifies processes or improves experience."
-        },
-        "processAutomation": {
-          "title": "Process automation",
-          "description": "We reduce manual tasks and connect tools so your business runs with less friction."
-        },
-        "seoFromBase": {
-          "title": "SEO from the ground up",
-          "description": "We prepare every website to be found, with solid technical structure from day one."
-        },
-        "directCommunication": {
-          "title": "Direct communication",
-          "description": "You work with us clearly — we explain options, costs and next steps without unnecessary jargon."
-        },
-        "builtToGrow": {
-          "title": "Built to grow",
-          "description": "We build solutions that can evolve — new features, SEO or automation in a later phase."
+        "readyToGrow": {
+          "title": "Ready to grow",
+          "description": "Add new features, SEO or automation at a later stage."
         }
       }
     },
     "process": {
       "eyebrow": "Process",
-      "title": "How we work",
-      "description": "A simple, transparent process — from first contact to launch and evolution.",
+      "title": "How we work.",
+      "description": "A simple, transparent process, from first contact to launch and evolution.",
       "steps": {
         "discovery": {
           "title": "Discovery",
-          "description": "We understand your business, goals and needs."
+          "description": "We understand the business, its goals and its needs."
         },
         "strategy": {
           "title": "Strategy",
-          "description": "We define structure, features, technology and priorities."
+          "description": "We define the structure, features, technology and priorities."
         },
         "build": {
-          "title": "Build",
-          "description": "We develop and test the solution."
+          "title": "Development",
+          "description": "We build and test the solution."
         },
         "launch": {
           "title": "Launch and evolution",
-          "description": "We publish, analyse and, when contracted, continue to optimise."
+          "description": "We launch, analyse and, if included in the agreement, continue to optimise."
         }
       },
       "cta": "Talk about my project"
@@ -732,13 +790,57 @@
     "invalidCredentials": "Invalid email or password. Please try again.",
     "adminAccessDenied": "You do not have permission to access the admin area.",
     "sessionExpired": "Your session has expired. Please sign in again.",
-    "unauthorized": "You must be signed in to access this page."
+    "unauthorized": "You must be signed in to access this page.",
+    "orDivider": "or",
+    "google": {
+      "continue": "Continue with Google",
+      "loading": "Redirecting…",
+      "error": "We could not sign you in with Google. Try again or use email and password."
+    },
+    "signUp": {
+      "title": "Create account",
+      "subtitle": "Create your Artecium account. This does not automatically link you to any company or Booking access.",
+      "createAccount": "Create account",
+      "noAccount": "Don't have an account?",
+      "hasAccount": "Already have an account?",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "passwordHint": "Use at least 8 characters.",
+      "confirmPasswordLabel": "Confirm password",
+      "confirmPasswordPlaceholder": "Repeat your password",
+      "submit": "Create account",
+      "submitting": "Creating account…",
+      "emailRequired": "Enter your email address.",
+      "emailInvalid": "Enter a valid email address.",
+      "passwordRequired": "Enter a password.",
+      "passwordTooShort": "Password must be at least 8 characters.",
+      "confirmRequired": "Confirm your password.",
+      "confirmMismatch": "Passwords do not match.",
+      "confirmEmailTitle": "Confirm your email",
+      "confirmEmailDescription": "We sent a confirmation link to your email. Open the link to activate your account and continue.",
+      "confirmEmailNextHint": "After confirming, you will land on {path} (unless you chose another safe destination).",
+      "errors": {
+        "generic": "We could not create your account. Check your details or sign in if you already have an account.",
+        "signupDisabled": "Public sign-up is not available right now. Contact Artecium if you need access.",
+        "weakPassword": "Your password does not meet security requirements. Choose a stronger password.",
+        "invalidEmail": "The email address is not valid.",
+        "authCallback": "We could not complete confirmation. Try signing in or request a new confirmation email."
+      }
+    }
   },
   "client": {
     "areaTitle": "Client Area",
     "areaLabel": "Client Portal",
     "welcomeBack": "Welcome back",
-    "welcomeBackName": "Welcome back, {name}"
+    "welcomeBackName": "Welcome back, {name}",
+    "welcomeNoCompany": {
+      "title": "Welcome to the Client Area",
+      "description": "Your account is not linked to an Artecium client company yet. Once your company association is set up, you will see your projects, services, invoices and other information here.",
+      "signedInAs": "Signed in as {email}",
+      "howToGetAccess": "To request access or link your account to a company, contact Artecium.",
+      "contactEmail": "Send email",
+      "contactHint": "Include your account email and company name. Our team will verify the association."
+    }
   },
   "dashboard": {
     "title": "Dashboard",
@@ -775,7 +877,37 @@
     "supportTicketsEmpty": "Your support requests will appear here once you create a ticket.",
     "noUpcomingMeetings": "No upcoming meetings",
     "meetingsEmpty": "Scheduled meetings and review calls will appear here when they are booked.",
-    "projectsEmpty": "Track progress, timeline, and deliverables."
+    "projectsEmpty": "Track progress, timeline, and deliverables.",
+    "headerSubtitle": "Client area",
+    "companyContext": "Company: {name}",
+    "notificationsAction": "Notifications",
+    "notificationsUnreadAria": "{count} unread notifications",
+    "statProjectsTitle": "Projects in progress",
+    "statProjectsDesc": "Under 100% completion",
+    "statServicesTitle": "Active services",
+    "statServicesDesc": "Current subscriptions",
+    "statInvoicesTitle": "Pending invoices",
+    "statInvoicesDesc": "With an outstanding balance",
+    "statSupportTitle": "Open requests",
+    "statSupportDesc": "Awaiting resolution",
+    "projectsSectionTitle": "Your projects",
+    "viewProjectDetails": "View details",
+    "dueDate": "Due: {date}",
+    "quickAccessTitle": "Quick access",
+    "quickProjects": "View projects",
+    "quickServices": "View services",
+    "quickDocuments": "View documents",
+    "quickInvoices": "View invoices",
+    "quickSupport": "Track support",
+    "activityTitle": "Recent activity",
+    "activityEmptyTitle": "No recent activity",
+    "activityEmptyDescription": "Updates to your projects, requests, documents, or payments will show up here.",
+    "activityKindTicket": "Support",
+    "activityKindPayment": "Payment",
+    "activityKindNotification": "Notification",
+    "activityKindProject": "Project",
+    "activityKindDocument": "Document",
+    "activityKindMeeting": "Meeting"
   },
   "projects": {
     "title": "Projects",
@@ -827,7 +959,55 @@
     "pageViews": "Page views",
     "conversions": "Conversions",
     "chartSessions": "Sessions",
-    "chartPageViews": "Page views"
+    "chartPageViews": "Page views",
+    "period7d": "Last 7 days",
+    "period28d": "Last 28 days",
+    "period90d": "Last 90 days",
+    "periodThisMonth": "This month",
+    "periodLastMonth": "Last month",
+    "periodCustom": "Custom",
+    "periodFrom": "From",
+    "periodTo": "To",
+    "periodApply": "Apply",
+    "periodAnalyzed": "Period: {from} — {to}",
+    "lastSync": "Last sync: {date}",
+    "noSyncYet": "No sync recorded — stored platform data.",
+    "storedDataNotice": "Values come from synced data for your company, not live Google queries.",
+    "demoDataWarning": "Demo data — not real Google Analytics.",
+    "changeVsPrevious": "vs previous period",
+    "unavailableMetric": "Unavailable",
+    "usersPeriodHint": "Sum of daily stored totals; the same user may be counted on multiple days.",
+    "chartTitle": "Daily trend",
+    "chartTotalNote": "Period total",
+    "sectionChannels": "Traffic sources",
+    "sectionPages": "Top pages",
+    "sectionDevices": "Devices",
+    "sectionCountries": "Countries",
+    "sectionEvents": "Events & conversions",
+    "dimensionEmpty": "No detailed breakdown for this period. Sync must include channels, pages, or events in payload.",
+    "searchPlaceholder": "Search…",
+    "exportCsv": "Export CSV",
+    "insightsTitle": "Summary",
+    "insightFact": "Fact",
+    "insightOpportunity": "Opportunity",
+    "insightLimit": "Limit",
+    "insightsSessionsUp": "Sessions increased by about {percent}% vs the previous period.",
+    "insightsSessionsDown": "Sessions decreased by about {percent}% vs the previous period.",
+    "insightsTopChannel": "Top channel by sessions: {channel} ({sessions} sessions).",
+    "insightsTopPage": "Top page by views: {path} ({views} views).",
+    "insightsNoDays": "No daily records in this date range.",
+    "insightsNoDimensions": "Only aggregated daily totals are available; detailed dimensions were not synced.",
+    "insightsTrafficDrop": "Notable session drop vs the comparable previous period.",
+    "colChannel": "Channel",
+    "colPage": "Page",
+    "colDevice": "Device",
+    "colCountry": "Country",
+    "colEvent": "Event",
+    "colSessions": "Sessions",
+    "colUsers": "Users",
+    "colPageViews": "Views",
+    "colCount": "Count",
+    "dailyExport": "analytics-daily.csv"
   },
   "seo": {
     "title": "SEO",
@@ -847,7 +1027,56 @@
     "ctr": "CTR",
     "avgPosition": "Avg. position",
     "chartClicks": "Clicks",
-    "chartImpressions": "Impressions"
+    "chartImpressions": "Impressions",
+    "period7d": "Last 7 days",
+    "period28d": "Last 28 days",
+    "period90d": "Last 90 days",
+    "periodThisMonth": "This month",
+    "periodLastMonth": "Last month",
+    "periodCustom": "Custom",
+    "periodFrom": "From",
+    "periodTo": "To",
+    "periodApply": "Apply",
+    "periodAnalyzed": "Period: {from} — {to}",
+    "lastSync": "Last sync: {date}",
+    "noSyncYet": "No sync recorded — stored platform data.",
+    "storedDataNotice": "Values come from synced data for your company, not live Google queries.",
+    "demoDataWarning": "Demo data — not real Search Console.",
+    "changeVsPrevious": "vs previous period",
+    "unavailableMetric": "Unavailable",
+    "chartTitle": "Daily trend",
+    "chartTotalNote": "Period total",
+    "sectionQueries": "Queries",
+    "sectionPages": "Organic pages",
+    "sectionDevices": "Devices",
+    "sectionCountries": "Countries",
+    "sectionSearchTypes": "Search type",
+    "dimensionEmpty": "No query or page detail for this period.",
+    "searchPlaceholder": "Search…",
+    "exportCsv": "Export CSV",
+    "insightsTitle": "Diagnostics & opportunities",
+    "insightFact": "Confirmed",
+    "insightOpportunity": "Opportunity",
+    "insightLimit": "Limit",
+    "insightsClicksUp": "Organic clicks increased by about {percent}% vs the previous period.",
+    "insightsClicksDown": "Organic clicks decreased by about {percent}% vs the previous period.",
+    "insightsLowCtr": "Low average CTR — consider reviewing titles and meta descriptions (no guaranteed improvement).",
+    "insightsQueryLowCtr": "Query «{query}» has high impressions and low CTR — snippet optimization candidate.",
+    "insightsClicksDrop": "Notable click drop vs the comparable previous period.",
+    "insightsNoQueryPageData": "Only aggregated daily totals; detailed queries and pages were not synced.",
+    "colQuery": "Query",
+    "colPage": "Page",
+    "colClicks": "Clicks",
+    "colImpressions": "Impressions",
+    "colCtr": "CTR",
+    "colPosition": "Avg. position",
+    "colDevice": "Device",
+    "colCountry": "Country",
+    "colSearchType": "Type",
+    "diagnosticsLimitNote": "This does not replace a full technical audit (indexing, CWV, crawl).",
+    "dailyExport": "seo-daily.csv",
+    "queriesExport": "seo-queries.csv",
+    "pagesExport": "seo-pages.csv"
   },
   "reports": {
     "title": "Reports",
@@ -951,6 +1180,8 @@
     "open": "Open",
     "in_progress": "In progress",
     "in_review": "In review",
+    "new": "New",
+    "awaiting_client": "Waiting for client",
     "waiting_client": "Waiting for client",
     "resolved": "Resolved",
     "closed": "Closed",
@@ -969,7 +1200,24 @@
     "client_visible": "Client visible",
     "approved": "Approved",
     "rejected": "Rejected",
-    "archived": "Archived"
+    "archived": "Archived",
+    "todo": "To do",
+    "done": "Done",
+    "review": "Review",
+    "confirmed": "Confirmed",
+    "low": "Low",
+    "normal": "Normal",
+    "high": "High",
+    "urgent": "Urgent",
+    "contacted": "Contacted",
+    "proposal_sent": "Proposal sent",
+    "negotiation": "Negotiation",
+    "won": "Won",
+    "lost": "Lost",
+    "accepted": "Accepted",
+    "in_development": "In development",
+    "internal_only": "Internal only",
+    "monthly": "Monthly"
   },
   "errors": {
     "companyUnavailableTitle": "Company context unavailable",
@@ -2317,6 +2565,255 @@
     "errors": {
       "sendFailed": "Failed to send request. Please try again.",
       "generic": "Something went wrong. Please try again."
+    }
+  },
+  "booking": {
+    "areaTitle": "Booking",
+    "areaLabel": "Artecium Booking",
+    "buttons": {
+      "feedback": {
+        "save": "Saved ✓",
+        "create": "Created ✓",
+        "add": "Added ✓",
+        "update": "Updated ✓",
+        "delete": "Deleted ✓",
+        "confirm": "Confirmed ✓",
+        "approve": "Approved ✓",
+        "cancel": "Cancelled ✓",
+        "reschedule": "Rescheduled ✓",
+        "submit": "Submitted ✓",
+        "associate": "Linked ✓",
+        "invite": "Invite created ✓"
+      }
+    },
+    "metadata": {
+      "title": "Booking admin",
+      "description": "Manage appointments, services, and staff for your business."
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "calendar": "Calendar",
+      "appointments": "Appointments",
+      "services": "Services",
+      "staff": "Staff",
+      "schedules": "Schedules",
+      "timeOff": "Time off",
+      "customers": "Customers",
+      "team": "Team",
+      "settings": "Settings"
+    },
+    "onboarding": {
+      "title": "Create your business",
+      "description": "Set up your booking workspace. You can link an agency company later in settings.",
+      "businessName": "Business name",
+      "slug": "Public URL slug",
+      "slugHint": "Lowercase letters, numbers, and hyphens only (e.g. demo-salon).",
+      "timezone": "Timezone",
+      "submit": "Create business"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Overview of services, staff, and appointments for your active business.",
+      "stats": {
+        "services": "Active services",
+        "staff": "Active staff",
+        "pending": "Pending appointments",
+        "today": "Appointments today"
+      },
+      "setup": {
+        "title": "Get started",
+        "description": "Add at least one bookable service and one staff member before accepting appointments.",
+        "services": "Add services",
+        "staff": "Add staff"
+      },
+      "upcoming": "Upcoming appointments",
+      "noUpcoming": "No upcoming appointments in the next two weeks."
+    },
+    "services": {
+      "title": "Services",
+      "description": "Bookable services, duration, and optional pricing.",
+      "emptyTitle": "No services yet",
+      "emptyDescription": "Create your first service so customers can book online.",
+      "add": "New service",
+      "namePlaceholder": "Service name",
+      "priceCents": "Price (cents)",
+      "active": "Active"
+    },
+    "staff": {
+      "title": "Staff",
+      "description": "Professionals with or without a login. Link services each person can perform.",
+      "emptyTitle": "No staff yet",
+      "emptyDescription": "Add team members or calendar-only resources.",
+      "add": "New staff member",
+      "namePlaceholder": "Display name",
+      "profileIdOptional": "Supabase profile ID (optional, for login)",
+      "acceptsOnline": "Accepts online bookings",
+      "services": "Services",
+      "saveServices": "Save service links"
+    },
+    "schedules": {
+      "title": "Working hours",
+      "description": "Weekly schedule and breaks per staff member.",
+      "noStaff": "Add staff before configuring schedules.",
+      "selectStaff": "Staff member",
+      "breaks": "Breaks",
+      "addBreak": "Add break",
+      "days": {
+        "sun": "Sunday",
+        "mon": "Monday",
+        "tue": "Tuesday",
+        "wed": "Wednesday",
+        "thu": "Thursday",
+        "fri": "Friday",
+        "sat": "Saturday"
+      }
+    },
+    "timeOff": {
+      "title": "Time off",
+      "description": "Absences that block availability.",
+      "noStaff": "Add staff before recording time off.",
+      "labelOptional": "Label (optional)",
+      "add": "Add time off"
+    },
+    "customers": {
+      "title": "Customers",
+      "description": "People who booked with your business.",
+      "emptyTitle": "No customers yet",
+      "emptyDescription": "Customers appear when appointments are created."
+    },
+    "appointments": {
+      "title": "Appointments",
+      "description": "Confirm, reject, or cancel bookings.",
+      "emptyTitle": "No appointments",
+      "emptyDescription": "Appointments from the public page or staff will appear here."
+    },
+    "calendar": {
+      "title": "Calendar",
+      "description": "Day, week, and month views of your schedule.",
+      "viewDay": "Day",
+      "viewWeek": "Week",
+      "viewMonth": "Month",
+      "noAppointments": "None",
+      "colleagueBusy": "Unavailable"
+    },
+    "settings": {
+      "title": "Settings",
+      "description": "Confirmation rules and public booking options.",
+      "notFound": "Business not found.",
+      "businessName": "Business name",
+      "confirmationMode": "Confirmation mode",
+      "confirmation": {
+        "automatic": "Automatic confirmation",
+        "manual": "Manual confirmation"
+      },
+      "publicDescription": "Public description",
+      "minNotice": "Minimum notice (minutes)",
+      "maxBookingDays": "Max booking horizon (days)",
+      "agencyCompanyId": "Agency company link",
+      "agencyCompanyOptional": "Optional UUID — explicit link to client portal company",
+      "saved": "Settings saved.",
+      "readOnly": "You can view settings but only owners and managers can change them."
+    },
+    "team": {
+      "title": "Team invites",
+      "description": "Invite managers or staff by email. There is no open signup for booking admins.",
+      "role": "Role",
+      "roleStaff": "Staff",
+      "roleProfessional": "Professional",
+      "roleManager": "Manager",
+      "sendInvite": "Create invite",
+      "inviteCreated": "Share this link with the invitee (email sending comes in a later phase):",
+      "emailNote": "Invites expire after seven days. Accepting requires a Supabase account with the same email."
+    },
+    "public": {
+      "meta": {
+        "book": "Book online",
+        "description": "Book an appointment online.",
+        "notFound": "Business not found"
+      },
+      "steps": {
+        "service": "Choose a service",
+        "staff": "Choose a professional",
+        "date": "Choose a date",
+        "time": "Choose a time",
+        "details": "Your details",
+        "review": "Review booking"
+      },
+      "actions": {
+        "continue": "Continue",
+        "back": "Back",
+        "confirmBooking": "Confirm booking"
+      },
+      "serviceDuration": "{minutes} min",
+      "staffAuto": "First available professional",
+      "fields": {
+        "name": "Full name",
+        "emailOptional": "Email (optional)",
+        "phoneOptional": "Phone (optional)"
+      },
+      "review": {
+        "service": "Service",
+        "when": "When",
+        "duration": "Duration",
+        "name": "Name",
+        "manualNotice": "This business reviews bookings manually. You will receive confirmation once approved."
+      },
+      "success": {
+        "pendingTitle": "Booking request received",
+        "pendingDescription": "Your appointment is pending approval. Keep your reference for follow-up.",
+        "confirmedTitle": "Booking confirmed",
+        "confirmedDescription": "Your appointment is confirmed. Keep your reference for your records.",
+        "reference": "Reference",
+        "when": "Date and time",
+        "manageLink": "View or change this booking",
+        "manageTokenOnce": "Save this link — it is the only time the manage URL is shown."
+      },
+      "manage": {
+        "metaTitle": "Manage booking",
+        "loading": "Loading booking…",
+        "title": "Manage booking",
+        "service": "Service",
+        "when": "Date and time",
+        "status": "Status",
+        "cancelBooking": "Cancel booking",
+        "confirmReschedule": "Confirm new time",
+        "rescheduleHint": "Pick a new date and time.",
+        "rescheduleDisabled": "This business does not allow online rescheduling. Please contact them directly.",
+        "working": "Processing…",
+        "terminal": "This booking can no longer be changed online.",
+        "statuses": {
+          "pending": "Pending",
+          "confirmed": "Confirmed",
+          "cancelled": "Cancelled",
+          "rejected": "Rejected"
+        },
+        "errors": {
+          "notFound": "Booking not found or invalid link.",
+          "loadFailed": "Could not load the booking.",
+          "cancelFailed": "Could not cancel. You may be inside the minimum notice window.",
+          "slotUnavailable": "That time is no longer available."
+        }
+      },
+      "loading": {
+        "slots": "Loading available times…",
+        "submit": "Submitting…"
+      },
+      "empty": {
+        "noServices": "Online booking is not available yet — no services are published.",
+        "noStaff": "No professionals are available for this service.",
+        "noSlots": "No times available on this date. Try another day."
+      },
+      "errors": {
+        "generic": "Something went wrong. Please try again.",
+        "notFound": "This business was not found or is not accepting bookings.",
+        "notConfigured": "Booking is temporarily unavailable (database not connected).",
+        "loadFailed": "Could not load booking information.",
+        "loadFailedHint": "Check your connection and try again later.",
+        "slotUnavailable": "That time is no longer available. Please pick another slot.",
+        "validation": "Please check your selection and try again.",
+        "idempotency": "This booking request could not be processed. Please refresh and try again.",
+        "guestName": "Please enter your name."
+      }
     }
   },
   "cookies": {

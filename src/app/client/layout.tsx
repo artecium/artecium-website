@@ -1,8 +1,17 @@
+import { logClientRouteBeacon } from "@/lib/dev/client-route-diagnostic";
 import { PlatformShell } from "@/components/platform/PlatformShell";
-import { buildClientNavItems } from "@/config/navigation/platform";
+import { buildClientNavSections } from "@/config/navigation/platform";
+import { getClientNavBadgeCounts } from "@/lib/data/client-nav-badges";
 import { resolveLocale } from "@/i18n/config";
+import { getUserAreaAccess } from "@/lib/auth/area-access.server";
 import { requireClientAuth } from "@/lib/auth/session";
+import {
+  clientAreaHref,
+  isPortalHostname,
+  readRequestHostname,
+} from "@/lib/routing";
 import { constructMetadata } from "@/lib/seo/metadata";
+import { getPortalBaseUrl } from "@/lib/stripe/app-url";
 import { isStripeCheckoutReturnPath } from "@/lib/stripe/checkout-paths";
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -12,12 +21,17 @@ import type { ReactNode } from "react";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata");
+  const requestHeaders = await headers();
+  const hostname = readRequestHostname((name) => requestHeaders.get(name));
+  const onPortal = isPortalHostname(hostname);
 
   return constructMetadata({
     title: t("clientAreaTitle"),
     description: t("clientAreaDescription"),
-    path: "/client",
+    path: onPortal ? "/" : "/client",
     noIndex: true,
+    siteUrl: onPortal ? getPortalBaseUrl() : undefined,
+    includeCanonical: false,
   });
 }
 
@@ -26,11 +40,18 @@ export default async function ClientLayout({
 }: {
   children: ReactNode;
 }) {
+  logClientRouteBeacon("client/layout.tsx RENDER start");
   const locale = resolveLocale(await getLocale());
   const tClient = await getTranslations("client");
   const tCommon = await getTranslations("common");
   const tNav = await getTranslations("navigation");
-  const pathname = (await headers()).get("x-pathname") ?? "";
+  const requestHeaders = await headers();
+  const pathname = requestHeaders.get("x-pathname") ?? "";
+  const hostname = readRequestHostname((name) => requestHeaders.get(name));
+
+  if (pathname.startsWith("/client/booking")) {
+    return <div className="min-h-full bg-[#050816] text-white">{children}</div>;
+  }
 
   if (isStripeCheckoutReturnPath(pathname)) {
     return (
@@ -40,7 +61,7 @@ export default async function ClientLayout({
             {tClient("areaLabel")}
           </p>
           <Link
-            href="/client/invoices"
+            href={clientAreaHref("/client/invoices", hostname)}
             className="text-sm font-medium text-white hover:text-violet-200"
           >
             ← {tCommon("backToInvoices")}
@@ -52,14 +73,18 @@ export default async function ClientLayout({
   }
 
   const session = await requireClientAuth();
+  const navBadges = await getClientNavBadgeCounts(session);
+  const areaAccess = await getUserAreaAccess();
 
   return (
     <PlatformShell
       profile={session.profile}
-      navItems={buildClientNavItems((key) => tNav(key))}
+      navSections={buildClientNavSections((key) => tNav(key), hostname, navBadges, {
+        includeBooking: areaAccess?.hasBookingPortal === true,
+      })}
       areaTitle={tClient("areaTitle")}
       areaLabel={tClient("areaLabel")}
-      homeHref="/client/dashboard"
+      homeHref={clientAreaHref("/client/dashboard", hostname)}
       locale={locale}
     >
       {children}

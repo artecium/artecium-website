@@ -1,30 +1,359 @@
-﻿import { SimpleBarChart } from "@/components/platform/SimpleBarChart";
+﻿import { MetricsConnectionBanner } from "@/components/client/metrics/MetricsConnectionBanner";
+import { MetricsDataTable } from "@/components/client/metrics/MetricsDataTable";
+import { MetricsInsightsPanel } from "@/components/client/metrics/MetricsInsightsPanel";
+import { MetricsKpiGrid } from "@/components/client/metrics/MetricsKpiGrid";
+import { MetricsPeriodToolbar } from "@/components/client/metrics/MetricsPeriodToolbar";
+import { MetricsTimeSeriesPanel } from "@/components/client/metrics/MetricsTimeSeriesPanel";
 import { EmptyState } from "@/components/platform/EmptyState";
 import { PageHeader } from "@/components/platform/PageHeader";
-import { StatusBadge } from "@/components/platform/StatusBadge";
 import { resolveLocale } from "@/i18n/config";
-import {
-  clientHasSeoService,
-  isSeoIncluded,
-} from "@/lib/data/client-dashboard";
-import { getClientSeoOverview } from "@/lib/data/client-seo";
+import { requireClientAuth } from "@/lib/auth/session";
+import { clientHasSeoService, isSeoIncluded } from "@/lib/data/client-dashboard";
 import { formatDate, formatStatusLabel } from "@/lib/data/client-format";
+import { parseMetricsPeriod } from "@/lib/data/client-metrics-range";
+import {
+  buildSeoInsights,
+  buildSeoPeriodReport,
+  mergeSeoBreakdowns,
+} from "@/lib/data/client-seo-report";
+import { getClientSeoOverview } from "@/lib/data/client-seo";
 import {
   getClientSubscriptions,
   getMergedClientEntitlements,
   getServicesSchemaState,
 } from "@/lib/data/client-subscriptions";
 import { getDatabaseReadyState } from "@/lib/data/platform-state";
-import { requireClientAuth } from "@/lib/auth/session";
 import { getLocale, getTranslations } from "next-intl/server";
+import { Suspense } from "react";
 
-export default async function ClientSeoPage() {
+const SEO_INSIGHT_KEYS: Record<string, string> = {
+  clicksUp: "insightsClicksUp",
+  clicksDown: "insightsClicksDown",
+  lowCtr: "insightsLowCtr",
+  queryLowCtr: "insightsQueryLowCtr",
+  clicksDrop: "insightsClicksDrop",
+  noQueryPageData: "insightsNoQueryPageData",
+};
+
+async function SeoBody({
+  searchParams,
+}: {
+  searchParams: { period?: string; from?: string; to?: string };
+}) {
   const locale = resolveLocale(await getLocale());
   const t = await getTranslations("seo");
   const tCommon = await getTranslations("common");
-  const tErrors = await getTranslations("errors");
   const tStatus = await getTranslations("status");
 
+  const session = await requireClientAuth();
+  const companyIds = session.profile.company_ids;
+  const period = parseMetricsPeriod(searchParams);
+  const seoResult = await getClientSeoOverview(companyIds);
+  const overview = seoResult.data!;
+
+  const report = buildSeoPeriodReport(
+    overview.metrics,
+    period.current.from,
+    period.current.to,
+    period.previous.from,
+    period.previous.to,
+  );
+  const breakdown = mergeSeoBreakdowns(report.currentRows);
+  const insightItems = buildSeoInsights(report, breakdown).map((item) => ({
+    kind: item.kind,
+    text: t(
+      (SEO_INSIGHT_KEYS[item.id] ?? "insightsNoQueryPageData") as "insightsNoQueryPageData",
+      item.params as Record<string, string>,
+    ),
+  }));
+
+  const isDemo =
+    report.isDemo || overview.connection!.site_url?.includes("demo.") === true;
+
+  const syncLine = overview.connection!.last_sync_at
+    ? t("lastSync", { date: formatDate(overview.connection!.last_sync_at!, locale) })
+    : t("noSyncYet");
+
+  const seriesPoints = report.currentRows.map((row) => ({
+    date: row.metric_date,
+    label: formatDate(row.metric_date, locale),
+    values: {
+      clicks: row.clicks ?? 0,
+      impressions: row.impressions ?? 0,
+      ctr: row.ctr !== null ? Math.round(row.ctr * 10000) / 100 : 0,
+      position: row.average_position ?? 0,
+    },
+  }));
+
+  const totals = report.current;
+
+  if (totals.daysWithData === 0) {
+    return <EmptyState title={t("noDataTitle")} description={t("noDataDescription")} />;
+  }
+
+  const ctrDisplay =
+    totals.ctr !== null ? `${(totals.ctr * 100).toFixed(2)}%` : tCommon("emptyDash");
+  const positionDisplay =
+    totals.averagePosition !== null
+      ? totals.averagePosition.toFixed(1)
+      : tCommon("emptyDash");
+
+  return (
+    <>
+      <MetricsConnectionBanner
+        name={overview.connection!.display_name ?? "Search Console"}
+        statusLabel={formatStatusLabel(overview.connection!.status, tStatus)}
+        propertyLine={`${t("site")}: ${overview.connection!.site_url ?? tCommon("emptyDash")}`}
+        syncLine={syncLine}
+        demoWarning={isDemo ? t("demoDataWarning") : undefined}
+      />
+
+      <p className="mb-4 text-xs text-[#64748B]">{t("storedDataNotice")}</p>
+
+      <MetricsPeriodToolbar
+        labels={{
+          period7d: t("period7d"),
+          period28d: t("period28d"),
+          period90d: t("period90d"),
+          periodThisMonth: t("periodThisMonth"),
+          periodLastMonth: t("periodLastMonth"),
+          periodCustom: t("periodCustom"),
+          periodFrom: t("periodFrom"),
+          periodTo: t("periodTo"),
+          periodApply: t("periodApply"),
+        }}
+        currentPeriod={period.current.preset}
+        from={period.current.from}
+        to={period.current.to}
+        periodRangeLabel={t("periodAnalyzed", {
+          from: formatDate(period.current.from, locale),
+          to: formatDate(period.current.to, locale),
+        })}
+        lastUpdatedLabel={syncLine}
+      />
+
+      <MetricsKpiGrid
+        changeLabel={t("changeVsPrevious")}
+        unavailableLabel={t("unavailableMetric")}
+        items={[
+          {
+            id: "clicks",
+            label: t("clicks"),
+            value: String(totals.clicks),
+            changePercent: report.changes.clicks,
+          },
+          {
+            id: "impressions",
+            label: t("impressions"),
+            value: String(totals.impressions),
+            changePercent: report.changes.impressions,
+          },
+          {
+            id: "ctr",
+            label: t("ctr"),
+            value: ctrDisplay,
+            changePercent: report.changes.ctr,
+          },
+          {
+            id: "position",
+            label: t("avgPosition"),
+            value: positionDisplay,
+            changePercent: report.changes.averagePosition,
+          },
+        ]}
+      />
+
+      <div className="mb-8">
+        <MetricsTimeSeriesPanel
+          title={t("chartTitle")}
+          points={seriesPoints}
+          defaultMetric="clicks"
+          metrics={[
+            { key: "clicks", label: t("clicks") },
+            { key: "impressions", label: t("impressions") },
+            { key: "ctr", label: t("ctr") },
+            { key: "position", label: t("avgPosition") },
+          ]}
+          totalForPeriod={{
+            clicks: totals.clicks,
+            impressions: totals.impressions,
+            ctr: totals.ctr !== null ? Math.round(totals.ctr * 10000) / 100 : 0,
+            position: totals.averagePosition ?? 0,
+          }}
+          totalNote={t("chartTotalNote")}
+        />
+      </div>
+
+      <MetricsInsightsPanel
+        title={t("insightsTitle")}
+        items={insightItems}
+        legendFact={t("insightFact")}
+        legendOpportunity={t("insightOpportunity")}
+        legendLimit={t("insightLimit")}
+      />
+
+      <p className="mb-6 text-xs text-[#64748B]">{t("diagnosticsLimitNote")}</p>
+
+      <div className="mb-8 grid gap-6 lg:grid-cols-2">
+        <MetricsDataTable
+          title={t("sectionQueries")}
+          rows={(breakdown.queries ?? []) as Record<string, unknown>[]}
+          emptyMessage={t("dimensionEmpty")}
+          searchPlaceholder={t("searchPlaceholder")}
+          exportFilename={breakdown.queries?.length ? t("queriesExport") : undefined}
+          exportLabel={t("exportCsv")}
+          columns={[
+            { key: "query", label: t("colQuery") },
+            { key: "clicks", label: t("colClicks"), sortAs: "number" },
+            {
+              key: "impressions",
+              label: t("colImpressions"),
+              sortAs: "number",
+            },
+            {
+              key: "ctr",
+              label: t("colCtr"),
+              render: (r) =>
+                r.ctr !== null && r.ctr !== undefined
+                  ? `${(Number(r.ctr) * 100).toFixed(2)}%`
+                  : "—",
+              sortAs: "number",
+            },
+            {
+              key: "position",
+              label: t("colPosition"),
+              render: (r) =>
+                r.position !== null && r.position !== undefined
+                  ? Number(r.position).toFixed(1)
+                  : "—",
+              sortAs: "number",
+            },
+          ]}
+        />
+        <MetricsDataTable
+          title={t("sectionPages")}
+          rows={(breakdown.pages ?? []) as Record<string, unknown>[]}
+          emptyMessage={t("dimensionEmpty")}
+          searchPlaceholder={t("searchPlaceholder")}
+          exportFilename={breakdown.pages?.length ? t("pagesExport") : undefined}
+          exportLabel={t("exportCsv")}
+          columns={[
+            { key: "page", label: t("colPage") },
+            { key: "clicks", label: t("colClicks"), sortAs: "number" },
+            {
+              key: "impressions",
+              label: t("colImpressions"),
+              sortAs: "number",
+            },
+            {
+              key: "ctr",
+              label: t("colCtr"),
+              render: (r) =>
+                r.ctr !== null && r.ctr !== undefined
+                  ? `${(Number(r.ctr) * 100).toFixed(2)}%`
+                  : "—",
+              sortAs: "number",
+            },
+            {
+              key: "position",
+              label: t("colPosition"),
+              render: (r) =>
+                r.position !== null && r.position !== undefined
+                  ? Number(r.position).toFixed(1)
+                  : "—",
+              sortAs: "number",
+            },
+          ]}
+        />
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-3">
+        <MetricsDataTable
+          title={t("sectionDevices")}
+          rows={(breakdown.devices ?? []) as Record<string, unknown>[]}
+          emptyMessage={t("dimensionEmpty")}
+          searchPlaceholder={t("searchPlaceholder")}
+          columns={[
+            { key: "device", label: t("colDevice") },
+            { key: "clicks", label: t("colClicks"), sortAs: "number" },
+          ]}
+        />
+        <MetricsDataTable
+          title={t("sectionCountries")}
+          rows={(breakdown.countries ?? []) as Record<string, unknown>[]}
+          emptyMessage={t("dimensionEmpty")}
+          searchPlaceholder={t("searchPlaceholder")}
+          columns={[
+            { key: "country", label: t("colCountry") },
+            { key: "clicks", label: t("colClicks"), sortAs: "number" },
+          ]}
+        />
+        <MetricsDataTable
+          title={t("sectionSearchTypes")}
+          rows={(breakdown.searchTypes ?? []) as Record<string, unknown>[]}
+          emptyMessage={t("dimensionEmpty")}
+          searchPlaceholder={t("searchPlaceholder")}
+          columns={[
+            { key: "type", label: t("colSearchType") },
+            { key: "clicks", label: t("colClicks"), sortAs: "number" },
+          ]}
+        />
+      </div>
+
+      <div className="mt-8">
+        <MetricsDataTable
+          title={t("chartTitle")}
+          rows={report.currentRows.map((r) => ({
+            date: r.metric_date,
+            clicks: r.clicks,
+            impressions: r.impressions,
+            ctr: r.ctr,
+            average_position: r.average_position,
+          }))}
+          emptyMessage={t("noDataDescription")}
+          searchPlaceholder={t("searchPlaceholder")}
+          exportFilename={t("dailyExport")}
+          exportLabel={t("exportCsv")}
+          columns={[
+            { key: "date", label: "Date" },
+            { key: "clicks", label: t("clicks"), sortAs: "number" },
+            {
+              key: "impressions",
+              label: t("impressions"),
+              sortAs: "number",
+            },
+            {
+              key: "ctr",
+              label: t("ctr"),
+              render: (r) =>
+                r.ctr !== null && r.ctr !== undefined
+                  ? `${(Number(r.ctr) * 100).toFixed(2)}%`
+                  : "—",
+            },
+            {
+              key: "average_position",
+              label: t("avgPosition"),
+              render: (r) =>
+                r.average_position !== null && r.average_position !== undefined
+                  ? Number(r.average_position).toFixed(1)
+                  : "—",
+            },
+          ]}
+        />
+      </div>
+    </>
+  );
+}
+
+export default async function ClientSeoPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ period?: string; from?: string; to?: string }>;
+}) {
+  const sp = await searchParams;
+  const t = await getTranslations("seo");
+  const tCommon = await getTranslations("common");
+  const tErrors = await getTranslations("errors");
   const session = await requireClientAuth();
   const companyIds = session.profile.company_ids;
   const dbState = await getDatabaseReadyState();
@@ -33,16 +362,12 @@ export default async function ClientSeoPage() {
   const entitlements = await getMergedClientEntitlements(companyIds);
   const included = isSeoIncluded(subscriptions, entitlements);
   const seoResult = await getClientSeoOverview(companyIds);
-  const overview = seoResult.data;
 
   if (!included) {
     return (
       <>
         <PageHeader title={t("title")} description={t("description")} />
-        <EmptyState
-          title={t("notIncludedTitle")}
-          description={t("notIncludedDescription")}
-        />
+        <EmptyState title={t("notIncludedTitle")} description={t("notIncludedDescription")} />
       </>
     );
   }
@@ -54,30 +379,32 @@ export default async function ClientSeoPage() {
         <EmptyState
           title={tErrors("loadFailedTitle")}
           description={
-            seoResult.accessDenied
-              ? t("accessDeniedDescription")
-              : t("loadFailedDescription")
+            seoResult.accessDenied ? t("accessDeniedDescription") : t("loadFailedDescription")
           }
         />
       </>
     );
   }
 
-  if (!overview.connection) {
+  const overview = seoResult.data;
+
+  if (!overview?.connection) {
     return (
       <>
         <PageHeader title={t("title")} description={t("description")} />
-        <EmptyState
-          title={t("notConnectedTitle")}
-          description={t("notConnectedDescription")}
-        />
+        <EmptyState title={t("notConnectedTitle")} description={t("notConnectedDescription")} />
       </>
     );
   }
 
-  const metrics = overview.metrics;
-  const latest = metrics[metrics.length - 1];
-  const labels = metrics.map((row) => formatDate(row.metric_date, locale));
+  if (!overview.metrics.length) {
+    return (
+      <>
+        <PageHeader title={t("title")} description={t("description")} />
+        <EmptyState title={t("noDataTitle")} description={t("noDataDescription")} />
+      </>
+    );
+  }
 
   return (
     <>
@@ -93,70 +420,13 @@ export default async function ClientSeoPage() {
         </div>
       ) : null}
 
-      <div className="mb-6 rounded-2xl border border-[#1E293B] bg-[#0E1324] p-6">
-        <div className="flex flex-wrap items-center gap-3">
-          <h2 className="text-base font-medium text-white">
-            {overview.connection.display_name ?? "Search Console"}
-          </h2>
-          <StatusBadge
-            label={formatStatusLabel(overview.connection.status, tStatus)}
-            tone="success"
-          />
-        </div>
-        <p className="mt-2 text-sm text-[#94A3B8]">
-          {t("site")}: {overview.connection.site_url ?? tCommon("emptyDash")}
-        </p>
-        {clientHasSeoService(subscriptions) ? (
-          <p className="mt-1 text-xs text-[#64748B]">{t("includedInServices")}</p>
-        ) : null}
-      </div>
+      {clientHasSeoService(subscriptions) ? (
+        <p className="mb-4 text-xs text-[#64748B]">{t("includedInServices")}</p>
+      ) : null}
 
-      {metrics.length ? (
-        <>
-          <div className="mb-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {[
-              { label: t("clicks"), value: latest?.clicks },
-              { label: t("impressions"), value: latest?.impressions },
-              {
-                label: t("ctr"),
-                value:
-                  latest?.ctr !== null && latest?.ctr !== undefined
-                    ? `${(latest.ctr * 100).toFixed(2)}%`
-                    : tCommon("emptyDash"),
-              },
-              { label: t("avgPosition"), value: latest?.average_position },
-            ].map((metric) => (
-              <div
-                key={metric.label}
-                className="rounded-2xl border border-[#1E293B] bg-[#0E1324] p-4"
-              >
-                <p className="text-xs uppercase tracking-wide text-[#64748B]">
-                  {metric.label}
-                </p>
-                <p className="mt-2 text-2xl font-semibold text-white">
-                  {metric.value ?? tCommon("emptyDash")}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            <SimpleBarChart
-              title={t("chartClicks")}
-              labels={labels}
-              values={metrics.map((m) => m.clicks ?? 0)}
-            />
-            <SimpleBarChart
-              title={t("chartImpressions")}
-              labels={labels}
-              values={metrics.map((m) => m.impressions ?? 0)}
-              color="#60A5FA"
-            />
-          </div>
-        </>
-      ) : (
-        <EmptyState title={t("noDataTitle")} description={t("noDataDescription")} />
-      )}
+      <Suspense fallback={<p className="text-sm text-[#94A3B8]">{tCommon("loading")}</p>}>
+        <SeoBody searchParams={sp} />
+      </Suspense>
     </>
   );
 }

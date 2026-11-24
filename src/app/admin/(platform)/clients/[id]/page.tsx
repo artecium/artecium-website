@@ -250,33 +250,59 @@ export default async function AdminClientDetailPage({
       ) : null}
 
       {tab === "analytics" && tabData ? (
-        <TabList
-          items={tabData.analyticsConn}
-          emptyTitle="No analytics connections"
-          rowKey={(c) => c.id}
-          render={(c) => (
-            <AdminListCard
-              title={c.display_name ?? c.property_id ?? "Analytics"}
-              subtitle={`Property ${c.property_id ?? "—"}`}
-              meta={<StatusBadge label={formatStatusLabel(c.status)} />}
-            />
-          )}
-        />
+        <>
+          <div className="mb-4 flex flex-wrap gap-3">
+            <a
+              href={`/api/integrations/google/start/analytics?companyId=${encodeURIComponent(id)}&returnPath=${encodeURIComponent(`/admin/clients/${id}?tab=analytics`)}`}
+              className="rounded-full bg-[#2563EB] px-4 py-2 text-sm font-medium text-white hover:bg-[#1D4ED8]"
+            >
+              Connect Google Analytics
+            </a>
+            <Link href="/admin/analytics" className="text-sm text-[#93C5FD] hover:underline self-center">
+              Open analytics admin
+            </Link>
+          </div>
+          <TabList
+            items={tabData.analyticsConn}
+            emptyTitle="No analytics connections"
+            rowKey={(c) => c.id}
+            render={(c) => (
+              <AdminListCard
+                title={c.display_name ?? c.property_id ?? "Analytics"}
+                subtitle={`Property ${c.property_id ?? "—"} · Last sync ${c.last_sync_at ? formatDateTime(c.last_sync_at) : "—"}`}
+                meta={<StatusBadge label={formatStatusLabel(c.status)} />}
+              />
+            )}
+          />
+        </>
       ) : null}
 
       {tab === "seo" && tabData ? (
-        <TabList
-          items={tabData.seoConn}
-          emptyTitle="No SEO connections"
-          rowKey={(c) => c.id}
-          render={(c) => (
-            <AdminListCard
-              title={c.display_name ?? c.site_url ?? "SEO"}
-              subtitle={c.site_url ?? "—"}
-              meta={<StatusBadge label={formatStatusLabel(c.status)} />}
-            />
-          )}
-        />
+        <>
+          <div className="mb-4 flex flex-wrap gap-3">
+            <a
+              href={`/api/integrations/google/start/seo?companyId=${encodeURIComponent(id)}&returnPath=${encodeURIComponent(`/admin/clients/${id}?tab=seo`)}`}
+              className="rounded-full bg-[#2563EB] px-4 py-2 text-sm font-medium text-white hover:bg-[#1D4ED8]"
+            >
+              Connect Search Console
+            </a>
+            <Link href="/admin/seo" className="text-sm text-[#93C5FD] hover:underline self-center">
+              Open SEO admin
+            </Link>
+          </div>
+          <TabList
+            items={tabData.seoConn}
+            emptyTitle="No SEO connections"
+            rowKey={(c) => c.id}
+            render={(c) => (
+              <AdminListCard
+                title={c.display_name ?? c.site_url ?? "SEO"}
+                subtitle={`${c.site_url ?? "—"} · Last sync ${c.last_sync_at ? formatDateTime(c.last_sync_at) : "—"}`}
+                meta={<StatusBadge label={formatStatusLabel(c.status)} />}
+              />
+            )}
+          />
+        </>
       ) : null}
 
       {tab === "activity" && tabData ? (

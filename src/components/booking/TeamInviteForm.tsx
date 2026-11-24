@@ -1,44 +1,51 @@
 "use client";
 
 import { createBookingMemberInvite } from "@/lib/actions/booking/team";
+import { BookingButton } from "@/components/booking/BookingButton";
+import { useBookingButtonFeedback } from "@/lib/booking/use-booking-button-feedback";
 import { useLocale, useTranslations } from "next-intl";
-import { useState, useTransition } from "react";
+import { useState } from "react";
 
 export function TeamInviteForm() {
   const t = useTranslations("booking.team");
-  const tCommon = useTranslations("common");
   const locale = useLocale();
   const professionalLabel =
     locale === "pt-PT" || locale.startsWith("pt") ? "Profissional" : "Professional";
   const [error, setError] = useState<string | null>(null);
   const [inviteLink, setInviteLink] = useState<string | null>(null);
-  const [pending, startTransition] = useTransition();
+  const inviteFeedback = useBookingButtonFeedback();
 
   return (
     <div className="max-w-lg space-y-4">
       <form
         className="space-y-3 rounded-2xl border border-[#1E293B] bg-[#0E1324]/60 p-6"
-        action={(fd) => {
+        action={async (fd) => {
           setError(null);
           setInviteLink(null);
-          startTransition(async () => {
+          inviteFeedback.startLoading();
+          try {
             const result = await createBookingMemberInvite(fd);
             if (!result.ok) {
+              inviteFeedback.reset();
               setError(result.error);
               return;
             }
+            inviteFeedback.showSuccess();
             if (result.inviteLink) setInviteLink(result.inviteLink);
-          });
+          } catch {
+            inviteFeedback.reset();
+            setError("Invite failed.");
+          }
         }}
       >
         {error ? (
-          <p className="rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-200">
+          <p role="alert" className="rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-200">
             {error}
           </p>
         ) : null}
         <div>
           <label className="mb-1 block text-sm text-[#94A3B8]" htmlFor="email">
-            {tCommon("email")}
+            Email
           </label>
           <input
             id="email"
@@ -62,13 +69,14 @@ export function TeamInviteForm() {
             <option value="manager">{t("roleManager")}</option>
           </select>
         </div>
-        <button
+        <BookingButton
           type="submit"
-          disabled={pending}
-          className="rounded-lg bg-violet-600 px-4 py-2 text-sm text-white"
+          variant="primary"
+          feedbackKind="invite"
+          state={inviteFeedback.state}
         >
-          {pending ? tCommon("loading") : t("sendInvite")}
-        </button>
+          {t("sendInvite")}
+        </BookingButton>
       </form>
       {inviteLink ? (
         <p className="text-sm text-[#94A3B8]">

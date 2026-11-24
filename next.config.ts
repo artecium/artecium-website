@@ -6,6 +6,7 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const nextConfig: NextConfig = {
   reactCompiler: true,
   poweredByHeader: false,
+  allowedDevOrigins: ["client.artecium.com", "booking.artecium.com"],
   images: {
     formats: ["image/avif", "image/webp"],
   },

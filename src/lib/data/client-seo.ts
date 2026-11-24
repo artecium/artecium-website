@@ -10,6 +10,8 @@ export interface ClientSeoConnection {
   site_url: string | null;
   display_name: string | null;
   status: string;
+  connected_at: string | null;
+  last_sync_at: string | null;
 }
 
 export interface ClientSeoMetricRow {
@@ -19,6 +21,7 @@ export interface ClientSeoMetricRow {
   impressions: number | null;
   ctr: number | null;
   average_position: number | null;
+  payload: unknown | null;
 }
 
 export interface ClientSeoOverview {
@@ -39,7 +42,7 @@ export async function getClientSeoOverview(
 
   const { data: connection, error: connectionError } = await supabase
     .from("seo_connections")
-    .select("id, site_url, display_name, status")
+    .select("id, site_url, display_name, status, connected_at, last_sync_at")
     .in("company_id", companyIds)
     .eq("status", "active")
     .order("connected_at", { ascending: false })
@@ -61,7 +64,7 @@ export async function getClientSeoOverview(
 
   const { data: metrics, error: metricsError } = await supabase
     .from("seo_data")
-    .select("id, metric_date, clicks, impressions, ctr, average_position")
+    .select("id, metric_date, clicks, impressions, ctr, average_position, payload")
     .eq("connection_id", connection.id)
     .order("metric_date", { ascending: true });
 
@@ -82,6 +85,8 @@ export async function getClientSeoOverview(
         site_url: (connection.site_url as string | null) ?? null,
         display_name: (connection.display_name as string | null) ?? null,
         status: connection.status as string,
+        connected_at: (connection.connected_at as string | null) ?? null,
+        last_sync_at: (connection.last_sync_at as string | null) ?? null,
       },
       metrics: (metrics ?? []).map((row) => ({
         id: row.id as string,
@@ -91,6 +96,7 @@ export async function getClientSeoOverview(
         ctr: row.ctr !== null ? Number(row.ctr) : null,
         average_position:
           row.average_position !== null ? Number(row.average_position) : null,
+        payload: (row.payload as unknown) ?? null,
       })),
     },
     null,
