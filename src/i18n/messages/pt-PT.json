@@ -710,41 +710,33 @@
     },
     "faqPreview": {
       "eyebrow": "Perguntas frequentes",
-      "title": "Perguntas sobre a Artecium",
-      "description": "Respostas objetivas sobre serviços, plataformas e como avançar connosco.",
-      "viewAll": "Ver página de FAQ completa",
+      "title": "Dúvidas comuns antes de avançar",
+      "description": "Respostas curtas às questões que mais ouvimos de empresas a planear um projeto digital.",
+      "viewAll": "Ver todas as perguntas",
       "items": {
-        "whatIsArtecium": {
-          "question": "O que é a Artecium?",
-          "answer": "A Artecium é uma empresa digital portuguesa que desenvolve websites, automação com IA, SEO e software à medida para empresas. Apoiamos clientes com projetos, acompanhamento técnico e ferramentas próprias como a Área de Cliente e o Artecium Booking."
+        "websiteCost": {
+          "question": "Quanto custa criar um website?",
+          "answer": "Na Artecium, websites começam nos 750 € (Essential). O plano Professional custa 1.500 € e projetos Business começam nos 2.500 €, consoante funcionalidades."
         },
-        "services": {
-          "question": "Que serviços disponibiliza?",
-          "answer": "Websites profissionais, IA e automação, SEO, aplicações web e integrações. Cada projeto é definido após perceber objetivos, âmbito e orçamento — os planos comerciais atuais estão publicados nas páginas de serviços."
+        "includesSeo": {
+          "question": "O preço inclui SEO?",
+          "answer": "Os planos incluem boas práticas técnicas de base. SEO contínuo é um serviço à parte, a partir de 350 € (Foundation) ou em planos mensais."
         },
-        "customWebsites": {
-          "question": "A Artecium desenvolve websites à medida?",
-          "answer": "Sim. Desenvolvemos websites e evoluções à medida, desde presença institucional até projetos com funcionalidades avançadas. O ponto de partida pode ser um plano Essential, Professional ou Business, consoante complexidade."
+        "addFeaturesLater": {
+          "question": "Posso adicionar funcionalidades depois?",
+          "answer": "Sim. Muitos clientes começam com um website essencial e evoluem depois — blog, SEO, automação ou integrações."
         },
-        "whatIsBooking": {
-          "question": "O que é o Booking?",
-          "answer": "O Artecium Booking é a plataforma de marcações online da Artecium para negócios com agenda — salões, clínicas, consultores e similares. Inclui página pública de reservas, calendário e painel de gestão em booking.artecium.com."
+        "portugal": {
+          "question": "Trabalham com empresas em Portugal?",
+          "answer": "Sim. Trabalhamos com empresas em Portugal, com especial relevância para Lisboa, Almada, Setúbal e Margem Sul."
         },
-        "howBookingWorks": {
-          "question": "Como funciona o sistema de marcações?",
-          "answer": "O cliente escolhe serviço, profissional e horário numa página pública. A equipa gere serviços, horários, ausências e marcações no painel. Confirmação pode ser automática ou manual, consoante as definições de cada negócio."
+        "seoOnly": {
+          "question": "Posso contratar apenas SEO?",
+          "answer": "Sim. O SEO Foundation (350 €) é um setup inicial. Para acompanhamento contínuo, existem planos Growth (500 €/mês) e Advanced (900 €/mês)."
         },
-        "clientArea": {
-          "question": "O que permite fazer a Área de Cliente?",
-          "answer": "A Área de Cliente é o portal para empresas que contratam serviços Artecium: acompanhar projetos, consultar documentos, faturas, relatórios SEO/analytics quando aplicável e abrir pedidos de suporte. O acesso requer autenticação."
-        },
-        "singleService": {
-          "question": "Posso contratar apenas um serviço?",
-          "answer": "Sim. Pode contratar só websites, só SEO ou outro serviço isolado. O Booking é um produto separado para o seu próprio negócio — não substitui a contratação de websites ou SEO da Artecium."
-        },
-        "proposal": {
-          "question": "Como posso pedir uma proposta?",
-          "answer": "Use o botão «Pedir orçamento» no site para abrir o brief de descoberta. A equipa analisa o pedido e responde com próximos passos e proposta adequada — sem compromisso até aceitar formalmente."
+        "howToStart": {
+          "question": "Como começo um projeto?",
+          "answer": "Peça um orçamento através do formulário. Analisamos o projeto e indicamos a solução e investimento mais adequados."
         }
       }
     },

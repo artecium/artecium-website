@@ -1,42 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #07080c;
-  --background-subtle: #0c0e14;
-  --surface: #12151c;
-  --surface-raised: #181c25;
-  --foreground: #f3f4f6;
-  --foreground-muted: #a1a8b3;
-  --foreground-subtle: #6b7280;
-  --accent: #4a6cf7;
-  --accent-hover: #3b5ce4;
-  --accent-muted: rgb(74 108 247 / 0.12);
-  --border: #232833;
-  --border-subtle: #1a1e27;
-  --border-strong: #2f3642;
-  --success: #22c55e;
-  --warning: #eab308;
-  --error: #ef4444;
-  /* Legacy aliases (booking / older components) */
-  --brand-primary: var(--accent);
-  --brand-card: var(--surface);
-  --brand-border: var(--border);
-  --brand-muted: var(--foreground-muted);
+  --background: #050816;
+  --foreground: #ffffff;
+  --brand-primary: #2563eb;
+  --brand-card: #0e1324;
+  --brand-border: #1e293b;
+  --brand-muted: #94a3b8;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-background-subtle: var(--background-subtle);
-  --color-surface: var(--surface);
-  --color-surface-raised: var(--surface-raised);
   --color-foreground: var(--foreground);
-  --color-muted: var(--foreground-muted);
-  --color-muted-subtle: var(--foreground-subtle);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-border: var(--border);
-  --color-border-subtle: var(--border-subtle);
-  --color-border-strong: var(--border-strong);
   --color-brand: var(--brand-primary);
   --color-brand-card: var(--brand-card);
   --color-brand-border: var(--brand-border);

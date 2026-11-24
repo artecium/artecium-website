@@ -710,41 +710,33 @@
     },
     "faqPreview": {
       "eyebrow": "FAQ",
-      "title": "Questions about Artecium",
-      "description": "Clear answers about services, platforms, and how to work with us.",
-      "viewAll": "View full FAQ page",
+      "title": "Common questions before you start",
+      "description": "Short answers to the questions we hear most from businesses planning a digital project.",
+      "viewAll": "View all questions",
       "items": {
-        "whatIsArtecium": {
-          "question": "What is Artecium?",
-          "answer": "Artecium is a Portuguese digital company building websites, AI automation, SEO, and custom software for businesses. We support clients with projects, ongoing delivery, and our own tools including the Client Area and Artecium Booking."
+        "websiteCost": {
+          "question": "How much does a website cost?",
+          "answer": "At Artecium, websites start at €750 (Essential). The Professional plan costs €1,500 and Business projects start at €2,500, depending on features."
         },
-        "services": {
-          "question": "What services do you offer?",
-          "answer": "Professional websites, AI and automation, SEO, web applications, and integrations. Each project is scoped after understanding goals and budget — current commercial plans are on our services pages."
+        "includesSeo": {
+          "question": "Does the price include SEO?",
+          "answer": "Plans include basic technical best practices. Ongoing SEO is a separate service, from €350 (Foundation) or on monthly plans."
         },
-        "customWebsites": {
-          "question": "Do you build custom websites?",
-          "answer": "Yes. We build tailored websites and evolutions, from institutional presence to advanced functionality. Starting point may be Essential, Professional, or Business plans depending on complexity."
+        "addFeaturesLater": {
+          "question": "Can I add features later?",
+          "answer": "Yes. Many clients start with an essential website and evolve later — blog, SEO, automation or integrations."
         },
-        "whatIsBooking": {
-          "question": "What is Booking?",
-          "answer": "Artecium Booking is our online appointment platform for schedule-based businesses — salons, clinics, consultants, and similar. It includes public booking, calendar, and admin on booking.artecium.com."
+        "portugal": {
+          "question": "Do you work with businesses in Portugal?",
+          "answer": "Yes. We work with businesses in Portugal, with particular focus on Lisbon, Almada, Setúbal and Margem Sul."
         },
-        "howBookingWorks": {
-          "question": "How does the booking system work?",
-          "answer": "Customers pick service, staff, and slot on a public page. Your team manages services, hours, time off, and appointments in the dashboard. Confirmation can be automatic or manual per business settings."
+        "seoOnly": {
+          "question": "Can I hire SEO only?",
+          "answer": "Yes. SEO Foundation (€350) is an initial setup. For ongoing support, Growth (€500/month) and Advanced (€900/month) plans are available."
         },
-        "clientArea": {
-          "question": "What does the Client Area offer?",
-          "answer": "The Client Area is the portal for companies that hire Artecium services: track projects, documents, invoices, SEO/analytics reports where applicable, and open support requests. Access requires sign-in."
-        },
-        "singleService": {
-          "question": "Can I hire just one service?",
-          "answer": "Yes. You can hire websites only, SEO only, or another service in isolation. Booking is a separate product for your own business — it is not a substitute for hiring Artecium web or SEO services."
-        },
-        "proposal": {
-          "question": "How do I request a proposal?",
-          "answer": "Use the “Request a quote” button to open the discovery brief. We review your request and reply with next steps and a suitable proposal — no commitment until you formally accept."
+        "howToStart": {
+          "question": "How do I start a project?",
+          "answer": "Request a quote through the form. We'll review your project and suggest the most suitable solution and investment."
         }
       }
     },

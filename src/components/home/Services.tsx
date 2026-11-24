@@ -1,5 +1,4 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { marketing } from "@/lib/ui/marketing-classes";
 import { resolveRequestLocale } from "@/lib/i18n/resolve-locale";
 import { getServicePath, type ServicePageId } from "@/lib/services/paths";
 import Link from "next/link";
@@ -53,31 +52,42 @@ function ServiceCard({
   ctaLabel?: string;
   href?: string;
 }) {
-  const className = `group flex h-full flex-col ${marketing.cardInteractive} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40`;
+  const className =
+    "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#2563EB]/30 bg-[#0E1324] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#2563EB]/50 hover:shadow-[0_8px_40px_rgba(37,99,235,0.1)]";
 
   const content = (
-    <div className="flex flex-1 flex-col">
-      <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-background text-accent">
-        {serviceIcons[serviceKey]}
-      </div>
-      <h3 className="text-lg font-semibold text-foreground">{title}</h3>
-      {forWho ? (
-        <p className="mt-2 text-xs font-medium uppercase tracking-wide text-muted-subtle">
-          {forWho}
+    <>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/0 to-[#2563EB]/0 transition-all duration-300 group-hover:from-[#2563EB]/5 group-hover:to-transparent" />
+      <div className="relative flex flex-1 flex-col">
+        <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[#1E293B] bg-[#050816] text-[#2563EB] transition-all duration-300 group-hover:border-[#2563EB]/30 group-hover:shadow-[0_0_20px_rgba(37,99,235,0.15)]">
+          {serviceIcons[serviceKey]}
+        </div>
+        <h3 className="text-lg font-semibold text-white">{title}</h3>
+        {forWho ? (
+          <p className="mt-2 text-xs font-medium uppercase tracking-wide text-[#64748B]">
+            {forWho}
+          </p>
+        ) : null}
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-[#94A3B8]">
+          {description}
         </p>
-      ) : null}
-      <p className={`mt-3 flex-1 ${marketing.bodySm}`}>{description}</p>
-      {includes ? <p className={`mt-3 ${marketing.caption}`}>{includes}</p> : null}
-      {ctaLabel && href ? (
-        <span className={`mt-5 inline-flex ${marketing.link}`}>
-          {ctaLabel} →
-        </span>
-      ) : null}
-    </div>
+        {includes ? (
+          <p className="mt-3 text-sm text-[#64748B]">{includes}</p>
+        ) : null}
+        {ctaLabel && href ? (
+          <span className="mt-5 inline-flex text-sm font-medium text-[#60A5FA] transition-colors group-hover:text-white">
+            {ctaLabel} →
+          </span>
+        ) : null}
+      </div>
+    </>
   );
 
   return (
-    <Link href={href!} className={className}>
+    <Link
+      href={href!}
+      className={`${className} block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]/50`}
+    >
       {content}
     </Link>
   );
@@ -91,7 +101,7 @@ export async function Services() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className={marketing.section}
+      className="px-6 py-24 sm:px-10 lg:px-16"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
@@ -116,7 +126,7 @@ export async function Services() {
           ))}
         </div>
 
-        <p className={`mx-auto mt-12 max-w-3xl text-center ${marketing.caption}`}>
+        <p className="mx-auto mt-12 max-w-3xl text-center text-sm leading-relaxed text-[#64748B]">
           {t("complementarySummary")}
         </p>
       </div>
