@@ -1,0 +1,19 @@
+{
+  "marker": "artecium-client-iso-v1",
+  "seeded_at": "2026-11-18T00:35:32.186Z",
+  "local_url": "https://ahbtpmlrzruwtfcichlg.supabase.co",
+  "companies": {
+    "A": {
+      "id": "57432450-9c8c-420a-93cc-cef1366a9ced",
+      "project_id": "93bc0003-b2b0-4e30-9818-f5fb7fb12baa"
+    },
+    "B": {
+      "id": "e5e54e45-5223-49f8-97f6-c18b9c65f521",
+      "project_id": "f176dbda-a947-4777-aede-4c2201a502e5"
+    }
+  },
+  "actors": {
+    "CLIENT_A": "client-a",
+    "CLIENT_B": "client-b"
+  }
+}

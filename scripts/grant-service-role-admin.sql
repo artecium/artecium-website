@@ -51,6 +51,10 @@ grant select, insert, update, delete on table public.analytics_data to service_r
 grant select, insert, update, delete on table public.seo_connections to service_role;
 grant select, insert, update, delete on table public.seo_data to service_role;
 
+-- Google OAuth (server-only tokens and CSRF states)
+grant select, insert, update, delete on table public.google_oauth_tokens to service_role;
+grant select, insert, update, delete on table public.google_oauth_authorization_states to service_role;
+
 -- Client comms
 grant select, insert, update, delete on table public.notifications to service_role;
 grant select, insert, update, delete on table public.meetings to service_role;

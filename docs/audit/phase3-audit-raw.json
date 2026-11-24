@@ -1,0 +1,3572 @@
+{
+  "project_ref": "bwxhdoxesqtdqwkxrmom",
+  "audited_at": "2026-11-16T20:46:28.453Z",
+  "schema_migrations": {
+    "command": "SELECT",
+    "rowCount": 2,
+    "oid": null,
+    "rows": [
+      {
+        "version": "025",
+        "name": "booking_public_create_idempotency_before_slot"
+      },
+      {
+        "version": "026",
+        "name": "booking_service_role_member_role_helper_execute"
+      }
+    ],
+    "fields": [
+      {
+        "name": "version",
+        "tableID": 34969,
+        "columnID": 1,
+        "dataTypeID": 25,
+        "dataTypeSize": -1,
+        "dataTypeModifier": -1,
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "tableID": 34969,
+        "columnID": 3,
+        "dataTypeID": 25,
+        "dataTypeSize": -1,
+        "dataTypeModifier": -1,
+        "format": "text"
+      }
+    ],
+    "_parsers": [
+      null,
+      null
+    ],
+    "_types": {
+      "_types": {
+        "arrayParser": {},
+        "builtins": {
+          "BOOL": 16,
+          "BYTEA": 17,
+          "CHAR": 18,
+          "INT8": 20,
+          "INT2": 21,
+          "INT4": 23,
+          "REGPROC": 24,
+          "TEXT": 25,
+          "OID": 26,
+          "TID": 27,
+          "XID": 28,
+          "CID": 29,
+          "JSON": 114,
+          "XML": 142,
+          "PG_NODE_TREE": 194,
+          "SMGR": 210,
+          "PATH": 602,
+          "POLYGON": 604,
+          "CIDR": 650,
+          "FLOAT4": 700,
+          "FLOAT8": 701,
+          "ABSTIME": 702,
+          "RELTIME": 703,
+          "TINTERVAL": 704,
+          "CIRCLE": 718,
+          "MACADDR8": 774,
+          "MONEY": 790,
+          "MACADDR": 829,
+          "INET": 869,
+          "ACLITEM": 1033,
+          "BPCHAR": 1042,
+          "VARCHAR": 1043,
+          "DATE": 1082,
+          "TIME": 1083,
+          "TIMESTAMP": 1114,
+          "TIMESTAMPTZ": 1184,
+          "INTERVAL": 1186,
+          "TIMETZ": 1266,
+          "BIT": 1560,
+          "VARBIT": 1562,
+          "NUMERIC": 1700,
+          "REFCURSOR": 1790,
+          "REGPROCEDURE": 2202,
+          "REGOPER": 2203,
+          "REGOPERATOR": 2204,
+          "REGCLASS": 2205,
+          "REGTYPE": 2206,
+          "UUID": 2950,
+          "TXID_SNAPSHOT": 2970,
+          "PG_LSN": 3220,
+          "PG_NDISTINCT": 3361,
+          "PG_DEPENDENCIES": 3402,
+          "TSVECTOR": 3614,
+          "TSQUERY": 3615,
+          "GTSVECTOR": 3642,
+          "REGCONFIG": 3734,
+          "REGDICTIONARY": 3769,
+          "JSONB": 3802,
+          "REGNAMESPACE": 4089,
+          "REGROLE": 4096
+        }
+      },
+      "text": {},
+      "binary": {}
+    },
+    "RowCtor": null,
+    "rowAsArray": false,
+    "_prebuiltEmptyResultObject": {
+      "version": null,
+      "name": null
+    }
+  },
+  "migration_files_extra_023": [
+    "023_phase2_harness_persistent_tracking.sql",
+    "023_phase2_harness_persistent_tracking_v2.5.sql",
+    "023_phase2_harness_persistent_tracking_v2.6.sql"
+  ],
+  "reconciliation": [
+    {
+      "version": "001",
+      "file": "001_initial_schema.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from public.roles limit 1",
+          "label": "roles",
+          "ok": true
+        },
+        {
+          "sql": "select 1 from public.profiles limit 1",
+          "label": "profiles",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "002",
+      "file": "002_services_plans_subscriptions.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from public.service_features limit 1",
+          "label": "service_features",
+          "ok": true
+        },
+        {
+          "sql": "select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='get_subscription_entitlements'",
+          "label": "fn:get_subscription_entitlements",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "003",
+      "file": "003_platform_hardening.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from public.staff_company_assignments limit 1",
+          "label": "staff_company_assignments",
+          "ok": true
+        },
+        {
+          "sql": "select 1 from information_schema.columns where table_schema='public' and table_name='companies' and column_name='deleted_at'",
+          "label": "companies.deleted_at",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "004",
+      "file": "004_security_hardening.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='staff_can_access_project'",
+          "label": "fn:staff_can_access_project",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "005",
+      "file": "005_security_followup.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='set_updated_at'",
+          "label": "fn:set_updated_at",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "006",
+      "file": "006_authenticated_select_grants.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from information_schema.role_table_grants where table_schema='public' and table_name='companies' and grantee='authenticated' and privilege_type='SELECT'",
+          "label": "grant:companies:authenticated:SELECT",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "007",
+      "file": "007_storage_documents.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from storage.buckets where id='platform-documents'",
+          "label": "storage:platform-documents",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "008",
+      "file": "008_auth_role_grants.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from information_schema.role_table_grants where table_schema='public' and table_name='user_roles' and grantee='authenticated'",
+          "label": "grant:user_roles:authenticated",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "009",
+      "file": "009_service_role_company_payment_providers.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from information_schema.role_table_grants where table_schema='public' and table_name='company_payment_providers' and grantee='service_role'",
+          "label": "grant:company_payment_providers:service_role",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "010",
+      "file": "010_payments_transaction_reference_unique.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from pg_indexes where schemaname='public' and indexname='idx_payments_transaction_reference_unique'",
+          "label": "idx_payments_transaction_reference_unique",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "011",
+      "file": "011_service_plan_features_authenticated_select.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from information_schema.role_table_grants where table_schema='public' and table_name='service_plan_features' and grantee='authenticated' and privilege_type='SELECT'",
+          "label": "grant:service_plan_features:SELECT",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "012",
+      "file": "012_booking_foundation.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from pg_extension where extname='btree_gist'",
+          "label": "ext:btree_gist",
+          "ok": true
+        },
+        {
+          "sql": "select 1 from public.booking_businesses limit 1",
+          "label": "booking_businesses",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "013",
+      "file": "013_booking_security_invites.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from information_schema.tables where table_schema='public' and table_name='booking_member_invites'",
+          "label": "table:booking_member_invites",
+          "ok": true
+        },
+        {
+          "sql": "select 1 from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='public' and c.relname='booking_member_invites' and c.relrowsecurity",
+          "label": "rls:booking_member_invites",
+          "ok": true
+        },
+        {
+          "sql": "select (count(*)::int >= 2) as ok from pg_policies where schemaname='public' and tablename='booking_member_invites' and policyname in ('Booking managers read invites', 'Booking managers write invites')",
+          "label": "policies:booking_member_invites",
+          "ok": true
+        },
+        {
+          "sql": "select 1 from information_schema.columns where table_schema='public' and table_name='booking_appointments' and column_name='blocked_starts_at'",
+          "label": "blocked_starts_at",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "014",
+      "file": "014_booking_membership_hardening.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='booking_accept_member_invite'",
+          "label": "fn:booking_accept_member_invite",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "015",
+      "file": "015_booking_public_rpc_hardening.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from information_schema.columns where table_schema='public' and table_name='booking_appointments' and column_name='idempotency_request_hash'",
+          "label": "idempotency_request_hash",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "016",
+      "file": "016_booking_public_catalog_slots.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='booking_public_list_day_slots'",
+          "label": "fn:booking_public_list_day_slots",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "017",
+      "file": "017_booking_public_idempotency_pgcrypto.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='booking_public_idempotency_request_hash'",
+          "label": "fn:booking_public_idempotency_request_hash",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "018",
+      "file": "018_google_oauth_tokens.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from information_schema.tables where table_schema='public' and table_name='google_oauth_tokens'",
+          "label": "google_oauth_tokens",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "019",
+      "file": "019_booking_service_role_grants.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select has_table_privilege('service_role','public.booking_appointments','DELETE') as ok",
+          "label": "service_role:booking_appointments:DELETE",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "020",
+      "file": "020_booking_member_role_professional_compat.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='booking_normalize_member_role_text'",
+          "label": "fn:booking_normalize_member_role_text",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "021",
+      "file": "021_booking_member_role_phase1_meta.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select not has_function_privilege('public', 'public.booking_normalize_member_role_text(text)', 'EXECUTE') as revoked",
+          "label": "revoke public role EXECUTE on normalize helper",
+          "ok": true
+        },
+        {
+          "sql": "select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace join pg_description d on d.objoid=p.oid and d.objsubid=0 where n.nspname='public' and p.proname='booking_normalize_member_role_text' and d.description like 'Internal:%'",
+          "label": "comment:booking_normalize_member_role_text",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "022",
+      "file": "022_booking_professional_rls_scope.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from information_schema.tables where table_schema='public' and table_name='booking_customer_internal_notes'",
+          "label": "booking_customer_internal_notes",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "023",
+      "file": "023_phase2_harness_persistent_tracking.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from pg_namespace where nspname='phase2_harness'",
+          "label": "schema:phase2_harness",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "024",
+      "file": "024_booking_public_guest_manage.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='booking_public_get_guest_appointment'",
+          "label": "fn:guest_get",
+          "ok": true
+        },
+        {
+          "sql": "select 1 from information_schema.columns where table_schema='public' and table_name='booking_appointments' and column_name='manage_token_hash'",
+          "label": "manage_token_hash",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "025",
+      "file": "025_booking_public_create_idempotency_before_slot.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select (position('and a.idempotency_key = v_key' in pg_get_functiondef(p.oid)) < position('booking_validate_public_slot' in pg_get_functiondef(p.oid))) as order_ok from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='booking_public_create_appointment'",
+          "label": "idempotency before slot",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    },
+    {
+      "version": "026",
+      "file": "026_booking_service_role_member_role_helper_execute.sql",
+      "schema_migrations_listed": false,
+      "probes": [
+        {
+          "sql": "select has_function_privilege('service_role','public.booking_normalize_member_role_text(text)','EXECUTE') as ok",
+          "label": "grant service_role EXECUTE normalize",
+          "ok": true
+        }
+      ],
+      "state": "applied"
+    }
+  ],
+  "payments_invoices": {
+    "payments_columns": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "company_id",
+        "data_type": "uuid",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "invoice_id",
+        "data_type": "uuid",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "amount",
+        "data_type": "numeric",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "currency",
+        "data_type": "text",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "status",
+        "data_type": "text",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "provider",
+        "data_type": "text",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "provider_payment_id",
+        "data_type": "text",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "paid_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "subscription_id",
+        "data_type": "uuid",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "payment_method_id",
+        "data_type": "uuid",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "provider_payment_intent_id",
+        "data_type": "text",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "transaction_reference",
+        "data_type": "text",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "refunded_amount",
+        "data_type": "numeric",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "failure_code",
+        "data_type": "text",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "failure_message",
+        "data_type": "text",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "metadata",
+        "data_type": "jsonb",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      }
+    ],
+    "invoices_columns": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "company_id",
+        "data_type": "uuid",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "invoice_number",
+        "data_type": "text",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "status",
+        "data_type": "text",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "issue_date",
+        "data_type": "date",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "due_date",
+        "data_type": "date",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "subtotal",
+        "data_type": "numeric",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "tax",
+        "data_type": "numeric",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "total",
+        "data_type": "numeric",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "currency",
+        "data_type": "text",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "pdf_path",
+        "data_type": "text",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "subscription_id",
+        "data_type": "uuid",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "discount",
+        "data_type": "numeric",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "amount_paid",
+        "data_type": "numeric",
+        "is_nullable": "NO"
+      },
+      {
+        "column_name": "paid_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "provider_invoice_id",
+        "data_type": "text",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "notes",
+        "data_type": "text",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "sent_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "viewed_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "discount_id",
+        "data_type": "uuid",
+        "is_nullable": "YES"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO"
+      }
+    ],
+    "payments_has_deleted_at": false,
+    "invoices_has_deleted_at": false,
+    "rls_policies": [
+      {
+        "schemaname": "public",
+        "tablename": "invoices",
+        "policyname": "Company read invoices",
+        "cmd": "SELECT",
+        "roles": "{authenticated}",
+        "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+        "with_check": null
+      },
+      {
+        "schemaname": "public",
+        "tablename": "invoices",
+        "policyname": "Staff manage invoices",
+        "cmd": "ALL",
+        "roles": "{authenticated}",
+        "qual": "staff_can_access_company(company_id)",
+        "with_check": "staff_can_access_company(company_id)"
+      },
+      {
+        "schemaname": "public",
+        "tablename": "payments",
+        "policyname": "Company read payments",
+        "cmd": "SELECT",
+        "roles": "{authenticated}",
+        "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+        "with_check": null
+      },
+      {
+        "schemaname": "public",
+        "tablename": "payments",
+        "policyname": "Staff manage payments",
+        "cmd": "ALL",
+        "roles": "{authenticated}",
+        "qual": "staff_can_access_company(company_id)",
+        "with_check": "staff_can_access_company(company_id)"
+      }
+    ],
+    "functions_referencing_payments_deleted_at": []
+  },
+  "rls_policies": [
+    {
+      "schemaname": "public",
+      "tablename": "activity_logs",
+      "policyname": "Staff insert activity logs",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(is_staff_member() AND ((actor_id IS NULL) OR (actor_id = auth.uid())) AND ((company_id IS NULL) OR staff_can_access_company(company_id)) AND ((project_id IS NULL) OR staff_can_access_project(project_id)))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "activity_logs",
+      "policyname": "Staff read activity logs",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(is_owner_or_admin() OR (is_staff_member() AND ((company_id IS NULL) OR staff_can_access_company(company_id))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "analytics_connections",
+      "policyname": "Company read analytics connections",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((company_id IN ( SELECT user_company_ids() AS user_company_ids)) AND (NOT is_staff_member()))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "analytics_connections",
+      "policyname": "Staff delete analytics connections",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "DELETE",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "analytics_connections",
+      "policyname": "Staff insert analytics connections",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "analytics_connections",
+      "policyname": "Staff read analytics connections",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "analytics_connections",
+      "policyname": "Staff update analytics connections",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "analytics_data",
+      "policyname": "Read analytics data",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM analytics_connections ac\n  WHERE ((ac.id = analytics_data.connection_id) AND ((ac.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(ac.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "approvals",
+      "policyname": "Company insert approvals",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "((approved_by = auth.uid()) AND (EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = approvals.project_id) AND (p.company_id IN ( SELECT user_company_ids() AS user_company_ids))))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "approvals",
+      "policyname": "Read approvals",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = approvals.project_id) AND ((p.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(p.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "approvals",
+      "policyname": "Staff manage approvals",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_project(project_id)",
+      "with_check": "staff_can_access_project(project_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "automation_configs",
+      "policyname": "Staff manage automation configs",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(((company_id IS NOT NULL) AND staff_can_access_company(company_id)) OR ((project_id IS NOT NULL) AND staff_can_access_project(project_id)) OR ((company_id IS NULL) AND (project_id IS NULL) AND is_owner_or_admin()))",
+      "with_check": "(((company_id IS NOT NULL) AND staff_can_access_company(company_id)) OR ((project_id IS NOT NULL) AND staff_can_access_project(project_id)) OR ((company_id IS NULL) AND (project_id IS NULL) AND is_owner_or_admin()))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_appointments",
+      "policyname": "Booking read appointments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "booking_can_read_full_appointment(business_id, staff_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_appointments",
+      "policyname": "Booking write appointments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "booking_can_manage_business(business_id)",
+      "with_check": "booking_can_manage_business(business_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_business_members",
+      "policyname": "Booking members read membership",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((user_id = auth.uid()) OR booking_can_manage_business(business_id))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_business_subscriptions",
+      "policyname": "Booking manage subscriptions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "booking_is_platform_admin()",
+      "with_check": "booking_is_platform_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_business_subscriptions",
+      "policyname": "Booking read subscriptions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "booking_can_manage_business(business_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_businesses",
+      "policyname": "Booking managers write businesses",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "booking_can_manage_business(id)",
+      "with_check": "booking_can_manage_business(id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_businesses",
+      "policyname": "Booking members read businesses",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "booking_can_access_business(id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_customer_internal_notes",
+      "policyname": "Booking manage customer internal notes",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "booking_can_manage_business(business_id)",
+      "with_check": "(booking_can_manage_business(business_id) AND (EXISTS ( SELECT 1\n   FROM booking_customers c\n  WHERE ((c.id = booking_customer_internal_notes.customer_id) AND (c.business_id = booking_customer_internal_notes.business_id)))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_customers",
+      "policyname": "Booking read customers",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(booking_can_manage_business(business_id) OR (booking_is_professional_member(business_id) AND (EXISTS ( SELECT 1\n   FROM booking_appointments a\n  WHERE ((a.business_id = booking_customers.business_id) AND (a.customer_id = booking_customers.id) AND (a.staff_id IN ( SELECT booking_staff_ids_for_auth_user(booking_customers.business_id) AS booking_staff_ids_for_auth_user)))))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_customers",
+      "policyname": "Booking write customers",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "booking_can_manage_business(business_id)",
+      "with_check": "booking_can_manage_business(business_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_member_invites",
+      "policyname": "Booking managers read invites",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "booking_can_manage_business(business_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_member_invites",
+      "policyname": "Booking managers write invites",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "booking_can_manage_business(business_id)",
+      "with_check": "booking_can_manage_business(business_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_services",
+      "policyname": "Booking read services",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "booking_can_access_business(business_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_services",
+      "policyname": "Booking write services",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "booking_can_manage_business(business_id)",
+      "with_check": "booking_can_manage_business(business_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_staff",
+      "policyname": "Booking read staff",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "booking_can_access_business(business_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_staff",
+      "policyname": "Booking write staff",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "booking_can_manage_business(business_id)",
+      "with_check": "booking_can_manage_business(business_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_staff_breaks",
+      "policyname": "Booking read staff breaks",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_staff_breaks.staff_id) AND booking_can_access_business(s.business_id))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_staff_breaks",
+      "policyname": "Booking write staff breaks",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_staff_breaks.staff_id) AND booking_can_manage_business(s.business_id))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_staff_breaks.staff_id) AND booking_can_manage_business(s.business_id))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_staff_services",
+      "policyname": "Booking read staff services",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_staff_services.staff_id) AND booking_can_access_business(s.business_id))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_staff_services",
+      "policyname": "Booking write staff services",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_staff_services.staff_id) AND booking_can_manage_business(s.business_id))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_staff_services.staff_id) AND booking_can_manage_business(s.business_id))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_time_off",
+      "policyname": "Booking read time off",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "booking_can_read_time_off_row(staff_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_time_off",
+      "policyname": "Booking write time off",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_time_off.staff_id) AND booking_can_manage_business(s.business_id))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_time_off.staff_id) AND booking_can_manage_business(s.business_id))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_working_hours",
+      "policyname": "Booking read working hours",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_working_hours.staff_id) AND booking_can_access_business(s.business_id))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "booking_working_hours",
+      "policyname": "Booking write working hours",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_working_hours.staff_id) AND booking_can_manage_business(s.business_id))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM booking_staff s\n  WHERE ((s.id = booking_working_hours.staff_id) AND booking_can_manage_business(s.business_id))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "change_requests",
+      "policyname": "Company insert change requests",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(((requested_by IS NULL) OR (requested_by = auth.uid())) AND (EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = change_requests.project_id) AND (p.company_id IN ( SELECT user_company_ids() AS user_company_ids))))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "change_requests",
+      "policyname": "Read change requests",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = change_requests.project_id) AND ((p.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(p.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "change_requests",
+      "policyname": "Staff manage change requests",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_project(project_id)",
+      "with_check": "staff_can_access_project(project_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "client_subscriptions",
+      "policyname": "Company read subscriptions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT company_users.company_id\n   FROM company_users\n  WHERE (company_users.user_id = auth.uid())))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "client_subscriptions",
+      "policyname": "Staff manage subscriptions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(staff_can_manage_subscriptions() AND staff_can_access_company(company_id))",
+      "with_check": "(staff_can_manage_subscriptions() AND staff_can_access_company(company_id))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "commissions",
+      "policyname": "Owner admin manage commissions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "commissions",
+      "policyname": "Staff read commissions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM referrals r\n  WHERE ((r.id = commissions.referral_id) AND is_staff_member() AND ((r.company_id IS NULL) OR staff_can_access_company(r.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "companies",
+      "policyname": "Company users read own companies",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((id IN ( SELECT user_company_ids() AS user_company_ids)) AND (deleted_at IS NULL))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "companies",
+      "policyname": "Staff manage companies",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "companies",
+      "policyname": "Staff read companies",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(staff_can_access_company(id) AND (deleted_at IS NULL))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "company_payment_providers",
+      "policyname": "Staff delete company payment providers",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "DELETE",
+      "qual": "(staff_can_access_company(company_id) AND staff_can_manage_subscriptions())",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "company_payment_providers",
+      "policyname": "Staff read company payment providers",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "company_payment_providers",
+      "policyname": "Staff update company payment providers",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "(staff_can_access_company(company_id) AND staff_can_manage_subscriptions())",
+      "with_check": "(staff_can_access_company(company_id) AND staff_can_manage_subscriptions())"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "company_payment_providers",
+      "policyname": "Staff write company payment providers",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(staff_can_access_company(company_id) AND staff_can_manage_subscriptions())"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "company_services",
+      "policyname": "Company read company services",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "company_services",
+      "policyname": "Staff manage company services",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "company_users",
+      "policyname": "Staff manage company users",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "company_users",
+      "policyname": "Users read own company memberships",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((user_id = auth.uid()) OR staff_can_access_company(company_id))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "contacts",
+      "policyname": "Company read contacts",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "contacts",
+      "policyname": "Staff manage contacts",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(((company_id IS NULL) AND is_owner_or_admin()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))",
+      "with_check": "(((company_id IS NULL) AND is_owner_or_admin()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "contract_signatures",
+      "policyname": "Read contract signatures",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM contracts c\n  WHERE ((c.id = contract_signatures.contract_id) AND is_staff_member() AND staff_can_access_company(c.company_id))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "contract_signatures",
+      "policyname": "Staff manage contract signatures",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM contracts c\n  WHERE ((c.id = contract_signatures.contract_id) AND staff_can_access_company(c.company_id))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM contracts c\n  WHERE ((c.id = contract_signatures.contract_id) AND staff_can_access_company(c.company_id))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "contracts",
+      "policyname": "Staff manage contracts",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(is_staff_member() AND staff_can_access_company(company_id))",
+      "with_check": "(is_staff_member() AND staff_can_access_company(company_id))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "contracts",
+      "policyname": "Staff read contracts",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(is_staff_member() AND staff_can_access_company(company_id))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "coupons",
+      "policyname": "Company read coupons",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "coupons",
+      "policyname": "Finance manage coupons",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(((company_id IS NULL) AND (is_owner_or_admin() OR staff_can_manage_subscriptions())) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id) AND (is_owner_or_admin() OR staff_can_manage_subscriptions())))",
+      "with_check": "(((company_id IS NULL) AND (is_owner_or_admin() OR staff_can_manage_subscriptions())) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id) AND (is_owner_or_admin() OR staff_can_manage_subscriptions())))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "deliverables",
+      "policyname": "Read deliverables",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = deliverables.project_id) AND ((p.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(p.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "deliverables",
+      "policyname": "Staff manage deliverables",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_project(project_id)",
+      "with_check": "staff_can_access_project(project_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "discounts",
+      "policyname": "Finance manage discounts",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(is_owner_or_admin() OR staff_can_manage_subscriptions())",
+      "with_check": "(is_owner_or_admin() OR staff_can_manage_subscriptions())"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "discounts",
+      "policyname": "Staff read discounts",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "is_staff_member()",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "document_versions",
+      "policyname": "Read document versions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM documents d\n  WHERE ((d.id = document_versions.document_id) AND (d.deleted_at IS NULL) AND (((d.company_id IN ( SELECT user_company_ids() AS user_company_ids)) AND (d.visibility = 'client_visible'::text)) OR staff_can_access_company(d.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "document_versions",
+      "policyname": "Staff manage document versions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM documents d\n  WHERE ((d.id = document_versions.document_id) AND staff_can_access_company(d.company_id))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM documents d\n  WHERE ((d.id = document_versions.document_id) AND staff_can_access_company(d.company_id))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "documents",
+      "policyname": "Company read client documents",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((company_id IN ( SELECT user_company_ids() AS user_company_ids)) AND (visibility = 'client_visible'::text) AND (deleted_at IS NULL))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "documents",
+      "policyname": "Staff manage documents",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "documents",
+      "policyname": "Staff read documents",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(staff_can_access_company(company_id) AND (deleted_at IS NULL))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "domains",
+      "policyname": "Company read domains",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "domains",
+      "policyname": "Staff manage domains",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "feedback",
+      "policyname": "Company insert feedback",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "((user_id = auth.uid()) AND ((company_id IS NULL) OR (company_id IN ( SELECT user_company_ids() AS user_company_ids))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "feedback",
+      "policyname": "Company read feedback",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR (user_id = auth.uid()))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "feedback",
+      "policyname": "Staff manage feedback",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(((company_id IS NULL) AND is_staff_member()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))",
+      "with_check": "(((company_id IS NULL) AND is_staff_member()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "hosting",
+      "policyname": "Company read hosting",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "hosting",
+      "policyname": "Staff manage hosting",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "integration_connections",
+      "policyname": "Company read integrations",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((company_id IS NOT NULL) AND (company_id IN ( SELECT user_company_ids() AS user_company_ids)) AND (NOT is_staff_member()))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "integration_connections",
+      "policyname": "Staff delete integrations",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "DELETE",
+      "qual": "(((company_id IS NULL) AND is_owner_or_admin()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "integration_connections",
+      "policyname": "Staff insert integrations",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(((company_id IS NULL) AND is_owner_or_admin()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "integration_connections",
+      "policyname": "Staff read integrations",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(((company_id IS NULL) AND is_owner_or_admin()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "integration_connections",
+      "policyname": "Staff update integrations",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "(((company_id IS NULL) AND is_owner_or_admin()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))",
+      "with_check": "(((company_id IS NULL) AND is_owner_or_admin()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "integrations",
+      "policyname": "Authenticated read integrations catalog",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(is_active = true)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "integrations",
+      "policyname": "Owner admin manage integrations catalog",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "invoice_items",
+      "policyname": "Read invoice items",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM invoices i\n  WHERE ((i.id = invoice_items.invoice_id) AND ((i.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(i.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "invoice_items",
+      "policyname": "Staff manage invoice items",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM invoices i\n  WHERE ((i.id = invoice_items.invoice_id) AND staff_can_access_company(i.company_id))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM invoices i\n  WHERE ((i.id = invoice_items.invoice_id) AND staff_can_access_company(i.company_id))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "invoice_status_history",
+      "policyname": "Company read invoice status history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM invoices i\n  WHERE ((i.id = invoice_status_history.invoice_id) AND (i.company_id IN ( SELECT user_company_ids() AS user_company_ids)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "invoice_status_history",
+      "policyname": "Staff insert invoice status history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(EXISTS ( SELECT 1\n   FROM invoices i\n  WHERE ((i.id = invoice_status_history.invoice_id) AND staff_can_access_company(i.company_id) AND (is_owner_or_admin() OR staff_can_manage_subscriptions()))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "invoice_status_history",
+      "policyname": "Staff read invoice status history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM invoices i\n  WHERE ((i.id = invoice_status_history.invoice_id) AND staff_can_access_company(i.company_id))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "invoices",
+      "policyname": "Company read invoices",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "invoices",
+      "policyname": "Staff manage invoices",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "lead_notes",
+      "policyname": "Staff manage lead notes",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM leads l\n  WHERE ((l.id = lead_notes.lead_id) AND is_staff_member() AND ((l.company_id IS NULL) OR staff_can_access_company(l.company_id)))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM leads l\n  WHERE ((l.id = lead_notes.lead_id) AND is_staff_member() AND ((l.company_id IS NULL) OR staff_can_access_company(l.company_id)))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "lead_notes",
+      "policyname": "Staff read lead notes",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM leads l\n  WHERE ((l.id = lead_notes.lead_id) AND is_staff_member() AND ((l.company_id IS NULL) OR staff_can_access_company(l.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "lead_sources",
+      "policyname": "Owner admin manage lead sources",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "lead_sources",
+      "policyname": "Staff read lead sources",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "is_staff_member()",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "leads",
+      "policyname": "Staff manage leads",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(is_staff_member() AND ((company_id IS NULL) OR staff_can_access_company(company_id)))",
+      "with_check": "(is_staff_member() AND ((company_id IS NULL) OR staff_can_access_company(company_id)))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "leads",
+      "policyname": "Staff read leads",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(is_staff_member() AND ((company_id IS NULL) OR staff_can_access_company(company_id)))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "meetings",
+      "policyname": "Company read meetings",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "meetings",
+      "policyname": "Staff manage meetings",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(((company_id IS NULL) AND is_staff_member()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))",
+      "with_check": "(((company_id IS NULL) AND is_staff_member()) OR ((company_id IS NOT NULL) AND staff_can_access_company(company_id)))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "messages",
+      "policyname": "Insert messages",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "((author_id = auth.uid()) AND (((project_id IS NOT NULL) AND (EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = messages.project_id) AND ((p.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(p.company_id)))))) OR ((ticket_id IS NOT NULL) AND (EXISTS ( SELECT 1\n   FROM tickets t\n  WHERE ((t.id = messages.ticket_id) AND ((t.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(t.company_id))))))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "messages",
+      "policyname": "Read messages",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(((project_id IS NOT NULL) AND (EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = messages.project_id) AND ((p.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(p.company_id)))))) OR ((ticket_id IS NOT NULL) AND (EXISTS ( SELECT 1\n   FROM tickets t\n  WHERE ((t.id = messages.ticket_id) AND ((t.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(t.company_id)))))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "messages",
+      "policyname": "Staff manage messages",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(((project_id IS NOT NULL) AND staff_can_access_project(project_id)) OR ((ticket_id IS NOT NULL) AND (EXISTS ( SELECT 1\n   FROM tickets t\n  WHERE ((t.id = messages.ticket_id) AND staff_can_access_company(t.company_id))))))",
+      "with_check": "(((project_id IS NOT NULL) AND staff_can_access_project(project_id)) OR ((ticket_id IS NOT NULL) AND (EXISTS ( SELECT 1\n   FROM tickets t\n  WHERE ((t.id = messages.ticket_id) AND staff_can_access_company(t.company_id))))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "notification_preferences",
+      "policyname": "Users manage own notification preferences",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(user_id = auth.uid())",
+      "with_check": "(user_id = auth.uid())"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "notifications",
+      "policyname": "Staff manage notifications",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "is_staff_member()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "notifications",
+      "policyname": "Users read own notifications",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(user_id = auth.uid())",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "notifications",
+      "policyname": "Users update own notifications",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "(user_id = auth.uid())",
+      "with_check": "(user_id = auth.uid())"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "partners",
+      "policyname": "Owner admin manage partners",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "partners",
+      "policyname": "Staff read partners",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "is_staff_member()",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "payment_methods",
+      "policyname": "Company read payment methods",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "payment_methods",
+      "policyname": "Staff delete payment methods",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "DELETE",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "payment_methods",
+      "policyname": "Staff manage payment methods",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "payment_methods",
+      "policyname": "Staff read payment methods",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "payment_methods",
+      "policyname": "Staff update payment methods",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "payment_status_history",
+      "policyname": "Company read payment status history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM payments p\n  WHERE ((p.id = payment_status_history.payment_id) AND (p.company_id IN ( SELECT user_company_ids() AS user_company_ids)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "payment_status_history",
+      "policyname": "Staff insert payment status history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(EXISTS ( SELECT 1\n   FROM payments p\n  WHERE ((p.id = payment_status_history.payment_id) AND staff_can_access_company(p.company_id) AND staff_can_manage_subscriptions())))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "payment_status_history",
+      "policyname": "Staff read payment status history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM payments p\n  WHERE ((p.id = payment_status_history.payment_id) AND staff_can_access_company(p.company_id))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "payments",
+      "policyname": "Company read payments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "payments",
+      "policyname": "Staff manage payments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "permissions",
+      "policyname": "Owner admin manage permissions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "permissions",
+      "policyname": "Staff read permissions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "is_staff_member()",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "plan_features",
+      "policyname": "Authenticated read plan features",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "true",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "plan_features",
+      "policyname": "Owner admin manage plan features",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "plans",
+      "policyname": "Authenticated read plans",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(is_active = true)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "plans",
+      "policyname": "Owner admin manage plans",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "profiles",
+      "policyname": "Staff read profiles",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(is_staff_member() AND (is_owner_or_admin() OR (EXISTS ( SELECT 1\n   FROM company_users cu\n  WHERE ((cu.user_id = profiles.id) AND staff_can_access_company(cu.company_id))))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "profiles",
+      "policyname": "Users can read own profile",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(auth.uid() = id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "profiles",
+      "policyname": "Users can update own profile",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "(auth.uid() = id)",
+      "with_check": "(auth.uid() = id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "project_members",
+      "policyname": "Read project members",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = project_members.project_id) AND ((p.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(p.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "project_members",
+      "policyname": "Staff manage project members",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_project(project_id)",
+      "with_check": "staff_can_access_project(project_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "project_milestones",
+      "policyname": "Read project milestones",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = project_milestones.project_id) AND ((p.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(p.company_id)) AND (p.deleted_at IS NULL))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "project_milestones",
+      "policyname": "Staff manage milestones",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_project(project_id)",
+      "with_check": "staff_can_access_project(project_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "project_status_history",
+      "policyname": "Read project status history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = project_status_history.project_id) AND ((p.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(p.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "project_status_history",
+      "policyname": "Staff insert project status history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "staff_can_access_project(project_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "project_statuses",
+      "policyname": "Authenticated read project statuses",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((is_active = true) OR is_owner_or_admin())",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "project_statuses",
+      "policyname": "Owner admin delete project statuses",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "DELETE",
+      "qual": "is_owner_or_admin()",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "project_statuses",
+      "policyname": "Owner admin insert project statuses",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "project_statuses",
+      "policyname": "Owner admin update project statuses",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "projects",
+      "policyname": "Company users read projects",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((company_id IN ( SELECT user_company_ids() AS user_company_ids)) AND (deleted_at IS NULL))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "projects",
+      "policyname": "Staff manage projects",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "projects",
+      "policyname": "Staff read projects",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(staff_can_access_company(company_id) AND (deleted_at IS NULL))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "proposal_items",
+      "policyname": "Read proposal items",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM proposals pr\n  WHERE ((pr.id = proposal_items.proposal_id) AND is_staff_member() AND staff_can_access_company(pr.company_id))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "proposal_items",
+      "policyname": "Staff manage proposal items",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM proposals pr\n  WHERE ((pr.id = proposal_items.proposal_id) AND staff_can_access_company(pr.company_id))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM proposals pr\n  WHERE ((pr.id = proposal_items.proposal_id) AND staff_can_access_company(pr.company_id))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "proposals",
+      "policyname": "Staff manage proposals",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(is_staff_member() AND staff_can_access_company(company_id))",
+      "with_check": "(is_staff_member() AND staff_can_access_company(company_id))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "proposals",
+      "policyname": "Staff read proposals",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(is_staff_member() AND staff_can_access_company(company_id))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "referrals",
+      "policyname": "Staff manage referrals",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(is_staff_member() AND ((company_id IS NULL) OR staff_can_access_company(company_id)))",
+      "with_check": "(is_staff_member() AND ((company_id IS NULL) OR staff_can_access_company(company_id)))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "referrals",
+      "policyname": "Staff read referrals",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(is_staff_member() AND ((company_id IS NULL) OR staff_can_access_company(company_id)))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "reports",
+      "policyname": "Company read client reports",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((company_id IN ( SELECT user_company_ids() AS user_company_ids)) AND (visibility = 'client_visible'::text))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "reports",
+      "policyname": "Staff manage reports",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "role_permissions",
+      "policyname": "Owner admin manage role permissions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "role_permissions",
+      "policyname": "Staff read role permissions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "is_staff_member()",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "roles",
+      "policyname": "Authenticated read roles",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "true",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "roles",
+      "policyname": "Owner admin manage roles",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "seo_connections",
+      "policyname": "Company read seo connections",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((company_id IN ( SELECT user_company_ids() AS user_company_ids)) AND (NOT is_staff_member()))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "seo_connections",
+      "policyname": "Staff delete seo connections",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "DELETE",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "seo_connections",
+      "policyname": "Staff insert seo connections",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "seo_connections",
+      "policyname": "Staff read seo connections",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "seo_connections",
+      "policyname": "Staff update seo connections",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "seo_data",
+      "policyname": "Read seo data",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM seo_connections sc\n  WHERE ((sc.id = seo_data.connection_id) AND ((sc.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(sc.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "service_features",
+      "policyname": "Auth read service features",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(is_active = true)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "service_plan_features",
+      "policyname": "Auth read plan features",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "true",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "service_plans",
+      "policyname": "Auth read service plans",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(is_active = true)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "services",
+      "policyname": "Authenticated read active services",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((is_active = true) OR is_owner_or_admin())",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "services",
+      "policyname": "Owner admin delete services",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "DELETE",
+      "qual": "is_owner_or_admin()",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "services",
+      "policyname": "Owner admin insert services",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "services",
+      "policyname": "Owner admin update services",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "settings",
+      "policyname": "Owner admin manage settings",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "settings",
+      "policyname": "Owner admin read settings",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "is_owner_or_admin()",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "ssl_certificates",
+      "policyname": "Company read ssl",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "ssl_certificates",
+      "policyname": "Staff manage ssl",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "staff_company_assignments",
+      "policyname": "Admin manage staff assignments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "staff_company_assignments",
+      "policyname": "Staff read assignments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((user_id = auth.uid()) OR is_owner_or_admin())",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "subscription_entitlements",
+      "policyname": "Company read subscription entitlements",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((EXISTS ( SELECT 1\n   FROM client_subscriptions cs\n  WHERE ((cs.id = subscription_entitlements.subscription_id) AND (cs.company_id IN ( SELECT user_company_ids() AS user_company_ids))))) OR staff_can_access_subscription(subscription_id))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "subscription_entitlements",
+      "policyname": "Staff manage subscription entitlements",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_subscription(subscription_id)",
+      "with_check": "staff_can_access_subscription(subscription_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "subscription_feature_overrides",
+      "policyname": "Company read subscription overrides",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((EXISTS ( SELECT 1\n   FROM client_subscriptions cs\n  WHERE ((cs.id = subscription_feature_overrides.subscription_id) AND (cs.company_id IN ( SELECT user_company_ids() AS user_company_ids))))) OR staff_can_access_subscription(subscription_id))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "subscription_feature_overrides",
+      "policyname": "Staff manage subscription overrides",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_subscription(subscription_id)",
+      "with_check": "staff_can_access_subscription(subscription_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "subscription_history",
+      "policyname": "Company read subscription history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "subscription_history",
+      "policyname": "Staff insert subscription history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(staff_can_manage_subscriptions() AND staff_can_access_company(company_id))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "subscription_history",
+      "policyname": "Staff read subscription history",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "subscriptions",
+      "policyname": "Company read legacy subscriptions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "subscriptions",
+      "policyname": "Staff manage legacy subscriptions",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(staff_can_manage_subscriptions() AND staff_can_access_company(company_id))",
+      "with_check": "(staff_can_manage_subscriptions() AND staff_can_access_company(company_id))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "task_comments",
+      "policyname": "Company insert task comments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "((author_id = auth.uid()) AND (EXISTS ( SELECT 1\n   FROM (tasks t\n     JOIN projects p ON ((p.id = t.project_id)))\n  WHERE ((t.id = task_comments.task_id) AND (p.company_id IN ( SELECT user_company_ids() AS user_company_ids))))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "task_comments",
+      "policyname": "Read task comments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM (tasks t\n     JOIN projects p ON ((p.id = t.project_id)))\n  WHERE ((t.id = task_comments.task_id) AND ((p.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(p.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "task_comments",
+      "policyname": "Staff manage task comments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM tasks t\n  WHERE ((t.id = task_comments.task_id) AND staff_can_access_project(t.project_id))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM tasks t\n  WHERE ((t.id = task_comments.task_id) AND staff_can_access_project(t.project_id))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "tasks",
+      "policyname": "Read tasks",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM projects p\n  WHERE ((p.id = tasks.project_id) AND ((p.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(p.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "tasks",
+      "policyname": "Staff manage tasks",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_project(project_id)",
+      "with_check": "staff_can_access_project(project_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "ticket_attachments",
+      "policyname": "Insert ticket attachments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(EXISTS ( SELECT 1\n   FROM (ticket_messages tm\n     JOIN tickets t ON ((t.id = tm.ticket_id)))\n  WHERE ((tm.id = ticket_attachments.ticket_message_id) AND (tm.author_id = auth.uid()) AND ((t.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(t.company_id)))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "ticket_attachments",
+      "policyname": "Read ticket attachments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM (ticket_messages tm\n     JOIN tickets t ON ((t.id = tm.ticket_id)))\n  WHERE ((tm.id = ticket_attachments.ticket_message_id) AND ((t.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(t.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "ticket_attachments",
+      "policyname": "Staff manage ticket attachments",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "(EXISTS ( SELECT 1\n   FROM (ticket_messages tm\n     JOIN tickets t ON ((t.id = tm.ticket_id)))\n  WHERE ((tm.id = ticket_attachments.ticket_message_id) AND staff_can_access_company(t.company_id))))",
+      "with_check": "(EXISTS ( SELECT 1\n   FROM (ticket_messages tm\n     JOIN tickets t ON ((t.id = tm.ticket_id)))\n  WHERE ((tm.id = ticket_attachments.ticket_message_id) AND staff_can_access_company(t.company_id))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "ticket_messages",
+      "policyname": "Insert ticket messages",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "(EXISTS ( SELECT 1\n   FROM tickets t\n  WHERE ((t.id = ticket_messages.ticket_id) AND ((t.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(t.company_id)))))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "ticket_messages",
+      "policyname": "Read ticket messages",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n   FROM tickets t\n  WHERE ((t.id = ticket_messages.ticket_id) AND ((t.company_id IN ( SELECT user_company_ids() AS user_company_ids)) OR staff_can_access_company(t.company_id)))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "tickets",
+      "policyname": "Company create tickets",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "((company_id IN ( SELECT user_company_ids() AS user_company_ids)) AND ((created_by IS NULL) OR (created_by = auth.uid())))"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "tickets",
+      "policyname": "Company read tickets",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT user_company_ids() AS user_company_ids))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "tickets",
+      "policyname": "Staff manage tickets",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "usage_records",
+      "policyname": "Company read usage",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "(company_id IN ( SELECT company_users.company_id\n   FROM company_users\n  WHERE (company_users.user_id = auth.uid())))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "usage_records",
+      "policyname": "Staff delete usage",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "DELETE",
+      "qual": "(is_owner_or_admin() AND staff_can_access_company(company_id))",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "usage_records",
+      "policyname": "Staff insert usage",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "usage_records",
+      "policyname": "Staff read usage",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": null
+    },
+    {
+      "schemaname": "public",
+      "tablename": "usage_records",
+      "policyname": "Staff update usage",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "staff_can_access_company(company_id)",
+      "with_check": "staff_can_access_company(company_id)"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "user_roles",
+      "policyname": "Owner admin manage user roles",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "ALL",
+      "qual": "is_owner_or_admin()",
+      "with_check": "is_owner_or_admin()"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "user_roles",
+      "policyname": "Users read own user roles",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((user_id = auth.uid()) OR is_owner_or_admin())",
+      "with_check": null
+    },
+    {
+      "schemaname": "storage",
+      "tablename": "objects",
+      "policyname": "Read platform documents",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "SELECT",
+      "qual": "((bucket_id = 'platform-documents'::text) AND ((is_staff_member() AND staff_can_access_company(((storage.foldername(name))[1])::uuid)) OR (((storage.foldername(name))[1])::uuid IN ( SELECT user_company_ids() AS user_company_ids))))",
+      "with_check": null
+    },
+    {
+      "schemaname": "storage",
+      "tablename": "objects",
+      "policyname": "Staff delete platform documents",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "DELETE",
+      "qual": "((bucket_id = 'platform-documents'::text) AND is_staff_member() AND staff_can_access_company(((storage.foldername(name))[1])::uuid))",
+      "with_check": null
+    },
+    {
+      "schemaname": "storage",
+      "tablename": "objects",
+      "policyname": "Staff update platform documents",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "UPDATE",
+      "qual": "((bucket_id = 'platform-documents'::text) AND is_staff_member() AND staff_can_access_company(((storage.foldername(name))[1])::uuid))",
+      "with_check": "((bucket_id = 'platform-documents'::text) AND is_staff_member() AND staff_can_access_company(((storage.foldername(name))[1])::uuid))"
+    },
+    {
+      "schemaname": "storage",
+      "tablename": "objects",
+      "policyname": "Staff upload platform documents",
+      "permissive": "PERMISSIVE",
+      "roles": "{authenticated}",
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "((bucket_id = 'platform-documents'::text) AND is_staff_member() AND ((storage.foldername(name))[1] IS NOT NULL) AND staff_can_access_company(((storage.foldername(name))[1])::uuid))"
+    }
+  ],
+  "rls_enabled_no_policy": [
+    {
+      "schema": "public",
+      "table_name": "google_oauth_authorization_states"
+    },
+    {
+      "schema": "public",
+      "table_name": "google_oauth_tokens"
+    },
+    {
+      "schema": "storage",
+      "table_name": "lifecycle_abandoned_artifacts"
+    },
+    {
+      "schema": "storage",
+      "table_name": "s3_multipart_uploads_parts"
+    },
+    {
+      "schema": "storage",
+      "table_name": "migrations"
+    },
+    {
+      "schema": "storage",
+      "table_name": "buckets"
+    },
+    {
+      "schema": "storage",
+      "table_name": "vector_indexes"
+    },
+    {
+      "schema": "storage",
+      "table_name": "bucket_lifecycle_states"
+    },
+    {
+      "schema": "storage",
+      "table_name": "s3_multipart_uploads"
+    },
+    {
+      "schema": "storage",
+      "table_name": "buckets_analytics"
+    },
+    {
+      "schema": "storage",
+      "table_name": "buckets_vectors"
+    },
+    {
+      "schema": "phase2_harness",
+      "table_name": "deployment_guard"
+    },
+    {
+      "schema": "phase2_harness",
+      "table_name": "runs"
+    },
+    {
+      "schema": "phase2_harness",
+      "table_name": "run_tracking"
+    },
+    {
+      "schema": "phase2_harness",
+      "table_name": "cleanup_audit_snapshots"
+    }
+  ],
+  "security_definer": [
+    {
+      "schema": "public",
+      "name": "booking_accept_member_invite",
+      "args": "p_token text",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_assert_member_availability_request",
+      "args": "p_business_id uuid, p_range_start timestamp with time zone, p_range_end timestamp with time zone, p_staff_ids uuid[]",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=\"\""
+      ],
+      "execute_grants": [],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "booking_can_access_business",
+      "args": "p_business_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_can_manage_business",
+      "args": "p_business_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_can_read_full_appointment",
+      "args": "p_business_id uuid, p_staff_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=\"\""
+      ],
+      "execute_grants": [
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_can_read_time_off_row",
+      "args": "p_staff_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=\"\""
+      ],
+      "execute_grants": [
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_create_business_with_owner",
+      "args": "p_slug text, p_name text, p_timezone text",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_create_member_invite",
+      "args": "p_business_id uuid, p_email text, p_role text, p_token_hash text, p_expires_at timestamp with time zone",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_is_platform_admin",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_is_professional_member",
+      "args": "p_business_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=\"\""
+      ],
+      "execute_grants": [
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_list_member_staff_busy_intervals",
+      "args": "p_business_id uuid, p_range_start timestamp with time zone, p_range_end timestamp with time zone, p_staff_ids uuid[]",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=\"\""
+      ],
+      "execute_grants": [
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_list_member_staff_time_off_intervals",
+      "args": "p_business_id uuid, p_range_start timestamp with time zone, p_range_end timestamp with time zone, p_staff_ids uuid[]",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=\"\""
+      ],
+      "execute_grants": [
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_member_availability_staff_allowed",
+      "args": "p_business_id uuid, p_staff_id uuid, p_staff_ids uuid[]",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=\"\""
+      ],
+      "execute_grants": [],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "booking_member_business_ids",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_member_role_normalized",
+      "args": "p_business_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=\"\""
+      ],
+      "execute_grants": [
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_public_cancel_guest_appointment",
+      "args": "p_public_reference text, p_manage_token text",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "anon:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": true,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_public_create_appointment",
+      "args": "p_business_slug text, p_service_id uuid, p_staff_id uuid, p_starts_at timestamp with time zone, p_guest_name text, p_guest_email text, p_guest_phone text, p_idempotency_key text",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public, extensions"
+      ],
+      "execute_grants": [
+        "anon:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": true,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_public_get_business",
+      "args": "p_slug text",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "anon:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": true,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_public_get_guest_appointment",
+      "args": "p_public_reference text, p_manage_token text",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "anon:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": true,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_public_list_day_slots",
+      "args": "p_business_slug text, p_service_id uuid, p_staff_id uuid, p_local_date date",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "anon:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": true,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_public_list_services",
+      "args": "p_slug text",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "anon:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": true,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_public_list_staff_for_service",
+      "args": "p_slug text, p_service_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "anon:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": true,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_public_reschedule_guest_appointment",
+      "args": "p_public_reference text, p_manage_token text, p_new_starts_at timestamp with time zone",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "anon:EXECUTE",
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": true,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "booking_staff_ids_for_auth_user",
+      "args": "p_business_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=\"\""
+      ],
+      "execute_grants": [
+        "authenticated:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": true
+    },
+    {
+      "schema": "public",
+      "name": "enforce_profile_self_update",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "enforce_ticket_message_author",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "handle_new_user",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "is_owner_or_admin",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "is_staff_member",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "log_subscription_change",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "set_updated_at",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "staff_can_access_company",
+      "args": "p_company_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "staff_can_access_project",
+      "args": "p_project_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "staff_can_access_subscription",
+      "args": "p_subscription_id uuid",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "staff_can_manage_subscriptions",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "public",
+      "name": "user_company_ids",
+      "args": "",
+      "security_definer": true,
+      "owner": "postgres",
+      "config": [
+        "search_path=public"
+      ],
+      "execute_grants": [
+        "PUBLIC:EXECUTE"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "storage",
+      "name": "protect_active_lifecycle_states",
+      "args": "",
+      "security_definer": true,
+      "owner": "supabase_storage_admin",
+      "config": [
+        "search_path=pg_catalog"
+      ],
+      "execute_grants": [],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "storage",
+      "name": "reconcile_lifecycle_state",
+      "args": "target_bucket_id text, policy_changed boolean",
+      "security_definer": true,
+      "owner": "supabase_storage_admin",
+      "config": [
+        "search_path=pg_catalog"
+      ],
+      "execute_grants": [],
+      "anon_execute": false,
+      "authenticated_execute": false
+    },
+    {
+      "schema": "storage",
+      "name": "wake_lifecycle_state",
+      "args": "",
+      "security_definer": true,
+      "owner": "supabase_storage_admin",
+      "config": [
+        "search_path=pg_catalog"
+      ],
+      "execute_grants": [],
+      "anon_execute": false,
+      "authenticated_execute": false
+    }
+  ],
+  "sensitive_tables": {
+    "google_oauth_tokens": {
+      "rls_enabled": true,
+      "policies": [],
+      "table_grants": [
+        {
+          "grantee": "service_role",
+          "privilege_type": "INSERT"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "SELECT"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "UPDATE"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "DELETE"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "TRUNCATE"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "REFERENCES"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "TRIGGER"
+        }
+      ],
+      "row_count": 1,
+      "postgrest_exposure_risk": false
+    },
+    "google_oauth_authorization_states": {
+      "rls_enabled": true,
+      "policies": [],
+      "table_grants": [
+        {
+          "grantee": "service_role",
+          "privilege_type": "INSERT"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "SELECT"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "UPDATE"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "DELETE"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "TRUNCATE"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "REFERENCES"
+        },
+        {
+          "grantee": "service_role",
+          "privilege_type": "TRIGGER"
+        }
+      ],
+      "row_count": 5,
+      "postgrest_exposure_risk": false
+    },
+    "phase2_harness.runs": {
+      "rls_enabled": true,
+      "policies": [],
+      "table_grants": [],
+      "row_count": 0,
+      "postgrest_exposure_risk": false
+    },
+    "phase2_harness.deployment_guard": {
+      "rls_enabled": true,
+      "policies": [],
+      "table_grants": [],
+      "row_count": 1,
+      "postgrest_exposure_risk": false
+    },
+    "phase2_harness.run_tracking": {
+      "rls_enabled": true,
+      "policies": [],
+      "table_grants": [],
+      "row_count": 0,
+      "postgrest_exposure_risk": false
+    },
+    "phase2_harness.cleanup_audit_snapshots": {
+      "rls_enabled": true,
+      "policies": [],
+      "table_grants": [],
+      "row_count": 0,
+      "postgrest_exposure_risk": false
+    }
+  },
+  "auth_profile_integrity": {
+    "auth_users": 15,
+    "profiles": 14,
+    "auth_without_profile": 1,
+    "profiles_without_auth": 0
+  }
+}

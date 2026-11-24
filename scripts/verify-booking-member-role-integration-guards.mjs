@@ -25,8 +25,8 @@ record(
   script.includes(BOOKING_MEMBER_ROLE_INTEGRATION_ENV),
 );
 record(
-  "uses assertBookingDatabaseTarget",
-  script.includes("assertBookingDatabaseTarget"),
+  "uses assertBookingExplicitSandboxEnv",
+  script.includes("assertBookingExplicitSandboxEnv"),
 );
 record(
   "uses BOOKING_ALLOW_REMOTE_TESTS via guards import",

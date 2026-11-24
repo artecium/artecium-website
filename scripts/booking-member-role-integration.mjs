@@ -5,7 +5,7 @@
  *
  *   BOOKING_MEMBER_ROLE_INTEGRATION_TEST=1 \
  *   BOOKING_ALLOW_REMOTE_TESTS=1 \
- *   node --env-file=.env.booking.test.local scripts/booking-member-role-integration.mjs
+ *   node --env-file=.env.booking.sandbox.local scripts/booking-member-role-integration.mjs
  *
  * List cases without DB access:
  *
@@ -15,12 +15,18 @@
  * migrations 012–014 minimum; MR-02+ require 020 applied.
  *
  * Optional: BOOKING_SCHEMA_EXPECT=pre020|post020 (skip mismatched cases).
+ *
+ * 020 detection: read-only Postgres catalog (SUPABASE_DB_PASSWORD), not RPC —
+ * RPC probe conflates schema version with booking_can_manage_business / seed membership.
+ *
+ * Probe only: BOOKING_MEMBER_ROLE_PROBE_020_ONLY=1 (same env file as integration).
  */
 
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createHash, randomBytes } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
+import pg from "pg";
 import {
   BOOKING_INTEGRATION_MARKER,
   BOOKING_TEST_PASSWORD_ENV,
@@ -28,7 +34,7 @@ import {
   SLUGS,
 } from "./booking-integration-fixtures.mjs";
 import {
-  assertKeysPresent,
+  assertBookingExplicitSandboxEnv,
   assertBookingDatabaseTarget,
   getSupabaseEnv,
 } from "./booking-test-guards.mjs";
@@ -36,9 +42,11 @@ import {
   memberRoleToRpcPayload,
   memberRoleToRpcPayloadPreMigration020,
 } from "./booking-member-role-lib.mjs";
+import { resolveReadonlyDatabaseUrl } from "./booking-readiness-lib.mjs";
 
 export const BOOKING_MEMBER_ROLE_INTEGRATION_ENV = "BOOKING_MEMBER_ROLE_INTEGRATION_TEST";
 export const BOOKING_MEMBER_ROLE_INTEGRATION_LIST_ENV = "BOOKING_MEMBER_ROLE_INTEGRATION_LIST";
+export const BOOKING_MEMBER_ROLE_PROBE_020_ENV = "BOOKING_MEMBER_ROLE_PROBE_020_ONLY";
 export const BOOKING_SCHEMA_EXPECT_ENV = "BOOKING_SCHEMA_EXPECT";
 
 /** @type {{ id: string; title: string; needs: string; writes: boolean }[]} */
@@ -63,9 +71,9 @@ export const MEMBER_ROLE_INTEGRATION_CASES = [
   },
   {
     id: "MR-04",
-    title: "Invalid roles rejected by RPC",
-    needs: "012+; owner session",
-    writes: false,
+    title: "Post-020: reject owner/invalid; staff and empty → professional",
+    needs: "020 applied; owner session",
+    writes: true,
   },
   {
     id: "MR-05",
@@ -132,21 +140,59 @@ async function signIn(url, anonKey, email, password) {
 }
 
 /**
- * Read-only schema probe: pre-020 RPC rejects professional before token check;
- * post-020 fails with token_hash required instead.
+ * Read-only 020 detection via Postgres catalog (no RPC, no writes, no extra GRANTs).
+ * Pre-020: booking_create_member_invite allows manager|staff only.
+ * Post-020: normalize function exists; invite RPC allows manager|professional.
  */
-async function detectMigration020Applied(ownerClient, businessId) {
-  const { error } = await ownerClient.rpc("booking_create_member_invite", {
-    p_business_id: businessId,
-    p_email: "mr-probe@artecium.test",
-    p_role: "professional",
-    p_token_hash: null,
-    p_expires_at: new Date(Date.now() + 86400000).toISOString(),
-  });
-  const msg = error?.message ?? "";
-  if (msg.includes("token_hash required")) return true;
-  if (msg.includes("invalid invite")) return false;
-  throw new Error(`Unexpected probe error (020 detection): ${msg || "no error"}`);
+export async function detectMigration020Applied() {
+  const dbUrl = resolveReadonlyDatabaseUrl();
+  if (!dbUrl) {
+    throw new Error(
+      "020 catalog probe requires SUPABASE_DB_PASSWORD or DATABASE_URL in env file.",
+    );
+  }
+
+  const client = new pg.Client({ connectionString: dbUrl });
+  await client.connect();
+  try {
+    const normalize = await client.query(
+      `select 1 from pg_proc p
+       join pg_namespace n on n.oid = p.pronamespace
+       where n.nspname = 'public' and p.proname = 'booking_normalize_member_role_text'
+       limit 1`,
+    );
+    if (normalize.rowCount > 0) return true;
+
+    const fn = await client.query(
+      `select pg_get_functiondef(p.oid) as def
+       from pg_proc p
+       join pg_namespace n on n.oid = p.pronamespace
+       where n.nspname = 'public' and p.proname = 'booking_create_member_invite'
+       order by p.oid desc
+       limit 1`,
+    );
+    const def = fn.rows[0]?.def ?? "";
+    if (def.includes("'manager', 'professional'")) return true;
+    if (def.includes("'manager', 'staff'")) return false;
+    throw new Error("Unable to classify migration 020 from booking_create_member_invite definition.");
+  } finally {
+    await client.end();
+  }
+}
+
+async function assertIntegrationMembership(admin, businessId) {
+  const { data, error } = await admin
+    .from("booking_business_members")
+    .select("user_id, role")
+    .eq("business_id", businessId);
+  if (error) throw new Error(`Membership probe failed: ${error.message}`);
+  const owner = (data ?? []).find((m) => m.role === "owner");
+  if (!owner) {
+    throw new Error(
+      "Integration business A has no owner row in booking_business_members. " +
+        "RPC tests require seed memberships (forbidden otherwise). Repair seed data without deleting businesses.",
+    );
+  }
 }
 
 function schemaExpectation() {
@@ -205,16 +251,30 @@ async function runMr07() {
   assert(memberRoleToRpcPayload("manager") === "manager", "MR-07 manager unchanged");
 }
 
-async function runMr04(ownerClient, businessId) {
-  for (const bad of ["owner", "invalid", ""]) {
+async function runMr04(ownerClient, admin, businessId) {
+  for (const bad of ["owner", "invalid"]) {
+    const email = inviteEmail(`MR-04-reject-${bad}`);
     const { error } = await ownerClient.rpc("booking_create_member_invite", {
       p_business_id: businessId,
-      p_email: "mr-invalid@artecium.test",
+      p_email: email,
       p_role: bad,
       p_token_hash: "abc",
       p_expires_at: new Date(Date.now() + 86400000).toISOString(),
     });
-    assert(!!error, `MR-04 rejects role "${bad || "(empty)"}"`);
+    assert(!!error, `MR-04 rejects role "${bad}"`);
+  }
+
+  for (const [label, role] of [
+    ["staff", "staff"],
+    ["empty", ""],
+  ]) {
+    const email = inviteEmail(`MR-04-normalize-${label}`);
+    const result = await createInviteViaRpc(ownerClient, businessId, email, role, admin);
+    assert(result.ok, `MR-04 normalize ${label}: ${result.error ?? ""}`);
+    assert(
+      result.row?.role === "professional",
+      `MR-04 ${label} stored as professional (got ${result.row?.role ?? "none"})`,
+    );
   }
 }
 
@@ -278,7 +338,9 @@ async function runMr05(ownerClient, admin, businessId, password, url, anonKey) {
     expires_at: new Date(Date.now() + 7 * 86400000).toISOString(),
   });
   if (insErr?.message?.includes("permission denied")) {
-    console.log("SKIP  MR-05 admin insert blocked (019 not applied); use service_role after AUTH-02");
+    console.log(
+      "SKIP  MR-05 service_role cannot INSERT booking_member_invites (019 grants SELECT-only on invites)",
+    );
     return;
   }
   assert(!insErr, `MR-05 seed pending invite: ${insErr?.message ?? ""}`);
@@ -309,15 +371,21 @@ async function main() {
     return;
   }
 
+  if (process.env[BOOKING_MEMBER_ROLE_PROBE_020_ENV] === "1") {
+    const { env, target } = assertBookingExplicitSandboxEnv();
+    console.log(`Target: ${target.kind}${target.projectRef ? ` (${target.projectRef})` : ""}`);
+    const post020 = await detectMigration020Applied();
+    console.log(`PASS  migration 020 applied (catalog): ${post020}`);
+    return;
+  }
+
   if (process.env[BOOKING_MEMBER_ROLE_INTEGRATION_ENV] !== "1") {
     console.log(`Skip: set ${BOOKING_MEMBER_ROLE_INTEGRATION_ENV}=1 (and allowlist for remote).`);
     console.log(`List:  set ${BOOKING_MEMBER_ROLE_INTEGRATION_LIST_ENV}=1`);
     process.exit(0);
   }
 
-  const env = getSupabaseEnv();
-  assertKeysPresent(env);
-  const target = assertBookingDatabaseTarget(env.url);
+  const { env, target } = assertBookingExplicitSandboxEnv();
   console.log(`Target: ${target.kind}${target.projectRef ? ` (${target.projectRef})` : ""}\n`);
 
   const password = process.env[BOOKING_TEST_PASSWORD_ENV];
@@ -350,12 +418,14 @@ async function main() {
     password,
   );
 
-  const post020 = await detectMigration020Applied(ownerClient, bizA.id);
+  await assertIntegrationMembership(admin, bizA.id);
+
+  const post020 = await detectMigration020Applied();
   const expect = schemaExpectation();
-  console.log(`Schema 020 applied (probe): ${post020}${expect ? `; expect=${expect}` : ""}\n`);
+  console.log(`Schema 020 applied (catalog): ${post020}${expect ? `; expect=${expect}` : ""}\n`);
 
   await runMr07();
-  await runMr04(ownerClient, bizA.id);
+  await runMr04(ownerClient, admin, bizA.id);
   await runMr06(ownerClient, managerClient, staffClient, bizA.id);
 
   if (!post020 && expect !== "post020") {

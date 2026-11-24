@@ -1,0 +1,366 @@
+{
+  "project_ref": "bwxhdoxesqtdqwkxrmom",
+  "audited_at": "2026-11-16T20:56:06.254Z",
+  "mode": "read_only",
+  "prep": {
+    "active_companies": 1,
+    "company_user_rows": 2,
+    "distinct_companies_with_members": 1,
+    "integration_booking_businesses": 3,
+    "booking_member_rows": 7,
+    "project_ref": "bwxhdoxesqtdqwkxrmom",
+    "integration_slugs": [
+      "integration-salon-a",
+      "integration-salon-b",
+      "integration-salon-inactive"
+    ],
+    "booking_test_actors": [
+      "ownerA",
+      "ownerB",
+      "managerA",
+      "staffMemberA",
+      "professionalUnlinkedA"
+    ],
+    "company_ids_anon": [
+      {
+        "alias": "COMPANY_1",
+        "id_prefix": "d28a6435"
+      }
+    ],
+    "has_two_company_contexts": false,
+    "has_two_booking_businesses": true,
+    "booking_business_a": "b315d582",
+    "booking_business_b": "4c83bd34"
+  },
+  "cases": [
+    {
+      "id": "CLIENT-READ-OWN-companies",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "public.companies SELECT",
+      "expected": "Own-company rows visible (RLS via user_company_ids)",
+      "observed": "count=1",
+      "http": "200 (rows≈1)",
+      "rls_or_fn": "user_company_ids() / company-scoped policies",
+      "status": "PASS"
+    },
+    {
+      "id": "CLIENT-READ-OWN-projects",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "public.projects SELECT",
+      "expected": "Own-company rows visible (RLS via user_company_ids)",
+      "observed": "count=1",
+      "http": "200 (rows≈1)",
+      "rls_or_fn": "user_company_ids() / company-scoped policies",
+      "status": "PASS"
+    },
+    {
+      "id": "CLIENT-READ-OWN-client_subscriptions",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "public.client_subscriptions SELECT",
+      "expected": "Own-company rows visible (RLS via user_company_ids)",
+      "observed": "count=4",
+      "http": "200 (rows≈4)",
+      "rls_or_fn": "user_company_ids() / company-scoped policies",
+      "status": "PASS"
+    },
+    {
+      "id": "CLIENT-READ-OWN-payments",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "public.payments SELECT",
+      "expected": "Own-company rows visible (RLS via user_company_ids)",
+      "observed": "count=4",
+      "http": "200 (rows≈4)",
+      "rls_or_fn": "user_company_ids() / company-scoped policies",
+      "status": "PASS"
+    },
+    {
+      "id": "CLIENT-READ-OWN-invoices",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "public.invoices SELECT",
+      "expected": "Own-company rows visible (RLS via user_company_ids)",
+      "observed": "count=4",
+      "http": "200 (rows≈4)",
+      "rls_or_fn": "user_company_ids() / company-scoped policies",
+      "status": "PASS"
+    },
+    {
+      "id": "CLIENT-READ-OWN-documents",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "public.documents SELECT",
+      "expected": "Own-company rows visible (RLS via user_company_ids)",
+      "observed": "count=4",
+      "http": "200 (rows≈4)",
+      "rls_or_fn": "user_company_ids() / company-scoped policies",
+      "status": "PASS"
+    },
+    {
+      "id": "CLIENT-READ-OTHER-projects",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "public.projects SELECT company_id=foreign",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "company_id IN (user_company_ids())",
+      "status": "PASS"
+    },
+    {
+      "id": "CLIENT-READ-OTHER-payments",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "public.payments SELECT company_id=foreign",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "company_id IN (user_company_ids())",
+      "status": "PASS"
+    },
+    {
+      "id": "CLIENT-READ-OTHER-invoices",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "public.invoices SELECT company_id=foreign",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "company_id IN (user_company_ids())",
+      "status": "PASS"
+    },
+    {
+      "id": "CLIENT-READ-OTHER-client_subscriptions",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "public.client_subscriptions SELECT company_id=foreign",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "company_id IN (user_company_ids())",
+      "status": "PASS"
+    },
+    {
+      "id": "CLIENT-CROSS-TENANT-COMPANY",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "second real company context",
+      "expected": "Client B vs Client A isolation",
+      "observed": "only 1 company membership(s); 1 active company",
+      "http": "n/a",
+      "rls_or_fn": "n/a",
+      "status": "NOT_TESTED",
+      "detail": "No second client company in test data"
+    },
+    {
+      "id": "CLIENT-CROSS-TENANT-PROJECTS",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "second real company context",
+      "expected": "Client B vs Client A isolation",
+      "observed": "only 1 company membership(s); 1 active company",
+      "http": "n/a",
+      "rls_or_fn": "n/a",
+      "status": "NOT_TESTED",
+      "detail": "No second client company in test data"
+    },
+    {
+      "id": "CLIENT-CROSS-TENANT-CROSS",
+      "actor": "CLIENT_DEMO",
+      "role": "client",
+      "resource": "second real company context",
+      "expected": "Client B vs Client A isolation",
+      "observed": "only 1 company membership(s); 1 active company",
+      "http": "n/a",
+      "rls_or_fn": "n/a",
+      "status": "NOT_TESTED",
+      "detail": "No second client company in test data"
+    },
+    {
+      "id": "BOOKING-A-TO-B-booking_businesses",
+      "actor": "BOOKING_OWNER_A",
+      "role": "owner",
+      "resource": "public.booking_businesses SELECT (business B)",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "booking_can_access_business(business_id)",
+      "status": "PASS"
+    },
+    {
+      "id": "BOOKING-A-TO-B-booking_services",
+      "actor": "BOOKING_OWNER_A",
+      "role": "owner",
+      "resource": "public.booking_services SELECT (business B)",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "booking_can_access_business(business_id)",
+      "status": "PASS"
+    },
+    {
+      "id": "BOOKING-A-TO-B-booking_staff",
+      "actor": "BOOKING_OWNER_A",
+      "role": "owner",
+      "resource": "public.booking_staff SELECT (business B)",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "booking_can_access_business(business_id)",
+      "status": "PASS"
+    },
+    {
+      "id": "BOOKING-A-TO-B-booking_working_hours",
+      "actor": "BOOKING_OWNER_A",
+      "role": "owner",
+      "resource": "public.booking_working_hours SELECT (business B)",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "booking_can_access_business(business_id)",
+      "status": "PASS"
+    },
+    {
+      "id": "BOOKING-A-TO-B-booking_appointments",
+      "actor": "BOOKING_OWNER_A",
+      "role": "owner",
+      "resource": "public.booking_appointments SELECT (business B)",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "booking_can_access_business(business_id)",
+      "status": "PASS"
+    },
+    {
+      "id": "BOOKING-A-TO-B-booking_customer_internal_notes",
+      "actor": "BOOKING_OWNER_A",
+      "role": "owner",
+      "resource": "public.booking_customer_internal_notes SELECT (business B)",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "booking_can_access_business(business_id)",
+      "status": "PASS"
+    },
+    {
+      "id": "BOOKING-A-READ-OWN-SERVICES",
+      "actor": "BOOKING_OWNER_A",
+      "role": "owner",
+      "resource": "public.booking_services SELECT (business A)",
+      "expected": ">0 rows",
+      "observed": "count=2",
+      "http": "200 (rows≈2)",
+      "rls_or_fn": "booking_can_access_business",
+      "status": "PASS"
+    },
+    {
+      "id": "BOOKING-ROLE-MANAGER-A-SERVICES",
+      "actor": "BOOKING_MANAGER_A",
+      "role": "manager",
+      "resource": "public.booking_services SELECT (business A)",
+      "expected": ">0 rows",
+      "observed": "count=2",
+      "http": "200 (rows≈2)",
+      "rls_or_fn": "booking_can_access_business",
+      "status": "PASS"
+    },
+    {
+      "id": "BOOKING-ROLE-PROF-A-TO-B-SERVICES",
+      "actor": "BOOKING_PROFESSIONAL_A",
+      "role": "professional",
+      "resource": "public.booking_services SELECT (business B)",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "booking_can_access_business",
+      "status": "PASS"
+    },
+    {
+      "id": "BOOKING-ROLE-PROF-UNLINKED-APTS",
+      "actor": "BOOKING_PROFESSIONAL_UNLINKED_A",
+      "role": "professional",
+      "resource": "public.booking_appointments SELECT (business A)",
+      "expected": "Scoped (0 or limited by professional RLS)",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "022 professional scope policies",
+      "status": "PASS",
+      "detail": "Read succeeded without cross-business data; narrow scope not fully asserted"
+    },
+    {
+      "id": "BOOKING-B-TO-A-SERVICES",
+      "actor": "BOOKING_OWNER_B",
+      "role": "owner",
+      "resource": "public.booking_services SELECT (business A)",
+      "expected": "0 rows",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "booking_can_access_business",
+      "status": "PASS"
+    },
+    {
+      "id": "PUBLIC-RPC-GET-BUSINESS-A",
+      "actor": "ANON",
+      "role": "anon",
+      "resource": "rpc booking_public_get_business",
+      "expected": "Business A metadata only",
+      "observed": "keys=id,slug,name,timezone,default_locale,currency,confirmation_mode,public_description,logo_url,brand_color,min_notice_minutes,max_booking_days,slot_interval_minutes",
+      "http": "200",
+      "rls_or_fn": "booking_public_get_business SECURITY DEFINER",
+      "status": "PASS"
+    },
+    {
+      "id": "PUBLIC-RPC-DAY-SLOTS-A",
+      "actor": "ANON",
+      "role": "anon",
+      "resource": "rpc booking_public_list_day_slots",
+      "expected": "Slot list or empty; no PII",
+      "observed": "rows=0",
+      "http": "200",
+      "rls_or_fn": "booking_public_list_day_slots",
+      "status": "PASS"
+    },
+    {
+      "id": "PUBLIC-RPC-INACTIVE-HIDDEN",
+      "actor": "ANON",
+      "role": "anon",
+      "resource": "rpc booking_public_get_business inactive",
+      "expected": "empty",
+      "observed": "rows=0",
+      "http": "200",
+      "rls_or_fn": "active business filter in RPC",
+      "status": "PASS"
+    },
+    {
+      "id": "PUBLIC-TABLE-ANON-APPOINTMENTS",
+      "actor": "ANON",
+      "role": "anon",
+      "resource": "public.booking_appointments SELECT",
+      "expected": "0 rows or RLS error",
+      "observed": "count=0",
+      "http": "200 (rows≈0)",
+      "rls_or_fn": "RLS deny anon",
+      "status": "PASS"
+    },
+    {
+      "id": "STAFF-NOT-CLIENT-COMPANIES",
+      "actor": "STAFF_DEMO_OWNER",
+      "role": "staff",
+      "resource": "public.companies SELECT",
+      "expected": "Staff scope (not full platform unless owner/admin)",
+      "observed": "count=1",
+      "http": "200 (rows≈1)",
+      "rls_or_fn": "staff_can_access_company / is_staff_member",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "PASS": 26,
+    "FAIL": 0,
+    "NOT_TESTED": 3
+  },
+  "static_analysis_note": "Write-path classification (section 5) is documented in PHASE4 report only; not executed as live writes."
+}

@@ -35,7 +35,7 @@ Optional: `BOOKING_SCHEMA_EXPECT=pre020|post020` to skip incompatible cases.
 | MR-01 | Pre-020: RPC `staff` → invite row `staff` |
 | MR-02 | Post-020: RPC `professional` → row `professional` |
 | MR-03 | Post-020: RPC `staff` → row `professional` |
-| MR-04 | Invalid roles rejected |
+| MR-04 | Post-020: `owner`/`invalid` rejected; `staff` and empty `p_role` → invite row `professional` (unique emails per run) |
 | MR-05 | Accept pending `staff` invite → member `professional` |
 | MR-06 | Owner/manager vs professional privileges |
 | MR-07 | Payload helpers (local, no DB) |
@@ -44,8 +44,8 @@ Optional: `BOOKING_SCHEMA_EXPECT=pre020|post020` to skip incompatible cases.
 
 - Migrations **012–014** (minimum), seed `db:seed:booking-integration`
 - **MR-02+** require **020** applied
-- **MR-05** may skip if service_role cannot INSERT invites (019 not applied)
-- Read-only 020 detection: RPC probe (`professional` + null token_hash → error text)
+- **MR-05** may skip: migration **019** applied but `service_role` has **SELECT-only** on `booking_member_invites` (no INSERT)
+- Read-only 020 detection: Postgres catalog (`BOOKING_MEMBER_ROLE_PROBE_020_ONLY=1`; requires `SUPABASE_DB_PASSWORD`)
 
 ## Verify 012–014 (read-only)
 
