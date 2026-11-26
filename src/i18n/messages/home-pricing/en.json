@@ -1,0 +1,407 @@
+{
+  "pricing": {
+    "eyebrow": "Plans & Pricing",
+    "title": "Technology that grows with your business.",
+    "description": "Digital solutions tailored to your company. Choose the services and level of support you need.",
+    "tabsLabel": "Pricing categories",
+    "popularBadge": "Most popular",
+    "customQuote": "Additional features, custom development and complex integrations are quoted separately, as set out in your proposal.",
+    "cta": {
+      "choosePlan": "Choose plan",
+      "requestQuote": "Request a quote",
+      "requestProposal": "Request a tailored proposal"
+    },
+    "labels": {
+      "setup": "Implementation",
+      "setupBooking": "Initial setup",
+      "monthly": "Ongoing support",
+      "monthlyOptionalNone": "No mandatory monthly fee",
+      "commercialLimit": "Proposed commercial limit",
+      "setupOnce": "One-time payment",
+      "monthlyRecurring": "Recurring monthly fee",
+      "expandHint": "View plan details",
+      "closeModal": "Close plan details",
+      "featuresHeading": "What's included"
+    },
+    "imageAlt": {
+      "websites": "Professional website and digital experience",
+      "aiAutomation": "AI assistants and workflow automation",
+      "seo": "SEO analysis and organic growth",
+      "booking": "Calendar and online booking management"
+    },
+    "compare": {
+      "toggle": "Compare features",
+      "featureColumn": "Feature",
+      "included": "Included",
+      "notIncluded": "Not included"
+    },
+    "tabs": {
+      "websites": "Websites",
+      "aiAutomation": "AI & Automation",
+      "seo": "SEO",
+      "booking": "Booking"
+    },
+    "categoryNotes": {
+      "websites": "Additional features, custom development and complex integrations are subject to quotation.",
+      "aiAutomation": "API costs, AI models, external platforms and third-party usage are not automatically included in monthly fees. Unlimited usage is not included.",
+      "seo": "Foundation is a one-off service. Growth and Advanced are monthly services. We do not guarantee specific Google rankings. Optimised content has length and revision limits defined in the contract. We do not charge again for initial technical SEO when it is already included in a website project.",
+      "booking": "Booking limits shown are proposed commercial limits not yet technically verified. No blocking or quotas in the application at this stage."
+    },
+    "bundles": {
+      "title": "More than individual services.",
+      "description": "Combine Artecium solutions to build a complete digital presence and prepare your business to grow.",
+      "items": {
+        "digitalPresence": {
+          "title": "Digital Presence",
+          "description": "Website + technical maintenance."
+        },
+        "businessGrowth": {
+          "title": "Business Growth",
+          "description": "Website + SEO + Booking."
+        },
+        "businessAutomation": {
+          "title": "Business Automation",
+          "description": "Website + AI + Automation."
+        }
+      }
+    },
+    "pageFaq": {
+      "title": "Frequently asked questions",
+      "description": "Clear answers about plans, monthly fees and proposed commercial terms."
+    },
+    "categories": {
+      "websites": {
+        "plans": {
+          "essential": {
+            "name": "Essential",
+            "description": "Professional online presence with the essentials to generate enquiries.",
+            "setupPrice": "€750",
+            "monthlyPrice": "€29/month",
+            "features": [
+              "Up to 5 pages",
+              "Custom design",
+              "Responsive design",
+              "Contact form",
+              "WhatsApp integration",
+              "Initial technical SEO",
+              "SSL certificate",
+              "Hosting",
+              "Weekly backups",
+              "Basic technical maintenance"
+            ],
+            "ctaKey": "choosePlan"
+          },
+          "professional": {
+            "name": "Professional",
+            "description": "A fuller website to grow with integrations and priority support.",
+            "setupPrice": "€1,500",
+            "monthlyPrice": "€49/month",
+            "features": [
+              "Up to 10 pages",
+              "Advanced custom design",
+              "Responsive design",
+              "Advanced animations",
+              "Advanced forms",
+              "Up to 2 external integrations",
+              "Blog",
+              "Initial technical SEO",
+              "Hosting",
+              "SSL",
+              "Daily backups",
+              "Regular technical maintenance",
+              "Priority support"
+            ],
+            "ctaKey": "choosePlan"
+          },
+          "business": {
+            "name": "Business",
+            "description": "Tailored solution for projects with advanced functionality.",
+            "setupPrice": "From €2,500",
+            "monthlyPrice": "€89/month",
+            "features": [
+              "Custom website",
+              "Pages as required by the project",
+              "Advanced functionality",
+              "Custom integrations",
+              "Optional client area",
+              "Optional Booking integration",
+              "Hosting",
+              "SSL",
+              "Daily backups",
+              "Monitoring",
+              "Advanced maintenance",
+              "Priority support"
+            ],
+            "ctaKey": "requestQuote"
+          }
+        },
+        "comparison": {
+          "rows": [
+            { "feature": "Pages", "values": ["Up to 5", "Up to 10", "Per project"] },
+            { "feature": "Custom design", "values": ["yes", "yes", "yes"] },
+            { "feature": "Advanced animations", "values": ["no", "yes", "yes"] },
+            { "feature": "Blog", "values": ["no", "yes", "yes"] },
+            { "feature": "External integrations", "values": ["—", "Up to 2", "Custom"] },
+            { "feature": "Client area", "values": ["no", "no", "Optional"] },
+            { "feature": "Booking integration", "values": ["no", "no", "Optional"] },
+            { "feature": "Backups", "values": ["Weekly", "Daily", "Daily"] },
+            { "feature": "Support", "values": ["Basic", "Priority", "Priority"] }
+          ]
+        }
+      },
+      "aiAutomation": {
+        "plans": {
+          "aiSolutions": {
+            "name": "AI Solutions",
+            "description": "A simple assistant with integration and baseline monitoring.",
+            "setupPrice": "From €750",
+            "monthlyPrice": "€49/month",
+            "commercialLimit": "Up to 500 interactions/month",
+            "features": [
+              "One AI assistant",
+              "One information source",
+              "One simple workflow",
+              "One integration",
+              "Monitoring",
+              "Basic usage report",
+              "Quarterly optimisation",
+              "Standard support"
+            ],
+            "ctaKey": "choosePlan"
+          },
+          "automation": {
+            "name": "Automation",
+            "description": "More workflows, integrations and monthly optimisation.",
+            "setupPrice": "From €1,500",
+            "monthlyPrice": "€99/month",
+            "commercialLimit": "Up to 2,000 runs/month",
+            "features": [
+              "Up to 2 AI assistants where applicable",
+              "Up to 3 information sources",
+              "Up to 5 workflows",
+              "Up to 3 integrations",
+              "Monitoring",
+              "Monthly report",
+              "Monthly optimisation",
+              "Priority support"
+            ],
+            "ctaKey": "choosePlan"
+          },
+          "businessAutomation": {
+            "name": "Business Automation",
+            "description": "Custom AI and automation for business processes.",
+            "setupPrice": "Custom",
+            "monthlyPrice": "From €199/month",
+            "commercialLimit": "Limits defined per project",
+            "features": [
+              "Custom AI solutions",
+              "AI agents",
+              "Advanced workflows",
+              "Enterprise integrations",
+              "Automated internal processes",
+              "Advanced monitoring",
+              "Custom reports",
+              "Priority account management"
+            ],
+            "ctaKey": "requestQuote"
+          }
+        },
+        "comparison": {
+          "rows": [
+            { "feature": "AI assistants", "values": ["1", "Up to 2", "Custom"] },
+            { "feature": "Workflows", "values": ["1 simple", "Up to 5", "Advanced"] },
+            { "feature": "Integrations", "values": ["1", "Up to 3", "Enterprise"] },
+            { "feature": "Reporting", "values": ["Basic", "Monthly", "Custom"] },
+            { "feature": "Optimisation", "values": ["Quarterly", "Monthly", "Ongoing"] },
+            { "feature": "Support", "values": ["Standard", "Priority", "Priority"] }
+          ]
+        }
+      },
+      "seo": {
+        "plans": {
+          "foundation": {
+            "name": "SEO Foundation",
+            "description": "Initial technical setup for indexing and a solid base.",
+            "setupPrice": "€350",
+            "monthlyPrice": "—",
+            "monthlyNote": "noMonthly",
+            "features": [
+              "Initial SEO audit",
+              "Technical analysis",
+              "Google Search Console setup",
+              "Sitemap setup",
+              "Metadata",
+              "Indexing",
+              "Technical optimisation",
+              "Up to 5 pages optimised",
+              "Initial research for up to 10 keywords"
+            ],
+            "ctaKey": "choosePlan"
+          },
+          "growth": {
+            "name": "SEO Growth",
+            "description": "Monthly support to grow organically.",
+            "setupPrice": "Included",
+            "monthlyPrice": "€400/month",
+            "features": [
+              "Initial audit",
+              "Keyword strategy",
+              "Up to 25 keywords tracked",
+              "Up to 10 pages optimised initially",
+              "Ongoing technical optimisation",
+              "Up to 2 optimised content pieces/month",
+              "Analysis of 2 competitors",
+              "Monthly report",
+              "Basic GEO / AI Search strategy"
+            ],
+            "ctaKey": "choosePlan"
+          },
+          "advanced": {
+            "name": "SEO Advanced",
+            "description": "Advanced SEO strategy with strategic support.",
+            "setupPrice": "Included",
+            "monthlyPrice": "€750/month",
+            "features": [
+              "Advanced SEO strategy",
+              "Up to 50 keywords tracked",
+              "Up to 20 pages optimised initially",
+              "Ongoing technical optimisation",
+              "Up to 4 optimised content pieces/month",
+              "Analysis of 5 competitors",
+              "Advanced monthly reports",
+              "Advanced GEO / AI Search strategy",
+              "Strategic support"
+            ],
+            "ctaKey": "choosePlan"
+          }
+        },
+        "comparison": {
+          "rows": [
+            { "feature": "Service type", "values": ["One-off", "Monthly", "Monthly"] },
+            { "feature": "Keywords", "values": ["Up to 10", "Up to 25", "Up to 50"] },
+            { "feature": "Pages optimised (initial)", "values": ["Up to 5", "Up to 10", "Up to 20"] },
+            { "feature": "Content per month", "values": ["—", "Up to 2", "Up to 4"] },
+            { "feature": "Competitors analysed", "values": ["—", "2", "5"] },
+            { "feature": "GEO / AI Search", "values": ["—", "Basic", "Advanced"] }
+          ]
+        }
+      },
+      "booking": {
+        "plans": {
+          "starter": {
+            "name": "Starter",
+            "description": "Online bookings for businesses getting started.",
+            "setupPrice": "€150",
+            "monthlyPrice": "€19/month",
+            "commercialLimit": "100 bookings/month",
+            "features": [
+              "Public booking page",
+              "Up to 5 services",
+              "1 staff member",
+              "1 location",
+              "Schedule management",
+              "Client management",
+              "Basic notifications",
+              "Basic reports"
+            ],
+            "ctaKey": "choosePlan"
+          },
+          "professional": {
+            "name": "Professional",
+            "description": "More capacity, calendar and advanced reporting.",
+            "setupPrice": "€300",
+            "monthlyPrice": "€39/month",
+            "commercialLimit": "500 bookings/month",
+            "features": [
+              "Public booking page",
+              "Up to 20 services",
+              "Up to 5 staff",
+              "1 location",
+              "Schedule management",
+              "Client management",
+              "Automatic notifications",
+              "Google Calendar integration",
+              "Advanced reports",
+              "Intermediate visual customisation"
+            ],
+            "ctaKey": "choosePlan"
+          },
+          "business": {
+            "name": "Business",
+            "description": "Multi-location with integrations and priority support.",
+            "setupPrice": "Custom",
+            "monthlyPrice": "€69/month",
+            "commercialLimit": "2,000 bookings/month",
+            "features": [
+              "Up to 3 locations",
+              "Up to 15 staff",
+              "Services with no defined commercial cap",
+              "Advanced booking management",
+              "Custom notifications",
+              "Google Calendar",
+              "Advanced reports",
+              "Advanced visual customisation",
+              "Integrations/API",
+              "Priority support"
+            ],
+            "ctaKey": "requestQuote"
+          }
+        },
+        "comparison": {
+          "rows": [
+            { "feature": "Locations", "values": ["1", "1", "Up to 3"] },
+            { "feature": "Staff", "values": ["1", "Up to 5", "Up to 15"] },
+            { "feature": "Services", "values": ["Up to 5", "Up to 20", "No commercial cap"] },
+            { "feature": "Google Calendar", "values": ["no", "yes", "yes"] },
+            { "feature": "Integrations/API", "values": ["no", "no", "yes"] },
+            { "feature": "Visual customisation", "values": ["Basic", "Intermediate", "Advanced"] }
+          ]
+        }
+      }
+    },
+    "faq": {
+      "items": {
+        "implementationVsMonthly": {
+          "question": "What is the difference between implementation and the monthly fee?",
+          "answer": "Implementation (or initial setup) covers building, configuring and launching the service. The monthly fee covers support, maintenance, monitoring or service continuity, depending on the plan. Exact amounts are confirmed in your proposal."
+        },
+        "vat": {
+          "question": "Do prices include VAT?",
+          "answer": "Unless stated otherwise in the proposal, prices shown are indicative and VAT will be applied according to applicable law and the client's tax status."
+        },
+        "singleService": {
+          "question": "Can I hire just one service?",
+          "answer": "Yes. You can hire Websites, AI & Automation, SEO or Booking independently, based on your business needs."
+        },
+        "changePlan": {
+          "question": "Can I change plans later?",
+          "answer": "Yes, when it makes sense for the project. Plan changes are handled through an updated proposal and agreed contractual terms."
+        },
+        "hosting": {
+          "question": "Is hosting included?",
+          "answer": "For the Website plans listed, hosting is included in the support monthly fee unless stated differently in the proposal."
+        },
+        "externalCosts": {
+          "question": "Are API and external tool costs included?",
+          "answer": "Not automatically. API, AI model, third-party platform and usage costs are charged according to actual use or as agreed in the proposal, especially for AI & Automation."
+        },
+        "cancelMonthly": {
+          "question": "Can I cancel a monthly fee?",
+          "answer": "Yes, under the termination terms set in the contract or accepted proposal. One-off services such as SEO Foundation do not require a monthly fee."
+        },
+        "customFeatures": {
+          "question": "Can I request custom features?",
+          "answer": "Yes. Additional features, complex integrations or bespoke development are quoted separately based on scope."
+        },
+        "bookingExistingSite": {
+          "question": "Can Booking work with a website I already have?",
+          "answer": "Yes. Booking is a standalone product and can be linked to your current website via links, embed or integration agreed during implementation."
+        },
+        "timeline": {
+          "question": "How long does implementation take?",
+          "answer": "It depends on the plan and scope. After reviewing your request, we provide a realistic timeline in the proposal — from a few weeks (essential plans) to longer for Business solutions."
+        }
+      }
+    }
+  }
+}

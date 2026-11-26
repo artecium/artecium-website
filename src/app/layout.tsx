@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { CookieConsentRoot } from "@/components/cookies/CookieConsentRoot";
 import { DocumentLangScript } from "@/components/i18n/DocumentLangScript";
 import { StructuredData } from "@/components/seo/StructuredData";
+import { mergeHomePricingMessages } from "@/lib/i18n/merge-home-pricing";
 import { resolveRequestLocale } from "@/lib/i18n/resolve-locale";
 import { SITE_URL } from "@/config/seo";
 import "./globals.css";
@@ -43,10 +44,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await resolveRequestLocale();
-  const messages =
+  const baseMessages =
     locale === "en"
       ? (await import("@/i18n/messages/en.json")).default
       : (await import("@/i18n/messages/pt-PT.json")).default;
+  const messages = await mergeHomePricingMessages(locale, baseMessages);
   const htmlLang = locale === "en" ? "en" : "pt-PT";
 
   return (

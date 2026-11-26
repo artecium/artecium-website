@@ -1,3 +1,4 @@
+import { mergeHomePricingMessages } from "@/lib/i18n/merge-home-pricing";
 import { createTranslator } from "next-intl";
 import type { AppLocale } from "@/i18n/config";
 import { intlLocale } from "@/i18n/config";
@@ -15,7 +16,7 @@ async function loadMessages(locale: AppLocale) {
       : import("@/i18n/messages/projects/pt.json"),
   ]);
 
-  return {
+  const merged = await mergeHomePricingMessages(locale, {
     ...base.default,
     blog: {
       ...base.default.blog,
@@ -32,7 +33,9 @@ async function loadMessages(locale: AppLocale) {
     projects: {
       ...projectsExtras.default.projects,
     },
-  };
+  });
+
+  return merged;
 }
 
 export async function getTranslationsForLocale(
