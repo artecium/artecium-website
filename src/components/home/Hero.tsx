@@ -1,105 +1,145 @@
 "use client";
 
-import { HeroVisual } from "@/components/home/HeroVisual";
-import SpinningBorderButton from "@/components/ui/spinning-border-button";
-import { useWizard } from "@/hooks/useWizardContext";
-import { useTranslations } from "next-intl";
+import { StartProjectButton } from "@/components/contact/StartProjectButton";
+import { resolveLocale, type AppLocale } from "@/i18n/config";
+import { getBookingMarketingPath } from "@/lib/product-landing/paths";
+import { getServicePath } from "@/lib/services/paths";
+import { motion, useReducedMotion } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+
+const HERO_IMAGE = "/images/hero/hero-background.jpg";
+
+const fadeUp = (delay = 0, reduceMotion: boolean | null) => ({
+  initial: reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: reduceMotion
+    ? { duration: 0.01 }
+    : { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] as const },
+});
+
+const INDICATOR_KEYS = ["websites", "aiAutomation", "booking"] as const;
+
+function indicatorHref(
+  key: (typeof INDICATOR_KEYS)[number],
+  locale: AppLocale,
+): string {
+  switch (key) {
+    case "websites":
+      return getServicePath("websites", locale);
+    case "aiAutomation":
+      return getServicePath("ia", locale);
+    case "booking":
+      return getBookingMarketingPath(locale);
+  }
+}
 
 export function Hero() {
-  const { open } = useWizard();
   const t = useTranslations("home.hero");
-
-  const pillars = t.raw("pillars") as string[];
+  const locale = resolveLocale(useLocale());
+  const reduceMotion = useReducedMotion();
 
   return (
     <section
-      className="relative overflow-hidden px-6 pb-16 pt-16 sm:px-10 sm:pb-20 sm:pt-20 lg:px-16 lg:pb-24 lg:pt-28"
+      className="relative min-h-[88vh] overflow-hidden sm:min-h-[90vh]"
       aria-labelledby="hero-heading"
     >
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -right-1/4 top-0 h-[600px] w-[600px] rounded-full bg-[#2563EB]/[0.04] blur-[120px] animate-glow-pulse" />
-        <div className="absolute -left-1/3 bottom-0 h-[400px] w-[400px] rounded-full bg-[#0D47A1]/[0.06] blur-[100px]" />
-        <div className="animate-streak-drift absolute bottom-32 right-0 h-px w-1/2 bg-gradient-to-l from-transparent via-[#2563EB]/40 to-transparent" />
+      <div className="absolute inset-0" aria-hidden="true">
+        <Image
+          src={HERO_IMAGE}
+          alt={t("backgroundAlt")}
+          fill
+          priority
+          sizes="100vw"
+          className={`object-cover object-[68%_center] sm:object-[72%_center] lg:object-[80%_center] ${
+            reduceMotion ? "" : "motion-safe:scale-105 motion-safe:animate-[hero-ken-burns_24s_ease-in-out_infinite_alternate]"
+          }`}
+        />
+        <div className="absolute inset-0 bg-[#050816]/72" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/95 via-[#050816]/75 to-[#050816]/25" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050816] to-transparent" />
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2 lg:gap-12">
-        <div className="max-w-xl lg:max-w-none">
-          <div className="animate-fade-up mb-6 flex flex-wrap gap-2">
-            {pillars.map((pillar) => (
-              <span
-                key={pillar}
-                className="rounded-full border border-[#1E293B] bg-[#0E1324]/80 px-3 py-1 text-xs font-medium text-[#94A3B8] sm:text-sm"
-              >
-                {pillar}
-              </span>
-            ))}
-          </div>
-
-          <h1
-            id="hero-heading"
-            className="animate-fade-up-delay-1 text-[2.75rem] font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl md:text-6xl lg:text-[4.25rem]"
+      <motion.div
+        className="relative mx-auto flex min-h-[88vh] w-full max-w-7xl flex-col px-6 pb-10 pt-28 sm:min-h-[90vh] sm:px-10 sm:pb-12 sm:pt-32 lg:px-16 lg:pt-36"
+        initial="initial"
+        animate="animate"
+      >
+        <div className="flex flex-1 flex-col justify-center">
+          <motion.p
+            {...fadeUp(0, reduceMotion)}
+            className="mb-5 text-[0.6875rem] font-semibold tracking-[0.22em] text-[#60A5FA] uppercase sm:text-xs"
           >
-            {t("title")}
-          </h1>
+            {t("tagline")}
+          </motion.p>
 
-          <p className="animate-fade-up-delay-2 mt-7 max-w-lg text-lg leading-[1.7] text-[#94A3B8] sm:text-xl">
+          <motion.h1
+            id="hero-heading"
+            {...fadeUp(0.08, reduceMotion)}
+            className="max-w-4xl text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.03em] text-white sm:text-5xl md:text-6xl lg:text-[4.5rem]"
+          >
+            <span className="block">{t("titleLine1")}</span>
+            <span className="mt-1 block text-[#CBD5E1]">{t("titleLine2")}</span>
+          </motion.h1>
+
+          <motion.p
+            {...fadeUp(0.16, reduceMotion)}
+            className="mt-6 max-w-xl text-base leading-relaxed text-[#94A3B8] sm:mt-7 sm:text-lg"
+          >
             {t("description")}
-          </p>
+          </motion.p>
 
-          <div className="animate-fade-up-delay-2 mt-6 space-y-2 text-sm text-[#64748B] sm:text-base">
-            <p>
-              <span className="font-medium text-[#94A3B8]">{t("forWhoLabel")}</span>{" "}
-              {t("forWho")}
-            </p>
-            <p>
-              <span className="font-medium text-[#94A3B8]">{t("outcomeLabel")}</span>{" "}
-              {t("outcome")}
-            </p>
-          </div>
-
-          <div className="animate-fade-up-delay-3 mt-10 flex flex-col gap-4 sm:flex-row sm:items-start">
-            <div className="flex w-full flex-col gap-2 sm:w-auto">
-              <SpinningBorderButton
-                className="group w-full sm:w-auto"
-                onClick={open}
-              >
-                {t("startProject")}
-                <svg
-                  className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </SpinningBorderButton>
-              <p className="text-center text-xs text-[#64748B] sm:text-left">
-                {t("ctaMicrocopy")}
-              </p>
-            </div>
-            <a
+          <motion.div
+            {...fadeUp(0.24, reduceMotion)}
+            className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
+          >
+            <Link
               href="#services"
-              className="inline-flex h-12 w-full items-center justify-center rounded-full border border-[#1E293B] bg-[#0E1324] px-8 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:border-[#334155] hover:bg-[#0E1324]/80 sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-[#2563EB] px-8 text-[0.9375rem] font-medium text-white transition-colors hover:bg-[#1D4ED8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]/50 sm:w-auto"
             >
-              {t("exploreServices")}
-            </a>
+              {t("exploreSolutions")}
+            </Link>
+            <StartProjectButton
+              variant="secondary"
+              className="h-12 w-full rounded-xl sm:w-auto"
+            >
+              {t("getInTouch")}
+            </StartProjectButton>
+          </motion.div>
+        </div>
+
+        <motion.div
+          {...fadeUp(0.34, reduceMotion)}
+          className="mt-10 border-t border-[#1E293B]/80 pt-6"
+        >
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {INDICATOR_KEYS.map((key) => (
+              <Link
+                key={key}
+                href={indicatorHref(key, locale)}
+                className="group rounded-xl border border-[#1E293B]/80 bg-[#050816]/45 px-4 py-3 backdrop-blur-sm transition-colors hover:border-[#2563EB]/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]/50"
+              >
+                <p className="text-[0.6875rem] font-semibold tracking-[0.16em] text-white">
+                  {t(`indicators.${key}.title`)}
+                </p>
+                <p className="mt-1 text-xs text-[#94A3B8] transition-colors group-hover:text-[#CBD5E1]">
+                  {t(`indicators.${key}.subtitle`)}
+                </p>
+              </Link>
+            ))}
+            <Link
+              href="#services"
+              className="flex items-center rounded-xl border border-dashed border-[#1E293B] bg-[#050816]/30 px-4 py-3 text-sm font-medium text-[#60A5FA] transition-colors hover:border-[#2563EB]/40 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]/50 sm:col-span-2 lg:col-span-1"
+            >
+              <span>{t("discoverLink")}</span>
+              <span className="ml-2" aria-hidden>
+                →
+              </span>
+            </Link>
           </div>
-        </div>
-
-        <div className="animate-fade-up-delay-2 hidden lg:block">
-          <HeroVisual />
-        </div>
-      </div>
-
-      <div className="relative mx-auto mt-12 max-w-7xl lg:hidden">
-        <HeroVisual />
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

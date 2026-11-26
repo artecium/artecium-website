@@ -149,6 +149,25 @@
     "clientArea": "Client Area",
     "clientPortal": "Client Portal"
   },
+  "cardNav": {
+    "ariaMain": "Main navigation",
+    "menuOpen": "Menu",
+    "menuClose": "Close",
+    "language": "LANGUAGE",
+    "platforms": "Artecium Platforms",
+    "explore": {
+      "title": "Explore",
+      "description": "Discover Artecium's digital solutions."
+    },
+    "info": {
+      "title": "Information",
+      "description": "Learn more about Artecium and our solutions."
+    },
+    "client": {
+      "title": "Client Area",
+      "description": "Access your workspace and track your projects."
+    }
+  },
   "metadata": {
     "siteTitle": "Websites, AI, Automation & SEO for Businesses | Artecium",
     "siteDescription": "We create professional websites with AI, automation and SEO for businesses in Portugal — helping companies attract customers, streamline processes and grow online.",
@@ -163,15 +182,16 @@
   },
   "productLanding": {
     "entryStrip": {
-      "heading": "Artecium platforms",
-      "subheading": "Explore the Client Area and online booking system built to support your business.",
+      "eyebrow": "ARTECIUM ECOSYSTEM",
+      "heading": "Everything your business needs.",
+      "subheading": "Digital platforms built to simplify management and improve your customers' experience.",
       "srNav": "Main Artecium links",
       "clientTitle": "Client Area",
-      "clientDescription": "Track projects, documents, invoices, and support requests for services delivered by Artecium.",
-      "clientCta": "About the Client Area",
+      "clientDescription": "A central hub to track projects, documents, billing, and support requests for services delivered by Artecium.",
+      "clientCta": "Explore Client Area",
       "bookingTitle": "Booking",
-      "bookingDescription": "Online appointments, calendar, team, and services on the dedicated booking.artecium.com platform.",
-      "bookingCta": "About Booking"
+      "bookingDescription": "An online booking solution to manage appointments, schedules, services, and teams in one system.",
+      "bookingCta": "Explore Booking"
     },
     "clientArea": {
       "meta": {
@@ -257,9 +277,15 @@
   },
   "home": {
     "hero": {
-      "tagline": "Engineering the future of business.",
+      "tagline": "DIGITAL SOLUTIONS · AI · AUTOMATION",
+      "titleLine1": "We build the digital future",
+      "titleLine2": "of your business.",
       "title": "Websites that help businesses grow.",
-      "description": "We create professional websites with AI, automation and SEO to help businesses attract more customers, streamline processes and grow online.",
+      "description": "We create digital experiences and intelligent solutions that help businesses grow, attract customers and work smarter.",
+      "exploreSolutions": "Explore solutions",
+      "getInTouch": "Get in touch",
+      "discoverLink": "Discover what we can build",
+      "backgroundAlt": "Abstract digital architecture with subtle blue light",
       "pillars": ["Websites", "AI", "Automation", "SEO"],
       "forWhoLabel": "For:",
       "forWho": "Businesses that want to grow online with clarity and professional solutions.",
@@ -267,7 +293,21 @@
       "outcome": "Stronger online presence, simpler processes and better commercial opportunities.",
       "startProject": "Request a quote",
       "exploreServices": "View services",
-      "ctaMicrocopy": "Tell us about your project. We'll reply with the next steps."
+      "ctaMicrocopy": "Tell us about your project. We'll reply with the next steps.",
+      "indicators": {
+        "websites": {
+          "title": "WEBSITES",
+          "subtitle": "Digital experiences."
+        },
+        "aiAutomation": {
+          "title": "AI & AUTOMATION",
+          "subtitle": "Intelligent solutions."
+        },
+        "booking": {
+          "title": "BOOKING",
+          "subtitle": "Booking management."
+        }
+      }
     },
     "services": {
       "eyebrow": "Services",
@@ -834,6 +874,19 @@
         "seoDescription": "Monitor search performance.",
         "inProgress": "in progress",
         "signOut": "Sign out"
+      }
+    },
+    "booking": {
+      "preview": {
+        "overview": "Preview of the Artecium Booking reservations dashboard",
+        "calendarTitle": "Calendar",
+        "todayLabel": "Today",
+        "timeColumn": "Times",
+        "booked": "Booking",
+        "available": "Available",
+        "statAppointments": "Bookings",
+        "statServices": "Services",
+        "statStaff": "Team"
       }
     },
     "cta": {

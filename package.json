@@ -55,6 +55,8 @@
     "verify:google-oauth": "node --experimental-strip-types scripts/verify-google-oauth.mjs"
   },
   "dependencies": {
+    "@hugeicons/core-free-icons": "^4.4.0",
+    "@hugeicons/react": "^1.1.10",
     "@next/third-parties": "^16.2.10",
     "@supabase/ssr": "^0.12.5",
     "@supabase/supabase-js": "^2.112.4",

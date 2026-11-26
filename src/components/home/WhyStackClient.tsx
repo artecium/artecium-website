@@ -103,13 +103,13 @@ function StackCard({
 
 const CARD_THEMES: WhyCardTheme[] = [
   {
-    card: "bg-[#2563EB]",
+    card: "bg-[#1d4ed8]",
     title: "text-white",
     description: "text-white/90",
     indicator: "text-white",
     numeral: "text-white",
-    border: "border-[#2563EB]/40",
-    shadow: "shadow-[0_-12px_40px_rgba(37,99,235,0.22)]",
+    border: "border-[#2563EB]/45",
+    shadow: "shadow-[0_-8px_32px_rgba(37,99,235,0.18)]",
   },
   {
     card: "bg-[#0E1324]",
@@ -118,34 +118,34 @@ const CARD_THEMES: WhyCardTheme[] = [
     indicator: "text-[#94A3B8]",
     numeral: "text-white",
     border: "border-[#1E293B]",
-    shadow: "shadow-[0_-12px_40px_rgba(18,23,43,0.35)]",
+    shadow: "shadow-[0_-8px_32px_rgba(0,0,0,0.35)]",
   },
   {
-    card: "bg-white",
-    title: "text-[#0E1324]",
-    description: "text-[#475569]",
+    card: "bg-[#12151c]",
+    title: "text-white",
+    description: "text-[#94A3B8]",
     indicator: "text-[#64748B]",
-    numeral: "text-[#0E1324]",
-    border: "border-[#1E293B]/20",
-    shadow: "shadow-[0_-12px_40px_rgba(18,23,43,0.12)]",
+    numeral: "text-white",
+    border: "border-[#1E293B]",
+    shadow: "shadow-[0_-8px_32px_rgba(0,0,0,0.28)]",
   },
   {
-    card: "bg-[#EBE6DC]",
-    title: "text-[#0E1324]",
-    description: "text-[#475569]",
+    card: "bg-[#0a0d14]",
+    title: "text-white",
+    description: "text-[#94A3B8]",
     indicator: "text-[#64748B]",
-    numeral: "text-[#0E1324]",
-    border: "border-[#1E293B]/15",
-    shadow: "shadow-[0_-12px_40px_rgba(18,23,43,0.1)]",
+    numeral: "text-white",
+    border: "border-[#1E293B]",
+    shadow: "shadow-[0_-8px_32px_rgba(0,0,0,0.25)]",
   },
   {
-    card: "bg-[#DBEAFE]",
-    title: "text-[#0E1324]",
-    description: "text-[#334155]",
-    indicator: "text-[#2563EB]",
+    card: "bg-[#0E1324]",
+    title: "text-white",
+    description: "text-[#CBD5E1]",
+    indicator: "text-[#60A5FA]",
     numeral: "text-[#2563EB]",
-    border: "border-[#2563EB]/20",
-    shadow: "shadow-[0_-12px_40px_rgba(37,99,235,0.14)]",
+    border: "border-[#2563EB]/35",
+    shadow: "shadow-[0_-8px_32px_rgba(37,99,235,0.12)]",
   },
 ];
 
@@ -158,14 +158,14 @@ export function WhyStackClient({ eyebrow, title, cards, titleId }: WhyStackClien
     <section
       id="about"
       aria-labelledby={titleId}
-      className="border-t border-[#1E293B]/15 bg-[#F5F3EE] px-6 pt-[110px] pb-[120px] text-[#0E1324] sm:px-10 lg:px-16"
+      className="border-t border-[#1E293B]/60 bg-[#050816] px-6 pt-[110px] pb-[120px] text-white sm:px-10 lg:px-16"
     >
       <div className="mx-auto max-w-[1160px]">
         <RevealHeader>
           <p className="text-sm font-medium tracking-[0.2em] text-[#2563EB] uppercase">{eyebrow}</p>
           <h2
             id={titleId}
-            className="mt-4 mb-12 text-[clamp(2.125rem,5.5vw,4.25rem)] font-bold leading-[1.02] tracking-tight text-[#0E1324]"
+            className="mt-4 mb-12 text-[clamp(2.125rem,5.5vw,4.25rem)] font-bold leading-[1.02] tracking-tight text-white"
           >
             {title}
           </h2>

@@ -11,6 +11,8 @@ import { useTransition } from "react";
 interface LanguageSwitcherProps {
   currentLocale: AppLocale;
   className?: string;
+  /** Called after a successful locale switch (e.g. close mobile nav). */
+  onLocaleChange?: () => void;
 }
 
 const localeLabels: Record<AppLocale, string> = {
@@ -39,6 +41,7 @@ function isPortalHostClient(): boolean {
 export function LanguageSwitcher({
   currentLocale,
   className = "",
+  onLocaleChange,
 }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -60,6 +63,7 @@ export function LanguageSwitcher({
       } else {
         router.push(nextPath);
       }
+      onLocaleChange?.();
     });
   }
 

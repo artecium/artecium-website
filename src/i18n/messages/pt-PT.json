@@ -149,6 +149,25 @@
     "clientArea": "Área de Cliente",
     "clientPortal": "Portal do Cliente"
   },
+  "cardNav": {
+    "ariaMain": "Navegação principal",
+    "menuOpen": "Menu",
+    "menuClose": "Fechar",
+    "language": "IDIOMA",
+    "platforms": "Plataformas Artecium",
+    "explore": {
+      "title": "Explorar",
+      "description": "Descobre as soluções digitais da Artecium."
+    },
+    "info": {
+      "title": "Informação",
+      "description": "Conhece melhor a Artecium e as nossas soluções."
+    },
+    "client": {
+      "title": "Área de Cliente",
+      "description": "Acede ao teu espaço de gestão e acompanha os teus projetos."
+    }
+  },
   "metadata": {
     "siteTitle": "Criação de Websites, IA, Automação e SEO para Empresas | Artecium",
     "siteDescription": "Criamos websites profissionais com IA, automação e SEO para empresas em Portugal. Soluções digitais pensadas para atrair clientes e simplificar processos.",
@@ -163,15 +182,16 @@
   },
   "productLanding": {
     "entryStrip": {
-      "heading": "Plataformas Artecium",
-      "subheading": "Descubra a Área de Cliente e o sistema de marcações online feitos para acompanhar o seu negócio.",
+      "eyebrow": "ECOSSISTEMA ARTECIUM",
+      "heading": "Tudo o que o teu negócio precisa.",
+      "subheading": "Plataformas digitais desenvolvidas para simplificar a gestão e melhorar a experiência dos teus clientes.",
       "srNav": "Ligações principais Artecium",
       "clientTitle": "Área de Cliente",
-      "clientDescription": "Acompanhe projetos, documentos, faturas e pedidos de suporte dos serviços contratados com a Artecium.",
-      "clientCta": "Sobre a Área de Cliente",
+      "clientDescription": "Um espaço centralizado para acompanhar projetos, documentos, faturação e pedidos de suporte dos serviços contratados à Artecium.",
+      "clientCta": "Explorar Área de Cliente",
       "bookingTitle": "Booking",
-      "bookingDescription": "Marcações online, calendário, equipa e serviços num sistema dedicado em booking.artecium.com.",
-      "bookingCta": "Sobre o Booking"
+      "bookingDescription": "Uma solução de reservas online para gerir marcações, horários, serviços e equipas num único sistema.",
+      "bookingCta": "Explorar Booking"
     },
     "clientArea": {
       "meta": {
@@ -257,9 +277,15 @@
   },
   "home": {
     "hero": {
-      "tagline": "A engenharia do futuro dos negócios.",
+      "tagline": "DIGITAL SOLUTIONS · AI · AUTOMATION",
+      "titleLine1": "Construímos o futuro digital",
+      "titleLine2": "do teu negócio.",
       "title": "Websites que ajudam empresas a crescer.",
-      "description": "Criamos websites profissionais com IA, automação e SEO para ajudar empresas a atrair mais clientes, simplificar processos e crescer online.",
+      "description": "Criamos experiências digitais e soluções inteligentes que ajudam empresas a crescer, conquistar clientes e trabalhar melhor.",
+      "exploreSolutions": "Explorar soluções",
+      "getInTouch": "Falar connosco",
+      "discoverLink": "Descobre o que podemos criar",
+      "backgroundAlt": "Arquitetura digital abstrata com luz azul discreta",
       "pillars": ["Websites", "IA", "Automação", "SEO"],
       "forWhoLabel": "Para quem:",
       "forWho": "Empresas que querem crescer online com clareza e soluções profissionais.",
@@ -267,7 +293,21 @@
       "outcome": "Mais presença online, processos mais simples e melhores oportunidades comerciais.",
       "startProject": "Pedir orçamento",
       "exploreServices": "Ver serviços",
-      "ctaMicrocopy": "Envie-nos o seu projeto. Respondemos com os próximos passos."
+      "ctaMicrocopy": "Envie-nos o seu projeto. Respondemos com os próximos passos.",
+      "indicators": {
+        "websites": {
+          "title": "WEBSITES",
+          "subtitle": "Experiências digitais."
+        },
+        "aiAutomation": {
+          "title": "AI & AUTOMATION",
+          "subtitle": "Soluções inteligentes."
+        },
+        "booking": {
+          "title": "BOOKING",
+          "subtitle": "Gestão de reservas."
+        }
+      }
     },
     "services": {
       "eyebrow": "Serviços",
@@ -834,6 +874,19 @@
         "seoDescription": "Monitorize o desempenho de pesquisa.",
         "inProgress": "em progresso",
         "signOut": "Terminar sessão"
+      }
+    },
+    "booking": {
+      "preview": {
+        "overview": "Pré-visualização do painel de reservas Artecium Booking",
+        "calendarTitle": "Calendário",
+        "todayLabel": "Hoje",
+        "timeColumn": "Horários",
+        "booked": "Marcação",
+        "available": "Disponível",
+        "statAppointments": "Marcações",
+        "statServices": "Serviços",
+        "statStaff": "Equipa"
       }
     },
     "cta": {

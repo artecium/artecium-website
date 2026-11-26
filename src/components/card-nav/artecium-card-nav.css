@@ -1,0 +1,37 @@
+.artecium-card-nav-shell {
+  pointer-events: none;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 14px 16px 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .artecium-card-nav-shell {
+    padding: 18px 24px 0;
+  }
+}
+
+.artecium-card-nav-shell .artecium-card-nav {
+  pointer-events: auto;
+  width: min(100%, 1160px);
+}
+
+.artecium-card-nav__locale {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+@media (min-width: 560px) {
+  .artecium-card-nav__locale {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
