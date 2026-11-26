@@ -49,8 +49,8 @@ export function HomePageContent({
           <ProcessScroll />
           <FeaturedProjects locale={locale} />
           <WhyStack />
-          <HomeFaq />
           <ClientAreaShowcase />
+          <HomeFaq />
           <ProductEntryLinks locale={locale} />
           <CTA />
         </main>

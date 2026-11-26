@@ -64,7 +64,12 @@ function LoadingDots() {
   );
 }
 
-export function ArteciumAI() {
+interface ArteciumAIProps {
+  /** Side column on FAQ — layout only; same behaviour and API. */
+  embedded?: boolean;
+}
+
+export function ArteciumAI({ embedded = false }: ArteciumAIProps) {
   const t = useTranslations("home.aiAssistant");
   const locale = resolveLocale(useLocale());
   const formId = useId();
@@ -169,12 +174,19 @@ export function ArteciumAI() {
     if (lastQuestion) void submitQuestion(lastQuestion);
   };
 
+  const shellClass = embedded
+    ? "h-full rounded-2xl border border-[#1E293B] bg-[#0E1324]/70 p-5 backdrop-blur-sm sm:p-6"
+    : "mt-16 rounded-2xl border border-[#1E293B] bg-[#0E1324]/70 p-6 backdrop-blur-sm sm:p-8";
+
+  const headingWrapClass = embedded
+    ? "text-left"
+    : "mx-auto max-w-2xl text-center";
+
+  const bodyWrapClass = embedded ? "mt-6 max-w-none" : "mx-auto mt-8 max-w-2xl";
+
   return (
-    <div
-      className="mt-16 rounded-2xl border border-[#1E293B] bg-[#0E1324]/70 p-6 backdrop-blur-sm sm:p-8"
-      aria-labelledby={`${formId}-heading`}
-    >
-      <div className="mx-auto max-w-2xl text-center">
+    <div className={shellClass} aria-labelledby={`${formId}-heading`}>
+      <div className={headingWrapClass}>
         <h3
           id={`${formId}-heading`}
           className="text-xl font-semibold text-white sm:text-2xl"
@@ -187,7 +199,7 @@ export function ArteciumAI() {
         </p>
       </div>
 
-      <div className="mx-auto mt-8 max-w-2xl">
+      <div className={bodyWrapClass}>
         <div className="mb-4 flex items-center gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#1E293B] bg-[#050816]">
             <Image
