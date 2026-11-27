@@ -36,12 +36,15 @@ yarn-error.log*
 !.env.booking.sandbox.local.example
 !.env.booking.prod.local.example
 !.env.client-isolation.local.example
+!.env.prototype.local.example
+!.env.staging.local.example
 # Booking integration credentials (copy from example; never commit)
 .env.booking.test.local
 .env.booking.sandbox.local
 .booking-seed.lock
 
 # local agent / harness artifacts
+artifacts/
 .cursor-audit-*
 audit-summary-utf8.json
 .harness-pg-*/

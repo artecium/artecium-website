@@ -48,7 +48,7 @@
       "seoCostPortugal2026": {
         "metadata": {
           "title": "How much does SEO cost in Portugal in 2026?",
-          "description": "Guide to SEO pricing in Portugal: Artecium's Foundation (€350), Growth (€500/month) and Advanced (€900/month) plans, what's included and how to choose."
+          "description": "Guide to SEO pricing in Portugal: Artecium's Foundation (€350), Growth (€400/month) and Advanced (€750/month) plans, what's included and how to choose."
         },
         "breadcrumb": {
           "current": "How much does SEO cost"
@@ -96,12 +96,12 @@
               },
               {
                 "name": "SEO Growth",
-                "price": "€500/month",
+                "price": "€400/month",
                 "description": "Ongoing optimisation, keyword research, content and monthly reporting. Suited for businesses that want consistent growth in search engines."
               },
               {
                 "name": "SEO Advanced",
-                "price": "€900/month",
+                "price": "€750/month",
                 "description": "More comprehensive strategy, competitor analysis, GEO/AI Search and strategic support. For businesses with ambitious goals or more competitive markets."
               }
             ],
@@ -143,11 +143,15 @@
             "id": "seo-vs-ads",
             "title": "SEO vs paid advertising — what to expect?",
             "intro": "SEO and ads (Google Ads, Meta Ads) solve different problems. Understanding the difference helps define the right budget.",
-            "headers": ["Aspect", "SEO", "Paid advertising"],
+            "headers": [
+              "Aspect",
+              "SEO",
+              "Paid advertising"
+            ],
             "rows": [
               {
                 "aspect": "Initial cost",
-                "col1": "Setup from €350; monthly plans from €500",
+                "col1": "Setup from €350; monthly plans from €400",
                 "col2": "Ad budget + management (variable)"
               },
               {
@@ -173,7 +177,7 @@
           "items": [
             {
               "question": "How much does SEO cost per month in Portugal?",
-              "answer": "At Artecium, ongoing SEO starts at €500/month (SEO Growth). The Advanced plan costs €900/month. For websites that only need initial technical setup, SEO Foundation costs €350 as a one-time payment."
+              "answer": "At Artecium, ongoing SEO starts at €400/month (SEO Growth). The Advanced plan costs €750/month. For websites that only need initial technical setup, SEO Foundation costs €350 as a one-time payment."
             },
             {
               "question": "Is SEO Foundation enough on its own?",
@@ -195,10 +199,22 @@
         },
         "relatedLinksTitle": "Read also",
         "relatedLinks": [
-          { "label": "What is SEO?", "articleId": "whatIsSeo" },
-          { "label": "How much does a website cost?", "articleId": "websiteCostPortugal2026" },
-          { "label": "SEO service", "hrefKey": "seo" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "What is SEO?",
+            "articleId": "whatIsSeo"
+          },
+          {
+            "label": "How much does a website cost?",
+            "articleId": "websiteCostPortugal2026"
+          },
+          {
+            "label": "SEO service",
+            "hrefKey": "seo"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Want to understand which SEO plan makes sense?",
@@ -234,7 +250,11 @@
             "id": "side-by-side",
             "title": "Side-by-side comparison",
             "intro": "This table summarises common differences — details vary by provider, but patterns are consistent in the market.",
-            "headers": ["Aspect", "Cheap website", "Professional website"],
+            "headers": [
+              "Aspect",
+              "Cheap website",
+              "Professional website"
+            ],
             "rows": [
               {
                 "aspect": "Design",
@@ -356,10 +376,22 @@
         },
         "relatedLinksTitle": "Read also",
         "relatedLinks": [
-          { "label": "How much does a website cost?", "articleId": "websiteCostPortugal2026" },
-          { "label": "Website or web application?", "articleId": "websiteVsWebApp" },
-          { "label": "Website service", "hrefKey": "websites" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "How much does a website cost?",
+            "articleId": "websiteCostPortugal2026"
+          },
+          {
+            "label": "Website or web application?",
+            "articleId": "websiteVsWebApp"
+          },
+          {
+            "label": "Website service",
+            "hrefKey": "websites"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Want a professional website for your business?",
@@ -430,7 +462,7 @@
             "paragraphs": [
               "SEO doesn't produce overnight results. Depending on the sector, competition and current website state, it can take weeks or months to see significant progress in positions and organic traffic.",
               "It's also not a guarantee of #1 position for all keywords. The realistic goal is to appear on the first pages for terms relevant to the business — and improve progressively over time.",
-              "SEO works best as a continuous investment, not a one-off action. An initial technical setup (like Artecium's SEO Foundation at €350) prepares the base; monthly support (Growth at €500/month or Advanced at €900/month) maintains and accelerates growth."
+              "SEO works best as a continuous investment, not a one-off action. An initial technical setup (like Artecium's SEO Foundation at €350) prepares the base; monthly support (Growth at €400/month or Advanced at €750/month) maintains and accelerates growth."
             ]
           },
           {
@@ -483,10 +515,22 @@
         },
         "relatedLinksTitle": "Read also",
         "relatedLinks": [
-          { "label": "How much does SEO cost?", "articleId": "seoCostPortugal2026" },
-          { "label": "How much does a website cost?", "articleId": "websiteCostPortugal2026" },
-          { "label": "SEO service", "hrefKey": "seo" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "How much does SEO cost?",
+            "articleId": "seoCostPortugal2026"
+          },
+          {
+            "label": "How much does a website cost?",
+            "articleId": "websiteCostPortugal2026"
+          },
+          {
+            "label": "SEO service",
+            "hrefKey": "seo"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Want to improve your website's visibility?",
@@ -522,7 +566,11 @@
             "id": "comparison-table",
             "title": "Practical comparison",
             "intro": "Use this table to understand where your project fits.",
-            "headers": ["Aspect", "Website", "Web application"],
+            "headers": [
+              "Aspect",
+              "Website",
+              "Web application"
+            ],
             "rows": [
               {
                 "aspect": "Main goal",
@@ -656,10 +704,22 @@
         },
         "relatedLinksTitle": "Read also",
         "relatedLinks": [
-          { "label": "How much does a website cost?", "articleId": "websiteCostPortugal2026" },
-          { "label": "AI-powered website", "articleId": "aiPoweredWebsite" },
-          { "label": "Website service", "hrefKey": "websites" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "How much does a website cost?",
+            "articleId": "websiteCostPortugal2026"
+          },
+          {
+            "label": "AI-powered website",
+            "articleId": "aiPoweredWebsite"
+          },
+          {
+            "label": "Website service",
+            "hrefKey": "websites"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Not sure what you need?",
@@ -781,7 +841,11 @@
             "id": "with-without-ai",
             "title": "Website with and without AI — what changes?",
             "intro": "Comparing helps understand whether the AI investment makes sense for your case.",
-            "headers": ["Aspect", "Traditional website", "Website with AI/automation"],
+            "headers": [
+              "Aspect",
+              "Traditional website",
+              "Website with AI/automation"
+            ],
             "rows": [
               {
                 "aspect": "Contacts",
@@ -833,10 +897,22 @@
         },
         "relatedLinksTitle": "Read also",
         "relatedLinks": [
-          { "label": "Website or web application?", "articleId": "websiteVsWebApp" },
-          { "label": "How much does a website cost?", "articleId": "websiteCostPortugal2026" },
-          { "label": "AI & Automation", "hrefKey": "ia" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "Website or web application?",
+            "articleId": "websiteVsWebApp"
+          },
+          {
+            "label": "How much does a website cost?",
+            "articleId": "websiteCostPortugal2026"
+          },
+          {
+            "label": "AI & Automation",
+            "hrefKey": "ia"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Want to integrate AI into your website?",

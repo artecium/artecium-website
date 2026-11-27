@@ -29,6 +29,14 @@ export const PRICING_BUNDLE_KEYS = [
   "businessAutomation",
 ] as const;
 
+/** Stable commercial plan id: `{category}.{planKey}` — see `commercial-catalog.ts`. */
+export function commercialPlanId(
+  category: PricingCategory,
+  planKey: string,
+): string {
+  return `${category}.${planKey}`;
+}
+
 export const PRICING_FAQ_KEYS = [
   "implementationVsMonthly",
   "vat",

@@ -5,9 +5,11 @@ import {
   PRICING_CATEGORY_IMAGES,
   pricingImageAltKey,
 } from "@/lib/pricing/images";
+import { resolveLocale } from "@/i18n/config";
 import type { PricingCategory } from "@/lib/pricing/config";
+import { getCommercialPlanDisplay } from "@/lib/pricing/display";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useId, useRef } from "react";
 
 interface PricingExpandablePlanCardProps {
@@ -28,6 +30,8 @@ export function PricingExpandablePlanCard({
   onClose,
 }: PricingExpandablePlanCardProps) {
   const t = useTranslations("home.pricing");
+  const locale = resolveLocale(useLocale());
+  const commercial = getCommercialPlanDisplay(locale, category, planKey);
   const baseKey = `categories.${category}.plans.${planKey}`;
   const panelRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -40,11 +44,9 @@ export function PricingExpandablePlanCard({
     category === "booking" ? t("labels.setupBooking") : t("labels.setup");
   const name = t(`${baseKey}.name`);
   const description = t(`${baseKey}.description`);
-  const setupPrice = t(`${baseKey}.setupPrice`);
-  const monthlyPrice = t(`${baseKey}.monthlyPrice`);
-  const monthlyNote = t.has(`${baseKey}.monthlyNote`)
-    ? t(`${baseKey}.monthlyNote`)
-    : null;
+  const setupPrice = commercial.setup;
+  const monthlyPrice = commercial.monthly ?? "—";
+  const monthlyNote = commercial.hasNoMonthly ? "noMonthly" : null;
   const commercialLimit = t.has(`${baseKey}.commercialLimit`)
     ? t(`${baseKey}.commercialLimit`)
     : null;

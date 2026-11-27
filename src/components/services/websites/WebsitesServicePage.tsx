@@ -12,6 +12,7 @@ import { getServiceAlternateHref } from "@/lib/services/metadata";
 import { getServicePath, getServicesHubPath } from "@/lib/services/paths";
 import Link from "next/link";
 import { getTranslationsForLocale } from "@/lib/i18n/server-translations";
+import { getCommercialPlanDisplay } from "@/lib/pricing/display";
 
 const problemKeys = [
   "outdated",
@@ -196,11 +197,14 @@ export async function WebsitesServicePage({ locale }: WebsitesServicePageProps) 
           />
 
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {planKeys.map((planKey) => (
+            {planKeys.map((planKey) => {
+              const display = getCommercialPlanDisplay(locale, "websites", planKey);
+              return (
               <WebsitesPlanCard
                 key={planKey}
                 name={t(`pricing.plans.${planKey}.name`)}
-                price={t(`pricing.plans.${planKey}.price`)}
+                price={display.headline}
+                subline={display.subline ?? undefined}
                 description={t(`pricing.plans.${planKey}.description`)}
                 features={
                   t.raw(`pricing.plans.${planKey}.features`) as string[]
@@ -211,7 +215,8 @@ export async function WebsitesServicePage({ locale }: WebsitesServicePageProps) 
                   planKey === "professional" ? t("pricing.popularBadge") : undefined
                 }
               />
-            ))}
+            );
+            })}
           </div>
 
           <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-[#64748B]">

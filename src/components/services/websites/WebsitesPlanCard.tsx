@@ -3,6 +3,7 @@ import { StartProjectButton } from "@/components/contact/StartProjectButton";
 interface WebsitesPlanCardProps {
   name: string;
   price: string;
+  subline?: string;
   priceNote?: string;
   description: string;
   features: string[];
@@ -15,6 +16,7 @@ interface WebsitesPlanCardProps {
 export function WebsitesPlanCard({
   name,
   price,
+  subline,
   priceNote,
   description,
   features,
@@ -52,6 +54,10 @@ export function WebsitesPlanCard({
       <p className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-[2rem]">
         {price}
       </p>
+
+      {subline ? (
+        <p className="mt-2 text-sm font-medium text-[#94A3B8]">{subline}</p>
+      ) : null}
 
       {priceNote ? (
         <p className="mt-2 text-xs font-medium tracking-wide text-[#64748B] uppercase">

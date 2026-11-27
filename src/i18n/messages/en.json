@@ -250,23 +250,31 @@
     }
   },
   "areaHub": {
-    "title": "Where would you like to go?",
-    "description": "Artecium brings together the portal for our service clients and the booking platform for your business. Choose the right area.",
+    "title": "Where do you want to work?",
+    "description": "Access your Artecium platforms — the Client Area for projects and contracts, or Booking for reservations and your business schedule.",
+    "greeting": "Welcome back",
+    "greetingWithName": "Welcome back, {name}",
+    "platformsSrOnly": "Choose a platform",
+    "expandHint": "Expand",
+    "closeModalAria": "Close",
+    "slideToConfirmHint": "Drag the arrow to the right to confirm. With the keyboard, use Enter or the right arrow key.",
     "backToHome": "Back to website",
     "sessionActiveHint": "You are already signed in. Choose an area, or sign out elsewhere if you need a different account.",
     "staffNotice": "You have Artecium team access.",
     "staffLink": "Go to administration",
     "client": {
+      "platformLabel": "Client portal",
       "title": "Client Area",
-      "description": "Projects, services, documents, payments and support for your contracts with Artecium.",
-      "enter": "Enter portal",
+      "description": "Projects, services, payments and ongoing support — all in one place.",
+      "enter": "Enter Client Area",
       "signIn": "Sign in",
       "noAccess": "Your account is not linked to a client company. Contact Artecium if you need access."
     },
     "booking": {
+      "platformLabel": "Reservations & schedule",
       "title": "Artecium Booking",
-      "description": "Manage appointments, team, services and calendar for your business on the booking platform.",
-      "enter": "Open Booking",
+      "description": "Manage bookings, services, schedules and customers with ease.",
+      "enter": "Enter Booking",
       "signIn": "Sign in",
       "noAccess": "Your account does not have Artecium Booking access. Ask your business owner for an invite or set up Booking if you are eligible."
     },
@@ -286,7 +294,12 @@
       "getInTouch": "Get in touch",
       "discoverLink": "Discover what we can build",
       "backgroundAlt": "Abstract digital architecture with subtle blue light",
-      "pillars": ["Websites", "AI", "Automation", "SEO"],
+      "pillars": [
+        "Websites",
+        "AI",
+        "Automation",
+        "SEO"
+      ],
       "forWhoLabel": "For:",
       "forWho": "Businesses that want to grow online with clarity and professional solutions.",
       "outcomeLabel": "Outcome:",
@@ -477,169 +490,6 @@
         }
       }
     },
-    "pricing": {
-      "eyebrow": "Pricing",
-      "title": "Choose the right solution for your business",
-      "description": "Digital solutions designed to transform your online presence and business processes.",
-      "tabsLabel": "Pricing categories",
-      "popularBadge": "MOST POPULAR",
-      "customQuote": "If your project doesn't fit these models, we'll create a tailored solution.",
-      "tabs": {
-        "websites": "Websites",
-        "aiAutomation": "AI & Automation",
-        "seo": "SEO"
-      },
-      "categories": {
-        "websites": {
-          "plans": {
-            "essential": {
-              "name": "Essential",
-              "price": "€750",
-              "description": "For businesses that need a professional online presence.",
-              "features": [
-                "Up to 5 pages",
-                "Custom design",
-                "Responsive layout",
-                "Contact form",
-                "WhatsApp integration",
-                "Initial technical SEO",
-                "Analytics",
-                "Deployment"
-              ],
-              "cta": "Start project"
-            },
-            "professional": {
-              "name": "Professional",
-              "price": "€1,500",
-              "description": "For businesses that want their website to become a growth engine.",
-              "features": [
-                "Up to 10 pages",
-                "Advanced design",
-                "Animations and interactions",
-                "Advanced forms",
-                "Integrations",
-                "On-page SEO",
-                "Google Search Console",
-                "Conversion optimisation",
-                "Analytics"
-              ],
-              "cta": "Start project"
-            },
-            "business": {
-              "name": "Business",
-              "price": "From €2,500",
-              "description": "For businesses that need a fully tailored digital solution.",
-              "features": [
-                "Custom website",
-                "Client area",
-                "Integrations",
-                "Automation",
-                "AI",
-                "Booking systems",
-                "APIs",
-                "Custom functionality"
-              ],
-              "cta": "Discuss your project"
-            }
-          }
-        },
-        "aiAutomation": {
-          "plans": {
-            "aiSolutions": {
-              "name": "AI Solutions",
-              "price": "From €750",
-              "description": "Simple AI solutions to improve tasks and digital experiences.",
-              "features": [
-                "Chatbots",
-                "AI assistants",
-                "Smart forms",
-                "Content generation",
-                "Lead qualification"
-              ],
-              "cta": "Explore solution"
-            },
-            "automation": {
-              "name": "Automation",
-              "price": "From €1,500",
-              "description": "Process automation to reduce manual work and connect your business tools.",
-              "features": [
-                "CRM",
-                "Workflows",
-                "Integrations",
-                "APIs",
-                "Automated emails",
-                "Data processing"
-              ],
-              "cta": "Explore solution"
-            },
-            "businessAutomation": {
-              "name": "Business Automation",
-              "price": "Custom project",
-              "description": "Tailored automation and AI for more complex business processes.",
-              "features": [
-                "AI agents",
-                "Internal systems",
-                "Complex integrations",
-                "Advanced automation"
-              ],
-              "cta": "Discuss your project"
-            }
-          }
-        },
-        "seo": {
-          "plans": {
-            "foundation": {
-              "name": "SEO Foundation",
-              "price": "€350",
-              "priceNote": "Initial setup",
-              "description": "Technical foundations so your website is properly understood and indexed by search engines.",
-              "features": [
-                "SEO audit",
-                "Technical SEO",
-                "Metadata",
-                "Heading structure",
-                "Sitemap",
-                "Search Console",
-                "Indexing",
-                "Base schema"
-              ],
-              "cta": "Start SEO"
-            },
-            "growth": {
-              "name": "SEO Growth",
-              "price": "€500/mo",
-              "description": "For businesses that want to grow organically.",
-              "features": [
-                "Ongoing optimisation",
-                "Keyword research",
-                "Content",
-                "Internal linking",
-                "Search Console",
-                "Monthly analysis",
-                "Reporting"
-              ],
-              "cta": "Start SEO"
-            },
-            "advanced": {
-              "name": "SEO Advanced",
-              "price": "€900/mo",
-              "description": "For businesses that want a complete SEO strategy.",
-              "features": [
-                "SEO strategy",
-                "Technical SEO",
-                "Content",
-                "Competitive analysis",
-                "Ongoing optimisation",
-                "GEO / AI Search",
-                "Reporting",
-                "Strategic support"
-              ],
-              "cta": "Discuss SEO"
-            }
-          }
-        }
-      }
-    },
     "problems": {
       "eyebrow": "Business challenges",
       "title": "What Artecium solves.",
@@ -764,7 +614,7 @@
       "items": {
         "websiteCost": {
           "question": "How much does a website cost?",
-          "answer": "At Artecium, websites start at €750 (Essential). The Professional plan costs €1,500 and Business projects start at €2,500, depending on features."
+          "answer": "At Artecium, websites start at €750 (Essential) plus €29/month. Professional is €1,500 with €49/month. Business projects start from €2,500 with from €89/month."
         },
         "includesSeo": {
           "question": "Does the price include SEO?",
@@ -780,7 +630,7 @@
         },
         "seoOnly": {
           "question": "Can I hire SEO only?",
-          "answer": "Yes. SEO Foundation (€350) is an initial setup. For ongoing support, Growth (€500/month) and Advanced (€900/month) plans are available."
+          "answer": "Yes. SEO Foundation (€350) is an initial setup. For ongoing support, Growth (€400/month) and Advanced (€750/month) plans are available."
         },
         "howToStart": {
           "question": "How do I start a project?",
@@ -860,12 +710,12 @@
         "currentPlan": "Current plan",
         "viewAllServices": "View all services →",
         "websiteMaintenance": "Website Maintenance",
-        "planGrowth": "Plan: Growth · €249.00",
+        "planGrowth": "Demo example · Professional · €49/month",
         "activeProjects": "Active projects",
         "demoProject": "Artecium Demo Website · 68% complete",
-        "planSummary": "Website Maintenance · Growth, Analytics & SEO",
+        "planSummary": "Demo example · Website maintenance · Professional",
         "payments": "Payments",
-        "latestPayment": "Latest: €123.00 · completed",
+        "latestPayment": "Demo example: €123.00 · completed",
         "notifications": "Notifications",
         "latestNotification": "1 unread · Invoice DEMO-INV-002 paid",
         "analytics": "Analytics",
@@ -1059,18 +909,775 @@
     "dueOn": "Due {date}"
   },
   "services": {
-    "title": "My services",
-    "description": "Your contracted services, plans, entitlements, and monthly usage.",
-    "emptyTitle": "No services contracted yet",
-    "emptyDescription": "Your active services and maintenance plans will appear here once assigned by Artecium.",
-    "plan": "Plan",
-    "oneTimeService": "One-time service",
-    "customService": "Custom service",
-    "price": "Price",
-    "started": "Started",
-    "nextRenewal": "Next renewal",
-    "includedFeatures": "Included features",
-    "usage": "Usage"
+    "shared": {
+      "crossLinkTitle": "Explore other solutions",
+      "crossLinks": {
+        "websites": "Websites",
+        "ai": "AI & Automation",
+        "seo": "SEO"
+      },
+      "allServices": "All services"
+    },
+    "hub": {
+      "metadata": {
+        "title": "Digital Solutions for Businesses",
+        "description": "Websites, AI, automation and SEO solutions for businesses in Portugal."
+      },
+      "breadcrumb": {
+        "home": "Home",
+        "current": "Services"
+      },
+      "hero": {
+        "title": "Digital solutions for businesses",
+        "description": "Websites, AI, automation and SEO to help businesses improve their digital presence and simplify processes.",
+        "geoNote": "We work with businesses in Portugal",
+        "cta": "Start project"
+      },
+      "cards": {
+        "websites": {
+          "title": "Websites",
+          "description": "Professional, fast and SEO-ready websites with custom design and a focus on conversion.",
+          "cta": "View websites"
+        },
+        "ia": {
+          "title": "AI & Automation",
+          "description": "AI and automation solutions to reduce manual tasks, integrate tools and make processes more efficient.",
+          "cta": "View solutions"
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "SEO strategies, content, technical optimisation and GEO to improve search presence.",
+          "cta": "View SEO"
+        }
+      },
+      "guide": {
+        "title": "Which solution does your business need?",
+        "paths": {
+          "websites": {
+            "question": "Need a professional online presence?",
+            "linkLabel": "Websites"
+          },
+          "ia": {
+            "question": "Want to automate tasks or integrate AI?",
+            "linkLabel": "AI & Automation"
+          },
+          "seo": {
+            "question": "Want to improve visibility in search engines?",
+            "linkLabel": "SEO"
+          }
+        }
+      },
+      "cta": {
+        "title": "Not sure where to start?",
+        "description": "Tell us about your business and we'll help identify the most suitable solution.",
+        "button": "Start project"
+      }
+    },
+    "websites": {
+      "metadata": {
+        "title": "Website Development for Businesses",
+        "description": "Professional websites for businesses in Portugal, with custom design, SEO, AI and automation. Explore Artecium's solutions."
+      },
+      "schema": {
+        "serviceName": "Website Development",
+        "serviceDescription": "Professional websites for businesses in Portugal, with custom design, SEO, AI and automation."
+      },
+      "breadcrumb": {
+        "home": "Home",
+        "services": "Services",
+        "current": "Websites"
+      },
+      "hero": {
+        "title": "Websites that help businesses grow.",
+        "description": "We create professional, fast and SEO-ready websites with custom design, plus AI and automation integration when your business needs it.",
+        "ctaPrimary": "Start project",
+        "ctaSecondary": "View pricing",
+        "geoNote": "We work with businesses in Portugal"
+      },
+      "problems": {
+        "title": "A website should do more than look good.",
+        "items": {
+          "outdated": {
+            "title": "Outdated website",
+            "description": "The business looks less professional than it actually is."
+          },
+          "fewContacts": {
+            "title": "Too few enquiries",
+            "description": "The website gets visits but doesn't turn visitors into potential customers."
+          },
+          "mobileExperience": {
+            "title": "Poor mobile experience",
+            "description": "The site doesn't work well on smartphones and tablets."
+          },
+          "searchVisibility": {
+            "title": "Hard to find on Google",
+            "description": "Structure and content aren't prepared for SEO."
+          }
+        }
+      },
+      "included": {
+        "title": "What's included in our websites",
+        "intro": "Every project includes a solid foundation for professional online presence, performance and search visibility.",
+        "core": [
+          "Custom design",
+          "Responsive design",
+          "Contact forms",
+          "WhatsApp integration",
+          "Technical SEO",
+          "Metadata and headings",
+          "Sitemap",
+          "Google Analytics",
+          "Deployment and setup"
+        ],
+        "advancedTitle": "Available in higher-tier plans",
+        "advancedIntro": "Additional features included in the Website Professional and Business plans, depending on the package chosen.",
+        "advanced": [
+          "Conversion-focused structure",
+          "Google Search Console",
+          "Performance optimisation",
+          "Animations and interactions",
+          "Integrations and automation",
+          "Custom functionality"
+        ]
+      },
+      "pricing": {
+        "title": "Choose the right website for your business",
+        "popularBadge": "MOST POPULAR",
+        "note": "Prices shown are reference values. Projects with specific requirements are assessed individually.",
+        "plans": {
+          "essential": {
+            "name": "Website Essential",
+            "price": "€750",
+            "description": "For businesses that need a professional online presence.",
+            "features": [
+              "Up to 5 pages",
+              "Custom design",
+              "Responsive design",
+              "Contact form",
+              "WhatsApp integration",
+              "Technical SEO",
+              "Analytics",
+              "Deployment"
+            ],
+            "cta": "Start project"
+          },
+          "professional": {
+            "name": "Website Professional",
+            "price": "€1,500",
+            "description": "For businesses that want a more complete website focused on customer acquisition.",
+            "features": [
+              "Up to 10 pages",
+              "Advanced design",
+              "Animations and interactions",
+              "Advanced forms",
+              "Integrations",
+              "On-page SEO",
+              "Google Search Console",
+              "Conversion optimisation",
+              "Analytics"
+            ],
+            "cta": "Start project"
+          },
+          "business": {
+            "name": "Website Business",
+            "price": "From €2,500",
+            "description": "For businesses that need custom functionality and digital processes.",
+            "features": [
+              "Custom website",
+              "Client area",
+              "Advanced integrations",
+              "Automation",
+              "AI",
+              "Booking systems",
+              "APIs",
+              "Custom functionality"
+            ],
+            "cta": "Discuss your project"
+          }
+        }
+      },
+      "process": {
+        "title": "How we build your website",
+        "steps": {
+          "discovery": {
+            "title": "Discovery",
+            "description": "We understand the business, goals and audience."
+          },
+          "strategy": {
+            "title": "Strategy",
+            "description": "We define structure, content and functionality."
+          },
+          "build": {
+            "title": "Design & Development",
+            "description": "We design and develop the website."
+          },
+          "launch": {
+            "title": "Launch",
+            "description": "We test, optimise and publish the website."
+          }
+        }
+      },
+      "technologies": {
+        "title": "Technology built to scale",
+        "description": "We use modern technologies to create fast, responsive and scalable websites, ready to grow with your business."
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          {
+            "question": "How much does a professional website cost?",
+            "answer": "At Artecium, websites start at €750 (Essential) plus €29/month. Professional is €1,500 with €49/month. Business projects start at From €2,500 with From €89/month. Final scope depends on features and requirements."
+          },
+          {
+            "question": "How long does it take to build a website?",
+            "answer": "Timelines depend on scope, number of pages, content and functionality. After discovery, we provide a clear estimate before moving forward."
+          },
+          {
+            "question": "Will the website be optimised for SEO?",
+            "answer": "Yes. All websites include foundational technical SEO. Higher-tier plans also include on-page optimisation, conversion-focused structure and Google Search Console setup."
+          },
+          {
+            "question": "Can you integrate WhatsApp and forms?",
+            "answer": "Yes. We integrate contact forms and WhatsApp into websites, according to the package and project goals."
+          },
+          {
+            "question": "Can you build custom functionality?",
+            "answer": "Yes. The Business plan and bespoke projects support custom functionality, integrations, automation and AI, depending on requirements."
+          },
+          {
+            "question": "Do you handle hosting and publishing?",
+            "answer": "We include deployment and initial setup. Hosting can be handled by Artecium or the client, depending on the agreed solution for each project."
+          },
+          {
+            "question": "Can I request changes after launch?",
+            "answer": "Yes. Changes and ongoing maintenance can be agreed after launch, depending on the support or evolution plan defined for the project."
+          }
+        ]
+      },
+      "related": {
+        "title": "Explore",
+        "home": "Homepage",
+        "services": "Services",
+        "pricing": "Pricing",
+        "contact": "Contact"
+      },
+      "cta": {
+        "title": "Ready to build a better website for your business?",
+        "description": "Tell us what you want to create and we'll help define the most suitable solution.",
+        "button": "Start project"
+      }
+    },
+    "ai": {
+      "metadata": {
+        "title": "AI & Automation for Businesses",
+        "description": "AI and automation solutions for businesses in Portugal, including AI assistants, workflows, integrations and custom automation."
+      },
+      "schema": {
+        "serviceName": "AI & Automation",
+        "serviceDescription": "AI and automation solutions for businesses in Portugal, including chatbots, AI assistants, workflows, integrations and custom systems."
+      },
+      "breadcrumb": {
+        "home": "Home",
+        "services": "Services",
+        "current": "AI & Automation"
+      },
+      "hero": {
+        "title": "AI and automation for more efficient businesses.",
+        "description": "We create AI and automation solutions that simplify tasks, improve processes and help businesses work smarter.",
+        "tagline": "From task automation to AI agents and custom integrations.",
+        "ctaPrimary": "Start project",
+        "ctaSecondary": "View solutions",
+        "geoNote": "We work with businesses in Portugal"
+      },
+      "problems": {
+        "title": "Not every task needs to be done manually.",
+        "items": {
+          "repetitiveTasks": {
+            "title": "Repetitive tasks",
+            "description": "Manual processes consume time and increase the risk of error."
+          },
+          "unansweredLeads": {
+            "title": "Unanswered leads",
+            "description": "Contact requests can go unanswered or without follow-up."
+          },
+          "isolatedTools": {
+            "title": "Isolated tools",
+            "description": "Data is spread across different platforms and systems."
+          },
+          "inefficientProcesses": {
+            "title": "Inefficient processes",
+            "description": "Teams lose time on tasks that could be automated."
+          }
+        }
+      },
+      "solutions": {
+        "title": "What we can automate",
+        "intro": "Examples of solutions Artecium can develop, depending on each project's goals and requirements.",
+        "items": {
+          "chatbots": {
+            "title": "Chatbots and AI assistants",
+            "description": "Automatic answers to common questions, with handoff to a person when needed."
+          },
+          "leadQualification": {
+            "title": "Automatic lead qualification",
+            "description": "Collection, organisation and classification of enquiries before they reach the team."
+          },
+          "smartForms": {
+            "title": "Smart forms",
+            "description": "Forms that adapt questions and collect information more efficiently."
+          },
+          "contentGeneration": {
+            "title": "Content generation",
+            "description": "Support for creating texts, responses and content based on defined rules and context."
+          },
+          "automaticEmails": {
+            "title": "Automatic emails",
+            "description": "Sending messages and notifications based on customer events or actions."
+          },
+          "businessWorkflows": {
+            "title": "Business workflows",
+            "description": "Automatic task sequences that connect different stages of a process."
+          },
+          "integrations": {
+            "title": "Tool integrations",
+            "description": "Connecting websites, CRMs, databases and other platforms, when technically feasible."
+          },
+          "dataProcessing": {
+            "title": "Data processing",
+            "description": "Organisation, transformation and structuring of information from multiple sources."
+          },
+          "aiAgents": {
+            "title": "AI agents",
+            "description": "Assistants that perform specific tasks with defined rules, validation and supervision."
+          },
+          "customSystems": {
+            "title": "Custom internal systems",
+            "description": "Tailored tools for internal processes that don't fit a standard package."
+          }
+        }
+      },
+      "pricing": {
+        "title": "Choose the right solution for your business",
+        "popularBadge": "MOST POPULAR",
+        "note": "Prices shown are reference values. Projects with specific requirements are assessed individually.",
+        "plans": {
+          "aiSolutions": {
+            "name": "AI Solutions",
+            "price": "From €750",
+            "description": "For businesses that want to start integrating AI into their processes.",
+            "features": [
+              "Chatbots",
+              "AI assistants",
+              "Smart forms",
+              "Content generation",
+              "Lead qualification"
+            ],
+            "cta": "Start project"
+          },
+          "automation": {
+            "name": "Automation",
+            "price": "From €1,500",
+            "description": "For businesses that want to reduce manual tasks and connect different tools.",
+            "features": [
+              "CRM",
+              "Automatic workflows",
+              "Integrations",
+              "APIs",
+              "Automatic emails",
+              "Data processing"
+            ],
+            "cta": "Start project"
+          },
+          "businessAutomation": {
+            "name": "Business Automation",
+            "price": "Custom project",
+            "description": "For more complex processes that require bespoke systems and automation.",
+            "features": [
+              "AI agents",
+              "Internal systems",
+              "Complex integrations",
+              "Advanced automation",
+              "Custom functionality"
+            ],
+            "cta": "Discuss your project"
+          }
+        }
+      },
+      "process": {
+        "title": "How we turn a process into automation",
+        "note": "The feasibility of each integration depends on the tools, APIs and specific requirements of the project.",
+        "steps": {
+          "analyze": {
+            "title": "We analyse",
+            "description": "We understand how the process currently works."
+          },
+          "identify": {
+            "title": "We identify",
+            "description": "We find repetitive tasks and opportunities for improvement."
+          },
+          "build": {
+            "title": "We build",
+            "description": "We develop the appropriate AI or automation solution."
+          },
+          "integrate": {
+            "title": "We integrate",
+            "description": "We connect the solution to the tools the business uses."
+          }
+        }
+      },
+      "examples": {
+        "title": "Examples of processes that can be automated",
+        "intro": "Conceptual scenarios to illustrate the type of solutions we can develop — they do not represent systems installed for clients.",
+        "items": {
+          "contactToLead": {
+            "title": "Contact request → Organised lead",
+            "description": "Website receives a form → information is structured → lead is classified → team receives the details."
+          },
+          "customerQuestion": {
+            "title": "Customer question → Automatic response",
+            "description": "Customer asks a question → AI interprets the request → responds with available information or routes to a person."
+          },
+          "dataToInsight": {
+            "title": "Data → Useful information",
+            "description": "Data from different sources → processing → structured information for analysis."
+          },
+          "repetitiveToWorkflow": {
+            "title": "Repetitive task → Automatic workflow",
+            "description": "Event occurs → system executes several actions automatically → team receives only what they need."
+          }
+        }
+      },
+      "supervision": {
+        "title": "Automating doesn't mean losing control.",
+        "description": "Solutions can be designed with human validation, approval rules and routing to a person whenever the process requires it."
+      },
+      "technologies": {
+        "title": "Technology that adapts to your business",
+        "description": "Solutions can combine websites, APIs, databases, business tools, AI models and external services, depending on project requirements."
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          {
+            "question": "What is an AI solution for businesses?",
+            "answer": "It's a solution that uses artificial intelligence to support business processes — for example, chatbots, AI assistants, lead qualification or content generation — always with defined rules and objectives for the project."
+          },
+          {
+            "question": "How much does it cost to implement AI in a business?",
+            "answer": "Artecium AI Solutions start at From €750 with €49/month. Automation projects start at From €1,500 with €99/month. Business automation is quoted individually, with ongoing support From €199/month."
+          },
+          {
+            "question": "What's the difference between AI and automation?",
+            "answer": "Automation executes predefined tasks based on rules. AI can interpret information, generate responses or make decisions within defined limits. Many projects combine both approaches."
+          },
+          {
+            "question": "Can AI be integrated into my website?",
+            "answer": "Yes. We can integrate chatbots, smart forms and AI assistants into existing websites or new projects, depending on requirements."
+          },
+          {
+            "question": "Can you connect AI to my CRM?",
+            "answer": "In many cases, yes — provided the CRM offers compatible APIs or integrations. Feasibility is assessed during the project discovery phase."
+          },
+          {
+            "question": "Can automation work without human intervention?",
+            "answer": "It depends on the process. Some tasks can be fully automatic; in others, it makes sense to include human validation, approvals or routing to a person."
+          },
+          {
+            "question": "Can you create a custom solution?",
+            "answer": "Yes. Projects with specific requirements — AI agents, internal systems or complex integrations — are assessed and developed to measure."
+          },
+          {
+            "question": "Is company data protected?",
+            "answer": "Solutions are designed with project requirements in mind, including the data processed, the tools used and their respective configurations. Data protection requirements should be assessed on a case-by-case basis."
+          }
+        ]
+      },
+      "related": {
+        "title": "Explore",
+        "home": "Homepage",
+        "services": "Services",
+        "websites": "Websites",
+        "contact": "Contact"
+      },
+      "cta": {
+        "title": "Have a process you'd like to automate?",
+        "description": "Tell us how it currently works and we'll analyse together where AI or automation could make sense.",
+        "button": "Start project"
+      }
+    },
+    "seo": {
+      "metadata": {
+        "title": "SEO for Businesses in Portugal",
+        "description": "SEO services for businesses in Portugal, including technical SEO, content, search optimization, local SEO and GEO."
+      },
+      "schema": {
+        "serviceName": "SEO",
+        "serviceDescription": "SEO for businesses in Portugal, including technical SEO, content, keyword research, local SEO and GEO/AI Search."
+      },
+      "breadcrumb": {
+        "home": "Home",
+        "services": "Services",
+        "current": "SEO"
+      },
+      "hero": {
+        "title": "SEO for businesses that want to be found.",
+        "description": "We optimise websites, content and digital structure to help businesses improve their search presence and prepare content for new AI-powered search experiences.",
+        "tagline": "Technical SEO, content, research and GEO in an integrated strategy.",
+        "ctaPrimary": "Start project",
+        "ctaSecondary": "View plans",
+        "geoNote": "SEO for businesses in Portugal"
+      },
+      "problems": {
+        "title": "Having a website doesn't mean being found.",
+        "items": {
+          "lowVisibility": {
+            "title": "Low visibility",
+            "description": "The website exists but has little presence in search results."
+          },
+          "unstructuredContent": {
+            "title": "Unstructured content",
+            "description": "Pages don't clearly answer potential customers' questions."
+          },
+          "technicalIssues": {
+            "title": "Technical issues",
+            "description": "Performance, headings, metadata, indexing or structure may limit how well the website is understood."
+          },
+          "noFollowUp": {
+            "title": "SEO without follow-up",
+            "description": "An initial optimisation may not be enough when content and the market keep changing."
+          }
+        }
+      },
+      "work": {
+        "title": "What we do in SEO",
+        "intro": "We work on different SEO dimensions depending on the plan and project goals.",
+        "items": {
+          "audit": {
+            "title": "SEO audit",
+            "description": "Analysis of technical structure, content and current website presence."
+          },
+          "technicalSeo": {
+            "title": "Technical SEO",
+            "description": "Fixing aspects that affect crawlability, indexing and performance."
+          },
+          "keywordResearch": {
+            "title": "Keyword research",
+            "description": "Identifying search terms and intents relevant to the business."
+          },
+          "metadata": {
+            "title": "Metadata",
+            "description": "Optimisation of titles, descriptions and elements that influence results."
+          },
+          "headings": {
+            "title": "Headings",
+            "description": "Hierarchical content structure for better understanding."
+          },
+          "contentStructure": {
+            "title": "Content structure",
+            "description": "Organisation of pages and sections aligned with search intent."
+          },
+          "internalLinking": {
+            "title": "Internal linking",
+            "description": "Internal links that help contextualise and distribute relevance."
+          },
+          "sitemapIndexing": {
+            "title": "Sitemap and indexing",
+            "description": "Configuration and monitoring of indexing for relevant pages."
+          },
+          "searchConsole": {
+            "title": "Google Search Console",
+            "description": "Setup, monitoring and analysis of search data."
+          },
+          "localSeo": {
+            "title": "Local SEO",
+            "description": "Optimisation for geographically intent-driven searches and local presence."
+          },
+          "competitorAnalysis": {
+            "title": "Competitor analysis",
+            "description": "Comparison of presence, content and market opportunities."
+          },
+          "searchContent": {
+            "title": "Search-oriented content",
+            "description": "Creating and optimising content aligned with real user questions."
+          },
+          "geoAiSearch": {
+            "title": "GEO / AI Search",
+            "description": "Content structuring to improve understanding by search and AI systems."
+          },
+          "monitoringOptimization": {
+            "title": "Monitoring and optimisation",
+            "description": "Ongoing data tracking and strategy adjustments."
+          }
+        }
+      },
+      "geo": {
+        "title": "SEO ready for AI-powered search",
+        "description": "Search engines are evolving and AI systems can interpret more information directly from websites. Beyond traditional search optimisation, we structure content to be clear, useful and semantically understandable.",
+        "pillars": {
+          "clearContent": {
+            "title": "Clear content",
+            "description": "Direct answers, useful information and content aligned with search intent."
+          },
+          "semanticStructure": {
+            "title": "Semantic structure",
+            "description": "Headings, entities, internal links and structured data that help contextualise information."
+          },
+          "authorityConsistency": {
+            "title": "Authority and consistency",
+            "description": "Original content, credible information and a coherent digital presence."
+          }
+        }
+      },
+      "pricing": {
+        "title": "Choose the right level of support",
+        "popularBadge": "MOST POPULAR",
+        "setupBadge": "SETUP",
+        "note": "Prices shown are reference values. The final scope of service may vary depending on the website, market, goals and project requirements.",
+        "plans": {
+          "foundation": {
+            "name": "SEO Foundation",
+            "price": "€350",
+            "priceNote": "One-time payment",
+            "description": "A solid technical foundation to prepare the website for search.",
+            "features": [
+              "SEO audit",
+              "Technical SEO",
+              "Metadata",
+              "Headings",
+              "Sitemap",
+              "Google Search Console",
+              "Indexing",
+              "Base schema"
+            ],
+            "cta": "Start project"
+          },
+          "growth": {
+            "name": "SEO Growth",
+            "price": "€400 / month",
+            "description": "For businesses that want to work on SEO continuously.",
+            "features": [
+              "Ongoing optimisation",
+              "Keyword research",
+              "Content",
+              "Internal linking",
+              "Google Search Console",
+              "Monthly analysis",
+              "Reporting"
+            ],
+            "cta": "Start project"
+          },
+          "advanced": {
+            "name": "SEO Advanced",
+            "price": "€750 / month",
+            "description": "For businesses that want a more complete SEO strategy and advanced support.",
+            "features": [
+              "Full SEO strategy",
+              "Technical SEO",
+              "Content",
+              "Competitor analysis",
+              "Ongoing optimisation",
+              "GEO / AI Search",
+              "Reporting",
+              "Strategic support"
+            ],
+            "cta": "Discuss your project"
+          }
+        }
+      },
+      "process": {
+        "title": "How we work on SEO",
+        "steps": {
+          "audit": {
+            "title": "Audit",
+            "description": "We analyse technical structure, content and current presence."
+          },
+          "define": {
+            "title": "Define",
+            "description": "We identify optimisation opportunities and priorities."
+          },
+          "optimize": {
+            "title": "Optimise",
+            "description": "We implement technical, structural and content improvements."
+          },
+          "monitor": {
+            "title": "Monitor",
+            "description": "We analyse data and adjust the strategy over time."
+          }
+        }
+      },
+      "metrics": {
+        "title": "SEO should be backed by data.",
+        "intro": "Available metrics depend on analytics tools, Google Search Console and project configuration. We do not promise specific increases.",
+        "items": [
+          "Impressions",
+          "Clicks",
+          "CTR",
+          "Average positions",
+          "Search queries",
+          "Indexed pages",
+          "Organic traffic",
+          "Conversions, when configured"
+        ]
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          {
+            "question": "What is SEO?",
+            "answer": "SEO (Search Engine Optimization) is the set of practices aimed at improving a website's visibility in organic search results, through technical optimisation, content, structure and authority."
+          },
+          {
+            "question": "How much does SEO cost?",
+            "answer": "SEO Foundation costs €350 as a one-time payment. SEO Growth costs €400 per month and SEO Advanced costs €750 per month. Final scope may vary depending on the website and requirements."
+          },
+          {
+            "question": "What's the difference between SEO Foundation, Growth and Advanced?",
+            "answer": "SEO Foundation is an initial setup with a technical base. SEO Growth includes ongoing optimisation, research and monthly reporting. SEO Advanced adds a more complete strategy, competitor analysis, GEO/AI Search and strategic support."
+          },
+          {
+            "question": "How long does SEO take to produce results?",
+            "answer": "SEO is an ongoing process. Results vary depending on market, competition, current website state, content, authority and other factors. Specific timelines cannot be guaranteed."
+          },
+          {
+            "question": "Can you guarantee first position on Google?",
+            "answer": "No. No agency can legitimately guarantee a specific position in Google's organic results."
+          },
+          {
+            "question": "What is GEO?",
+            "answer": "GEO, or Generative Engine Optimization, refers to optimising content and structure to improve how information can be understood and used by search and AI systems."
+          },
+          {
+            "question": "Does SEO help with AI-powered search engines?",
+            "answer": "Good content structure, technical SEO and clear information can help information be better understood. However, there is no guarantee of appearing in AI-generated answers or AI Overviews."
+          },
+          {
+            "question": "Is it necessary to publish content regularly?",
+            "answer": "It depends on the strategy and market. Some projects benefit from regular content; in others, the priority may be optimising existing pages. We define the approach based on goals."
+          },
+          {
+            "question": "Can you work on SEO for a website built by another company?",
+            "answer": "Yes. We can audit and optimise existing websites, provided we have the necessary access to the tools and platforms involved."
+          },
+          {
+            "question": "Do you handle local SEO?",
+            "answer": "Yes. Local SEO can be included in Growth and Advanced plans, depending on the business's geographic goals."
+          }
+        ]
+      },
+      "related": {
+        "title": "Explore",
+        "home": "Homepage",
+        "services": "Services",
+        "websites": "Websites",
+        "ai": "AI & Automation",
+        "contact": "Contact"
+      },
+      "cta": {
+        "title": "Is your website ready to be found?",
+        "description": "Tell us about your business and we'll analyse where there are opportunities to improve your digital presence.",
+        "button": "Start project"
+      }
+    }
   },
   "analytics": {
     "title": "Analytics",
@@ -1383,777 +1990,6 @@
     "paymentMethod": "Payment method",
     "taxId": "Tax ID"
   },
-  "services": {
-    "shared": {
-      "crossLinkTitle": "Explore other solutions",
-      "crossLinks": {
-        "websites": "Websites",
-        "ai": "AI & Automation",
-        "seo": "SEO"
-      },
-      "allServices": "All services"
-    },
-    "hub": {
-      "metadata": {
-        "title": "Digital Solutions for Businesses",
-        "description": "Websites, AI, automation and SEO solutions for businesses in Portugal."
-      },
-      "breadcrumb": {
-        "home": "Home",
-        "current": "Services"
-      },
-      "hero": {
-        "title": "Digital solutions for businesses",
-        "description": "Websites, AI, automation and SEO to help businesses improve their digital presence and simplify processes.",
-        "geoNote": "We work with businesses in Portugal",
-        "cta": "Start project"
-      },
-      "cards": {
-        "websites": {
-          "title": "Websites",
-          "description": "Professional, fast and SEO-ready websites with custom design and a focus on conversion.",
-          "cta": "View websites"
-        },
-        "ia": {
-          "title": "AI & Automation",
-          "description": "AI and automation solutions to reduce manual tasks, integrate tools and make processes more efficient.",
-          "cta": "View solutions"
-        },
-        "seo": {
-          "title": "SEO",
-          "description": "SEO strategies, content, technical optimisation and GEO to improve search presence.",
-          "cta": "View SEO"
-        }
-      },
-      "guide": {
-        "title": "Which solution does your business need?",
-        "paths": {
-          "websites": {
-            "question": "Need a professional online presence?",
-            "linkLabel": "Websites"
-          },
-          "ia": {
-            "question": "Want to automate tasks or integrate AI?",
-            "linkLabel": "AI & Automation"
-          },
-          "seo": {
-            "question": "Want to improve visibility in search engines?",
-            "linkLabel": "SEO"
-          }
-        }
-      },
-      "cta": {
-        "title": "Not sure where to start?",
-        "description": "Tell us about your business and we'll help identify the most suitable solution.",
-        "button": "Start project"
-      }
-    },
-    "websites": {
-      "metadata": {
-        "title": "Website Development for Businesses",
-        "description": "Professional websites for businesses in Portugal, with custom design, SEO, AI and automation. Explore Artecium's solutions."
-      },
-      "schema": {
-        "serviceName": "Website Development",
-        "serviceDescription": "Professional websites for businesses in Portugal, with custom design, SEO, AI and automation."
-      },
-      "breadcrumb": {
-        "home": "Home",
-        "services": "Services",
-        "current": "Websites"
-      },
-      "hero": {
-        "title": "Websites that help businesses grow.",
-        "description": "We create professional, fast and SEO-ready websites with custom design, plus AI and automation integration when your business needs it.",
-        "ctaPrimary": "Start project",
-        "ctaSecondary": "View pricing",
-        "geoNote": "We work with businesses in Portugal"
-      },
-      "problems": {
-        "title": "A website should do more than look good.",
-        "items": {
-          "outdated": {
-            "title": "Outdated website",
-            "description": "The business looks less professional than it actually is."
-          },
-          "fewContacts": {
-            "title": "Too few enquiries",
-            "description": "The website gets visits but doesn't turn visitors into potential customers."
-          },
-          "mobileExperience": {
-            "title": "Poor mobile experience",
-            "description": "The site doesn't work well on smartphones and tablets."
-          },
-          "searchVisibility": {
-            "title": "Hard to find on Google",
-            "description": "Structure and content aren't prepared for SEO."
-          }
-        }
-      },
-      "included": {
-        "title": "What's included in our websites",
-        "intro": "Every project includes a solid foundation for professional online presence, performance and search visibility.",
-        "core": [
-          "Custom design",
-          "Responsive design",
-          "Contact forms",
-          "WhatsApp integration",
-          "Technical SEO",
-          "Metadata and headings",
-          "Sitemap",
-          "Google Analytics",
-          "Deployment and setup"
-        ],
-        "advancedTitle": "Available in higher-tier plans",
-        "advancedIntro": "Additional features included in the Website Professional and Business plans, depending on the package chosen.",
-        "advanced": [
-          "Conversion-focused structure",
-          "Google Search Console",
-          "Performance optimisation",
-          "Animations and interactions",
-          "Integrations and automation",
-          "Custom functionality"
-        ]
-      },
-      "pricing": {
-        "title": "Choose the right website for your business",
-        "popularBadge": "MOST POPULAR",
-        "note": "Prices shown are reference values. Projects with specific requirements are assessed individually.",
-        "plans": {
-          "essential": {
-            "name": "Website Essential",
-            "price": "€750",
-            "description": "For businesses that need a professional online presence.",
-            "features": [
-              "Up to 5 pages",
-              "Custom design",
-              "Responsive design",
-              "Contact form",
-              "WhatsApp integration",
-              "Technical SEO",
-              "Analytics",
-              "Deployment"
-            ],
-            "cta": "Start project"
-          },
-          "professional": {
-            "name": "Website Professional",
-            "price": "€1,500",
-            "description": "For businesses that want a more complete website focused on customer acquisition.",
-            "features": [
-              "Up to 10 pages",
-              "Advanced design",
-              "Animations and interactions",
-              "Advanced forms",
-              "Integrations",
-              "On-page SEO",
-              "Google Search Console",
-              "Conversion optimisation",
-              "Analytics"
-            ],
-            "cta": "Start project"
-          },
-          "business": {
-            "name": "Website Business",
-            "price": "From €2,500",
-            "description": "For businesses that need custom functionality and digital processes.",
-            "features": [
-              "Custom website",
-              "Client area",
-              "Advanced integrations",
-              "Automation",
-              "AI",
-              "Booking systems",
-              "APIs",
-              "Custom functionality"
-            ],
-            "cta": "Discuss your project"
-          }
-        }
-      },
-      "process": {
-        "title": "How we build your website",
-        "steps": {
-          "discovery": {
-            "title": "Discovery",
-            "description": "We understand the business, goals and audience."
-          },
-          "strategy": {
-            "title": "Strategy",
-            "description": "We define structure, content and functionality."
-          },
-          "build": {
-            "title": "Design & Development",
-            "description": "We design and develop the website."
-          },
-          "launch": {
-            "title": "Launch",
-            "description": "We test, optimise and publish the website."
-          }
-        }
-      },
-      "technologies": {
-        "title": "Technology built to scale",
-        "description": "We use modern technologies to create fast, responsive and scalable websites, ready to grow with your business."
-      },
-      "faq": {
-        "title": "Frequently asked questions",
-        "items": [
-          {
-            "question": "How much does a professional website cost?",
-            "answer": "At Artecium, websites start at €750. The Website Professional is priced at €1,500 and Business projects start at €2,500, depending on functionality and requirements."
-          },
-          {
-            "question": "How long does it take to build a website?",
-            "answer": "Timelines depend on scope, number of pages, content and functionality. After discovery, we provide a clear estimate before moving forward."
-          },
-          {
-            "question": "Will the website be optimised for SEO?",
-            "answer": "Yes. All websites include foundational technical SEO. Higher-tier plans also include on-page optimisation, conversion-focused structure and Google Search Console setup."
-          },
-          {
-            "question": "Can you integrate WhatsApp and forms?",
-            "answer": "Yes. We integrate contact forms and WhatsApp into websites, according to the package and project goals."
-          },
-          {
-            "question": "Can you build custom functionality?",
-            "answer": "Yes. The Business plan and bespoke projects support custom functionality, integrations, automation and AI, depending on requirements."
-          },
-          {
-            "question": "Do you handle hosting and publishing?",
-            "answer": "We include deployment and initial setup. Hosting can be handled by Artecium or the client, depending on the agreed solution for each project."
-          },
-          {
-            "question": "Can I request changes after launch?",
-            "answer": "Yes. Changes and ongoing maintenance can be agreed after launch, depending on the support or evolution plan defined for the project."
-          }
-        ]
-      },
-      "related": {
-        "title": "Explore",
-        "home": "Homepage",
-        "services": "Services",
-        "pricing": "Pricing",
-        "contact": "Contact"
-      },
-      "cta": {
-        "title": "Ready to build a better website for your business?",
-        "description": "Tell us what you want to create and we'll help define the most suitable solution.",
-        "button": "Start project"
-      }
-    },
-    "ai": {
-      "metadata": {
-        "title": "AI & Automation for Businesses",
-        "description": "AI and automation solutions for businesses in Portugal, including AI assistants, workflows, integrations and custom automation."
-      },
-      "schema": {
-        "serviceName": "AI & Automation",
-        "serviceDescription": "AI and automation solutions for businesses in Portugal, including chatbots, AI assistants, workflows, integrations and custom systems."
-      },
-      "breadcrumb": {
-        "home": "Home",
-        "services": "Services",
-        "current": "AI & Automation"
-      },
-      "hero": {
-        "title": "AI and automation for more efficient businesses.",
-        "description": "We create AI and automation solutions that simplify tasks, improve processes and help businesses work smarter.",
-        "tagline": "From task automation to AI agents and custom integrations.",
-        "ctaPrimary": "Start project",
-        "ctaSecondary": "View solutions",
-        "geoNote": "We work with businesses in Portugal"
-      },
-      "problems": {
-        "title": "Not every task needs to be done manually.",
-        "items": {
-          "repetitiveTasks": {
-            "title": "Repetitive tasks",
-            "description": "Manual processes consume time and increase the risk of error."
-          },
-          "unansweredLeads": {
-            "title": "Unanswered leads",
-            "description": "Contact requests can go unanswered or without follow-up."
-          },
-          "isolatedTools": {
-            "title": "Isolated tools",
-            "description": "Data is spread across different platforms and systems."
-          },
-          "inefficientProcesses": {
-            "title": "Inefficient processes",
-            "description": "Teams lose time on tasks that could be automated."
-          }
-        }
-      },
-      "solutions": {
-        "title": "What we can automate",
-        "intro": "Examples of solutions Artecium can develop, depending on each project's goals and requirements.",
-        "items": {
-          "chatbots": {
-            "title": "Chatbots and AI assistants",
-            "description": "Automatic answers to common questions, with handoff to a person when needed."
-          },
-          "leadQualification": {
-            "title": "Automatic lead qualification",
-            "description": "Collection, organisation and classification of enquiries before they reach the team."
-          },
-          "smartForms": {
-            "title": "Smart forms",
-            "description": "Forms that adapt questions and collect information more efficiently."
-          },
-          "contentGeneration": {
-            "title": "Content generation",
-            "description": "Support for creating texts, responses and content based on defined rules and context."
-          },
-          "automaticEmails": {
-            "title": "Automatic emails",
-            "description": "Sending messages and notifications based on customer events or actions."
-          },
-          "businessWorkflows": {
-            "title": "Business workflows",
-            "description": "Automatic task sequences that connect different stages of a process."
-          },
-          "integrations": {
-            "title": "Tool integrations",
-            "description": "Connecting websites, CRMs, databases and other platforms, when technically feasible."
-          },
-          "dataProcessing": {
-            "title": "Data processing",
-            "description": "Organisation, transformation and structuring of information from multiple sources."
-          },
-          "aiAgents": {
-            "title": "AI agents",
-            "description": "Assistants that perform specific tasks with defined rules, validation and supervision."
-          },
-          "customSystems": {
-            "title": "Custom internal systems",
-            "description": "Tailored tools for internal processes that don't fit a standard package."
-          }
-        }
-      },
-      "pricing": {
-        "title": "Choose the right solution for your business",
-        "popularBadge": "MOST POPULAR",
-        "note": "Prices shown are reference values. Projects with specific requirements are assessed individually.",
-        "plans": {
-          "aiSolutions": {
-            "name": "AI Solutions",
-            "price": "From €750",
-            "description": "For businesses that want to start integrating AI into their processes.",
-            "features": [
-              "Chatbots",
-              "AI assistants",
-              "Smart forms",
-              "Content generation",
-              "Lead qualification"
-            ],
-            "cta": "Start project"
-          },
-          "automation": {
-            "name": "Automation",
-            "price": "From €1,500",
-            "description": "For businesses that want to reduce manual tasks and connect different tools.",
-            "features": [
-              "CRM",
-              "Automatic workflows",
-              "Integrations",
-              "APIs",
-              "Automatic emails",
-              "Data processing"
-            ],
-            "cta": "Start project"
-          },
-          "businessAutomation": {
-            "name": "Business Automation",
-            "price": "Custom project",
-            "description": "For more complex processes that require bespoke systems and automation.",
-            "features": [
-              "AI agents",
-              "Internal systems",
-              "Complex integrations",
-              "Advanced automation",
-              "Custom functionality"
-            ],
-            "cta": "Discuss your project"
-          }
-        }
-      },
-      "process": {
-        "title": "How we turn a process into automation",
-        "note": "The feasibility of each integration depends on the tools, APIs and specific requirements of the project.",
-        "steps": {
-          "analyze": {
-            "title": "We analyse",
-            "description": "We understand how the process currently works."
-          },
-          "identify": {
-            "title": "We identify",
-            "description": "We find repetitive tasks and opportunities for improvement."
-          },
-          "build": {
-            "title": "We build",
-            "description": "We develop the appropriate AI or automation solution."
-          },
-          "integrate": {
-            "title": "We integrate",
-            "description": "We connect the solution to the tools the business uses."
-          }
-        }
-      },
-      "examples": {
-        "title": "Examples of processes that can be automated",
-        "intro": "Conceptual scenarios to illustrate the type of solutions we can develop — they do not represent systems installed for clients.",
-        "items": {
-          "contactToLead": {
-            "title": "Contact request → Organised lead",
-            "description": "Website receives a form → information is structured → lead is classified → team receives the details."
-          },
-          "customerQuestion": {
-            "title": "Customer question → Automatic response",
-            "description": "Customer asks a question → AI interprets the request → responds with available information or routes to a person."
-          },
-          "dataToInsight": {
-            "title": "Data → Useful information",
-            "description": "Data from different sources → processing → structured information for analysis."
-          },
-          "repetitiveToWorkflow": {
-            "title": "Repetitive task → Automatic workflow",
-            "description": "Event occurs → system executes several actions automatically → team receives only what they need."
-          }
-        }
-      },
-      "supervision": {
-        "title": "Automating doesn't mean losing control.",
-        "description": "Solutions can be designed with human validation, approval rules and routing to a person whenever the process requires it."
-      },
-      "technologies": {
-        "title": "Technology that adapts to your business",
-        "description": "Solutions can combine websites, APIs, databases, business tools, AI models and external services, depending on project requirements."
-      },
-      "faq": {
-        "title": "Frequently asked questions",
-        "items": [
-          {
-            "question": "What is an AI solution for businesses?",
-            "answer": "It's a solution that uses artificial intelligence to support business processes — for example, chatbots, AI assistants, lead qualification or content generation — always with defined rules and objectives for the project."
-          },
-          {
-            "question": "How much does it cost to implement AI in a business?",
-            "answer": "Artecium's AI solutions start at €750. Automation projects start at €1,500, while more complex solutions are assessed individually."
-          },
-          {
-            "question": "What's the difference between AI and automation?",
-            "answer": "Automation executes predefined tasks based on rules. AI can interpret information, generate responses or make decisions within defined limits. Many projects combine both approaches."
-          },
-          {
-            "question": "Can AI be integrated into my website?",
-            "answer": "Yes. We can integrate chatbots, smart forms and AI assistants into existing websites or new projects, depending on requirements."
-          },
-          {
-            "question": "Can you connect AI to my CRM?",
-            "answer": "In many cases, yes — provided the CRM offers compatible APIs or integrations. Feasibility is assessed during the project discovery phase."
-          },
-          {
-            "question": "Can automation work without human intervention?",
-            "answer": "It depends on the process. Some tasks can be fully automatic; in others, it makes sense to include human validation, approvals or routing to a person."
-          },
-          {
-            "question": "Can you create a custom solution?",
-            "answer": "Yes. Projects with specific requirements — AI agents, internal systems or complex integrations — are assessed and developed to measure."
-          },
-          {
-            "question": "Is company data protected?",
-            "answer": "Solutions are designed with project requirements in mind, including the data processed, the tools used and their respective configurations. Data protection requirements should be assessed on a case-by-case basis."
-          }
-        ]
-      },
-      "related": {
-        "title": "Explore",
-        "home": "Homepage",
-        "services": "Services",
-        "websites": "Websites",
-        "contact": "Contact"
-      },
-      "cta": {
-        "title": "Have a process you'd like to automate?",
-        "description": "Tell us how it currently works and we'll analyse together where AI or automation could make sense.",
-        "button": "Start project"
-      }
-    },
-    "seo": {
-      "metadata": {
-        "title": "SEO for Businesses in Portugal",
-        "description": "SEO services for businesses in Portugal, including technical SEO, content, search optimization, local SEO and GEO."
-      },
-      "schema": {
-        "serviceName": "SEO",
-        "serviceDescription": "SEO for businesses in Portugal, including technical SEO, content, keyword research, local SEO and GEO/AI Search."
-      },
-      "breadcrumb": {
-        "home": "Home",
-        "services": "Services",
-        "current": "SEO"
-      },
-      "hero": {
-        "title": "SEO for businesses that want to be found.",
-        "description": "We optimise websites, content and digital structure to help businesses improve their search presence and prepare content for new AI-powered search experiences.",
-        "tagline": "Technical SEO, content, research and GEO in an integrated strategy.",
-        "ctaPrimary": "Start project",
-        "ctaSecondary": "View plans",
-        "geoNote": "SEO for businesses in Portugal"
-      },
-      "problems": {
-        "title": "Having a website doesn't mean being found.",
-        "items": {
-          "lowVisibility": {
-            "title": "Low visibility",
-            "description": "The website exists but has little presence in search results."
-          },
-          "unstructuredContent": {
-            "title": "Unstructured content",
-            "description": "Pages don't clearly answer potential customers' questions."
-          },
-          "technicalIssues": {
-            "title": "Technical issues",
-            "description": "Performance, headings, metadata, indexing or structure may limit how well the website is understood."
-          },
-          "noFollowUp": {
-            "title": "SEO without follow-up",
-            "description": "An initial optimisation may not be enough when content and the market keep changing."
-          }
-        }
-      },
-      "work": {
-        "title": "What we do in SEO",
-        "intro": "We work on different SEO dimensions depending on the plan and project goals.",
-        "items": {
-          "audit": {
-            "title": "SEO audit",
-            "description": "Analysis of technical structure, content and current website presence."
-          },
-          "technicalSeo": {
-            "title": "Technical SEO",
-            "description": "Fixing aspects that affect crawlability, indexing and performance."
-          },
-          "keywordResearch": {
-            "title": "Keyword research",
-            "description": "Identifying search terms and intents relevant to the business."
-          },
-          "metadata": {
-            "title": "Metadata",
-            "description": "Optimisation of titles, descriptions and elements that influence results."
-          },
-          "headings": {
-            "title": "Headings",
-            "description": "Hierarchical content structure for better understanding."
-          },
-          "contentStructure": {
-            "title": "Content structure",
-            "description": "Organisation of pages and sections aligned with search intent."
-          },
-          "internalLinking": {
-            "title": "Internal linking",
-            "description": "Internal links that help contextualise and distribute relevance."
-          },
-          "sitemapIndexing": {
-            "title": "Sitemap and indexing",
-            "description": "Configuration and monitoring of indexing for relevant pages."
-          },
-          "searchConsole": {
-            "title": "Google Search Console",
-            "description": "Setup, monitoring and analysis of search data."
-          },
-          "localSeo": {
-            "title": "Local SEO",
-            "description": "Optimisation for geographically intent-driven searches and local presence."
-          },
-          "competitorAnalysis": {
-            "title": "Competitor analysis",
-            "description": "Comparison of presence, content and market opportunities."
-          },
-          "searchContent": {
-            "title": "Search-oriented content",
-            "description": "Creating and optimising content aligned with real user questions."
-          },
-          "geoAiSearch": {
-            "title": "GEO / AI Search",
-            "description": "Content structuring to improve understanding by search and AI systems."
-          },
-          "monitoringOptimization": {
-            "title": "Monitoring and optimisation",
-            "description": "Ongoing data tracking and strategy adjustments."
-          }
-        }
-      },
-      "geo": {
-        "title": "SEO ready for AI-powered search",
-        "description": "Search engines are evolving and AI systems can interpret more information directly from websites. Beyond traditional search optimisation, we structure content to be clear, useful and semantically understandable.",
-        "pillars": {
-          "clearContent": {
-            "title": "Clear content",
-            "description": "Direct answers, useful information and content aligned with search intent."
-          },
-          "semanticStructure": {
-            "title": "Semantic structure",
-            "description": "Headings, entities, internal links and structured data that help contextualise information."
-          },
-          "authorityConsistency": {
-            "title": "Authority and consistency",
-            "description": "Original content, credible information and a coherent digital presence."
-          }
-        }
-      },
-      "pricing": {
-        "title": "Choose the right level of support",
-        "popularBadge": "MOST POPULAR",
-        "setupBadge": "SETUP",
-        "note": "Prices shown are reference values. The final scope of service may vary depending on the website, market, goals and project requirements.",
-        "plans": {
-          "foundation": {
-            "name": "SEO Foundation",
-            "price": "€350",
-            "priceNote": "One-time payment",
-            "description": "A solid technical foundation to prepare the website for search.",
-            "features": [
-              "SEO audit",
-              "Technical SEO",
-              "Metadata",
-              "Headings",
-              "Sitemap",
-              "Google Search Console",
-              "Indexing",
-              "Base schema"
-            ],
-            "cta": "Start project"
-          },
-          "growth": {
-            "name": "SEO Growth",
-            "price": "€500 / month",
-            "description": "For businesses that want to work on SEO continuously.",
-            "features": [
-              "Ongoing optimisation",
-              "Keyword research",
-              "Content",
-              "Internal linking",
-              "Google Search Console",
-              "Monthly analysis",
-              "Reporting"
-            ],
-            "cta": "Start project"
-          },
-          "advanced": {
-            "name": "SEO Advanced",
-            "price": "€900 / month",
-            "description": "For businesses that want a more complete SEO strategy and advanced support.",
-            "features": [
-              "Full SEO strategy",
-              "Technical SEO",
-              "Content",
-              "Competitor analysis",
-              "Ongoing optimisation",
-              "GEO / AI Search",
-              "Reporting",
-              "Strategic support"
-            ],
-            "cta": "Discuss your project"
-          }
-        }
-      },
-      "process": {
-        "title": "How we work on SEO",
-        "steps": {
-          "audit": {
-            "title": "Audit",
-            "description": "We analyse technical structure, content and current presence."
-          },
-          "define": {
-            "title": "Define",
-            "description": "We identify optimisation opportunities and priorities."
-          },
-          "optimize": {
-            "title": "Optimise",
-            "description": "We implement technical, structural and content improvements."
-          },
-          "monitor": {
-            "title": "Monitor",
-            "description": "We analyse data and adjust the strategy over time."
-          }
-        }
-      },
-      "metrics": {
-        "title": "SEO should be backed by data.",
-        "intro": "Available metrics depend on analytics tools, Google Search Console and project configuration. We do not promise specific increases.",
-        "items": [
-          "Impressions",
-          "Clicks",
-          "CTR",
-          "Average positions",
-          "Search queries",
-          "Indexed pages",
-          "Organic traffic",
-          "Conversions, when configured"
-        ]
-      },
-      "faq": {
-        "title": "Frequently asked questions",
-        "items": [
-          {
-            "question": "What is SEO?",
-            "answer": "SEO (Search Engine Optimization) is the set of practices aimed at improving a website's visibility in organic search results, through technical optimisation, content, structure and authority."
-          },
-          {
-            "question": "How much does SEO cost?",
-            "answer": "SEO Foundation costs €350 as a one-time payment. SEO Growth costs €500 per month and SEO Advanced costs €900 per month. Final scope may vary depending on the website and requirements."
-          },
-          {
-            "question": "What's the difference between SEO Foundation, Growth and Advanced?",
-            "answer": "SEO Foundation is an initial setup with a technical base. SEO Growth includes ongoing optimisation, research and monthly reporting. SEO Advanced adds a more complete strategy, competitor analysis, GEO/AI Search and strategic support."
-          },
-          {
-            "question": "How long does SEO take to produce results?",
-            "answer": "SEO is an ongoing process. Results vary depending on market, competition, current website state, content, authority and other factors. Specific timelines cannot be guaranteed."
-          },
-          {
-            "question": "Can you guarantee first position on Google?",
-            "answer": "No. No agency can legitimately guarantee a specific position in Google's organic results."
-          },
-          {
-            "question": "What is GEO?",
-            "answer": "GEO, or Generative Engine Optimization, refers to optimising content and structure to improve how information can be understood and used by search and AI systems."
-          },
-          {
-            "question": "Does SEO help with AI-powered search engines?",
-            "answer": "Good content structure, technical SEO and clear information can help information be better understood. However, there is no guarantee of appearing in AI-generated answers or AI Overviews."
-          },
-          {
-            "question": "Is it necessary to publish content regularly?",
-            "answer": "It depends on the strategy and market. Some projects benefit from regular content; in others, the priority may be optimising existing pages. We define the approach based on goals."
-          },
-          {
-            "question": "Can you work on SEO for a website built by another company?",
-            "answer": "Yes. We can audit and optimise existing websites, provided we have the necessary access to the tools and platforms involved."
-          },
-          {
-            "question": "Do you handle local SEO?",
-            "answer": "Yes. Local SEO can be included in Growth and Advanced plans, depending on the business's geographic goals."
-          }
-        ]
-      },
-      "related": {
-        "title": "Explore",
-        "home": "Homepage",
-        "services": "Services",
-        "websites": "Websites",
-        "ai": "AI & Automation",
-        "contact": "Contact"
-      },
-      "cta": {
-        "title": "Is your website ready to be found?",
-        "description": "Tell us about your business and we'll analyse where there are opportunities to improve your digital presence.",
-        "button": "Start project"
-      }
-    }
-  },
   "faq": {
     "metadata": {
       "title": "FAQ — Websites, AI & SEO | Artecium",
@@ -2184,7 +2020,7 @@
           },
           {
             "question": "How much does a professional website cost?",
-            "answer": "At Artecium, websites start at €750. The Website Professional plan is €1,500 and Business projects start at €2,500, depending on features and requirements.",
+            "answer": "At Artecium, websites start at €750 (Essential) plus €29/month. Professional is €1,500 with €49/month. Business: From €2,500 with From €89/month. Final scope depends on features and requirements.",
             "link": {
               "label": "Explore website solutions",
               "service": "websites"
@@ -2222,7 +2058,7 @@
           },
           {
             "question": "How much does it cost to implement AI in a business?",
-            "answer": "Artecium AI solutions start at €750. Automation projects start at €1,500, while more complex solutions are quoted individually.",
+            "answer": "Artecium AI Solutions start at From €750 with €49/month. Automation projects start at From €1,500 with €99/month. Business automation is quoted individually, with ongoing support From €199/month.",
             "link": {
               "label": "Explore AI & automation solutions",
               "service": "ia"
@@ -2256,7 +2092,7 @@
           },
           {
             "question": "How much does SEO cost?",
-            "answer": "At Artecium, SEO Foundation costs €350 as a one-time payment. SEO Growth is €500 per month and SEO Advanced is €900 per month.",
+            "answer": "At Artecium, SEO Foundation costs €350 as a one-time payment. SEO Growth is €400 per month and SEO Advanced is €750 per month.",
             "link": {
               "label": "Explore SEO services",
               "service": "seo"
@@ -2307,7 +2143,7 @@
           },
           {
             "question": "How much does a custom project cost?",
-            "answer": "It depends on scope and features. Websites start at €750, AI solutions at €750, automation from €1,500 and SEO from €350. More complex projects are quoted individually."
+            "answer": "It depends on scope and features. Websites start at €750 with €29/month; AI Solutions from €750 with €49/month; automation from €1,500 with €99/month; SEO from €350; Booking from €150 with €19/month (Starter) or €300 with €39/month (Professional). More complex projects are quoted individually."
           },
           {
             "question": "Do you work with businesses in Portugal?",
@@ -2365,7 +2201,11 @@
         "priceTable": {
           "title": "Pricing by project type",
           "disclaimer": "The categories below describe common project types. They are not fixed market prices — every quote depends on scope, features, and provider. When we mention Artecium prices, we state that explicitly.",
-          "headers": ["Project type", "What it usually includes", "Pricing note"],
+          "headers": [
+            "Project type",
+            "What it usually includes",
+            "Pricing note"
+          ],
           "rows": [
             {
               "type": "Landing page / simple page",
@@ -2474,12 +2314,12 @@
             },
             {
               "name": "SEO Growth",
-              "price": "€500/month",
+              "price": "€400/month",
               "description": "Ongoing optimization, keyword research, content work, and monthly reporting."
             },
             {
               "name": "SEO Advanced",
-              "price": "€900/month",
+              "price": "€750/month",
               "description": "More complete strategy, competitor analysis, GEO/AI Search, and strategic follow-up."
             }
           ],
@@ -2491,17 +2331,17 @@
           "plans": [
             {
               "name": "Essential",
-              "price": "€750",
+              "price": "€750 + €29/month",
               "description": "Essential professional website for businesses that need a solid, clear online presence."
             },
             {
               "name": "Professional",
-              "price": "€1,500",
+              "price": "€1,500 + €49/month",
               "description": "More content depth, structure, and preparation for growth and conversion."
             },
             {
               "name": "Business",
-              "price": "from €2,500",
+              "price": "From €2,500 + from €89/month",
               "description": "Projects with advanced features, integrations, or specific business requirements."
             }
           ],
@@ -2512,7 +2352,7 @@
           "items": [
             {
               "question": "How much does a website cost for a small business?",
-              "answer": "For many small businesses, a well-built corporate or professional website is enough. At Artecium, websites start at €750 (Essential). If you need more pages, SEO, or features, the Professional plan (€1,500) or Business (from €2,500) may be a better fit."
+              "answer": "For many small businesses, a well-built corporate or professional website is enough. At Artecium, websites start at €750 (Essential) plus €29/month. If you need more pages, SEO, or features, Professional (€1,500 + €49/month) or Business (From €2,500 + From €89/month) may be a better fit."
             },
             {
               "question": "How long does it take to build a website?",
@@ -2542,12 +2382,30 @@
         },
         "relatedLinksTitle": "Related reading",
         "relatedLinks": [
-          { "label": "Blog", "hrefKey": "blog" },
-          { "label": "How much does SEO cost?", "articleId": "seoCostPortugal2026" },
-          { "label": "Professional vs cheap website", "articleId": "professionalVsCheapWebsite" },
-          { "label": "Website vs web application", "articleId": "websiteVsWebApp" },
-          { "label": "Websites", "hrefKey": "websites" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "Blog",
+            "hrefKey": "blog"
+          },
+          {
+            "label": "How much does SEO cost?",
+            "articleId": "seoCostPortugal2026"
+          },
+          {
+            "label": "Professional vs cheap website",
+            "articleId": "professionalVsCheapWebsite"
+          },
+          {
+            "label": "Website vs web application",
+            "articleId": "websiteVsWebApp"
+          },
+          {
+            "label": "Websites",
+            "hrefKey": "websites"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Talk to us about your project",
@@ -2957,12 +2815,11 @@
     "savePreferences": "Save preferences",
     "cookiePolicy": "Cookie Policy",
     "preferencesTitle": "Cookie preferences",
-    "preferencesDescription": "Choose which optional cookie categories you want to allow.",
+    "preferencesDescription": "Allow saving preferences such as language and other experience settings.",
     "necessary": "Necessary cookies",
     "necessaryStatus": "Always active",
     "necessaryDescription": "Essential for the website to work, including authentication and security.",
     "preferences": "Preferences",
-    "preferencesDescription": "Allow saving preferences such as language and other experience settings.",
     "analytics": "Analytics",
     "analyticsDescription": "Help us understand how the website is used (Google Analytics and Microsoft Clarity).",
     "marketing": "Marketing",

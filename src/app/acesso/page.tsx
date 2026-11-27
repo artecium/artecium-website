@@ -50,6 +50,7 @@ export default async function AcessoPage({ searchParams }: AcessoPageProps) {
         access={access}
         reason={parseReason(reasonParam)}
         homeHref={locale === "en" ? "/en" : "/"}
+        displayName={session.profile.full_name ?? session.profile.email}
       />
     </>
   );

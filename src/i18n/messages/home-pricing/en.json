@@ -75,8 +75,6 @@
           "essential": {
             "name": "Essential",
             "description": "Professional online presence with the essentials to generate enquiries.",
-            "setupPrice": "€750",
-            "monthlyPrice": "€29/month",
             "features": [
               "Up to 5 pages",
               "Custom design",
@@ -94,8 +92,6 @@
           "professional": {
             "name": "Professional",
             "description": "A fuller website to grow with integrations and priority support.",
-            "setupPrice": "€1,500",
-            "monthlyPrice": "€49/month",
             "features": [
               "Up to 10 pages",
               "Advanced custom design",
@@ -116,8 +112,6 @@
           "business": {
             "name": "Business",
             "description": "Tailored solution for projects with advanced functionality.",
-            "setupPrice": "From €2,500",
-            "monthlyPrice": "€89/month",
             "features": [
               "Custom website",
               "Pages as required by the project",
@@ -137,15 +131,78 @@
         },
         "comparison": {
           "rows": [
-            { "feature": "Pages", "values": ["Up to 5", "Up to 10", "Per project"] },
-            { "feature": "Custom design", "values": ["yes", "yes", "yes"] },
-            { "feature": "Advanced animations", "values": ["no", "yes", "yes"] },
-            { "feature": "Blog", "values": ["no", "yes", "yes"] },
-            { "feature": "External integrations", "values": ["—", "Up to 2", "Custom"] },
-            { "feature": "Client area", "values": ["no", "no", "Optional"] },
-            { "feature": "Booking integration", "values": ["no", "no", "Optional"] },
-            { "feature": "Backups", "values": ["Weekly", "Daily", "Daily"] },
-            { "feature": "Support", "values": ["Basic", "Priority", "Priority"] }
+            {
+              "feature": "Pages",
+              "values": [
+                "Up to 5",
+                "Up to 10",
+                "Per project"
+              ]
+            },
+            {
+              "feature": "Custom design",
+              "values": [
+                "yes",
+                "yes",
+                "yes"
+              ]
+            },
+            {
+              "feature": "Advanced animations",
+              "values": [
+                "no",
+                "yes",
+                "yes"
+              ]
+            },
+            {
+              "feature": "Blog",
+              "values": [
+                "no",
+                "yes",
+                "yes"
+              ]
+            },
+            {
+              "feature": "External integrations",
+              "values": [
+                "—",
+                "Up to 2",
+                "Custom"
+              ]
+            },
+            {
+              "feature": "Client area",
+              "values": [
+                "no",
+                "no",
+                "Optional"
+              ]
+            },
+            {
+              "feature": "Booking integration",
+              "values": [
+                "no",
+                "no",
+                "Optional"
+              ]
+            },
+            {
+              "feature": "Backups",
+              "values": [
+                "Weekly",
+                "Daily",
+                "Daily"
+              ]
+            },
+            {
+              "feature": "Support",
+              "values": [
+                "Basic",
+                "Priority",
+                "Priority"
+              ]
+            }
           ]
         }
       },
@@ -154,8 +211,6 @@
           "aiSolutions": {
             "name": "AI Solutions",
             "description": "A simple assistant with integration and baseline monitoring.",
-            "setupPrice": "From €750",
-            "monthlyPrice": "€49/month",
             "commercialLimit": "Up to 500 interactions/month",
             "features": [
               "One AI assistant",
@@ -172,8 +227,6 @@
           "automation": {
             "name": "Automation",
             "description": "More workflows, integrations and monthly optimisation.",
-            "setupPrice": "From €1,500",
-            "monthlyPrice": "€99/month",
             "commercialLimit": "Up to 2,000 runs/month",
             "features": [
               "Up to 2 AI assistants where applicable",
@@ -190,8 +243,6 @@
           "businessAutomation": {
             "name": "Business Automation",
             "description": "Custom AI and automation for business processes.",
-            "setupPrice": "Custom",
-            "monthlyPrice": "From €199/month",
             "commercialLimit": "Limits defined per project",
             "features": [
               "Custom AI solutions",
@@ -208,12 +259,54 @@
         },
         "comparison": {
           "rows": [
-            { "feature": "AI assistants", "values": ["1", "Up to 2", "Custom"] },
-            { "feature": "Workflows", "values": ["1 simple", "Up to 5", "Advanced"] },
-            { "feature": "Integrations", "values": ["1", "Up to 3", "Enterprise"] },
-            { "feature": "Reporting", "values": ["Basic", "Monthly", "Custom"] },
-            { "feature": "Optimisation", "values": ["Quarterly", "Monthly", "Ongoing"] },
-            { "feature": "Support", "values": ["Standard", "Priority", "Priority"] }
+            {
+              "feature": "AI assistants",
+              "values": [
+                "1",
+                "Up to 2",
+                "Custom"
+              ]
+            },
+            {
+              "feature": "Workflows",
+              "values": [
+                "1 simple",
+                "Up to 5",
+                "Advanced"
+              ]
+            },
+            {
+              "feature": "Integrations",
+              "values": [
+                "1",
+                "Up to 3",
+                "Enterprise"
+              ]
+            },
+            {
+              "feature": "Reporting",
+              "values": [
+                "Basic",
+                "Monthly",
+                "Custom"
+              ]
+            },
+            {
+              "feature": "Optimisation",
+              "values": [
+                "Quarterly",
+                "Monthly",
+                "Ongoing"
+              ]
+            },
+            {
+              "feature": "Support",
+              "values": [
+                "Standard",
+                "Priority",
+                "Priority"
+              ]
+            }
           ]
         }
       },
@@ -222,9 +315,6 @@
           "foundation": {
             "name": "SEO Foundation",
             "description": "Initial technical setup for indexing and a solid base.",
-            "setupPrice": "€350",
-            "monthlyPrice": "—",
-            "monthlyNote": "noMonthly",
             "features": [
               "Initial SEO audit",
               "Technical analysis",
@@ -241,8 +331,6 @@
           "growth": {
             "name": "SEO Growth",
             "description": "Monthly support to grow organically.",
-            "setupPrice": "Included",
-            "monthlyPrice": "€400/month",
             "features": [
               "Initial audit",
               "Keyword strategy",
@@ -259,8 +347,6 @@
           "advanced": {
             "name": "SEO Advanced",
             "description": "Advanced SEO strategy with strategic support.",
-            "setupPrice": "Included",
-            "monthlyPrice": "€750/month",
             "features": [
               "Advanced SEO strategy",
               "Up to 50 keywords tracked",
@@ -277,12 +363,54 @@
         },
         "comparison": {
           "rows": [
-            { "feature": "Service type", "values": ["One-off", "Monthly", "Monthly"] },
-            { "feature": "Keywords", "values": ["Up to 10", "Up to 25", "Up to 50"] },
-            { "feature": "Pages optimised (initial)", "values": ["Up to 5", "Up to 10", "Up to 20"] },
-            { "feature": "Content per month", "values": ["—", "Up to 2", "Up to 4"] },
-            { "feature": "Competitors analysed", "values": ["—", "2", "5"] },
-            { "feature": "GEO / AI Search", "values": ["—", "Basic", "Advanced"] }
+            {
+              "feature": "Service type",
+              "values": [
+                "One-off",
+                "Monthly",
+                "Monthly"
+              ]
+            },
+            {
+              "feature": "Keywords",
+              "values": [
+                "Up to 10",
+                "Up to 25",
+                "Up to 50"
+              ]
+            },
+            {
+              "feature": "Pages optimised (initial)",
+              "values": [
+                "Up to 5",
+                "Up to 10",
+                "Up to 20"
+              ]
+            },
+            {
+              "feature": "Content per month",
+              "values": [
+                "—",
+                "Up to 2",
+                "Up to 4"
+              ]
+            },
+            {
+              "feature": "Competitors analysed",
+              "values": [
+                "—",
+                "2",
+                "5"
+              ]
+            },
+            {
+              "feature": "GEO / AI Search",
+              "values": [
+                "—",
+                "Basic",
+                "Advanced"
+              ]
+            }
           ]
         }
       },
@@ -291,8 +419,6 @@
           "starter": {
             "name": "Starter",
             "description": "Online bookings for businesses getting started.",
-            "setupPrice": "€150",
-            "monthlyPrice": "€19/month",
             "commercialLimit": "100 bookings/month",
             "features": [
               "Public booking page",
@@ -309,8 +435,6 @@
           "professional": {
             "name": "Professional",
             "description": "More capacity, calendar and advanced reporting.",
-            "setupPrice": "€300",
-            "monthlyPrice": "€39/month",
             "commercialLimit": "500 bookings/month",
             "features": [
               "Public booking page",
@@ -329,8 +453,6 @@
           "business": {
             "name": "Business",
             "description": "Multi-location with integrations and priority support.",
-            "setupPrice": "Custom",
-            "monthlyPrice": "€69/month",
             "commercialLimit": "2,000 bookings/month",
             "features": [
               "Up to 3 locations",
@@ -349,12 +471,54 @@
         },
         "comparison": {
           "rows": [
-            { "feature": "Locations", "values": ["1", "1", "Up to 3"] },
-            { "feature": "Staff", "values": ["1", "Up to 5", "Up to 15"] },
-            { "feature": "Services", "values": ["Up to 5", "Up to 20", "No commercial cap"] },
-            { "feature": "Google Calendar", "values": ["no", "yes", "yes"] },
-            { "feature": "Integrations/API", "values": ["no", "no", "yes"] },
-            { "feature": "Visual customisation", "values": ["Basic", "Intermediate", "Advanced"] }
+            {
+              "feature": "Locations",
+              "values": [
+                "1",
+                "1",
+                "Up to 3"
+              ]
+            },
+            {
+              "feature": "Staff",
+              "values": [
+                "1",
+                "Up to 5",
+                "Up to 15"
+              ]
+            },
+            {
+              "feature": "Services",
+              "values": [
+                "Up to 5",
+                "Up to 20",
+                "No commercial cap"
+              ]
+            },
+            {
+              "feature": "Google Calendar",
+              "values": [
+                "no",
+                "yes",
+                "yes"
+              ]
+            },
+            {
+              "feature": "Integrations/API",
+              "values": [
+                "no",
+                "no",
+                "yes"
+              ]
+            },
+            {
+              "feature": "Visual customisation",
+              "values": [
+                "Basic",
+                "Intermediate",
+                "Advanced"
+              ]
+            }
           ]
         }
       }

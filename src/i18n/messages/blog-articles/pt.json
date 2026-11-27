@@ -48,7 +48,7 @@
       "seoCostPortugal2026": {
         "metadata": {
           "title": "Quanto custa SEO em Portugal em 2026?",
-          "description": "Guia sobre preços de SEO em Portugal: planos Foundation (350 €), Growth (500 €/mês) e Advanced (900 €/mês) da Artecium, o que incluem e como escolher."
+          "description": "Guia sobre preços de SEO em Portugal: planos Foundation (350 €), Growth (400 €/mês) e Advanced (750 €/mês) da Artecium, o que incluem e como escolher."
         },
         "breadcrumb": {
           "current": "Quanto custa SEO"
@@ -96,12 +96,12 @@
               },
               {
                 "name": "SEO Growth",
-                "price": "500 €/mês",
+                "price": "400 €/mês",
                 "description": "Otimização contínua, pesquisa de keywords, conteúdo e reporting mensal. Indicado para empresas que querem crescer de forma consistente nos motores de busca."
               },
               {
                 "name": "SEO Advanced",
-                "price": "900 €/mês",
+                "price": "750 €/mês",
                 "description": "Estratégia mais completa, análise de concorrência, GEO/AI Search e acompanhamento estratégico. Para negócios com objetivos ambiciosos ou mercados mais competitivos."
               }
             ],
@@ -143,11 +143,15 @@
             "id": "seo-vs-ads",
             "title": "SEO vs publicidade paga — o que esperar?",
             "intro": "SEO e anúncios (Google Ads, Meta Ads) resolvem problemas diferentes. Compreender a diferença ajuda a definir o orçamento certo.",
-            "headers": ["Aspeto", "SEO", "Publicidade paga"],
+            "headers": [
+              "Aspeto",
+              "SEO",
+              "Publicidade paga"
+            ],
             "rows": [
               {
                 "aspect": "Custo inicial",
-                "col1": "Setup a partir de 350 €; planos mensais a partir de 500 €",
+                "col1": "Setup a partir de 350 €; planos mensais a partir de 400 €",
                 "col2": "Orçamento de anúncios + gestão (variável)"
               },
               {
@@ -173,7 +177,7 @@
           "items": [
             {
               "question": "Quanto custa SEO por mês em Portugal?",
-              "answer": "Na Artecium, o SEO contínuo começa nos 500 €/mês (SEO Growth). O plano Advanced custa 900 €/mês. Para websites que precisam apenas de configuração técnica inicial, o SEO Foundation custa 350 € como pagamento único."
+              "answer": "Na Artecium, o SEO contínuo começa nos 400 €/mês (SEO Growth). O plano Advanced custa 750 €/mês. Para websites que precisam apenas de configuração técnica inicial, o SEO Foundation custa 350 € como pagamento único."
             },
             {
               "question": "O SEO Foundation é suficiente sozinho?",
@@ -195,10 +199,22 @@
         },
         "relatedLinksTitle": "Leia também",
         "relatedLinks": [
-          { "label": "O que é SEO?", "articleId": "whatIsSeo" },
-          { "label": "Quanto custa um website?", "articleId": "websiteCostPortugal2026" },
-          { "label": "Serviço de SEO", "hrefKey": "seo" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "O que é SEO?",
+            "articleId": "whatIsSeo"
+          },
+          {
+            "label": "Quanto custa um website?",
+            "articleId": "websiteCostPortugal2026"
+          },
+          {
+            "label": "Serviço de SEO",
+            "hrefKey": "seo"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Quer perceber qual plano de SEO faz sentido?",
@@ -234,7 +250,11 @@
             "id": "side-by-side",
             "title": "Comparação lado a lado",
             "intro": "Esta tabela resume diferenças comuns — o detalhe varia consoante o fornecedor, mas os padrões são consistentes no mercado.",
-            "headers": ["Aspeto", "Website barato", "Website profissional"],
+            "headers": [
+              "Aspeto",
+              "Website barato",
+              "Website profissional"
+            ],
             "rows": [
               {
                 "aspect": "Design",
@@ -356,10 +376,22 @@
         },
         "relatedLinksTitle": "Leia também",
         "relatedLinks": [
-          { "label": "Quanto custa um website?", "articleId": "websiteCostPortugal2026" },
-          { "label": "Website ou aplicação web?", "articleId": "websiteVsWebApp" },
-          { "label": "Serviço de websites", "hrefKey": "websites" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "Quanto custa um website?",
+            "articleId": "websiteCostPortugal2026"
+          },
+          {
+            "label": "Website ou aplicação web?",
+            "articleId": "websiteVsWebApp"
+          },
+          {
+            "label": "Serviço de websites",
+            "hrefKey": "websites"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Quer um website profissional para o seu negócio?",
@@ -430,7 +462,7 @@
             "paragraphs": [
               "SEO não produz resultados da noite para o dia. Dependendo do setor, da concorrência e do estado atual do website, pode levar semanas ou meses para ver evolução significativa nas posições e no tráfego orgânico.",
               "Também não é garantia de posição #1 para todas as keywords. O objetivo realista é aparecer nas primeiras páginas para termos relevantes para o negócio — e melhorar progressivamente ao longo do tempo.",
-              "SEO funciona melhor como investimento contínuo, não como ação pontual. Um setup técnico inicial (como o SEO Foundation da Artecium, a 350 €) prepara a base; acompanhamento mensal (Growth a 500 €/mês ou Advanced a 900 €/mês) mantém e acelera o crescimento."
+              "SEO funciona melhor como investimento contínuo, não como ação pontual. Um setup técnico inicial (como o SEO Foundation da Artecium, a 350 €) prepara a base; acompanhamento mensal (Growth a 400 €/mês ou Advanced a 750 €/mês) mantém e acelera o crescimento."
             ]
           },
           {
@@ -483,10 +515,22 @@
         },
         "relatedLinksTitle": "Leia também",
         "relatedLinks": [
-          { "label": "Quanto custa SEO?", "articleId": "seoCostPortugal2026" },
-          { "label": "Quanto custa um website?", "articleId": "websiteCostPortugal2026" },
-          { "label": "Serviço de SEO", "hrefKey": "seo" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "Quanto custa SEO?",
+            "articleId": "seoCostPortugal2026"
+          },
+          {
+            "label": "Quanto custa um website?",
+            "articleId": "websiteCostPortugal2026"
+          },
+          {
+            "label": "Serviço de SEO",
+            "hrefKey": "seo"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Quer melhorar a visibilidade do seu website?",
@@ -522,7 +566,11 @@
             "id": "comparison-table",
             "title": "Comparação prática",
             "intro": "Use esta tabela para perceber onde o seu projeto se encaixa.",
-            "headers": ["Aspeto", "Website", "Aplicação web"],
+            "headers": [
+              "Aspeto",
+              "Website",
+              "Aplicação web"
+            ],
             "rows": [
               {
                 "aspect": "Objetivo principal",
@@ -609,7 +657,7 @@
             "id": "pricing-context",
             "title": "Quanto custa cada opção?",
             "paragraphs": [
-              "Na Artecium, websites começam nos 750 € (Essential) e o plano Professional custa 1.500 €. Projetos com funcionalidades avançadas — integrações, automação, multi-idioma — entram no plano Business a partir de 2.500 €.",
+              "Na Artecium, websites começam nos 750 € (Essential) + 29 €/mês. O plano Professional custa 1.500 € + 49 €/mês. Projetos com funcionalidades avançadas — integrações, automação, multi-idioma — entram no plano Business desde 2.500 € + desde 89 €/mês.",
               "Aplicações web começam nos 3.500 € porque envolvem backend, base de dados, autenticação, segurança e lógica de negócio específica. Cada aplicação é orçamentada individualmente consoante os requisitos.",
               "Se o projeto combina website público com funcionalidades avançadas, convém analisar se um website Business ampliado resolve ou se precisa de uma aplicação dedicada — a resposta depende dos requisitos concretos."
             ]
@@ -656,10 +704,22 @@
         },
         "relatedLinksTitle": "Leia também",
         "relatedLinks": [
-          { "label": "Quanto custa um website?", "articleId": "websiteCostPortugal2026" },
-          { "label": "Website com IA", "articleId": "aiPoweredWebsite" },
-          { "label": "Serviço de websites", "hrefKey": "websites" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "Quanto custa um website?",
+            "articleId": "websiteCostPortugal2026"
+          },
+          {
+            "label": "Website com IA",
+            "articleId": "aiPoweredWebsite"
+          },
+          {
+            "label": "Serviço de websites",
+            "hrefKey": "websites"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Não tem a certeza do que precisa?",
@@ -781,7 +841,11 @@
             "id": "with-without-ai",
             "title": "Website com e sem IA — o que muda?",
             "intro": "Comparar ajuda a perceber se o investimento em IA faz sentido para o seu caso.",
-            "headers": ["Aspeto", "Website tradicional", "Website com IA/automação"],
+            "headers": [
+              "Aspeto",
+              "Website tradicional",
+              "Website com IA/automação"
+            ],
             "rows": [
               {
                 "aspect": "Contactos",
@@ -833,10 +897,22 @@
         },
         "relatedLinksTitle": "Leia também",
         "relatedLinks": [
-          { "label": "Website ou aplicação web?", "articleId": "websiteVsWebApp" },
-          { "label": "Quanto custa um website?", "articleId": "websiteCostPortugal2026" },
-          { "label": "IA e Automação", "hrefKey": "ia" },
-          { "label": "FAQ", "hrefKey": "faq" }
+          {
+            "label": "Website ou aplicação web?",
+            "articleId": "websiteVsWebApp"
+          },
+          {
+            "label": "Quanto custa um website?",
+            "articleId": "websiteCostPortugal2026"
+          },
+          {
+            "label": "IA e Automação",
+            "hrefKey": "ia"
+          },
+          {
+            "label": "FAQ",
+            "hrefKey": "faq"
+          }
         ],
         "cta": {
           "title": "Quer integrar IA no seu website?",

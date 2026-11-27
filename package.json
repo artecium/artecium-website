@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:prototype": "node scripts/run-lab-dev.mjs prototype",
+    "dev:staging": "node scripts/run-lab-dev.mjs staging",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -52,7 +54,8 @@
     "verify:booking-public-flow": "node --experimental-strip-types scripts/verify-booking-public-flow.mjs",
     "db:apply:booking-024": "node scripts/booking-apply-migration-024.mjs",
     "verify:area-access": "node --import ./scripts/node-at-alias.mjs --experimental-strip-types scripts/verify-area-access.mjs",
-    "verify:google-oauth": "node --experimental-strip-types scripts/verify-google-oauth.mjs"
+    "verify:google-oauth": "node --experimental-strip-types scripts/verify-google-oauth.mjs",
+    "verify:lab-guards": "node --import ./scripts/node-at-alias.mjs --experimental-strip-types scripts/verify-lab-guards.mjs"
   },
   "dependencies": {
     "@hugeicons/core-free-icons": "^4.4.0",

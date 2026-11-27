@@ -14,7 +14,7 @@ export function BookingDashboardPreview() {
 
   return (
     <div
-      className="pointer-events-none flex h-full select-none flex-col bg-[#050816] text-white"
+      className="pointer-events-none flex h-full w-full min-w-full select-none flex-col bg-[#050816] text-white"
       aria-hidden="true"
     >
       <header className="flex items-center justify-between border-b border-[#1E293B] px-4 py-3">
@@ -97,7 +97,7 @@ export function BookingDashboardBrowserFrame() {
     <div
       role="img"
       aria-label={t("overview")}
-      className="flex h-full flex-col overflow-hidden rounded-xl bg-[#050816]"
+      className="flex h-full w-full min-w-full flex-col overflow-hidden rounded-xl bg-[#050816]"
     >
       <div className="flex items-center gap-2 border-b border-[#1E293B] bg-[#0E1324]/80 px-3 py-2.5 sm:px-4">
         <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]/70" />

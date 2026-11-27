@@ -1,0 +1,78 @@
+---
+description: Artecium — proteção do repo, ambientes, âmbito, validação, aprovação e publicação
+alwaysApply: true
+---
+
+# Artecium — proteção, qualidade e controlo
+
+Complementa `artecium-local-publish-protocol.mdc`. **Regra de ouro:** o utilizador controla a publicação; desenvolver, testar, apresentar e aguardar.
+
+## 1. Proteção do repositório
+
+**Antes de qualquer alteração:** `git status`; identificar staged, unstaged, untracked; branch e último commit; preservar todo o trabalho local.
+
+**Proibido sem autorização explícita:** `git reset --hard`, `git clean -fd`, `git checkout -- .`, `git restore .` (em massa), rebase, force push, apagar ficheiros/dirs fora do âmbito.
+
+Preferir diffs localizados; não reescrever ficheiros inteiros sem necessidade.
+
+## 2. Separação de ambientes
+
+| Ambiente | Uso |
+|----------|-----|
+| Localhost | Desenvolvimento |
+| Supabase Sandbox | Testes que criem/alterem/eliminem dados |
+| Supabase Production | Dados reais — só com ordem explícita |
+| Vercel Preview | Validação de deployments |
+| Vercel Production | Público — só após aprovação + Fase 4 |
+
+- Sandbox para mutações de dados em testes; não credenciais prod em scripts de teste sem ordem.
+- Sem migrações prod automáticas; sem apagar reservas/utilizadores/empresas reais.
+- Sem secrets em logs ou relatórios; confirmar projeto/ambiente antes de operações remotas.
+
+## 3. Âmbito das alterações
+
+- Só o pedido; sem refactoring geral, substituição total de componentes ou dependências novas sem motivo.
+- Não alterar design global se o pedido é uma página/componente.
+- Se tocar noutras áreas, **explicar antes** e listar efeitos secundários.
+
+## 4. Validação visual (UI)
+
+Localhost + páginas afetadas no browser; desktop, tablet, mobile; cores, tipo, espaçamento, alinhamento; hover/focus/active/disabled; contraste/a11y; consola sem erros críticos.
+
+**Screenshots obrigatórios** antes de pedir aprovação. Compilar ≠ concluído.
+
+## 5. Validação funcional
+
+Fluxo completo; sucesso e erro; auth/permissões se aplicável; regressões relacionadas; testes automatizados relevantes; listar testes não executados.
+
+**Build PASS ≠ validação funcional PASS.**
+
+## 6. Relatório Fase 3 (obrigatório)
+
+1. Resumo  
+2. Ficheiros modificados  
+3. Funcionalidades afetadas  
+4. Screenshots (se UI)  
+5. Testes e resultados  
+6. Problemas conhecidos  
+7. Confirmação: **sem** commit, push ou deploy  
+8. URL localhost  
+
+Não pedir aprovação com erros críticos conhecidos em aberto.
+
+## 7. Aprovação explícita
+
+- Silêncio ≠ aprovação; pedidos de correção ≠ autorização para publicar.
+- Alterações após aprovação → novo relatório e nova aprovação.
+- Publicar **só** o que foi aprovado.
+- Frase tipo **«Aprovado, publicar»** autoriza apenas a versão validada apresentada.
+
+## 8. Publicação e recuperação (após ordem)
+
+`git status` de novo; só ficheiros aprovados; commits organizados; build final; push; Vercel prod; confirmar deployment e domínios; smoke dos fluxos principais.
+
+Registar **último deployment estável** (ID Vercel) para recuperação rápida.
+
+## 9. Publicação — checklist extra
+
+Após «Aprovado, publicar»: não incluir alterações não validadas; manter histórico (revert, não reset destrutivo salvo ordem do utilizador).

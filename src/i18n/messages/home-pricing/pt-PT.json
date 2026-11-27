@@ -75,8 +75,6 @@
           "essential": {
             "name": "Essential",
             "description": "Presença online profissional com o essencial para gerar contactos.",
-            "setupPrice": "750 €",
-            "monthlyPrice": "29 €/mês",
             "features": [
               "Até 5 páginas",
               "Design personalizado",
@@ -94,8 +92,6 @@
           "professional": {
             "name": "Professional",
             "description": "Website mais completo para crescer com integrações e suporte prioritário.",
-            "setupPrice": "1.500 €",
-            "monthlyPrice": "49 €/mês",
             "features": [
               "Até 10 páginas",
               "Design personalizado avançado",
@@ -116,8 +112,6 @@
           "business": {
             "name": "Business",
             "description": "Solução à medida para projetos com funcionalidades avançadas.",
-            "setupPrice": "Desde 2.500 €",
-            "monthlyPrice": "89 €/mês",
             "features": [
               "Website personalizado",
               "Páginas conforme o projeto",
@@ -137,15 +131,78 @@
         },
         "comparison": {
           "rows": [
-            { "feature": "Páginas", "values": ["Até 5", "Até 10", "Conforme projeto"] },
-            { "feature": "Design personalizado", "values": ["yes", "yes", "yes"] },
-            { "feature": "Animações avançadas", "values": ["no", "yes", "yes"] },
-            { "feature": "Blog", "values": ["no", "yes", "yes"] },
-            { "feature": "Integrações externas", "values": ["—", "Até 2", "Personalizadas"] },
-            { "feature": "Área reservada", "values": ["no", "no", "Opcional"] },
-            { "feature": "Integração Booking", "values": ["no", "no", "Opcional"] },
-            { "feature": "Backups", "values": ["Semanais", "Diários", "Diários"] },
-            { "feature": "Suporte", "values": ["Básico", "Prioritário", "Prioritário"] }
+            {
+              "feature": "Páginas",
+              "values": [
+                "Até 5",
+                "Até 10",
+                "Conforme projeto"
+              ]
+            },
+            {
+              "feature": "Design personalizado",
+              "values": [
+                "yes",
+                "yes",
+                "yes"
+              ]
+            },
+            {
+              "feature": "Animações avançadas",
+              "values": [
+                "no",
+                "yes",
+                "yes"
+              ]
+            },
+            {
+              "feature": "Blog",
+              "values": [
+                "no",
+                "yes",
+                "yes"
+              ]
+            },
+            {
+              "feature": "Integrações externas",
+              "values": [
+                "—",
+                "Até 2",
+                "Personalizadas"
+              ]
+            },
+            {
+              "feature": "Área reservada",
+              "values": [
+                "no",
+                "no",
+                "Opcional"
+              ]
+            },
+            {
+              "feature": "Integração Booking",
+              "values": [
+                "no",
+                "no",
+                "Opcional"
+              ]
+            },
+            {
+              "feature": "Backups",
+              "values": [
+                "Semanais",
+                "Diários",
+                "Diários"
+              ]
+            },
+            {
+              "feature": "Suporte",
+              "values": [
+                "Básico",
+                "Prioritário",
+                "Prioritário"
+              ]
+            }
           ]
         }
       },
@@ -154,8 +211,6 @@
           "aiSolutions": {
             "name": "AI Solutions",
             "description": "Um assistente simples com integração e monitorização inicial.",
-            "setupPrice": "Desde 750 €",
-            "monthlyPrice": "49 €/mês",
             "commercialLimit": "Até 500 interações mensais",
             "features": [
               "Um assistente de IA",
@@ -172,8 +227,6 @@
           "automation": {
             "name": "Automação",
             "description": "Mais workflows, integrações e acompanhamento mensal.",
-            "setupPrice": "Desde 1.500 €",
-            "monthlyPrice": "99 €/mês",
             "commercialLimit": "Até 2.000 execuções mensais",
             "features": [
               "Até 2 assistentes de IA, quando aplicável",
@@ -190,8 +243,6 @@
           "businessAutomation": {
             "name": "Business Automation",
             "description": "IA e automação personalizadas para processos empresariais.",
-            "setupPrice": "Personalizada",
-            "monthlyPrice": "Desde 199 €/mês",
             "commercialLimit": "Limites definidos conforme o projeto",
             "features": [
               "Soluções de IA personalizadas",
@@ -208,12 +259,54 @@
         },
         "comparison": {
           "rows": [
-            { "feature": "Assistentes de IA", "values": ["1", "Até 2", "Personalizado"] },
-            { "feature": "Workflows", "values": ["1 simples", "Até 5", "Avançados"] },
-            { "feature": "Integrações", "values": ["1", "Até 3", "Empresariais"] },
-            { "feature": "Relatório", "values": ["Básico", "Mensal", "Personalizado"] },
-            { "feature": "Otimização", "values": ["Trimestral", "Mensal", "Contínua"] },
-            { "feature": "Suporte", "values": ["Normal", "Prioritário", "Prioritário"] }
+            {
+              "feature": "Assistentes de IA",
+              "values": [
+                "1",
+                "Até 2",
+                "Personalizado"
+              ]
+            },
+            {
+              "feature": "Workflows",
+              "values": [
+                "1 simples",
+                "Até 5",
+                "Avançados"
+              ]
+            },
+            {
+              "feature": "Integrações",
+              "values": [
+                "1",
+                "Até 3",
+                "Empresariais"
+              ]
+            },
+            {
+              "feature": "Relatório",
+              "values": [
+                "Básico",
+                "Mensal",
+                "Personalizado"
+              ]
+            },
+            {
+              "feature": "Otimização",
+              "values": [
+                "Trimestral",
+                "Mensal",
+                "Contínua"
+              ]
+            },
+            {
+              "feature": "Suporte",
+              "values": [
+                "Normal",
+                "Prioritário",
+                "Prioritário"
+              ]
+            }
           ]
         }
       },
@@ -222,9 +315,6 @@
           "foundation": {
             "name": "SEO Foundation",
             "description": "Setup técnico inicial para indexação e base sólida.",
-            "setupPrice": "350 €",
-            "monthlyPrice": "—",
-            "monthlyNote": "noMonthly",
             "features": [
               "Auditoria SEO inicial",
               "Análise técnica",
@@ -241,8 +331,6 @@
           "growth": {
             "name": "SEO Growth",
             "description": "Acompanhamento mensal para crescer organicamente.",
-            "setupPrice": "Incluída",
-            "monthlyPrice": "400 €/mês",
             "features": [
               "Auditoria inicial",
               "Estratégia de palavras-chave",
@@ -259,8 +347,6 @@
           "advanced": {
             "name": "SEO Advanced",
             "description": "Estratégia SEO avançada com acompanhamento estratégico.",
-            "setupPrice": "Incluída",
-            "monthlyPrice": "750 €/mês",
             "features": [
               "Estratégia SEO avançada",
               "Até 50 palavras-chave acompanhadas",
@@ -277,12 +363,54 @@
         },
         "comparison": {
           "rows": [
-            { "feature": "Tipo de serviço", "values": ["Pontual", "Mensal", "Mensal"] },
-            { "feature": "Palavras-chave", "values": ["Até 10", "Até 25", "Até 50"] },
-            { "feature": "Páginas otimizadas (inicial)", "values": ["Até 5", "Até 10", "Até 20"] },
-            { "feature": "Conteúdos por mês", "values": ["—", "Até 2", "Até 4"] },
-            { "feature": "Concorrentes analisados", "values": ["—", "2", "5"] },
-            { "feature": "GEO / AI Search", "values": ["—", "Básica", "Avançada"] }
+            {
+              "feature": "Tipo de serviço",
+              "values": [
+                "Pontual",
+                "Mensal",
+                "Mensal"
+              ]
+            },
+            {
+              "feature": "Palavras-chave",
+              "values": [
+                "Até 10",
+                "Até 25",
+                "Até 50"
+              ]
+            },
+            {
+              "feature": "Páginas otimizadas (inicial)",
+              "values": [
+                "Até 5",
+                "Até 10",
+                "Até 20"
+              ]
+            },
+            {
+              "feature": "Conteúdos por mês",
+              "values": [
+                "—",
+                "Até 2",
+                "Até 4"
+              ]
+            },
+            {
+              "feature": "Concorrentes analisados",
+              "values": [
+                "—",
+                "2",
+                "5"
+              ]
+            },
+            {
+              "feature": "GEO / AI Search",
+              "values": [
+                "—",
+                "Básica",
+                "Avançada"
+              ]
+            }
           ]
         }
       },
@@ -291,8 +419,6 @@
           "starter": {
             "name": "Starter",
             "description": "Reservas online para negócios que começam.",
-            "setupPrice": "150 €",
-            "monthlyPrice": "19 €/mês",
             "commercialLimit": "100 reservas mensais",
             "features": [
               "Página pública de reservas",
@@ -309,8 +435,6 @@
           "professional": {
             "name": "Professional",
             "description": "Mais capacidade, calendar e relatórios avançados.",
-            "setupPrice": "300 €",
-            "monthlyPrice": "39 €/mês",
             "commercialLimit": "500 reservas mensais",
             "features": [
               "Página pública de reservas",
@@ -329,8 +453,6 @@
           "business": {
             "name": "Business",
             "description": "Multi-estabelecimento com integrações e suporte prioritário.",
-            "setupPrice": "Personalizada",
-            "monthlyPrice": "69 €/mês",
             "commercialLimit": "2.000 reservas mensais",
             "features": [
               "Até 3 estabelecimentos",
@@ -349,12 +471,54 @@
         },
         "comparison": {
           "rows": [
-            { "feature": "Estabelecimentos", "values": ["1", "1", "Até 3"] },
-            { "feature": "Funcionários", "values": ["1", "Até 5", "Até 15"] },
-            { "feature": "Serviços", "values": ["Até 5", "Até 20", "Sem limite comercial"] },
-            { "feature": "Google Calendar", "values": ["no", "yes", "yes"] },
-            { "feature": "Integrações/API", "values": ["no", "no", "yes"] },
-            { "feature": "Personalização visual", "values": ["Básica", "Intermédia", "Avançada"] }
+            {
+              "feature": "Estabelecimentos",
+              "values": [
+                "1",
+                "1",
+                "Até 3"
+              ]
+            },
+            {
+              "feature": "Funcionários",
+              "values": [
+                "1",
+                "Até 5",
+                "Até 15"
+              ]
+            },
+            {
+              "feature": "Serviços",
+              "values": [
+                "Até 5",
+                "Até 20",
+                "Sem limite comercial"
+              ]
+            },
+            {
+              "feature": "Google Calendar",
+              "values": [
+                "no",
+                "yes",
+                "yes"
+              ]
+            },
+            {
+              "feature": "Integrações/API",
+              "values": [
+                "no",
+                "no",
+                "yes"
+              ]
+            },
+            {
+              "feature": "Personalização visual",
+              "values": [
+                "Básica",
+                "Intermédia",
+                "Avançada"
+              ]
+            }
           ]
         }
       }

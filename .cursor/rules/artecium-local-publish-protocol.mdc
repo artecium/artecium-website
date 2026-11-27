@@ -1,0 +1,47 @@
+---
+description: Artecium — local-first work; no commit/push/deploy without explicit user approval
+alwaysApply: true
+---
+
+# Artecium — protocolo local antes de publicar
+
+Ver também `artecium-quality-protection.mdc` (repo, ambientes, âmbito, validação UI/funcional, relatório completo, aprovação «Aprovado, publicar»).
+
+## Proibido sem aprovação explícita do utilizador
+
+- `git commit`, `git push`, merge, amend (salvo regras de utilizador só para quando **já** pediu commit)
+- Deploy Vercel, `vercel promote` / rollback para Production, publicação de alterações
+- Alterar variáveis de ambiente de produção
+- Migrações ou alterações a dados de produção
+- `git reset --hard`, `git checkout` destrutivo, descartar alterações locais existentes
+
+Aprovação em **localhost não autoriza publicar**. Só agir em Fase 4 quando o utilizador disser expressamente que aprova **e** quer publicar (commit, push, deploy).
+
+## Fase 1 — Implementação local
+
+- Analisar código existente; alterar apenas o pedido; preservar o resto
+- Sem commits, push ou deploy
+
+## Fase 2 — Validação local
+
+- Correr dev em localhost; testes aplicáveis; `npm run build` quando relevante
+- Páginas/funcionalidades afetadas; desktop e mobile quando fizer sentido; corrigir erros localmente
+
+## Fase 3 — Apresentação (obrigatório antes de parar)
+
+Relatório completo conforme secção 6 em `artecium-quality-protection.mdc` (inclui screenshots se UI, confirmação sem commit/push/deploy, localhost).
+
+Aguardar aprovação explícita. **«Aprovado, publicar»** só vale para o conjunto apresentado.
+
+## Fase 4 — Publicação (só após ordem explícita)
+
+1. Build final  
+2. Commit com mensagem descritiva (um tema por commit)  
+3. Push `origin/main`  
+4. Deploy Vercel Production  
+5. Confirmar deployment e domínios (`artecium.com`, `www`, `client`, `booking`)
+
+## Proteções
+
+- Não misturar alterações independentes no mesmo commit  
+- Aplica-se a homepage, SEO, booking, client portal, dashboard, backend, integrações e correções

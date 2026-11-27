@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { resolveSupabasePublicEnv } from "@/lib/supabase/public-env";
 import {
   fetchUserRolesFromSupabase,
   resolveIsStaffFromSupabase,
@@ -159,10 +160,8 @@ export async function updateSession(request: NextRequest) {
     usesCookieLocale,
   );
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
-    {
+  const { url: supabaseUrl, anonKey: supabaseAnonKey } = resolveSupabasePublicEnv();
+  const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
       cookies: {
         getAll() {
           return request.cookies.getAll();

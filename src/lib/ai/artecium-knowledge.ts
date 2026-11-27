@@ -1,7 +1,119 @@
 /**
  * Official Artecium knowledge base for the FAQ AI assistant.
- * Only information contained here may be used in generated answers.
+ * Commercial amounts are sourced from `commercial-catalog` (single source of truth).
  */
+import {
+  COMMERCIAL_CATALOG,
+  WEB_APPLICATION_SETUP_FROM_EUR,
+  getCommercialPlan,
+} from "@/lib/pricing/commercial-catalog";
+import {
+  formatCommercialMonthly,
+  formatCommercialSetup,
+} from "@/lib/pricing/format-commercial";
+
+const LOCALE = "en" as const;
+
+function formatSetupAndMonthlyKnowledge(
+  setup: Parameters<typeof formatCommercialSetup>[1],
+  monthly: Parameters<typeof formatCommercialMonthly>[1],
+): string {
+  const setupStr = formatCommercialSetup(LOCALE, setup);
+  const monthlyStr = formatCommercialMonthly(LOCALE, monthly);
+  if (!monthlyStr) return setupStr;
+  return `${setupStr} + ${monthlyStr}`;
+}
+
+const WEBSITE_INCLUDES: Record<string, string[]> = {
+  essential: [
+    "Up to 5 pages",
+    "Custom design",
+    "Responsive layout",
+    "Contact form",
+    "WhatsApp integration",
+    "Basic technical SEO",
+    "Analytics",
+    "Deployment",
+  ],
+  professional: [
+    "Up to 10 pages",
+    "Advanced design",
+    "Animations and interactions",
+    "Advanced forms",
+    "Integrations",
+    "On-page SEO",
+    "Google Search Console",
+    "Conversion optimisation",
+    "Analytics",
+  ],
+  business: [
+    "Custom website",
+    "Client area / reserved area",
+    "Integrations",
+    "Automation",
+    "AI",
+    "Booking systems",
+    "APIs",
+    "Custom functionality",
+  ],
+};
+
+const AI_EXAMPLES: Record<string, string[]> = {
+  aiSolutions: [
+    "Chatbots",
+    "AI assistants",
+    "Smart forms",
+    "Content generation",
+    "Lead qualification",
+  ],
+  automation: [
+    "CRM",
+    "Workflows",
+    "Integrations",
+    "APIs",
+    "Automated emails",
+    "Data processing",
+  ],
+  businessAutomation: [
+    "AI agents",
+    "Internal systems",
+    "Complex integrations",
+    "Advanced automation",
+  ],
+};
+
+const SEO_INCLUDES: Record<string, string[]> = {
+  foundation: [
+    "SEO audit",
+    "Technical SEO",
+    "Metadata",
+    "Heading structure",
+    "Sitemap",
+    "Search Console",
+    "Indexing",
+    "Base schema",
+  ],
+  growth: [
+    "Ongoing optimisation",
+    "Keyword research",
+    "Content",
+    "Internal linking",
+    "Search Console",
+    "Monthly analysis",
+    "Reporting",
+  ],
+  advanced: [
+    "Full SEO strategy",
+    "Technical SEO",
+    "Content",
+    "Competitor analysis",
+    "Ongoing optimisation",
+    "GEO / AI Search",
+    "Reporting",
+    "Strategic follow-up",
+  ],
+};
+
 export const ARTECIUM_KNOWLEDGE = {
   company: {
     brand: "Artecium",
@@ -13,145 +125,85 @@ export const ARTECIUM_KNOWLEDGE = {
     locations: ["Portugal", "Lisboa", "Almada", "Setúbal", "Margem Sul"],
   },
   websites: {
-    plans: [
-      {
-        name: "Essential",
-        price: "€750",
-        includes: [
-          "Up to 5 pages",
-          "Custom design",
-          "Responsive layout",
-          "Contact form",
-          "WhatsApp integration",
-          "Basic technical SEO",
-          "Analytics",
-          "Deployment",
-        ],
-      },
-      {
-        name: "Professional",
-        price: "€1,500",
-        includes: [
-          "Up to 10 pages",
-          "Advanced design",
-          "Animations and interactions",
-          "Advanced forms",
-          "Integrations",
-          "On-page SEO",
-          "Google Search Console",
-          "Conversion optimisation",
-          "Analytics",
-        ],
-      },
-      {
-        name: "Business",
-        price: "From €2,500",
-        includes: [
-          "Custom website",
-          "Client area / reserved area",
-          "Integrations",
-          "Automation",
-          "AI",
-          "Booking systems",
-          "APIs",
-          "Custom functionality",
-        ],
-      },
-    ],
+    plans: (["essential", "professional", "business"] as const).map((planKey) => {
+      const plan = getCommercialPlan("websites", planKey);
+      return {
+        name:
+          planKey === "essential"
+            ? "Essential"
+            : planKey === "professional"
+              ? "Professional"
+              : "Business",
+        price: formatSetupAndMonthlyKnowledge(plan.setup, plan.monthly),
+        includes: WEBSITE_INCLUDES[planKey],
+      };
+    }),
     notes: [
       "Final price may vary depending on complexity and required features.",
       "Many clients start with Essential and add features later.",
     ],
   },
   aiAutomation: {
-    plans: [
-      {
-        name: "AI Solutions",
-        price: "From €750",
-        examples: [
-          "Chatbots",
-          "AI assistants",
-          "Smart forms",
-          "Content generation",
-          "Lead qualification",
-        ],
-      },
-      {
-        name: "Automation",
-        price: "From €1,500",
-        examples: [
-          "CRM",
-          "Workflows",
-          "Integrations",
-          "APIs",
-          "Automated emails",
-          "Data processing",
-        ],
-      },
-      {
-        name: "Business Automation",
-        price: "Custom project",
-        examples: [
-          "AI agents",
-          "Internal systems",
-          "Complex integrations",
-          "Advanced automation",
-        ],
-      },
-    ],
+    plans: (
+      [
+        { key: "aiSolutions", name: "AI Solutions" },
+        { key: "automation", name: "Automation" },
+        { key: "businessAutomation", name: "Business Automation" },
+      ] as const
+    ).map(({ key, name }) => {
+      const plan = getCommercialPlan("aiAutomation", key);
+      return {
+        name,
+        price: formatSetupAndMonthlyKnowledge(plan.setup, plan.monthly),
+        examples: AI_EXAMPLES[key],
+      };
+    }),
   },
   seo: {
-    plans: [
-      {
-        name: "SEO Foundation",
-        price: "€350",
-        priceNote: "Initial setup",
-        includes: [
-          "SEO audit",
-          "Technical SEO",
-          "Metadata",
-          "Heading structure",
-          "Sitemap",
-          "Search Console",
-          "Indexing",
-          "Base schema",
-        ],
-      },
-      {
-        name: "SEO Growth",
-        price: "€500/month",
-        includes: [
-          "Ongoing optimisation",
-          "Keyword research",
-          "Content",
-          "Internal linking",
-          "Search Console",
-          "Monthly analysis",
-          "Reporting",
-        ],
-      },
-      {
-        name: "SEO Advanced",
-        price: "€900/month",
-        includes: [
-          "Full SEO strategy",
-          "Technical SEO",
-          "Content",
-          "Competitor analysis",
-          "Ongoing optimisation",
-          "GEO / AI Search",
-          "Reporting",
-          "Strategic follow-up",
-        ],
-      },
-    ],
+    plans: (
+      [
+        { key: "foundation", name: "SEO Foundation", note: "Initial setup" },
+        { key: "growth", name: "SEO Growth" },
+        { key: "advanced", name: "SEO Advanced" },
+      ] as const
+    ).map((entry) => {
+      const { key, name } = entry;
+      const note = "note" in entry ? entry.note : undefined;
+      const plan = getCommercialPlan("seo", key);
+      const price =
+        key === "foundation"
+          ? formatCommercialSetup(LOCALE, plan.setup)
+          : formatCommercialMonthly(LOCALE, plan.monthly)!;
+      return {
+        name,
+        price,
+        ...(note ? { priceNote: note } : {}),
+        includes: SEO_INCLUDES[key],
+      };
+    }),
     notes: [
       "Website plans include basic technical SEO practices.",
       "Ongoing SEO is a separate service.",
     ],
   },
+  booking: {
+    plans: COMMERCIAL_CATALOG.filter((p) => p.category === "booking").map(
+      (plan) => ({
+        name:
+          plan.planKey === "starter"
+            ? "Starter"
+            : plan.planKey === "professional"
+              ? "Professional"
+              : "Business",
+        price: formatSetupAndMonthlyKnowledge(plan.setup, plan.monthly),
+      }),
+    ),
+    notes: [
+      "Booking can work as a standalone product or integrated with a website.",
+    ],
+  },
   webApplications: {
-    price: "From €3,500",
+    price: `From €${WEB_APPLICATION_SETUP_FROM_EUR.toLocaleString("en-GB")}`,
     notes: [
       "Complex projects are quoted individually.",
       "Web applications involve business logic, authentication, security and specific technical requirements.",

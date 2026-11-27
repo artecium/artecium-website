@@ -1,4 +1,5 @@
 import type { AppLocale } from "@/i18n/config";
+import { applyCommercialPricingToMessages } from "@/lib/pricing/commercial-message-patch";
 
 type Messages = Record<string, unknown>;
 
@@ -12,11 +13,13 @@ export async function mergeHomePricingMessages(
       : (await import("@/i18n/messages/home-pricing/pt-PT.json")).default;
 
   const home = (base.home ?? {}) as Record<string, unknown>;
-  return {
+  const withHomePricing: Messages = {
     ...base,
     home: {
       ...home,
       pricing: overlay.pricing,
     },
   };
+
+  return applyCommercialPricingToMessages(locale, withHomePricing);
 }

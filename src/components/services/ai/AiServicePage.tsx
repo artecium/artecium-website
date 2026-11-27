@@ -9,6 +9,7 @@ import { technologies } from "@/data/technologies";
 import type { AppLocale } from "@/i18n/config";
 import { intlLocale } from "@/i18n/config";
 import { getTranslationsForLocale } from "@/lib/i18n/server-translations";
+import { getCommercialPlanDisplay } from "@/lib/pricing/display";
 import { getServiceAlternateHref } from "@/lib/services/metadata";
 import { getServicePath, getServicesHubPath } from "@/lib/services/paths";
 import Link from "next/link";
@@ -204,11 +205,18 @@ export async function AiServicePage({ locale }: AiServicePageProps) {
           />
 
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {planKeys.map((planKey) => (
+            {planKeys.map((planKey) => {
+              const display = getCommercialPlanDisplay(
+                locale,
+                "aiAutomation",
+                planKey,
+              );
+              return (
               <WebsitesPlanCard
                 key={planKey}
                 name={t(`pricing.plans.${planKey}.name`)}
-                price={t(`pricing.plans.${planKey}.price`)}
+                price={display.headline}
+                subline={display.subline ?? undefined}
                 description={t(`pricing.plans.${planKey}.description`)}
                 features={
                   t.raw(`pricing.plans.${planKey}.features`) as string[]
@@ -219,7 +227,8 @@ export async function AiServicePage({ locale }: AiServicePageProps) {
                   planKey === "automation" ? t("pricing.popularBadge") : undefined
                 }
               />
-            ))}
+            );
+            })}
           </div>
 
           <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-[#64748B]">

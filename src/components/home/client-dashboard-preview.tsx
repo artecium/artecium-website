@@ -46,7 +46,7 @@ export function ClientDashboardPreview() {
 
   return (
     <div
-      className="pointer-events-none flex h-full select-none bg-[#050816] text-white"
+      className="pointer-events-none flex h-full w-full min-w-full select-none bg-[#050816] text-white"
       aria-hidden="true"
     >
       <aside className="hidden w-44 shrink-0 flex-col border-r border-[#1E293B] bg-[#050816] sm:flex lg:w-52">
@@ -172,7 +172,7 @@ export function ClientDashboardBrowserFrame() {
     <div
       role="img"
       aria-label={t("overview")}
-      className="flex h-full flex-col overflow-hidden rounded-xl bg-[#050816]"
+      className="flex h-full w-full min-w-full flex-col overflow-hidden rounded-xl bg-[#050816]"
     >
       <div className="flex items-center gap-2 border-b border-[#1E293B] bg-[#0E1324]/80 px-3 py-2.5 sm:px-4">
         <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]/70" />

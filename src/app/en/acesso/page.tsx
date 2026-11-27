@@ -44,7 +44,12 @@ export default async function AcessoPageEn({ searchParams }: AcessoPageEnProps) 
           variant="standalone"
         />
       </div>
-      <AreaHub access={access} reason={parseReason(reasonParam)} homeHref="/en" />
+      <AreaHub
+        access={access}
+        reason={parseReason(reasonParam)}
+        homeHref="/en"
+        displayName={session.profile.full_name ?? session.profile.email}
+      />
     </>
   );
 }
